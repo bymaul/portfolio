@@ -9,27 +9,27 @@ export type Stacks = {
 const stacks: Stacks[] = [
     {
         name: 'Laravel',
-        slug: '/tags/laravel',
+        slug: 'laravel',
         icon: <SiLaravel />,
     },
     {
         name: 'React',
-        slug: '/tags/react',
+        slug: 'react',
         icon: <SiReact />,
     },
     {
         name: 'Tailwind CSS',
-        slug: '/tags/tailwind',
+        slug: 'tailwind',
         icon: <SiTailwindcss />,
     },
     {
         name: 'Bootstrap',
-        slug: '/tags/bootstrap',
+        slug: 'bootstrap',
         icon: <SiBootstrap />,
     },
     {
         name: 'MySQL',
-        slug: '/tags/mysql',
+        slug: 'mysql',
         icon: <SiMysql />,
     },
 ];

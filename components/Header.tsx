@@ -3,7 +3,7 @@
 import { BiMoon, BiSun } from 'react-icons/bi';
 import { useTheme } from 'next-themes';
 
-const Header = () => {
+export default function Header() {
     const { resolvedTheme, setTheme } = useTheme();
 
     return (
@@ -21,6 +21,4 @@ const Header = () => {
             </nav>
         </header>
     );
-};
-
-export default Header;
+}

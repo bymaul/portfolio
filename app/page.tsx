@@ -1,15 +1,7 @@
 import { ButtonLink } from '@/components/ButtonLink';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-    BiPaperPlane,
-    BiLogoGithub,
-    BiLogoLinkedin,
-    BiLogoFacebook,
-    BiLogoInstagram,
-    BiLinkExternal,
-    BiDownload,
-} from 'react-icons/bi';
+import { BiPaperPlane, BiLogoGithub, BiLogoLinkedin, BiLinkExternal } from 'react-icons/bi';
 import stacks from '@/data/stacks';
 import projects from '@/data/projects';
 
@@ -72,16 +64,16 @@ export default function Home() {
                         View All
                     </Link>
                 </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-7'>
-                    {projects.map((project, i) => (
+                <div className='flex flex-col md:flex-row items-center gap-7'>
+                    {projects.slice(0, 2).map((project, i) => (
                         <div
                             key={i}
-                            className='border border-slate-900 dark:border-slate-200 rounded-xl overflow-hidden relative'
+                            className='border border-slate-900 dark:border-slate-200 rounded-xl overflow-hidden relative max-w-[400px]'
                         >
                             <div className='absolute z-10 bottom-5 left-5'>
                                 <Link
                                     href={project.url}
-                                    className='py-2 px-4 text-sm bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg  underline inline-flex gap-x-2 items-center border border-slate-900 dark:border-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-300'
+                                    className='py-2 px-4 text-sm bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg  underline inline-flex gap-x-2 items-center border border-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-300'
                                     target='_blank'
                                 >
                                     <BiLinkExternal />
@@ -89,10 +81,10 @@ export default function Home() {
                                 </Link>
                             </div>
                             <div className='absolute z-10 top-5 right-5 left-5'>
-                                <div className='flex items-center justify-end gap-2 flex-wrap'>
+                                <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
                                     {project.tags.map((tag, i) => (
                                         <span
-                                            className='py-1 px-3 text-xs bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-md border border-slate-900 dark:border-slate-200'
+                                            className='py-1 px-3 text-xs bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-md border border-slate-900'
                                             key={i}
                                         >
                                             {tag}
@@ -118,53 +110,13 @@ export default function Home() {
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     {stacks.map((stack, i) => (
-                        <ButtonLink key={i} color='secondary' size='sm' href={stack.slug}>
+                        <ButtonLink key={i} color='secondary' size='sm' href={`/stack/${stack.slug}`}>
                             <span>{stack.icon}</span>
                             {stack.name}
                         </ButtonLink>
                     ))}
                 </div>
             </section>
-            <section>
-                <div className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white'>
-                    <h2 className='font-semibold'>Have an interesting project in mind? 👋</h2>
-                    <p className='py-10'>
-                        I am a fresh graduate with a strong passion for learning and a specific interest in web
-                        programming. I approach my work with enthusiasm and a high level of commitment to continuous
-                        personal and professional growth. I thrive on challenges and view them as opportunities to
-                        enhance my skills and knowledge in the field.
-                        <br />
-                        <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
-                    </p>
-                    <div className='flex justify-between items-center gap-8 flex-wrap'>
-                        <ButtonLink href='mailto:me@maul.web.id' color='primary'>
-                            <BiPaperPlane />
-                            Hire Me!
-                        </ButtonLink>
-                        <Link href='/' target='_blank' className='underline inline-flex items-center gap-x-2'>
-                            <BiDownload />
-                            Download CV
-                        </Link>
-                    </div>
-                </div>
-            </section>
-            <footer className='justify-center flex items-center flex-col text-slate-900 dark:text-white'>
-                <div className='flex justify-center items-center gap-x-8 text-xl'>
-                    <Link href='https://facebook.com/maulism' target='_blank'>
-                        <BiLogoFacebook />
-                    </Link>
-                    <Link href='https://instagram.com/mavlism' target='_blank'>
-                        <BiLogoInstagram />
-                    </Link>
-                    <Link href='https://github.com/bymaul/' target='_blank'>
-                        <BiLogoLinkedin />
-                    </Link>
-                    <Link href='https://linkedin.com/in/maulism' target='_blank'>
-                        <BiLogoGithub />
-                    </Link>
-                </div>
-                <p className='my-8'>Made with 🍵 by Maulana</p>
-            </footer>
         </main>
     );
 }
