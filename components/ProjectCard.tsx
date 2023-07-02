@@ -24,7 +24,7 @@ export default function ProjectCard({ name, url, image, tags }: Props) {
                 </Link>
             </div>
             {tags && (
-                <div className='absolute z-10 inset-0 p-4'>
+                <div className='absolute z-10 top-0 right-0 left-0 p-4'>
                     <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
                         {tags.map((tag, i) => (
                             <span
