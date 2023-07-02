@@ -41,6 +41,7 @@ export default function ProjectCard({ name, url, image /* tags */ }: Props) {
                 width={400}
                 height={400}
                 className='hover:scale-105 transition duration-300 object-cover object-center'
+                draggable='false'
             />
         </div>
     );

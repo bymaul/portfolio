@@ -11,13 +11,19 @@ export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
-                <Image src={'/images/profile-dark.png'} alt='Maulana Ahmad Aji Triadi' width={140} height={140} />
+                <Image
+                    src={'/images/profile-dark.png'}
+                    alt='Maulana Ahmad Aji Triadi'
+                    width={140}
+                    height={140}
+                    draggable='false'
+                />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>
                 </div>
                 <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats. 🐈</h3>
-                <div className='flex flex-wrap justify-center items-center gap-2'>
+                <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:me@maul.web.id' target='_blank'>
                         <BiPaperPlane />
                         Let&apos;s Talk
@@ -33,7 +39,7 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <div className='flex justify-between items-center gap-x-4 pb-5'>
+                <div className='flex justify-between items-center gap-x-6 pb-5'>
                     <div>
                         <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>
                             My Projects
