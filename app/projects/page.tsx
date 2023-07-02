@@ -14,7 +14,13 @@ export default function Projects() {
                 </div>
                 <div className='flex flex-col md:flex-row items-center gap-7'>
                     {projects.map((project, i) => (
-                        <ProjectCard key={i} name={project.name} url={project.url} image={project.image} />
+                        <ProjectCard
+                            key={i}
+                            name={project.name}
+                            url={project.url}
+                            image={project.image}
+                            tags={project.tags}
+                        />
                     ))}
                 </div>
             </section>

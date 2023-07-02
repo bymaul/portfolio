@@ -5,12 +5,12 @@ import { BiLinkExternal } from 'react-icons/bi';
 
 type Props = {
     name: string;
-    url: string;
     image?: string;
-    // tags: string[];
+    tags?: string[];
+    url: string;
 };
 
-export default function ProjectCard({ name, url, image /* tags */ }: Props) {
+export default function ProjectCard({ name, url, image, tags }: Props) {
     return (
         <div className='border border-slate-900 dark:border-slate-200 rounded-xl overflow-hidden relative max-w-[400px]'>
             <div className='absolute z-10 bottom-0 left-0 p-4'>
@@ -23,18 +23,20 @@ export default function ProjectCard({ name, url, image /* tags */ }: Props) {
                     {name}
                 </Link>
             </div>
-            {/* <div className='absolute z-20 inset-0 p-4'>
-                <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
-                    {tags.map((tag, i) => (
-                        <span
-                            className='py-1 px-3 text-xs bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-md border border-slate-900'
-                            key={i}
-                        >
-                            {tag}
-                        </span>
-                    ))}
+            {tags && (
+                <div className='absolute z-20 inset-0 p-4'>
+                    <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
+                        {tags.map((tag, i) => (
+                            <span
+                                className='py-1 px-3 text-xs bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-md border border-slate-900'
+                                key={i}
+                            >
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-            </div> */}
+            )}
             <Image
                 src={image ? image : 'https://fakeimg.pl/400x400/?text=Project&font=bebas'}
                 alt={name}
