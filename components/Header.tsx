@@ -10,7 +10,7 @@ export default function Header() {
     const pathname = usePathname();
 
     return (
-        <header className='max-w-screen-md mx-auto px-4 text-xl'>
+        <header className='max-w-screen-md mx-auto px-4'>
             <div className='flex justify-between items-center py-8'>
                 {pathname !== '/' && (
                     <Link href='/'>
