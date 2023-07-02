@@ -12,7 +12,7 @@ export default function Home() {
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
                 <Image
-                    src={'/images/profile-dark.png'}
+                    src={'/images/profile.png'}
                     alt='Maulana Ahmad Aji Triadi'
                     width={140}
                     height={140}
@@ -56,7 +56,7 @@ export default function Home() {
                         View All
                     </Link>
                 </div>
-                <div className='flex flex-col md:flex-row items-center gap-7'>
+                <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center gap-7'>
                     {projects.slice(0, 2).map((project, i) => (
                         <ProjectCard key={i} name={project.name} url={project.url} image={project.image} />
                     ))}

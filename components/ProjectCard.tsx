@@ -38,7 +38,7 @@ export default function ProjectCard({ name, url, image, tags }: Props) {
                 </div>
             )}
             <Image
-                src={image ? image : 'https://fakeimg.pl/400x400/?text=Project&font=bebas'}
+                src={image ? image : '/images/placeholder.svg'}
                 alt={name}
                 width={400}
                 height={400}

@@ -40,7 +40,7 @@ export default function Stack({ params: { slug } }: StackProps) {
                 </h1>
                 <p className='text-slate-400'>Explore some of the projects I&apos;ve been working in.</p>
             </div>
-            <div className='flex flex-col md:flex-row justify-center items-center gap-7'>
+            <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center gap-7'>
                 {projects.map((project, i) => (
                     <ProjectCard
                         key={i}
