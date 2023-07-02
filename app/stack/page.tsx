@@ -7,7 +7,7 @@ export default function Stack() {
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='py-14'>
                 <div className='pb-5'>
-                    <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>My Stack</h2>
+                    <h2 className='font-semibold text-3xl text-slate-900 dark:text-white leading-relaxed'>My Stack</h2>
                     <p className='text-sm text-slate-400'>Discover the technologies I work with.</p>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
