@@ -13,7 +13,7 @@ type Props = {
 export default function ProjectCard({ name, url, image, tags }: Props) {
     return (
         <div className='border border-slate-900 dark:border-slate-200 rounded-xl overflow-hidden relative max-w-[400px]'>
-            <div className='absolute z-10 bottom-0 left-0 p-4'>
+            <div className='absolute z-20 bottom-0 left-0 p-4'>
                 <Link
                     href={url}
                     className='py-2 px-4 text-sm bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg  underline inline-flex gap-x-2 items-center border border-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-300'
@@ -24,7 +24,7 @@ export default function ProjectCard({ name, url, image, tags }: Props) {
                 </Link>
             </div>
             {tags && (
-                <div className='absolute z-20 inset-0 p-4'>
+                <div className='absolute z-10 inset-0 p-4'>
                     <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
                         {tags.map((tag, i) => (
                             <span
