@@ -18,7 +18,7 @@ const stacks: Stacks[] = [
         icon: <SiReact />,
     },
     {
-        name: 'Tailwind CSS',
+        name: 'Tailwind',
         slug: 'tailwind',
         icon: <SiTailwindcss />,
     },

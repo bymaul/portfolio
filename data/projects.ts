@@ -1,18 +1,20 @@
 export type Projects = {
     name: string;
     tags: string[];
-    photo?: string;
+    image?: string;
     url: string;
 };
 
 const projects: Projects[] = [
     {
         name: 'laravel-payment-gateway',
-        tags: ['Laravel', 'Inertia', 'React', 'Tailwind CSS', 'MySQL'],
+        image: '/images/projects/laravel-payment-gateway.png',
+        tags: ['Laravel', 'Inertia', 'React', 'Tailwind', 'MySQL'],
         url: 'https://github.com/bymaul/laravel-payment-gateway',
     },
     {
         name: 'sistem-penjualan',
+        image: '/images/projects/sistem-penjualan.png',
         tags: ['Laravel', 'Bootstrap', 'jQuery', 'MySQL'],
         url: 'https://github.com/bymaul/sistem-penjualan',
     },

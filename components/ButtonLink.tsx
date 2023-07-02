@@ -22,7 +22,6 @@ const styles = cva('rounded-md inline-flex items-center gap-x-3 transition durat
 
 interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof styles> {
     href: string;
-    children: React.ReactNode;
     color?: 'primary' | 'secondary';
     size?: 'sm' | 'md';
 }

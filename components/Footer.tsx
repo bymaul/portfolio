@@ -12,8 +12,8 @@ import {
 export default function Footer() {
     return (
         <>
-            <section className='max-w-screen-md mx-auto pt-12 px-4'>
-                <div className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white'>
+            <footer className='text-slate-900 dark:text-white pt-12 max-w-screen-md mx-auto px-4'>
+                <div className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white mb-12'>
                     <h2 className='font-semibold'>Have an interesting project in mind? 👋</h2>
                     <p className='py-10'>
                         I am a fresh graduate with a strong passion for learning and a specific interest in web
@@ -24,7 +24,7 @@ export default function Footer() {
                         <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                     </p>
                     <div className='flex justify-between items-center gap-8 flex-wrap'>
-                        <ButtonLink href='mailto:me@maul.web.id' color='primary'>
+                        <ButtonLink href='mailto:me@maul.web.id' color='primary' target='_blank'>
                             <BiPaperPlane />
                             Hire Me!
                         </ButtonLink>
@@ -34,8 +34,6 @@ export default function Footer() {
                         </Link>
                     </div>
                 </div>
-            </section>
-            <footer className='text-slate-900 dark:text-white pt-12 max-w-screen-md mx-auto'>
                 <div className='flex justify-center items-center gap-x-8 text-xl'>
                     <Link href='https://facebook.com/maulism' target='_blank'>
                         <BiLogoFacebook />
@@ -44,18 +42,13 @@ export default function Footer() {
                         <BiLogoInstagram />
                     </Link>
                     <Link href='https://github.com/bymaul/' target='_blank'>
-                        <BiLogoLinkedin />
-                    </Link>
-                    <Link href='https://linkedin.com/in/maulism' target='_blank'>
                         <BiLogoGithub />
                     </Link>
-                </div>
-                <p className='my-8 text-center'>
-                    Made with 🍵 by{' '}
-                    <Link href='/' className='underline'>
-                        Maulana
+                    <Link href='https://linkedin.com/in/maulism' target='_blank'>
+                        <BiLogoLinkedin />
                     </Link>
-                </p>
+                </div>
+                <p className='my-8 text-center'>Made with 🍵 by Maulana</p>
             </footer>
         </>
     );
