@@ -24,7 +24,7 @@ export default function Home() {
                 </div>
                 <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats. 🐈</h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
-                    <ButtonLink href='mailto:me@maul.web.id' target='_blank'>
+                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank'>
                         <BiPaperPlane />
                         Let&apos;s Talk
                     </ButtonLink>

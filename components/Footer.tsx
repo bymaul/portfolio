@@ -24,7 +24,7 @@ export default function Footer() {
                         <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                     </p>
                     <div className='flex justify-between items-center gap-8 flex-wrap'>
-                        <ButtonLink href='mailto:me@maul.web.id' color='primary' target='_blank'>
+                        <ButtonLink href='mailto:maulanaajk@gmail.com' color='primary' target='_blank'>
                             <BiPaperPlane />
                             Hire Me!
                         </ButtonLink>
