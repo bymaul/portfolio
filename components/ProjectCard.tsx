@@ -12,7 +12,7 @@ type Props = {
 
 export default function ProjectCard({ name, url, image, tags }: Props) {
     return (
-        <div className='border border-slate-900 dark:border-slate-200 rounded-xl overflow-hidden relative max-w-[400px]'>
+        <div className='rounded-xl overflow-hidden relative max-w-[400px]'>
             <div className='absolute z-20 bottom-0 left-0 p-4'>
                 <Link
                     href={url}
