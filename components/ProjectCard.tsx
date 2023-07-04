@@ -28,7 +28,7 @@ export default function ProjectCard({ name, url, image, tags }: Props) {
                     <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
                         {tags.map((tag, i) => (
                             <span
-                                className='py-1 px-3 text-xs bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-md border border-slate-900'
+                                className='py-1 px-3 text-xs bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white rounded-md border border-slate-900 transition duration-300 cursor-default'
                                 key={i}
                             >
                                 {tag}
