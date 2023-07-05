@@ -14,7 +14,7 @@ export default function Header() {
             <div className='flex justify-between items-center py-8'>
                 {pathname !== '/' && (
                     <Link href='/'>
-                        <div className='border border-slate-900 dark:border-slate-200 p-2 transition duration-300 rounded-lg'>
+                        <div className='border border-slate-900 dark:border-slate-200 p-2 rounded-lg'>
                             <BiHome />
                         </div>
                     </Link>
@@ -25,7 +25,7 @@ export default function Header() {
                             setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
                         }}
                         type='button'
-                        className='border border-slate-900 dark:border-slate-200 p-2 transition duration-300 rounded-lg'
+                        className='border border-slate-900 dark:border-slate-200 p-2 rounded-lg'
                     >
                         {resolvedTheme === 'light' ? <BiMoon /> : <BiSun />}
                     </button>
