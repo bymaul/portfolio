@@ -1,6 +1,7 @@
 import ProjectCard from '@/components/ProjectCard';
 import projects from '@/data/projects';
 import stacks from '@/data/stacks';
+import { notFound } from 'next/navigation';
 
 type StackProps = {
     params: {
@@ -20,16 +21,11 @@ function getProjects(slug: string) {
     return project;
 }
 
-export default function Stack({ params: { slug } }: StackProps) {
+export default function Stack({ params }: StackProps) {
+    const { slug } = params;
     const projects = getProjects(slug);
     if (!projects.length) {
-        return (
-            <main className='max-w-screen-md mx-auto px-4 py-28'>
-                <h1 className='text-2xl text-center'>
-                    No projects found with stack <span className='font-semibold'>{slug}</span>
-                </h1>
-            </main>
-        );
+        notFound();
     }
 
     return (
