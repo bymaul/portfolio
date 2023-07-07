@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { BiPaperPlane, BiLogoGithub, BiLogoLinkedin, BiLinkExternal } from 'react-icons/bi';
 import { ButtonLink } from '@/components/ButtonLink';
 import ProjectCard from '@/components/ProjectCard';
-
 import stacks from '@/data/stacks';
 import projects from '@/data/projects';
 
@@ -17,6 +16,7 @@ export default function Home() {
                     width={140}
                     height={140}
                     draggable='false'
+                    priority
                 />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
@@ -24,15 +24,25 @@ export default function Home() {
                 </div>
                 <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats. 🐈</h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
-                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank'>
+                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <BiPaperPlane />
                         Let&apos;s Talk
                     </ButtonLink>
-                    <ButtonLink href='https://github.com/bymaul/' color='secondary' target='_blank'>
+                    <ButtonLink
+                        href='https://github.com/bymaul/'
+                        color='secondary'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         <BiLogoGithub />
                         Github
                     </ButtonLink>
-                    <ButtonLink href='https://linkedin.com/in/maulism' color='secondary' target='_blank'>
+                    <ButtonLink
+                        href='https://linkedin.com/in/maulism'
+                        color='secondary'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                    >
                         <BiLogoLinkedin />
                         LinkedIn
                     </ButtonLink>

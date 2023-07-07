@@ -24,7 +24,12 @@ export default function Footer() {
                         <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                     </p>
                     <div className='flex justify-between items-center gap-8 flex-wrap'>
-                        <ButtonLink href='mailto:maulanaajk@gmail.com' color='primary' target='_blank'>
+                        <ButtonLink
+                            href='mailto:maulanaajk@gmail.com'
+                            color='primary'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                        >
                             <BiPaperPlane />
                             Hire Me!
                         </ButtonLink>
@@ -35,16 +40,36 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='flex justify-center items-center gap-x-8 text-xl'>
-                    <Link href='https://facebook.com/maulism' target='_blank'>
+                    <Link
+                        href='https://facebook.com/maulism'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='My Facebook'
+                    >
                         <BiLogoFacebook />
                     </Link>
-                    <Link href='https://instagram.com/mavlism' target='_blank'>
+                    <Link
+                        href='https://instagram.com/mavlism'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='My Instagram'
+                    >
                         <BiLogoInstagram />
                     </Link>
-                    <Link href='https://github.com/bymaul/' target='_blank'>
+                    <Link
+                        href='https://github.com/bymaul/'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='My Github'
+                    >
                         <BiLogoGithub />
                     </Link>
-                    <Link href='https://linkedin.com/in/maulism' target='_blank'>
+                    <Link
+                        href='https://linkedin.com/in/maulism'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        aria-label='My LinkedIn'
+                    >
                         <BiLogoLinkedin />
                     </Link>
                 </div>

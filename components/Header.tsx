@@ -25,6 +25,7 @@ export default function Header() {
                             setTheme(resolvedTheme === 'light' ? 'dark' : 'light');
                         }}
                         type='button'
+                        aria-label='Toggle theme'
                         className='border border-slate-900 dark:border-slate-200 p-2 rounded-lg'
                     >
                         {resolvedTheme === 'light' ? <BiMoon /> : <BiSun />}
