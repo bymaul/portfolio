@@ -9,21 +9,22 @@ type StackProps = {
     };
 };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
     return stacks.map((stack) => ({
         slug: stack.slug,
     }));
 }
 
-function getProjects(slug: string) {
+async function getProjects(slug: string) {
     const project = projects.filter((p) => p.tags.some((t) => t.toLowerCase() === slug.toLowerCase()));
 
     return project;
 }
 
-export default function Stack({ params }: StackProps) {
+export default async function Stack({ params }: StackProps) {
     const { slug } = params;
-    const projects = getProjects(slug);
+    const projects = await getProjects(slug);
+
     if (!projects.length) {
         notFound();
     }
