@@ -13,10 +13,10 @@ const projects: Projects[] = [
         url: 'https://github.com/bymaul/lorem-travel',
     },
     {
-        name: 'laravel-payment-gateway',
-        image: '/images/projects/laravel-payment-gateway.png',
+        name: 'laravel-ecommerce',
+        image: '/images/projects/laravel-ecommerce.png',
         tags: ['Laravel', 'Inertia', 'React', 'Tailwind', 'MySQL'],
-        url: 'https://github.com/bymaul/laravel-payment-gateway',
+        url: 'https://github.com/bymaul/laravel-ecommerce',
     },
     {
         name: 'sistem-penjualan',
