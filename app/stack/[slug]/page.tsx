@@ -45,6 +45,7 @@ export default async function Stack({ params }: StackProps) {
                         url={project.url}
                         image={project.image}
                         tags={project.tags}
+                        placeholder={project.placeholder}
                     />
                 ))}
             </div>

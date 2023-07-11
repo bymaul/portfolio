@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import profile from '@/public/images/profile.png';
 import { BiPaperPlane, BiLogoGithub, BiLogoLinkedin, BiLinkExternal } from 'react-icons/bi';
 import { ButtonLink } from '@/components/ButtonLink';
 import ProjectCard from '@/components/ProjectCard';
@@ -10,19 +11,12 @@ export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
-                <Image
-                    src={'/images/profile.png'}
-                    alt='Maulana Ahmad Aji Triadi'
-                    width={140}
-                    height={140}
-                    draggable='false'
-                    priority
-                />
+                <Image src={profile} alt='Maulana Ahmad Aji Triadi' width={140} height={140} priority />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>
                 </div>
-                <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats. 🐈</h3>
+                <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats.</h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <BiPaperPlane />
@@ -68,7 +62,13 @@ export default function Home() {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center gap-7'>
                     {projects.slice(0, 2).map((project, i) => (
-                        <ProjectCard key={i} name={project.name} url={project.url} image={project.image} />
+                        <ProjectCard
+                            key={i}
+                            name={project.name}
+                            url={project.url}
+                            image={project.image}
+                            placeholder={project.placeholder}
+                        />
                     ))}
                 </div>
             </section>

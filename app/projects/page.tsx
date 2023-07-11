@@ -20,6 +20,7 @@ export default function Projects() {
                             url={project.url}
                             image={project.image}
                             tags={project.tags}
+                            placeholder={project.placeholder}
                         />
                     ))}
                 </div>

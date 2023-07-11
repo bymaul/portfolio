@@ -6,11 +6,12 @@ import { BiLinkExternal } from 'react-icons/bi';
 type Props = {
     name: string;
     image?: string;
+    placeholder?: string;
     tags?: string[];
     url: string;
 };
 
-export default function ProjectCard({ name, image, url, tags }: Props) {
+export default function ProjectCard({ name, image, placeholder, url, tags }: Props) {
     return (
         <div className='rounded-xl overflow-hidden relative max-w-[400px]'>
             <div className='absolute z-20 bottom-0 left-0 p-4'>
@@ -43,8 +44,9 @@ export default function ProjectCard({ name, image, url, tags }: Props) {
                 alt={name}
                 width={400}
                 height={400}
-                className='hover:scale-105 w-[400px] transition duration-300 object-cover object-center'
-                draggable='false'
+                className='hover:scale-105 transition duration-300'
+                blurDataURL={placeholder}
+                placeholder='blur'
             />
         </div>
     );
