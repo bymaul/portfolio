@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
-                <Image src={profile} alt='Maulana Ahmad Aji Triadi' width={140} height={140} priority />
+                <Image src={profile} alt='Maulana Ahmad Aji Triadi' width={140} height={140} priority quality={100} />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>

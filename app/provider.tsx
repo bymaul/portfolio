@@ -1,4 +1,5 @@
 'use client';
+
 import { ThemeProvider } from 'next-themes';
 
 function Provider({ children }: { children: React.ReactNode }) {

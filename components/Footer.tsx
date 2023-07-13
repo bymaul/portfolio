@@ -73,7 +73,7 @@ export default function Footer() {
                         <BiLogoLinkedin />
                     </Link>
                 </div>
-                <p className='my-8 text-center'>Made with 🍵 by Maulana</p>
+                <p className='my-8 text-center'>Made with ❤️ by Maulana</p>
             </footer>
         </>
     );
