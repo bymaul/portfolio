@@ -7,14 +7,14 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
-    const { resolvedTheme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme, theme } = useTheme();
     const pathname = usePathname();
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollPos = window.pageYOffset;
+            const currentScrollPos = document.documentElement.scrollTop;
             setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
             setPrevScrollPos(currentScrollPos);
         };
@@ -26,8 +26,8 @@ export default function Header() {
 
     return (
         <header
-            className={`max-w-screen-md mx-auto px-4 z-50 transition-all duration-300 ${
-                visible ? 'sticky top-0' : 'sticky -top-20'
+            className={`max-w-screen-md mx-auto px-4 z-50 sticky transition-all duration-300 ${
+                visible ? 'top-0' : '-top-20'
             }`}
         >
             <div className='flex justify-between items-center py-8'>
