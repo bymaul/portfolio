@@ -74,7 +74,7 @@ export default function Home() {
             </section>
             <section>
                 <div className='pb-5'>
-                    <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>My Stack</h2>
+                    <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>My Stacks</h2>
                     <p className='text-sm text-slate-400'>Discover the technologies I work with.</p>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>

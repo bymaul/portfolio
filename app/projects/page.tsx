@@ -2,6 +2,11 @@ import ProjectCard from '@/components/ProjectCard';
 import projects from '@/data/projects';
 import React from 'react';
 
+export const metadata = {
+    title: 'My Projects',
+    description: "Explore some of the projects I've been working in.",
+};
+
 export default function Projects() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>

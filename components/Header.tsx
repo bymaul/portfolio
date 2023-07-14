@@ -26,8 +26,8 @@ export default function Header() {
 
     return (
         <header
-            className={`max-w-screen-md mx-auto px-4 z-50 sticky transition-all duration-300 ${
-                visible ? 'top-0' : '-top-20'
+            className={`max-w-screen-md mx-auto px-4 z-50 sticky top-0 transition-transform duration-300 ${
+                visible ? 'translate-y-1' : '-translate-y-20'
             }`}
         >
             <div className='flex justify-between items-center py-8'>
@@ -47,7 +47,7 @@ export default function Header() {
                         aria-label='Toggle theme'
                         className='bg-white dark:bg-slate-950 border border-slate-900 dark:border-slate-200 p-2 rounded-lg'
                     >
-                        {resolvedTheme === 'light' ? <BiMoon /> : <BiSun />}
+                        {theme === 'light' ? <BiMoon /> : <BiSun />}
                     </button>
                 </nav>
             </div>

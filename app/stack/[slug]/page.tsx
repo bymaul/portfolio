@@ -1,6 +1,7 @@
 import ProjectCard from '@/components/ProjectCard';
 import projects from '@/data/projects';
 import stacks from '@/data/stacks';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 type StackProps = {
@@ -8,6 +9,24 @@ type StackProps = {
         slug: string;
     };
 };
+
+export async function generateMetadata({ params }: StackProps): Promise<Metadata> {
+    const { slug } = params;
+    const project = await getProjects(slug);
+
+    if (!project)
+        return {
+            title: 'Not Found',
+            description: 'The page you are looking for is not found.',
+        };
+
+    return {
+        title: `My ${stacks.find((stack) => stack.slug === slug)?.name} Projects`,
+        description: `Explore some of my ${
+            stacks.find((stack) => stack.slug === slug)?.name
+        } projects I've working in.`,
+    };
+}
 
 export async function generateStaticParams() {
     return stacks.map((stack) => ({
