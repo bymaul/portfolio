@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function NotFound() {
     return (
         <main className='max-w-screen-md mx-auto px-4 py-28'>

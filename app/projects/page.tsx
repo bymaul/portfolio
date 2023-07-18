@@ -1,6 +1,5 @@
 import ProjectCard from '@/components/ProjectCard';
 import projects from '@/data/projects';
-import React from 'react';
 
 export const metadata = {
     title: 'My Projects',
@@ -17,7 +16,7 @@ export default function Projects() {
                     </h1>
                     <p className='text-slate-400'>Explore some of the projects I&apos;ve been working in.</p>
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center gap-7'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-7'>
                     {projects.map((project, i) => (
                         <ProjectCard
                             key={i}
@@ -25,7 +24,6 @@ export default function Projects() {
                             url={project.url}
                             image={project.image}
                             tags={project.tags}
-                            placeholder={project.placeholder}
                         />
                     ))}
                 </div>

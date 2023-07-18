@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { ButtonLink } from './ButtonLink';
 import {
     BiDownload,
     BiLogoFacebook,
@@ -8,13 +7,14 @@ import {
     BiLogoLinkedin,
     BiPaperPlane,
 } from 'react-icons/bi';
+import { ButtonLink } from './ButtonLink';
 
 export default function Footer() {
     return (
         <footer className='text-slate-900 dark:text-white pt-12 max-w-screen-md mx-auto px-4'>
             <section className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white mb-12'>
                 <h2 className='font-semibold'>Have an interesting project in mind? 👋</h2>
-                <p className='py-10'>
+                <p className='py-10 text-justify'>
                     I am a fresh graduate with a strong passion for learning and a specific interest in web programming.
                     I approach my work with enthusiasm and a high level of commitment to continuous personal and
                     professional growth. I thrive on challenges and view them as opportunities to enhance my skills and
@@ -22,17 +22,20 @@ export default function Footer() {
                     <br />
                     <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                 </p>
-                <div className='flex justify-between items-center gap-8 flex-wrap'>
-                    <ButtonLink href='mailto:maulanaajk@gmail.com' color='primary'>
+                <div className='flex flex-wrap justify-between items-center gap-8'>
+                    <ButtonLink
+                        color='primary'
+                        href='mailto:maulanaajk@gmail.com'
+                        target='_blank'
+                        rel='noopener noreferrer'>
                         <BiPaperPlane />
                         Hire Me!
                     </ButtonLink>
                     <Link
                         href='/'
                         target='_blank'
-                        className='underline inline-flex items-center gap-x-2'
-                        rel='noopener'
-                    >
+                        className='underline inline-flex items-center gap-x-2 whitespace-nowrap'
+                        rel='noopener noreferrer'>
                         <BiDownload />
                         Download CV
                     </Link>

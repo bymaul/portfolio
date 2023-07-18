@@ -1,9 +1,9 @@
-import { SiLaravel, SiReact, SiTailwindcss, SiBootstrap, SiMysql } from 'react-icons/si';
+import { SiBootstrap, SiLaravel, SiMysql, SiReact, SiTailwindcss } from 'react-icons/si';
 
 export type Stacks = {
     name: string;
     slug: string;
-    icon: any;
+    icon: React.ReactNode;
 };
 
 const stacks: Stacks[] = [

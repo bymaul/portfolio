@@ -1,53 +1,44 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
 import { BiLinkExternal } from 'react-icons/bi';
+import { ButtonLink } from './ButtonLink';
 
 type Props = {
     name: string;
     image?: string;
-    placeholder?: string;
     tags?: string[];
     url: string;
 };
 
-export default function ProjectCard({ name, image, placeholder, url, tags }: Props) {
+export default function ProjectCard({ name, image = '/images/placeholder.svg', url, tags }: Props) {
     return (
-        <div className='rounded-xl overflow-hidden relative max-w-[400px]'>
+        <div className='rounded-xl overflow-hidden relative max-w-[350px]'>
             <div className='absolute z-20 bottom-0 left-0 p-4'>
-                <Link
+                <ButtonLink
                     href={url}
-                    className='py-2 px-4 text-sm bg-white dark:bg-slate-900 text-slate-900 dark:text-white rounded-lg  underline inline-flex gap-x-2 items-center border border-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-300'
+                    color='secondary'
+                    size='sm'
+                    textSize='sm'
+                    underline
                     target='_blank'
-                    rel='noopener noreferrer'
-                >
+                    rel='noopener noreferrer'>
                     <BiLinkExternal />
                     {name}
-                </Link>
+                </ButtonLink>
             </div>
-            {tags && (
+            {/* {tags?.length && (
                 <div className='absolute z-10 top-0 right-0 left-0 p-4'>
                     <div className='flex flex-row-reverse items-center justify-start gap-2 flex-wrap'>
                         {tags.map((tag, i) => (
                             <span
                                 className='py-1 px-3 text-xs bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-900 dark:text-white rounded-md border border-slate-900 transition duration-300 cursor-default'
-                                key={i}
-                            >
+                                key={i}>
                                 {tag}
                             </span>
                         ))}
                     </div>
                 </div>
-            )}
-            <Image
-                src={image ? image : '/images/placeholder.svg'}
-                alt={name}
-                width={400}
-                height={400}
-                className='hover:scale-105 transition duration-300'
-                blurDataURL={placeholder}
-                placeholder='blur'
-            />
+            )} */}
+            <Image src={image} alt={name} width={400} height={400} />
         </div>
     );
 }

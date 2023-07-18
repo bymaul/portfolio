@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: StackProps): Promise<Metadata
     const { slug } = params;
     const project = await getProjects(slug);
 
-    if (!project)
+    if (!project.length)
         return {
             title: 'Not Found',
             description: 'The page you are looking for is not found.',
@@ -56,7 +56,7 @@ export default async function Stack({ params }: StackProps) {
                 </h1>
                 <p className='text-slate-400'>Explore some of the projects I&apos;ve been working in.</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center gap-7'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-7'>
                 {projects.map((project, i) => (
                     <ProjectCard
                         key={i}
@@ -64,7 +64,6 @@ export default async function Stack({ params }: StackProps) {
                         url={project.url}
                         image={project.image}
                         tags={project.tags}
-                        placeholder={project.placeholder}
                     />
                 ))}
             </div>
