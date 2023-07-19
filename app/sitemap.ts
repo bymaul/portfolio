@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     const url = 'https://maul-portfolio.vercel.app';
 
     const stackSlugs = stacks.map((stack) => ({
-        url: `${url}/stacks/${stack.slug}`,
+        url: `${url}/stack/${stack.slug}`,
         lastModified: new Date(),
     }));
 
