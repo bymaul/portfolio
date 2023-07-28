@@ -29,7 +29,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
                 <Image src={image} alt={name} width={400} height={400} />
             </div>
             {tags?.length && (
-                <div className='mt-4 flex items-center gap-x-4'>
+                <div className='mt-4 flex gap-x-4'>
                     <div className='flex-shrink'>
                         <FaMicrochip />
                     </div>
