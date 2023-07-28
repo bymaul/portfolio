@@ -35,9 +35,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
                     </div>
                     <div className='flex flex-wrap items-center justify-start gap-2'>
                         {tags.sort().map((tag, i) => (
-                            <span
-                                className='py-1 px-3 text-xs bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-md transition duration-300 cursor-default'
-                                key={i}>
+                            <span className='py-1 px-3 text-xs bg-slate-100 dark:bg-slate-800 rounded-md' key={i}>
                                 {tag}
                             </span>
                         ))}
