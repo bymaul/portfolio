@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { BiHome, BiMoon, BiSun } from 'react-icons/bi';
+import { FaHouse, FaMoon, FaSun } from 'react-icons/fa6';
 
 export default function Header() {
     const { resolvedTheme, setTheme, theme } = useTheme();
@@ -37,12 +37,12 @@ export default function Header() {
                     type='button'
                     aria-label='Toggle theme'
                     className='bg-white dark:bg-slate-950 border border-slate-900 dark:border-slate-200 p-2 rounded-lg'>
-                    {theme === 'light' ? <BiMoon /> : <BiSun />}
+                    {theme === 'light' ? <FaMoon /> : <FaSun />}
                 </button>
                 {pathname !== '/' && (
                     <Link href='/'>
                         <div className='bg-white dark:bg-slate-950 border border-slate-900 dark:border-slate-200 p-2 rounded-lg'>
-                            <BiHome />
+                            <FaHouse />
                         </div>
                     </Link>
                 )}

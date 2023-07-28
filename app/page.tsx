@@ -5,7 +5,7 @@ import stacks from '@/data/stacks';
 import profile from '@/public/images/profile.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BiLinkExternal, BiLogoGithub, BiLogoLinkedin, BiPaperPlane } from 'react-icons/bi';
+import { FaArrowUpRightFromSquare, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 
 export default function Home() {
     return (
@@ -19,7 +19,7 @@ export default function Home() {
                 <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats.</h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
-                        <BiPaperPlane />
+                        <FaPaperPlane />
                         Let&apos;s Talk
                     </ButtonLink>
                     <ButtonLink
@@ -27,7 +27,7 @@ export default function Home() {
                         color='secondary'
                         target='_blank'
                         rel='noopener noreferrer'>
-                        <BiLogoGithub />
+                        <FaGithub />
                         Github
                     </ButtonLink>
                     <ButtonLink
@@ -35,7 +35,7 @@ export default function Home() {
                         color='secondary'
                         target='_blank'
                         rel='noopener noreferrer'>
-                        <BiLogoLinkedin />
+                        <FaLinkedin />
                         LinkedIn
                     </ButtonLink>
                 </div>
@@ -53,7 +53,7 @@ export default function Home() {
                     <Link
                         href='/projects'
                         className='underline text-slate-900 dark:text-white whitespace-nowrap inline-flex items-center gap-x-2'>
-                        <BiLinkExternal />
+                        <FaArrowUpRightFromSquare />
                         View All
                     </Link>
                 </div>

@@ -1,12 +1,5 @@
 import Link from 'next/link';
-import {
-    BiDownload,
-    BiLogoFacebook,
-    BiLogoGithub,
-    BiLogoInstagram,
-    BiLogoLinkedin,
-    BiPaperPlane,
-} from 'react-icons/bi';
+import { FaDownload, FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 
 export default function Footer() {
@@ -28,7 +21,7 @@ export default function Footer() {
                         href='mailto:maulanaajk@gmail.com'
                         target='_blank'
                         rel='noopener noreferrer'>
-                        <BiPaperPlane />
+                        <FaPaperPlane />
                         Hire Me!
                     </ButtonLink>
                     <Link
@@ -36,26 +29,56 @@ export default function Footer() {
                         target='_blank'
                         className='underline inline-flex items-center gap-x-2 whitespace-nowrap'
                         rel='noopener noreferrer'>
-                        <BiDownload />
+                        <FaDownload />
                         Download CV
                     </Link>
                 </div>
             </section>
             <nav className='flex justify-center items-center gap-x-8 text-xl'>
-                <Link href='https://facebook.com/maulism' target='_blank' aria-label='My Facebook' rel='noopener'>
-                    <BiLogoFacebook aria-label='Facebook' />
+                <Link
+                    href='https://facebook.com/maulism'
+                    target='_blank'
+                    aria-label='My Facebook'
+                    rel='noopener noreferrer'>
+                    <FaFacebook aria-label='Facebook' />
                 </Link>
-                <Link href='https://instagram.com/mavlism' target='_blank' aria-label='My Instagram' rel='noopener'>
-                    <BiLogoInstagram aria-label='Instagram' />
+                <Link
+                    href='https://instagram.com/mavlism'
+                    target='_blank'
+                    aria-label='My Instagram'
+                    rel='noopener noreferrer'>
+                    <FaInstagram aria-label='Instagram' />
                 </Link>
-                <Link href='https://github.com/bymaul/' target='_blank' aria-label='My Github' rel='noopener'>
-                    <BiLogoGithub aria-label='Github' />
+                <Link
+                    href='https://github.com/bymaul/'
+                    target='_blank'
+                    aria-label='My Github'
+                    rel='noopener noreferrer'>
+                    <FaGithub aria-label='Github' />
                 </Link>
-                <Link href='https://linkedin.com/in/maulism' target='_blank' aria-label='My LinkedIn' rel='noopener'>
-                    <BiLogoLinkedin aria-label='LinkedIn' />
+                <Link
+                    href='https://linkedin.com/in/maulism'
+                    target='_blank'
+                    aria-label='My LinkedIn'
+                    rel='noopener noreferrer'>
+                    <FaLinkedin aria-label='LinkedIn' />
                 </Link>
             </nav>
-            <p className='my-8 text-center'>Made with ❤️ by Maulana</p>
+            <p className='my-8 text-center'>
+                Crafted by{' '}
+                <Link href='/' className='underline'>
+                    Maulana
+                </Link>{' '}
+                | Get the source code on{' '}
+                <Link
+                    href='https://github.com/bymaul/portfolio'
+                    target='_blank'
+                    aria-label='My Github'
+                    rel='noopener noreferrer'
+                    className='underline'>
+                    Github
+                </Link>
+            </p>
         </footer>
     );
 }
