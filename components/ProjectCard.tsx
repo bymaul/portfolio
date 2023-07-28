@@ -30,7 +30,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
             </div>
             {tags?.length && (
                 <div className='mt-4 flex gap-x-4'>
-                    <div className='flex-shrink'>
+                    <div className='py-1'>
                         <FaMicrochip />
                     </div>
                     <div className='flex flex-wrap items-center justify-start gap-2'>
