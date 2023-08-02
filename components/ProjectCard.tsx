@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FaMicrochip, FaArrowUpRightFromSquare } from 'react-icons/fa6';
+import { FaArrowUpRightFromSquare, FaLayerGroup } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 
 type Props = {
@@ -31,7 +31,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
             {tags?.length && (
                 <div className='mt-4 flex gap-x-4'>
                     <div className='py-1'>
-                        <FaMicrochip />
+                        <FaLayerGroup />
                     </div>
                     <div className='flex flex-wrap items-center justify-start gap-2'>
                         {tags.sort().map((tag, i) => (
