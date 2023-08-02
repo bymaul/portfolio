@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { FaDownload, FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
+import ThemeToggle from './ThemeToggle';
 
 export default function Footer() {
     return (
@@ -64,21 +65,30 @@ export default function Footer() {
                     <FaLinkedin aria-label='LinkedIn' />
                 </Link>
             </nav>
-            <p className='my-8 text-center'>
-                Crafted by{' '}
-                <Link href='/' className='underline'>
-                    Maulana
-                </Link>{' '}
-                | Get the source code on{' '}
-                <Link
-                    href='https://github.com/bymaul/portfolio'
-                    target='_blank'
-                    aria-label='My Github'
-                    rel='noopener noreferrer'
-                    className='underline'>
-                    Github
-                </Link>
-            </p>
+            <div className='flex justify-between items-center'>
+                <div className='my-8'>
+                    <p className='mb-1'>
+                        Crafted by{' '}
+                        <Link href='/' className='underline'>
+                            Maulana
+                        </Link>
+                    </p>
+                    <p className='text-sm text-slate-400'>
+                        Get the source code on{' '}
+                        <Link
+                            href='https://github.com/bymaul/portfolio'
+                            target='_blank'
+                            aria-label='My Github'
+                            rel='noopener noreferrer'
+                            className='underline'>
+                            Github
+                        </Link>
+                    </p>
+                </div>
+                <div>
+                    <ThemeToggle />
+                </div>
+            </div>
         </footer>
     );
 }

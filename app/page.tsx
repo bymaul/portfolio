@@ -71,7 +71,6 @@ export default function Home() {
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     {stacks.map((stack, i) => (
                         <ButtonLink key={i} color='secondary' size='sm' href={`/stack/${stack.slug}`}>
-                            {' '}
                             <span>{stack.icon}</span>
                             {stack.name}
                         </ButtonLink>
