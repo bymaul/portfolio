@@ -67,13 +67,13 @@ export default function Footer() {
             </nav>
             <div className='flex justify-between items-center'>
                 <div className='my-8'>
-                    <p className='mb-1'>
+                    <p>
                         Crafted by{' '}
                         <Link href='/' className='underline'>
                             Maulana
                         </Link>
                     </p>
-                    <p className='text-sm text-slate-400'>
+                    <p className='text-sm text-slate-500 dark:text-slate-400'>
                         Get the source code on{' '}
                         <Link
                             href='https://github.com/bymaul/portfolio'

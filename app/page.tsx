@@ -16,7 +16,9 @@ export default function Home() {
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>
                 </div>
-                <h3 className='text-slate-400 text-center md:text-start'>I love tech, web developing, and cats.</h3>
+                <h3 className='text-slate-500 dark:text-slate-400 text-center md:text-start'>
+                    I love tech, web developing, and cats.
+                </h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <FaPaperPlane />
@@ -46,7 +48,7 @@ export default function Home() {
                         <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>
                             My Projects
                         </h2>
-                        <p className='text-sm text-slate-400'>
+                        <p className='text-sm text-slate-500 dark:text-slate-400'>
                             Explore some of the projects I&apos;ve been recently working in.
                         </p>
                     </div>
@@ -66,7 +68,7 @@ export default function Home() {
             <section>
                 <div className='pb-5 text-center sm:text-start'>
                     <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>My Stacks</h2>
-                    <p className='text-sm text-slate-400'>Discover the technologies I work with.</p>
+                    <p className='text-sm text-slate-500 dark:text-slate-400'>Discover the technologies I work with.</p>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     {stacks.map((stack, i) => (

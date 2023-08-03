@@ -9,7 +9,7 @@ const styles = cva(
                 primary:
                     'border border-slate-900 dark:border-slate-200 bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100',
                 secondary:
-                    'border border-slate-900 dark:border-slate-200 text-slate-900 dark:text-white bg-white dark:bg-slate-950 hover:bg-slate-100 dark:hover:bg-slate-800',
+                    'border border-slate-900 dark:border-slate-200 bg-white dark:bg-slate-950 text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800',
             },
             size: {
                 sm: 'py-2 px-4',
