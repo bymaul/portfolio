@@ -1,5 +1,6 @@
+import socials from '@/data/socials';
 import Link from 'next/link';
-import { FaDownload, FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
+import { FaDownload, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 import ThemeToggle from './ThemeToggle';
 
@@ -36,34 +37,16 @@ export default function Footer() {
                 </div>
             </section>
             <nav className='flex justify-center items-center gap-x-8 text-xl'>
-                <Link
-                    href='https://facebook.com/maulism'
-                    target='_blank'
-                    aria-label='My Facebook'
-                    rel='noopener noreferrer'>
-                    <FaFacebook aria-label='Facebook' />
-                </Link>
-                <Link
-                    href='https://instagram.com/mavlism'
-                    target='_blank'
-                    aria-label='My Instagram'
-                    rel='noopener noreferrer'>
-                    <FaInstagram aria-label='Instagram' />
-                </Link>
-                <Link
-                    href='https://github.com/bymaul/'
-                    target='_blank'
-                    aria-label='My Github'
-                    rel='noopener noreferrer'>
-                    <FaGithub aria-label='Github' />
-                </Link>
-                <Link
-                    href='https://linkedin.com/in/maulism'
-                    target='_blank'
-                    aria-label='My LinkedIn'
-                    rel='noopener noreferrer'>
-                    <FaLinkedin aria-label='LinkedIn' />
-                </Link>
+                {socials.map((social, i) => (
+                    <Link
+                        key={i}
+                        href={social.url}
+                        target='_blank'
+                        aria-label={`My ${social.name}`}
+                        rel='noopener noreferrer'>
+                        {social.icon}
+                    </Link>
+                ))}
             </nav>
             <div className='flex justify-between items-center'>
                 <div className='my-8'>

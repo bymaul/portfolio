@@ -13,7 +13,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
     return (
         <div className='max-w-[350px]'>
             <div className='relative rounded-xl overflow-hidden'>
-                <div className='absolute z-20 bottom-0 left-0 p-4'>
+                <div className='absolute z-10 bottom-0 left-0 p-4'>
                     <ButtonLink
                         href={url}
                         color='secondary'
