@@ -17,7 +17,7 @@ export default function Home() {
                     <h2>Web Developer</h2>
                 </div>
                 <h3 className='text-slate-500 dark:text-slate-400 text-center md:text-start'>
-                    I love tech, web developing, and cats.
+                    Passionate about web developing, tech, and cats.
                 </h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
@@ -45,7 +45,7 @@ export default function Home() {
             <section>
                 <div className='flex justify-between items-center gap-6 pb-5'>
                     <div>
-                        <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>
+                        <h2 className='font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>
                             My Projects
                         </h2>
                         <p className='text-sm text-slate-500 dark:text-slate-400'>
@@ -67,7 +67,7 @@ export default function Home() {
             </section>
             <section>
                 <div className='pb-5 text-center sm:text-start'>
-                    <h2 className='font-semibold text-2xl text-slate-900 dark:text-white leading-relaxed'>My Stacks</h2>
+                    <h2 className='font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>My Stacks</h2>
                     <p className='text-sm text-slate-500 dark:text-slate-400'>Discover the technologies I work with.</p>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
