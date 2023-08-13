@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FaArrowUpRightFromSquare, FaLayerGroup } from 'react-icons/fa6';
+import { FaArrowRight, FaArrowUpRightFromSquare, FaLayerGroup } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 
 type Props = {
@@ -21,8 +21,9 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
                         textSize='sm'
                         target='_blank'
                         rel='noopener noreferrer'
-                        underline>
-                        <FaArrowUpRightFromSquare />
+                        underline
+                        className='group'>
+                        <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />
                         {name}
                     </ButtonLink>
                 </div>
@@ -35,7 +36,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', u
                     </div>
                     <div className='flex flex-wrap items-center justify-start gap-2'>
                         {tags.sort().map((tag, i) => (
-                            <span className='py-1 px-3 text-xs bg-slate-100 dark:bg-slate-800 rounded-md' key={i}>
+                            <span key={i} className='py-1 px-3 text-xs bg-slate-100 dark:bg-slate-800 rounded-md'>
                                 {tag}
                             </span>
                         ))}

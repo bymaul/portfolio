@@ -9,7 +9,7 @@ const projects: Projects[] = [
     {
         name: 'lorem-travel',
         image: '/images/projects/lorem-travel.png',
-        tags: ['Next', 'React', 'Tailwind'],
+        tags: ['Next.js', 'React', 'Tailwind'],
         url: 'https://github.com/bymaul/lorem-travel',
     },
     {
