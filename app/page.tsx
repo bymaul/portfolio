@@ -55,8 +55,8 @@ export default function Home() {
                     <Link
                         href='/projects'
                         className='underline text-slate-900 dark:text-white whitespace-nowrap inline-flex items-center gap-x-2'>
-                        View All
                         <FaArrowUpRightFromSquare />
+                        View All
                     </Link>
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-7'>

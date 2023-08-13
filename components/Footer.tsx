@@ -1,6 +1,6 @@
 import socials from '@/data/socials';
 import Link from 'next/link';
-import { FaDownload, FaPaperPlane } from 'react-icons/fa6';
+import { FaArrowRight, FaDownload, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 import ThemeToggle from './ThemeToggle';
 
@@ -27,11 +27,11 @@ export default function Footer() {
                         Hire Me!
                     </ButtonLink>
                     <Link
-                        href='/'
+                        href='https://drive.google.com/file/d/1Nwh7lTAVtlKBbe3o-U9WTPqq-dgWMGnm/view'
                         target='_blank'
-                        className='underline inline-flex items-center gap-x-2 whitespace-nowrap'
+                        className='group underline inline-flex items-center gap-x-2 whitespace-nowrap'
                         rel='noopener noreferrer'>
-                        <FaDownload />
+                        <FaArrowRight className='group-hover:rotate-90 transition-transform duration-300' />
                         Download CV
                     </Link>
                 </div>
