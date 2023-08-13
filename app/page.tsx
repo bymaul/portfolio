@@ -15,10 +15,10 @@ export default function Home() {
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>
+                    <h3 className='mt-4 text-slate-500 dark:text-slate-400 text-center md:text-start'>
+                        Passionate about web developing, tech, and cats.
+                    </h3>
                 </div>
-                <h3 className='text-slate-500 dark:text-slate-400 text-center md:text-start'>
-                    Passionate about web developing, tech, and cats.
-                </h3>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <FaPaperPlane />
@@ -72,7 +72,12 @@ export default function Home() {
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     {stacks.map((stack, i) => (
-                        <ButtonLink key={i} color='secondary' size='sm' href={`/stack/${stack.slug}`}>
+                        <ButtonLink
+                            key={i}
+                            color='secondary'
+                            size='sm'
+                            href={`/stack/${stack.slug}`}
+                            className='flex-grow'>
                             <span>{stack.icon}</span>
                             {stack.name}
                         </ButtonLink>

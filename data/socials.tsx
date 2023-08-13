@@ -1,4 +1,4 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa6';
+import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa6';
 
 export type Stacks = {
     name: string;
@@ -16,6 +16,11 @@ const socials: Stacks[] = [
         name: 'Instagram',
         url: 'https://instagram.com/mavlism',
         icon: <FaInstagram />,
+    },
+    {
+        name: 'YouTube',
+        url: 'https://youtube.com/maulx',
+        icon: <FaYoutube />,
     },
     {
         name: 'Github',
