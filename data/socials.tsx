@@ -18,11 +18,6 @@ const socials: Stacks[] = [
         icon: <FaInstagram />,
     },
     {
-        name: 'YouTube',
-        url: 'https://youtube.com/maulx',
-        icon: <FaYoutube />,
-    },
-    {
         name: 'Github',
         url: 'https://github.com/bymaul/',
         icon: <FaGithub />,
@@ -31,6 +26,11 @@ const socials: Stacks[] = [
         name: 'LinkedIn',
         url: 'https://linkedin.com/in/maulism',
         icon: <FaLinkedin />,
+    },
+    {
+        name: 'YouTube',
+        url: 'https://youtube.com/@maulx',
+        icon: <FaYoutube />,
     },
 ];
 
