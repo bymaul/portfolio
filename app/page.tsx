@@ -77,7 +77,7 @@ export default function Home() {
                             color='secondary'
                             size='sm'
                             href={`/stack/${stack.slug}`}
-                            className='flex-grow'>
+                            className='flex-grow basis-16 md:basis-0'>
                             <span>{stack.icon}</span>
                             {stack.name}
                         </ButtonLink>
