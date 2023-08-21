@@ -13,16 +13,16 @@ const projects: Projects[] = [
         url: 'https://github.com/bymaul/lorem-travel',
     },
     {
-        name: 'laravel-ecommerce',
-        image: '/images/projects/laravel-ecommerce.png',
-        tags: ['Laravel', 'Inertia', 'React', 'Tailwind', 'MySQL'],
-        url: 'https://github.com/bymaul/laravel-ecommerce',
-    },
-    {
         name: 'laravel-pos',
         image: '/images/projects/laravel-pos.png',
         tags: ['Laravel', 'Bootstrap', 'jQuery', 'MySQL'],
         url: 'https://github.com/bymaul/laravel-pos',
+    },
+    {
+        name: 'laravel-ecommerce',
+        image: '/images/projects/laravel-ecommerce.png',
+        tags: ['Laravel', 'Inertia', 'React', 'Tailwind', 'MySQL'],
+        url: 'https://github.com/bymaul/laravel-ecommerce',
     },
 ];
 
