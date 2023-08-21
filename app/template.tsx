@@ -11,7 +11,7 @@ export default function Template({ children }: Props) {
 
     useEffect(() => {
         setTransitionStage(true);
-    }, []);
+    }, [setTransitionStage]);
 
     return (
         <div

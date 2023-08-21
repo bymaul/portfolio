@@ -1,12 +1,10 @@
 import {
     SiBootstrap,
-    SiExpress,
     SiJquery,
     SiLaravel,
     SiMongodb,
     SiMysql,
     SiNextdotjs,
-    SiNodedotjs,
     SiPostgresql,
     SiReact,
     SiSass,
@@ -26,18 +24,13 @@ const stacks: Stacks[] = [
         icon: <SiLaravel />,
     },
     {
-        name: 'NodeJS',
-        slug: 'nodejs',
-        icon: <SiNodedotjs />,
-    },
-    {
         name: 'React',
         slug: 'react',
         icon: <SiReact />,
     },
     {
         name: 'Next.js',
-        slug: 'next',
+        slug: 'next.js',
         icon: <SiNextdotjs />,
     },
     {
@@ -46,14 +39,19 @@ const stacks: Stacks[] = [
         icon: <SiJquery />,
     },
     {
-        name: 'Tailwind',
-        slug: 'tailwind',
-        icon: <SiTailwindcss />,
+        name: 'Sass',
+        slug: 'sass',
+        icon: <SiSass />,
     },
     {
         name: 'Bootstrap',
         slug: 'bootstrap',
         icon: <SiBootstrap />,
+    },
+    {
+        name: 'Tailwind',
+        slug: 'tailwind',
+        icon: <SiTailwindcss />,
     },
     {
         name: 'MySQL',

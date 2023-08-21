@@ -8,7 +8,7 @@ export default function ThemeToggle() {
     const [loaded, setLoaded] = useState(false);
     const { resolvedTheme, setTheme, theme } = useTheme();
 
-    useEffect(() => setLoaded(true), []);
+    useEffect(() => setLoaded(true), [setLoaded]);
 
     if (!loaded) {
         return null;

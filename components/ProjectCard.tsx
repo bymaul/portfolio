@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { FaArrowRight, FaArrowUpRightFromSquare, FaLayerGroup } from 'react-icons/fa6';
+import { FaArrowRight, FaLayerGroup } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 
 type Props = {

@@ -1,6 +1,6 @@
 import socials from '@/data/socials';
 import Link from 'next/link';
-import { FaArrowRight, FaDownload, FaPaperPlane } from 'react-icons/fa6';
+import { FaArrowRight, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 import ThemeToggle from './ThemeToggle';
 
