@@ -33,7 +33,7 @@ export default function Home() {
                         Github
                     </ButtonLink>
                     <ButtonLink
-                        href='https://linkedin.com/in/maulism'
+                        href='https://linkedin.com/in/maulana-ahmad'
                         color='secondary'
                         target='_blank'
                         rel='noopener noreferrer'>

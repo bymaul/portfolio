@@ -24,7 +24,7 @@ const socials: Stacks[] = [
     },
     {
         name: 'LinkedIn',
-        url: 'https://linkedin.com/in/maulism',
+        url: 'https://linkedin.com/in/maulana-ahmad',
         icon: <FaLinkedin />,
     },
     {
