@@ -14,6 +14,7 @@ const styles = cva(
             size: {
                 sm: 'py-2 px-4',
                 md: 'py-3 px-4',
+                smIcon: 'py-2 px-3',
             },
             textSize: {
                 sm: 'text-sm',
@@ -34,7 +35,7 @@ const styles = cva(
 interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>, VariantProps<typeof styles> {
     href: string;
     color?: 'primary' | 'secondary';
-    size?: 'sm' | 'md';
+    size?: 'sm' | 'md' | 'smIcon';
     textSize?: 'sm' | 'md';
     underline?: boolean;
 }

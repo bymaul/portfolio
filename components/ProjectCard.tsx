@@ -32,7 +32,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', t
                             <ButtonLink
                                 href={url}
                                 color='secondary'
-                                size='sm'
+                                size='smIcon'
                                 textSize='sm'
                                 target='_blank'
                                 rel='noopener noreferrer'
