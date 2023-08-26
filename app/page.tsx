@@ -61,7 +61,13 @@ export default function Home() {
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-7'>
                     {projects.slice(0, 2).map((project, i) => (
-                        <ProjectCard key={i} name={project.name} url={project.url} image={project.image} />
+                        <ProjectCard
+                            key={i}
+                            name={project.name}
+                            image={project.image}
+                            repo={project.repo}
+                            url={project.url}
+                        />
                     ))}
                 </div>
             </section>

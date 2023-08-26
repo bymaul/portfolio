@@ -1,31 +1,46 @@
 import Image from 'next/image';
-import { FaArrowRight, FaLayerGroup } from 'react-icons/fa6';
+import { FaArrowRight, FaLayerGroup, FaLink } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 
 type Props = {
     name: string;
     image?: string;
     tags?: string[];
-    url: string;
+    repo: string;
+    url?: string;
 };
 
-export default function ProjectCard({ name, image = '/images/placeholder.svg', url, tags }: Props) {
+export default function ProjectCard({ name, image = '/images/placeholder.svg', tags, repo, url }: Props) {
     return (
         <div className='max-w-[350px]'>
             <div className='relative rounded-xl overflow-hidden'>
-                <div className='absolute z-10 bottom-0 left-0 p-4'>
-                    <ButtonLink
-                        href={url}
-                        color='secondary'
-                        size='sm'
-                        textSize='sm'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        underline
-                        className='group'>
-                        <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />
-                        {name}
-                    </ButtonLink>
+                <div className='absolute z-10 bottom-0 left-0 right-0 p-4'>
+                    <div className='flex flex-wrap justify-between gap-2'>
+                        <ButtonLink
+                            href={repo}
+                            color='secondary'
+                            size='sm'
+                            textSize='sm'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            underline
+                            className='group'>
+                            <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />
+                            {name}
+                        </ButtonLink>
+                        {url && (
+                            <ButtonLink
+                                href={url}
+                                color='secondary'
+                                size='sm'
+                                textSize='sm'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                underline>
+                                <FaLink />
+                            </ButtonLink>
+                        )}
+                    </div>
                 </div>
                 <Image src={image} alt={name} width={400} height={400} />
             </div>

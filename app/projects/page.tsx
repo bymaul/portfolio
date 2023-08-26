@@ -23,9 +23,10 @@ export default function Projects() {
                         <ProjectCard
                             key={i}
                             name={project.name}
-                            url={project.url}
                             image={project.image}
                             tags={project.tags}
+                            repo={project.repo}
+                            url={project.url}
                         />
                     ))}
                 </div>
