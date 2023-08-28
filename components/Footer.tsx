@@ -17,7 +17,7 @@ export default function Footer() {
                     <br />
                     <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                 </p>
-                <div className='flex flex-wrap justify-between items-center gap-8'>
+                <div className='flex flex-col sm:flex-row justify-between items-center gap-8'>
                     <ButtonLink
                         color='primary'
                         href='mailto:maulanaajk@gmail.com'
@@ -27,7 +27,7 @@ export default function Footer() {
                         Hire Me!
                     </ButtonLink>
                     <Link
-                        href='https://drive.google.com/file/d/1Nwh7lTAVtlKBbe3o-U9WTPqq-dgWMGnm/view'
+                        href='https://drive.google.com/file/d/1xELZtG1xhpNQwn3pjFH7If12me3aJVIx/view'
                         target='_blank'
                         className='group underline inline-flex items-center gap-x-2 whitespace-nowrap'
                         rel='noopener noreferrer'>

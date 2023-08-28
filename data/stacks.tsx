@@ -5,10 +5,10 @@ import {
     SiMongodb,
     SiMysql,
     SiNextdotjs,
-    SiPostgresql,
     SiReact,
     SiSass,
     SiTailwindcss,
+    SiTypescript,
 } from 'react-icons/si';
 
 export type Stacks = {
@@ -39,8 +39,13 @@ const stacks: Stacks[] = [
         icon: <SiJquery />,
     },
     {
+        name: 'TypeScript',
+        slug: 'typescript',
+        icon: <SiTypescript />,
+    },
+    {
         name: 'Sass',
-        slug: 'sass',
+        slug: 'Sass',
         icon: <SiSass />,
     },
     {
@@ -57,11 +62,6 @@ const stacks: Stacks[] = [
         name: 'MySQL',
         slug: 'mysql',
         icon: <SiMysql />,
-    },
-    {
-        name: 'PostgreSQL',
-        slug: 'postgresql',
-        icon: <SiPostgresql />,
     },
     {
         name: 'MongoDB',

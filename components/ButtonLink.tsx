@@ -1,3 +1,4 @@
+import { cn } from '@/utils/utils';
 import { cva, VariantProps } from 'class-variance-authority';
 import Link from 'next/link';
 
@@ -51,7 +52,7 @@ export const ButtonLink: React.FC<ButtonLinkProps> = ({
     ...props
 }) => {
     return (
-        <Link href={href} className={styles({ color, size, textSize, underline, className })} {...props}>
+        <Link href={href} className={cn(styles({ color, size, textSize, underline }), className)} {...props}>
             {children}
         </Link>
     );

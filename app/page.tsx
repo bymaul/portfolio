@@ -19,8 +19,12 @@ export default function Home() {
                         Passionate about web developing, tech, and cats.
                     </h3>
                 </div>
-                <div className='flex flex-wrap justify-center items-center gap-3'>
-                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
+                <div className='w-full sm:w-auto flex flex-wrap justify-center items-center gap-3'>
+                    <ButtonLink
+                        href='mailto:maulanaajk@gmail.com'
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='flex-grow sm:flex-grow-0'>
                         <FaPaperPlane />
                         Let&apos;s Talk
                     </ButtonLink>
@@ -28,7 +32,8 @@ export default function Home() {
                         href='https://github.com/bymaul/'
                         color='secondary'
                         target='_blank'
-                        rel='noopener noreferrer'>
+                        rel='noopener noreferrer'
+                        className='hidden sm:inline-flex'>
                         <FaGithub />
                         Github
                     </ButtonLink>
@@ -36,7 +41,8 @@ export default function Home() {
                         href='https://linkedin.com/in/maulana-ahmad'
                         color='secondary'
                         target='_blank'
-                        rel='noopener noreferrer'>
+                        rel='noopener noreferrer'
+                        className='hidden sm:inline-flex'>
                         <FaLinkedin />
                         LinkedIn
                     </ButtonLink>
