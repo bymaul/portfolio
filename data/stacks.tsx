@@ -5,6 +5,7 @@ import {
     SiMongodb,
     SiMysql,
     SiNextdotjs,
+    SiPostgresql,
     SiReact,
     SiSass,
     SiTailwindcss,
@@ -39,11 +40,6 @@ const stacks: Stacks[] = [
         icon: <SiJquery />,
     },
     {
-        name: 'TypeScript',
-        slug: 'typescript',
-        icon: <SiTypescript />,
-    },
-    {
         name: 'Sass',
         slug: 'Sass',
         icon: <SiSass />,
@@ -62,6 +58,11 @@ const stacks: Stacks[] = [
         name: 'MySQL',
         slug: 'mysql',
         icon: <SiMysql />,
+    },
+    {
+        name: 'PostgreSQL',
+        slug: 'postgresql',
+        icon: <SiPostgresql />,
     },
     {
         name: 'MongoDB',

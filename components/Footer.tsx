@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { FaArrowRight, FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
 import ThemeToggle from './ThemeToggle';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer className='text-slate-900 dark:text-white pt-12 max-w-screen-md mx-auto px-4'>
+        <footer className='text-slate-900 dark:text-white pt-24 max-w-screen-md mx-auto px-4'>
             <section className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white mb-12'>
                 <h2 className='font-semibold'>Have an interesting project in mind? 👋</h2>
                 <p className='py-10'>
@@ -17,7 +18,7 @@ export default function Footer() {
                     <br />
                     <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                 </p>
-                <div className='flex flex-col sm:flex-row justify-between items-center gap-8'>
+                <div className='flex flex-col sm:flex-row flex-wrap items-center gap-y-8 gap-x-12'>
                     <ButtonLink
                         color='primary'
                         href='mailto:maulanaajk@gmail.com'
@@ -26,45 +27,26 @@ export default function Footer() {
                         <FaPaperPlane />
                         Hire Me!
                     </ButtonLink>
-                    <Link
-                        href='https://drive.google.com/file/d/1xELZtG1xhpNQwn3pjFH7If12me3aJVIx/view'
-                        target='_blank'
-                        className='group underline inline-flex items-center gap-x-2 whitespace-nowrap'
-                        rel='noopener noreferrer'>
-                        <FaArrowRight className='group-hover:rotate-90 transition-transform duration-300' />
-                        Download CV
-                    </Link>
+                    <div className='flex flex-wrap items-center gap-8 text-xl'>
+                        {socials.map((social, i) => (
+                            <Link
+                                key={i}
+                                href={social.url}
+                                target='_blank'
+                                aria-label={`My ${social.name}`}
+                                rel='noopener noreferrer'>
+                                {social.icon}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
             </section>
-            <nav className='flex justify-center items-center gap-x-8 text-xl'>
-                {socials.map((social, i) => (
-                    <Link
-                        key={i}
-                        href={social.url}
-                        target='_blank'
-                        aria-label={`My ${social.name}`}
-                        rel='noopener noreferrer'>
-                        {social.icon}
-                    </Link>
-                ))}
-            </nav>
             <div className='flex justify-between items-center'>
                 <div className='my-8'>
                     <p>
                         Crafted by{' '}
                         <Link href='/' className='underline'>
                             Maulana
-                        </Link>
-                    </p>
-                    <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Get the source code on{' '}
-                        <Link
-                            href='https://github.com/bymaul/portfolio'
-                            target='_blank'
-                            aria-label='My Github'
-                            rel='noopener noreferrer'
-                            className='underline'>
-                            Github
                         </Link>
                     </p>
                 </div>

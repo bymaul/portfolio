@@ -1,16 +1,16 @@
 import { ButtonLink } from '@/components/ButtonLink';
 import ProjectCard from '@/components/ProjectCard';
+import SecondHeading from '@/components/SecondHeading';
 import projects from '@/data/projects';
 import stacks from '@/data/stacks';
 import profile from '@/public/images/profile.png';
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaArrowUpRightFromSquare, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 
 export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
-            <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
+            <section className='pt-12 pb-12 space-y-12 flex flex-col items-center md:items-start'>
                 <Image src={profile} alt='Maulana Ahmad Aji Triadi' width={140} height={140} priority />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
@@ -19,12 +19,8 @@ export default function Home() {
                         Passionate about web developing, tech, and cats.
                     </h3>
                 </div>
-                <div className='w-full sm:w-auto flex flex-wrap justify-center items-center gap-3'>
-                    <ButtonLink
-                        href='mailto:maulanaajk@gmail.com'
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        className='flex-grow sm:flex-grow-0'>
+                <div className='flex flex-wrap justify-center items-center gap-3'>
+                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <FaPaperPlane />
                         Let&apos;s Talk
                     </ButtonLink>
@@ -49,23 +45,11 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <div className='flex justify-between items-center gap-6 pb-5'>
-                    <div>
-                        <h2 className='font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>
-                            My Projects
-                        </h2>
-                        <p className='text-sm text-slate-500 dark:text-slate-400'>
-                            Explore some of the projects I&apos;ve been recently working in.
-                        </p>
-                    </div>
-                    <Link
-                        href='/projects'
-                        className='underline text-slate-900 dark:text-white whitespace-nowrap inline-flex items-center gap-x-2'>
-                        <FaArrowUpRightFromSquare />
-                        View All
-                    </Link>
-                </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-7'>
+                <SecondHeading
+                    title='My Projects'
+                    subtitle="Explore some of the projects I've been recently working in."
+                />
+                <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
                     {projects.slice(0, 2).map((project, i) => (
                         <ProjectCard
                             key={i}
@@ -76,12 +60,15 @@ export default function Home() {
                         />
                     ))}
                 </div>
+                <div className='flex justify-center sm:justify-end mt-6'>
+                    <ButtonLink href='/projects' size='sm'>
+                        <FaArrowUpRightFromSquare />
+                        View All
+                    </ButtonLink>
+                </div>
             </section>
             <section>
-                <div className='pb-5 text-center sm:text-start'>
-                    <h2 className='font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>My Stacks</h2>
-                    <p className='text-sm text-slate-500 dark:text-slate-400'>Discover the technologies I work with.</p>
-                </div>
+                <SecondHeading title='My Stacks' subtitle='Discover the technologies I work with.' />
                 <div className='flex flex-wrap justify-center items-center gap-3'>
                     {stacks.map((stack, i) => (
                         <ButtonLink
