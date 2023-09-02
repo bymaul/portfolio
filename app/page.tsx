@@ -56,7 +56,7 @@ export default function Home() {
                         </h2>
                     </Link>
                     <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Explore some of the projects I've been recently working in.
+                        Explore some of the projects I&apos;ve been recently working in.
                     </p>
                 </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
