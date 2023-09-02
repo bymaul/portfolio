@@ -13,8 +13,9 @@ export default function Header() {
                 {pathname !== '/' && (
                     <Link
                         href='/'
-                        className='bg-white dark:bg-slate-950 border border-slate-900 dark:border-slate-200 p-2 rounded-lg'>
+                        className='inline-flex items-center gap-x-3 bg-slate-100 dark:bg-slate-800 px-4 py-3 rounded-full'>
                         <FaHouse />
+                        Home
                     </Link>
                 )}
             </nav>

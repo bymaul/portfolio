@@ -5,6 +5,7 @@ import projects from '@/data/projects';
 import stacks from '@/data/stacks';
 import profile from '@/public/images/profile.png';
 import Image from 'next/image';
+import Link from 'next/link';
 import { FaArrowUpRightFromSquare, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 
 export default function Home() {
@@ -45,10 +46,19 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <SecondHeading
-                    title='My Projects'
-                    subtitle="Explore some of the projects I've been recently working in."
-                />
+                <div className='pb-5 text-center sm:text-start'>
+                    <Link href='/projects'>
+                        <h2 className='inline-flex items-center gap-x-3 font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>
+                            My Projects{' '}
+                            <span className='text-base'>
+                                <FaArrowUpRightFromSquare />
+                            </span>
+                        </h2>
+                    </Link>
+                    <p className='text-sm text-slate-500 dark:text-slate-400'>
+                        Explore some of the projects I've been recently working in.
+                    </p>
+                </div>
                 <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
                     {projects.slice(0, 2).map((project, i) => (
                         <ProjectCard
@@ -59,12 +69,6 @@ export default function Home() {
                             url={project.url}
                         />
                     ))}
-                </div>
-                <div className='flex justify-center sm:justify-end mt-6'>
-                    <ButtonLink href='/projects' size='sm'>
-                        <FaArrowUpRightFromSquare />
-                        View All
-                    </ButtonLink>
                 </div>
             </section>
             <section>

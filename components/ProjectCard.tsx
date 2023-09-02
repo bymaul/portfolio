@@ -35,9 +35,9 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', t
                                 size='smIcon'
                                 textSize='sm'
                                 target='_blank'
-                                rel='noopener noreferrer'
-                                underline>
+                                rel='noopener noreferrer'>
                                 <FaLink />
+                                <span className='sr-only'>Demo</span>
                             </ButtonLink>
                         )}
                     </div>
