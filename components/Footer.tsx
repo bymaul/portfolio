@@ -7,7 +7,7 @@ import ThemeToggle from './ThemeToggle';
 export default function Footer() {
     return (
         <footer className='text-slate-900 dark:text-white pt-12 max-w-screen-md mx-auto px-4'>
-            <section className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white'>
+            <div className='bg-slate-100 dark:bg-slate-800 rounded-3xl p-8 text-slate-900 dark:text-white'>
                 <h2 className='font-semibold'>Have an interesting project in mind? 👋</h2>
                 <p className='py-10'>
                     I am a fresh graduate with a strong passion for learning and a specific interest in web programming.
@@ -17,7 +17,7 @@ export default function Footer() {
                     <br />
                     <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                 </p>
-                <div className='flex flex-col sm:flex-row flex-wrap items-center gap-y-8 gap-x-12'>
+                <div className='flex flex-col sm:flex-row flex-wrap items-center gap-10'>
                     <ButtonLink
                         color='primary'
                         href='mailto:maulanaajk@gmail.com'
@@ -39,9 +39,9 @@ export default function Footer() {
                         ))}
                     </div>
                 </div>
-            </section>
-            <div className='flex justify-between items-center'>
-                <div className='my-8 text-sm'>
+            </div>
+            <div className='flex justify-between items-center mt-8 mb-6'>
+                <div className='text-sm'>
                     <p>
                         Crafted by{' '}
                         <Link href='/' className='font-semibold'>
@@ -49,9 +49,7 @@ export default function Footer() {
                         </Link>
                     </p>
                 </div>
-                <div>
-                    <ThemeToggle />
-                </div>
+                <ThemeToggle />
             </div>
         </footer>
     );

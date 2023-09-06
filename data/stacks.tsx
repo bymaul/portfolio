@@ -41,7 +41,7 @@ const stacks: Stacks[] = [
     },
     {
         name: 'Sass',
-        slug: 'Sass',
+        slug: 'sass',
         icon: <SiSass />,
     },
     {

@@ -15,7 +15,7 @@ export default function Template({ children }: Props) {
 
     return (
         <div
-            className={`transition duration-500 ${
+            className={`transition duration-300 ${
                 transitionStage ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
             {children}

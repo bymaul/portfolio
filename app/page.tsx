@@ -5,19 +5,18 @@ import projects from '@/data/projects';
 import stacks from '@/data/stacks';
 import profile from '@/public/images/profile.png';
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaArrowUpRightFromSquare, FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaPaperPlane } from 'react-icons/fa6';
 
 export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
-            <section className='pt-12 pb-12 space-y-12 flex flex-col items-center md:items-start'>
+            <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
                 <Image src={profile} alt='Maulana Ahmad Aji Triadi' width={140} height={140} priority />
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>
                     <h1 className='text-3xl font-bold'>Maulana Ahmad Aji Triadi</h1>
                     <h2>Web Developer</h2>
-                    <h3 className='mt-4 text-slate-500 dark:text-slate-400 text-center md:text-start'>
-                        Passionate about web developing, tech, and cats.
+                    <h3 className='mt-3 text-slate-500 dark:text-slate-400 text-center md:text-start'>
+                        Passionate about web developing, tech, and nature.
                     </h3>
                 </div>
                 <div className='flex flex-wrap justify-center items-center gap-3'>
@@ -46,29 +45,29 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <div className='pb-5 text-center sm:text-start'>
-                    <Link href='/projects'>
-                        <h2 className='inline-flex items-center gap-x-3 font-semibold text-xl text-slate-900 dark:text-white leading-relaxed'>
-                            My Projects{' '}
-                            <span className='text-base'>
-                                <FaArrowUpRightFromSquare />
-                            </span>
-                        </h2>
-                    </Link>
-                    <p className='text-sm text-slate-500 dark:text-slate-400'>
-                        Explore some of the projects I&apos;ve been recently working in.
-                    </p>
-                </div>
-                <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
-                    {projects.slice(0, 2).map((project, i) => (
-                        <ProjectCard
-                            key={i}
-                            name={project.name}
-                            image={project.image}
-                            repo={project.repo}
-                            url={project.url}
-                        />
-                    ))}
+                <SecondHeading
+                    title='My Projects'
+                    subtitle="Explore some of the projects I've been recently working in."
+                />
+                <div className='relative pb-4'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
+                        {projects.slice(0, 2).map((project, i) => (
+                            <ProjectCard
+                                key={i}
+                                name={project.name}
+                                image={project.image}
+                                repo={project.repo}
+                                url={project.url}
+                            />
+                        ))}
+                    </div>
+                    <div className='absolute bottom-0 left-0 right-0 z-50 h-64 bg-gradient-to-t from-white dark:from-slate-950 to-95% to-transparent'>
+                        <div className='flex justify-center items-end h-full'>
+                            <ButtonLink href='/projects' size='sm' textSize='sm'>
+                                Show More
+                            </ButtonLink>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section>
