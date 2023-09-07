@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
-import clsx from 'clsx';
-import ProjectCard from './ProjectCard';
 import projectsData from '@/data/projects';
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa6';
+import clsx from 'clsx';
+import { useState } from 'react';
+import ProjectCard from './ProjectCard';
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
@@ -19,7 +18,7 @@ export default function Projects() {
         <div
             className={clsx(
                 'relative',
-                overlayHeight ? 'max-h-[680px] sm:max-h-[460px] overflow-hidden' : 'max-h-full pb-14'
+                overlayHeight ? 'max-h-[520px] sm:max-h-[360px] overflow-hidden' : 'max-h-full pb-14'
             )}>
             <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
                 {projectsData.map((project, i) => (
@@ -36,7 +35,7 @@ export default function Projects() {
             <div
                 className={clsx(
                     'absolute bottom-0 left-0 right-0 z-10',
-                    showMore ? '' : 'h-28 bg-gradient-to-t from-white dark:from-slate-950 to-transparent'
+                    showMore ? '' : 'h-32 bg-gradient-to-t from-white dark:from-slate-950 to-transparent'
                 )}>
                 <div className='flex justify-center items-end h-full'>
                     <button
