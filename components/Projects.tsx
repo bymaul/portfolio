@@ -42,12 +42,11 @@ export default function Projects() {
                     <button
                         onClick={handleShowMore}
                         className={clsx(
-                            'rounded-full inline-flex items-center justify-center gap-x-3 transition duration-300 whitespace-nowrap',
-                            'p-2 text-sm text-white dark:text-slate-900',
+                            'rounded-md transition duration-300 whitespace-nowrap',
+                            'py-2 px-4 text-sm text-white dark:text-slate-900',
                             'border border-slate-900 dark:border-slate-200 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100'
                         )}>
-                        {showMore ? <FaArrowUp /> : <FaArrowDown />}
-                        <span className='sr-only'>Project Toggle</span>
+                        {showMore ? 'Show Less' : 'Show More'}
                     </button>
                 </div>
             </div>
