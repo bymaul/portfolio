@@ -26,7 +26,7 @@ export default function Footer() {
                         <FaPaperPlane />
                         Hire Me!
                     </ButtonLink>
-                    <div className='flex flex-wrap items-center gap-8 text-xl'>
+                    <div className='flex flex-wrap items-center justify-center gap-8 text-xl'>
                         {socials.map((social, i) => (
                             <Link
                                 key={i}

@@ -49,9 +49,9 @@ export default function Home() {
                     title='My Projects'
                     subtitle="Explore some of the projects I've been recently working in."
                 />
-                <div className='relative pb-4'>
+                <div className='relative max-h-[720px] sm:max-h-[440px] overflow-hidden'>
                     <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
-                        {projects.slice(0, 2).map((project, i) => (
+                        {projects.map((project, i) => (
                             <ProjectCard
                                 key={i}
                                 name={project.name}
@@ -61,7 +61,7 @@ export default function Home() {
                             />
                         ))}
                     </div>
-                    <div className='absolute bottom-0 left-0 right-0 z-50 h-64 bg-gradient-to-t from-white dark:from-slate-950 to-95% to-transparent'>
+                    <div className='absolute bottom-0 left-0 right-0 z-50 h-72 bg-gradient-to-t from-white dark:from-slate-950 to-95% to-transparent'>
                         <div className='flex justify-center items-end h-full'>
                             <ButtonLink href='/projects' size='sm' textSize='sm'>
                                 Show More
