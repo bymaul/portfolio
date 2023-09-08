@@ -44,10 +44,7 @@ export default function Home() {
                 </div>
             </section>
             <section>
-                <SecondHeading
-                    title='My Projects'
-                    subtitle="Explore some of the projects I've been recently working in."
-                />
+                <SecondHeading title='My Projects' subtitle="Explore some of the projects I've been working on." />
                 <Projects />
             </section>
             <section>
