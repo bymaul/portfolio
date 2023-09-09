@@ -2,23 +2,24 @@
 
 import projectsData from '@/data/projects';
 import { cn } from '@/utils/utils';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import ProjectCard from './ProjectCard';
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
+    const projectsRef = useRef<HTMLDivElement>(null);
 
     const handleShowMore = () => {
         setShowMore(!showMore);
     };
 
-    const parentHeight = document.getElementById('projects')?.clientHeight;
+    const projectsHeight = projectsRef.current?.clientHeight;
 
     return (
         <div
-            style={{ height: showMore ? `${parentHeight}px` : '380px' }}
+            style={{ height: showMore ? `${projectsHeight}px` : '380px' }}
             className='relative transition-[height] duration-[1s] ease-in-out overflow-hidden'>
-            <div id='projects' className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6 pb-14'>
+            <div ref={projectsRef} className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6 pb-14'>
                 {projectsData.map((project, i) => (
                     <ProjectCard
                         key={i}
