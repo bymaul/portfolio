@@ -9,7 +9,6 @@ import {
     SiReact,
     SiSass,
     SiTailwindcss,
-    SiTypescript,
 } from 'react-icons/si';
 
 export type Stacks = {
@@ -55,14 +54,14 @@ const stacks: Stacks[] = [
         icon: <SiTailwindcss />,
     },
     {
-        name: 'MySQL',
-        slug: 'mysql',
-        icon: <SiMysql />,
-    },
-    {
         name: 'PostgreSQL',
         slug: 'postgresql',
         icon: <SiPostgresql />,
+    },
+    {
+        name: 'MySQL',
+        slug: 'mysql',
+        icon: <SiMysql />,
     },
     {
         name: 'MongoDB',
