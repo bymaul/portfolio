@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang='en' suppressHydrationWarning>
-            <body className={`${poppins.variable} font-sans bg-white dark:bg-slate-950 antialiased`}>
+            <body className={`${poppins.variable} font-sans antialiased bg-white dark:bg-slate-950`}>
                 <Provider>
                     <Header />
                     {children}
