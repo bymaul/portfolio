@@ -10,63 +10,64 @@ import {
     SiSass,
     SiTailwindcss,
 } from 'react-icons/si';
+import { IconType } from 'react-icons/lib';
 
 export type Stacks = {
     name: string;
     slug: string;
-    icon: React.ReactNode;
+    icon: IconType;
 };
 
 const stacks: Stacks[] = [
     {
         name: 'Laravel',
         slug: 'laravel',
-        icon: <SiLaravel />,
+        icon: SiLaravel,
     },
     {
         name: 'React',
         slug: 'react',
-        icon: <SiReact />,
+        icon: SiReact,
     },
     {
         name: 'Next.js',
         slug: 'next.js',
-        icon: <SiNextdotjs />,
+        icon: SiNextdotjs,
     },
     {
         name: 'jQuery',
         slug: 'jquery',
-        icon: <SiJquery />,
+        icon: SiJquery,
     },
     {
         name: 'Sass',
         slug: 'sass',
-        icon: <SiSass />,
+        icon: SiSass,
     },
     {
         name: 'Bootstrap',
         slug: 'bootstrap',
-        icon: <SiBootstrap />,
+        icon: SiBootstrap,
     },
     {
         name: 'Tailwind',
         slug: 'tailwind',
-        icon: <SiTailwindcss />,
+        icon: SiTailwindcss,
     },
     {
         name: 'PostgreSQL',
         slug: 'postgresql',
-        icon: <SiPostgresql />,
+        icon: SiPostgresql,
     },
     {
         name: 'MySQL',
         slug: 'mysql',
-        icon: <SiMysql />,
+        icon: SiMysql,
     },
     {
         name: 'MongoDB',
         slug: 'mongodb',
-        icon: <SiMongodb />,
+        icon: SiMongodb,
     },
 ];
 

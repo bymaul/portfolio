@@ -57,7 +57,7 @@ export default function Home() {
                             size='sm'
                             href={`/stack/${stack.slug}`}
                             className='flex-grow basis-16 md:basis-0'>
-                            <span>{stack.icon}</span>
+                            <span>{<stack.icon />}</span>
                             {stack.name}
                         </ButtonLink>
                     ))}

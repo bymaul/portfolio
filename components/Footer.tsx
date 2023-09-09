@@ -34,7 +34,7 @@ export default function Footer() {
                                 target='_blank'
                                 aria-label={`My ${social.name}`}
                                 rel='noopener noreferrer'>
-                                {social.icon}
+                                {<social.icon size='1.25rem' />}
                             </Link>
                         ))}
                     </div>

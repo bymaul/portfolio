@@ -1,36 +1,37 @@
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa6';
+import { IconType } from 'react-icons/lib';
 
 export type Stacks = {
     name: string;
     url: string;
-    icon: React.ReactNode;
+    icon: IconType;
 };
 
 const socials: Stacks[] = [
     {
         name: 'Facebook',
         url: 'https://facebook.com/maulism',
-        icon: <FaFacebook />,
+        icon: FaFacebook,
     },
     {
         name: 'Instagram',
         url: 'https://instagram.com/mavlism',
-        icon: <FaInstagram />,
+        icon: FaInstagram,
     },
     {
         name: 'Github',
         url: 'https://github.com/bymaul/',
-        icon: <FaGithub />,
+        icon: FaGithub,
     },
     {
         name: 'LinkedIn',
         url: 'https://linkedin.com/in/maulana-ahmad',
-        icon: <FaLinkedin />,
+        icon: FaLinkedin,
     },
     {
         name: 'YouTube',
         url: 'https://youtube.com/@maulx',
-        icon: <FaYoutube />,
+        icon: FaYoutube,
     },
 ];
 
