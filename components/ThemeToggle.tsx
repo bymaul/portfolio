@@ -34,7 +34,7 @@ export default function ThemeDropdown() {
     if (!loaded) return null;
 
     return (
-        <div className='relative' ref={ref}>
+        <div ref={ref} className='relative'>
             <div className='flex justify-end'>
                 <button
                     aria-label='Theme Toggle'
@@ -47,17 +47,17 @@ export default function ThemeDropdown() {
                 <div className='absolute -top-1 -right-1 z-10 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-1'>
                     <div className='flex items-center gap-x-1'>
                         <button
-                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3 transition-colors'
+                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3 transition-colors duration-300'
                             onClick={() => handleThemeChange('system')}>
                             <FaDesktop />
                         </button>
                         <button
-                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3'
+                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3 transition-colors duration-300'
                             onClick={() => handleThemeChange('dark')}>
                             <FaMoon />
                         </button>
                         <button
-                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3'
+                            className='rounded-full hover:bg-slate-200 hover:dark:bg-slate-700 p-3 transition-colors duration-300'
                             onClick={() => handleThemeChange('light')}>
                             <FaSun />
                         </button>

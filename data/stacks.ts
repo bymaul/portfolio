@@ -1,3 +1,4 @@
+import { IconType } from 'react-icons/lib';
 import {
     SiBootstrap,
     SiJquery,
@@ -7,10 +8,9 @@ import {
     SiNextdotjs,
     SiPostgresql,
     SiReact,
-    SiSass,
+    SiInertia,
     SiTailwindcss,
 } from 'react-icons/si';
-import { IconType } from 'react-icons/lib';
 
 export type Stacks = {
     name: string;
@@ -40,9 +40,9 @@ const stacks: Stacks[] = [
         icon: SiJquery,
     },
     {
-        name: 'Sass',
-        slug: 'sass',
-        icon: SiSass,
+        name: 'Inertia.js',
+        slug: 'inertia.js',
+        icon: SiInertia,
     },
     {
         name: 'Bootstrap',
@@ -55,6 +55,11 @@ const stacks: Stacks[] = [
         icon: SiTailwindcss,
     },
     {
+        name: 'MongoDB',
+        slug: 'mongodb',
+        icon: SiMongodb,
+    },
+    {
         name: 'PostgreSQL',
         slug: 'postgresql',
         icon: SiPostgresql,
@@ -63,11 +68,6 @@ const stacks: Stacks[] = [
         name: 'MySQL',
         slug: 'mysql',
         icon: SiMysql,
-    },
-    {
-        name: 'MongoDB',
-        slug: 'mongodb',
-        icon: SiMongodb,
     },
 ];
 

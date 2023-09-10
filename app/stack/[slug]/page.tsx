@@ -65,7 +65,6 @@ export default async function Stack({ params }: StackProps) {
                         name={project.name}
                         image={project.image}
                         tags={project.tags}
-                        repo={project.repo}
                         url={project.url}
                     />
                 ))}

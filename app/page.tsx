@@ -1,6 +1,7 @@
 import { ButtonLink } from '@/components/ButtonLink';
-import Projects from '@/components/Projects';
+import ProjectCard from '@/components/ProjectCard';
 import SecondHeading from '@/components/SecondHeading';
+import projects from '@/data/projects';
 import stacks from '@/data/stacks';
 import profile from '@/public/images/profile.png';
 import Image from 'next/image';
@@ -45,7 +46,17 @@ export default function Home() {
             </section>
             <section>
                 <SecondHeading title='My Projects' subtitle="Explore some of the projects I've been working on." />
-                <Projects />
+                <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
+                    {projects.map((project, i) => (
+                        <ProjectCard
+                            key={i}
+                            name={project.name}
+                            image={project.image}
+                            tags={project.tags}
+                            url={project.url}
+                        />
+                    ))}
+                </div>
             </section>
             <section>
                 <SecondHeading title='My Stacks' subtitle='Discover the technologies I work with.' />
