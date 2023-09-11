@@ -48,13 +48,7 @@ export default function Home() {
                 <SecondHeading title='My Projects' subtitle="Explore some of the projects I've been working on." />
                 <div className='grid grid-cols-1 sm:grid-cols-2 justify-items-center gap-6'>
                     {projects.map((project, i) => (
-                        <ProjectCard
-                            key={i}
-                            name={project.name}
-                            image={project.image}
-                            tags={project.tags}
-                            url={project.url}
-                        />
+                        <ProjectCard key={i} name={project.name} image={project.image} url={project.url} />
                     ))}
                 </div>
             </section>

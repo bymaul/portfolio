@@ -16,7 +16,7 @@ const projects: Projects[] = [
         name: 'lorem-travel',
         image: '/images/projects/lorem-travel.png',
         tags: ['Next.js', 'React', 'Tailwind'],
-        url: 'https://github.com/bymaul/lorem-travel',
+        url: 'https://lorem-travel.vercel.app',
     },
     {
         name: 'laravel-ecommerce',
