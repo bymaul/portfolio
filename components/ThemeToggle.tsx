@@ -4,14 +4,12 @@ import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState } from 'react';
 import { FaDesktop, FaMoon, FaSun } from 'react-icons/fa6';
 
-export default function ThemeDropdown() {
+export default function ThemeToggle() {
     const { setTheme, theme } = useTheme();
-    const [loaded, setLoaded] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        setLoaded(true);
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -19,7 +17,7 @@ export default function ThemeDropdown() {
     }, []);
 
     const handleClickOutside = (e: MouseEvent) => {
-        if (ref.current && !(ref.current as any).contains(e.target)) {
+        if (ref.current && !ref.current.contains(e.target as Node)) {
             setIsOpen(false);
         }
     };
@@ -30,8 +28,6 @@ export default function ThemeDropdown() {
         setTheme(selectedTheme);
         setIsOpen(false);
     };
-
-    if (!loaded) return null;
 
     return (
         <div ref={ref} className='relative'>
