@@ -1,7 +1,7 @@
 export type Projects = {
     name: string;
     image?: string;
-    tags: string[];
+    tags?: string[];
     url: string;
 };
 

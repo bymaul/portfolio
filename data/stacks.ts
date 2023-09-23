@@ -60,14 +60,14 @@ const stacks: Stacks[] = [
         icon: SiMongodb,
     },
     {
-        name: 'PostgreSQL',
-        slug: 'postgresql',
-        icon: SiPostgresql,
-    },
-    {
         name: 'MySQL',
         slug: 'mysql',
         icon: SiMysql,
+    },
+    {
+        name: 'PostgreSQL',
+        slug: 'postgresql',
+        icon: SiPostgresql,
     },
 ];
 

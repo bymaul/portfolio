@@ -18,15 +18,11 @@ export default function Footer() {
                     <br />I am currently in Yogyakarta, Indonesia (UTC+7) 🇮🇩
                 </p>
                 <div className='flex flex-col sm:flex-row flex-wrap items-center gap-10'>
-                    <ButtonLink
-                        color='primary'
-                        href='mailto:maulanaajk@gmail.com'
-                        target='_blank'
-                        rel='noopener noreferrer'>
+                    <ButtonLink href='mailto:maulanaajk@gmail.com' target='_blank' rel='noopener noreferrer'>
                         <FaPaperPlane />
                         Hire Me!
                     </ButtonLink>
-                    <div className='flex flex-wrap items-center justify-center gap-8 text-xl'>
+                    <div className='flex flex-wrap items-center justify-center gap-8'>
                         {socials.map((social, i) => (
                             <Link
                                 key={i}

@@ -35,7 +35,7 @@ export async function generateStaticParams() {
 }
 
 async function getProjects(slug: string) {
-    const project = projects.filter((p) => p.tags.some((t) => t.toLowerCase() === slug.toLowerCase()));
+    const project = projects.filter((p) => p.tags?.some((t) => t.toLowerCase() === slug.toLowerCase()));
 
     return project;
 }
@@ -51,7 +51,7 @@ export default async function Stack({ params }: StackProps) {
     return (
         <main className='max-w-screen-md mx-auto px-4 pt-12'>
             <div className='pb-5'>
-                <h1 className='font-semibold text-3xl text-slate-900 dark:text-white leading-relaxed capitalize'>
+                <h1 className='font-semibold text-3xl text-slate-900 dark:text-white leading-relaxed'>
                     My {stacks.find((stack) => stack.slug === slug)?.name} Projects
                 </h1>
                 <p className='text-slate-500 dark:text-slate-400'>

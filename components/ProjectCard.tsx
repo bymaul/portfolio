@@ -1,15 +1,9 @@
 import Image from 'next/image';
 import { FaArrowRight, FaLayerGroup } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
+import { Projects } from '@/data/projects';
 
-type Props = {
-    name: string;
-    image?: string;
-    tags?: string[];
-    url: string;
-};
-
-export default function ProjectCard({ name, image = '/images/placeholder.svg', tags, url }: Props) {
+export default function ProjectCard({ name, image = '/images/placeholder.svg', tags, url }: Projects) {
     return (
         <div className='max-w-[350px]'>
             <div className='relative rounded-xl overflow-hidden'>
@@ -29,7 +23,7 @@ export default function ProjectCard({ name, image = '/images/placeholder.svg', t
                         </ButtonLink>
                     </div>
                 </div>
-                <Image src={image} alt={name} width={400} height={400} />
+                <Image src={image} alt={name} width={350} height={350} />
             </div>
             {tags?.length && (
                 <div className='mt-4 flex gap-x-4'>
