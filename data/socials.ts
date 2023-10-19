@@ -15,7 +15,7 @@ const socials: Stacks[] = [
     },
     {
         name: 'Instagram',
-        url: 'https://instagram.com/mavlism',
+        url: 'https://instagram.com/maulaanaahmad',
         icon: FaInstagram,
     },
     {
