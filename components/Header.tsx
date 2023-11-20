@@ -8,8 +8,8 @@ export default function Header() {
     const pathname = usePathname();
 
     return (
-        <header>
-            <nav className='flex justify-between items-center pt-8 max-w-screen-md mx-auto px-4'>
+        <header className='pt-8 max-w-screen-md mx-auto px-4'>
+            <nav className='flex justify-between items-center'>
                 {pathname !== '/' && (
                     <Link
                         href='/'
