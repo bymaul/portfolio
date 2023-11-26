@@ -4,7 +4,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useRef, useState } from 'react';
 import { FaDesktop, FaMoon, FaSun } from 'react-icons/fa6';
 
-export default function ThemeToggle() {
+export default function ThemeChanger() {
     const { setTheme, theme } = useTheme();
     const [mounted, setMounted] = useState(false);
     const [isOpen, setIsOpen] = useState(false);

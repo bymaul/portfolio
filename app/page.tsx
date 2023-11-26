@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <main className='max-w-screen-md mx-auto space-y-12 px-4'>
             <section className='pt-12 space-y-12 flex flex-col items-center md:items-start'>
-                <div className='relative w-36 h-36 rounded-full'>
+                <div className='relative w-36 h-36 rounded-full overflow-hidden'>
                     <Image src={profile} alt='Maulana Ahmad Aji Triadi' fill priority />
                 </div>
                 <div className='text-center md:text-start text-slate-900 dark:text-white'>

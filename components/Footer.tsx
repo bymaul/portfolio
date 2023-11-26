@@ -2,7 +2,7 @@ import socials from '@/data/socials';
 import Link from 'next/link';
 import { FaPaperPlane } from 'react-icons/fa6';
 import { ButtonLink } from './ButtonLink';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from './ThemeChanger';
 
 export default function Footer() {
     return (
