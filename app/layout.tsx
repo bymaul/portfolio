@@ -1,7 +1,6 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
-import localFont from 'next/font/local';
 import { ThemeProvider } from './providers';
 
 const poppins = Poppins({
@@ -11,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-    title: 'Maulana Ahmad Aji Triadi - Web Developer',
+    title: 'Maulana Ahmad Aji Triadi — Web Developer',
     description:
         'Hello! I am Maulana, a web developer based in Yogyakarta, Indonesia.',
 };
@@ -24,7 +23,7 @@ export default function RootLayout({
     return (
         <html lang='en' suppressHydrationWarning>
             <body
-                className={`${poppins.className} bg-gray-100 dark:bg-gray-900 antialiased`}>
+                className={`${poppins.className} bg-gray-100 dark:bg-dark-950 antialiased`}>
                 <ThemeProvider attribute='class'>{children}</ThemeProvider>
             </body>
         </html>

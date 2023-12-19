@@ -7,7 +7,7 @@ import projectImage from '@/public/next-blog-starter.png';
 
 export default function ProjectOne() {
     return (
-        <Card className='relative bg-red-100 group'>
+        <Card className='relative bg-red-100 dark:bg-red-100 group'>
             <Image
                 src={projectImage}
                 alt='next-blog-starter'

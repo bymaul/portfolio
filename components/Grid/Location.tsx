@@ -10,7 +10,7 @@ const DynamicMap = dynamic(
 
 export default function Map() {
     return (
-        <Card className='relative bg-white'>
+        <Card className='relative'>
             <DynamicMap />
         </Card>
     );

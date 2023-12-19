@@ -45,13 +45,14 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                     className='inline-flex hover:scale-125 hover:mb-6'
                     href='/'>
                     <FaX />
+                    <div className='sr-only'>Close</div>
                 </Button>
             </header>
             <div className='text-center'>
                 <h1 className='text-3xl font-bold'>{post.title}</h1>
                 <time
                     dateTime={post.date}
-                    className='mb-1 text-xs text-gray-500'>
+                    className='text-xs text-gray-600 dark:text-gray-400'>
                     {format(parseISO(post.date), 'LLLL d, yyyy')}
                 </time>
             </div>

@@ -7,7 +7,7 @@ import projectImage from '@/public/laravel-ecommerce.png';
 
 export default function ProjectThree() {
     return (
-        <Card className='relative bg-orange-100 group'>
+        <Card className='relative bg-orange-100 dark:bg-orange-100 group'>
             <Image
                 src={projectImage}
                 alt='laravel-ecommerce'

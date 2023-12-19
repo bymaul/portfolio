@@ -7,7 +7,7 @@ import projectImage from '@/public/laravel-pos.png';
 
 export default function ProjectTwo() {
     return (
-        <Card className='relative bg-blue-100 group'>
+        <Card className='relative bg-blue-100 dark:bg-blue-100 group'>
             <Image
                 src={projectImage}
                 alt='laravel-pos'

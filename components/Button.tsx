@@ -14,7 +14,7 @@ export default function Button<T extends React.ElementType = 'button'>({
         <Component
             {...props}
             className={cn(
-                'p-3 flex justify-center items-center gap-3 overflow-hidden bg-white dark:bg-gray-800 rounded-full ring-2 ring-opacity-30 ring-gray-200 group hover:ring-4 transition-all duration-300',
+                'p-3 flex justify-center items-center gap-3 overflow-hidden bg-white dark:text-black rounded-full ring-2 ring-opacity-30 ring-gray-200 group hover:ring-4 transition-all duration-300',
                 props.className
             )}
         />
