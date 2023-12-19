@@ -1,5 +1,3 @@
-'use client';
-
 import { SpotifyTypes } from '@/types/spotify';
 import Link from 'next/link';
 import useSWR from 'swr';
@@ -36,9 +34,7 @@ export default function NowPlaying() {
                     <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.62s_ease_infinite]' />
                 </div>
                 <p className='text-sm text-[#1DB954]'>
-                    {data?.isPlaying
-                        ? 'Now Playing'
-                        : 'Offline. Recently Played'}
+                    {data?.isPlaying ? 'Now Playing' : 'Offline. Last Played'}
                 </p>
             </div>
             <Link
