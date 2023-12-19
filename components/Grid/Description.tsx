@@ -17,12 +17,9 @@ export default function Description() {
                 </div>
                 <p>
                     I&apos;m{' '}
-                    <h1 className='inline-block text-xl font-semibold'>
-                        Maulana
-                    </h1>
-                    , a developer from Yogyakarta, Indonesia. I&apos;m
-                    interested in Laravel, Go, Node, React, and Product
-                    Designer.
+                    <span className='text-xl font-semibold'>Maulana</span>, a
+                    developer from Yogyakarta, Indonesia. I&apos;m interested in
+                    Laravel, Go, Node, React, and Product Designer.
                 </p>
             </div>
         </Card>

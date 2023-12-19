@@ -12,6 +12,7 @@ export default function ProjectOne() {
                 src={projectImage}
                 alt='next-blog-starter'
                 className='absolute inset-0 w-full h-full object-cover'
+                priority
             />
             <div className='absolute bottom-3 left-3'>
                 <Button
