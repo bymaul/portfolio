@@ -9,9 +9,6 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            fontFamily: {
-                mono: ['var(--font-dankmono)', 'monospace'],
-            },
             keyframes: {
                 playing: {
                     '0%': { height: '4px' },
