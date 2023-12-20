@@ -14,7 +14,9 @@ export default function Article() {
                 <h2 className='cancel-drag text-2xl font-semibold line-clamp-1'>
                     <Link href={post.url}>{post.title}</Link>
                 </h2>
-                <p className='line-clamp-1'>{post.excerpt}</p>
+                <p className='line-clamp-3 max-[1199px]:line-clamp-1 max-[799px]:line-clamp-3 max-[374px]:line-clamp-2'>
+                    {post.description}
+                </p>
                 <div className='inline-flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-6'>
                     <Button
                         as={Link}
@@ -28,7 +30,7 @@ export default function Article() {
                         <time
                             dateTime={post.date}
                             className='text-gray-600 dark:text-gray-400'>
-                            {format(parseISO(post.date), 'LLL d, yy')}
+                            {format(parseISO(post.date), 'LLL d, yyyy')}
                         </time>
                     </small>
                 </div>

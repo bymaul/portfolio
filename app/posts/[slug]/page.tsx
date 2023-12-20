@@ -1,4 +1,5 @@
 import Button from '@/components/Button';
+import { WEBSITE_HOST_URL } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
@@ -16,8 +17,29 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     const post = allPosts.find(
         (post) => post._raw.flattenedPath === params.slug
     );
-    if (!post) notFound();
-    return { title: post.title };
+    if (!post) return;
+
+    const { title, description, date, url } = post;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            type: 'article',
+            publishedTime: date,
+            url: `${WEBSITE_HOST_URL}${url}`,
+            authors: 'Maulana',
+        },
+        twitter: {
+            title,
+            description,
+        },
+        alternates: {
+            canonical: `${WEBSITE_HOST_URL}${url}`,
+        },
+    };
 };
 
 // Define your custom MDX components.
@@ -36,6 +58,21 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     if (!post) notFound();
 
     const MDXContent = useMDXComponent(post.body.code);
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.title,
+        datePublished: post.date,
+        articleBody: post.body,
+        author: [
+            {
+                '@type': 'Person',
+                name: 'Maulana',
+                url: WEBSITE_HOST_URL,
+            },
+        ],
+    };
 
     return (
         <>
@@ -56,6 +93,10 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                     {format(parseISO(post.date), 'LLLL d, yyyy')}
                 </time>
             </div>
+            <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <article className='py-8 prose dark:prose-invert mx-auto px-4'>
                 <MDXContent components={mdxComponents} />
             </article>
