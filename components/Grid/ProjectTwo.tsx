@@ -3,7 +3,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Card from '../Card';
 import Button from '../Button';
 import Image from 'next/image';
-import projectImage from '@/public/laravel-pos.png';
+import projectImage from '@/public/projects/laravel-pos.png';
 
 export default function ProjectTwo() {
     return (

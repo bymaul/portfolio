@@ -3,7 +3,7 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Card from '../Card';
 import Button from '../Button';
 import Image from 'next/image';
-import projectImage from '@/public/laravel-ecommerce.png';
+import projectImage from '@/public/projects/laravel-ecommerce.png';
 
 export default function ProjectThree() {
     return (
@@ -11,7 +11,7 @@ export default function ProjectThree() {
             <Image
                 src={projectImage}
                 alt='laravel-ecommerce'
-                className='absolute inset-0 w-full h-full object-cover'
+                className='w-full h-full object-cover'
             />
             <div className='absolute bottom-3 left-3'>
                 <Button
