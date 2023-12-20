@@ -1,4 +1,4 @@
-import socials from '@/data/socials';
+import socials from '@/lib/socials';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import Card from '../Card';

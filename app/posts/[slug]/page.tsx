@@ -64,7 +64,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         '@type': 'BlogPosting',
         headline: post.title,
         datePublished: post.date,
-        articleBody: post.body,
         author: [
             {
                 '@type': 'Person',

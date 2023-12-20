@@ -1,6 +1,6 @@
 'use client';
 
-import { gridItem, lgLayout, mdLayout, smLayout } from '@/data/gridLayouts';
+import { gridItem, lgLayout, mdLayout, smLayout } from '@/lib/gridLayouts';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 
