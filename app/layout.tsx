@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 const meta = {
     title: 'Maulana Ahmad Aji Triadi — Web Developer',
-    description: 'I&apos;m a web developer based in Yogyakarta, Indonesia.',
+    description: `I'm a web developer based in Yogyakarta, Indonesia.`,
     image: `${WEBSITE_HOST_URL}/images/og-image.png`,
 };
 
