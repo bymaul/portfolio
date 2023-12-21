@@ -17,6 +17,9 @@ export default function Home() {
         <>
             <header>
                 <Container className='pt-10 pb-6 flex justify-end items-center'>
+                    <div className='sr-only'>
+                        <h1>Maulana</h1>
+                    </div>
                     <ThemeToggle />
                 </Container>
             </header>

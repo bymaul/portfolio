@@ -21,6 +21,10 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
     const { title, description, date, url } = post;
 
+    const meta = {
+        images: `${WEBSITE_HOST_URL}/images/og-image.png`,
+    };
+
     return {
         title,
         description,
@@ -31,10 +35,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
             publishedTime: date,
             url: `${WEBSITE_HOST_URL}${url}`,
             authors: 'Maulana',
+            images: meta.images,
         },
         twitter: {
             title,
             description,
+            images: meta.images,
         },
         alternates: {
             canonical: `${WEBSITE_HOST_URL}${url}`,
@@ -63,6 +69,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         headline: post.title,
+        description: post.description,
         datePublished: post.date,
         author: [
             {
@@ -86,7 +93,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             </header>
             <div className='text-center'>
                 <h1 className='text-3xl font-bold'>{post.title}</h1>
-                <p className='text-xs text-gray-600 dark:text-gray-400'>
+                <p className='text-xs text-gray-600 dark:text-gray-400 mt-2'>
                     <time dateTime={post.date}>
                         {format(parseISO(post.date), 'LLLL d, yyyy')}
                     </time>{' '}

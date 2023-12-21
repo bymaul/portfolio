@@ -8,12 +8,7 @@ import projectImage from '@/public/projects/next-blog-starter.png';
 export default function ProjectOne() {
     return (
         <Card className='relative bg-red-100 dark:bg-red-100 group'>
-            <Image
-                src={projectImage}
-                alt='next-blog-starter'
-                className='w-full h-full object-cover'
-                priority
-            />
+            <Image src={projectImage} alt='next-blog-starter' fill priority />
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
