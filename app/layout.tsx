@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     },
     description: meta.description,
     verification: {
-        google: '_ssi6A_P4gir3cv5Gp_aBzzwGliaAdQFzCU-e1JD1YE',
+        google: '-A5o1z7WIg71kr909tUlaYvQ3I8UzGYYg38hU0SE3-k',
     },
     openGraph: {
         title: meta.title,
