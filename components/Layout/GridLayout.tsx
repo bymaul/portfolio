@@ -4,6 +4,8 @@ import { gridItem, lgLayout, mdLayout, smLayout } from '@/lib/layouts';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import { Responsive, WidthProvider } from 'react-grid-layout';
 
+import '@/styles/react-grid-layout.css';
+
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 export default function GridLayout() {
