@@ -8,7 +8,13 @@ import projectImage from '@/public/projects/laravel-pos.png';
 export default function ProjectTwo() {
     return (
         <Card className='relative bg-blue-100 dark:bg-blue-100 group'>
-            <Image src={projectImage} alt='laravel-pos' fill />
+            <Image
+                src={projectImage}
+                alt='laravel-pos'
+                fill
+                objectFit='cover'
+                placeholder='blur'
+            />
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}

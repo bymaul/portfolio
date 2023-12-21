@@ -8,7 +8,13 @@ import projectImage from '@/public/projects/laravel-ecommerce.png';
 export default function ProjectThree() {
     return (
         <Card className='relative bg-orange-100 dark:bg-orange-100 group'>
-            <Image src={projectImage} alt='laravel-ecommerce' fill />
+            <Image
+                src={projectImage}
+                alt='laravel-ecommerce'
+                fill
+                objectFit='cover'
+                placeholder='blur'
+            />
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
