@@ -86,11 +86,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             </header>
             <div className='text-center'>
                 <h1 className='text-3xl font-bold'>{post.title}</h1>
-                <time
-                    dateTime={post.date}
-                    className='text-xs text-gray-600 dark:text-gray-400'>
-                    {format(parseISO(post.date), 'LLLL d, yyyy')}
-                </time>
+                <p className='text-xs text-gray-600 dark:text-gray-400'>
+                    <time dateTime={post.date}>
+                        {format(parseISO(post.date), 'LLLL d, yyyy')}
+                    </time>{' '}
+                    • <span>{post.readingTime.text}</span>
+                </p>
             </div>
             <script
                 type='application/ld+json'
