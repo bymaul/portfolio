@@ -62,7 +62,9 @@ export async function GET() {
         isPlaying: res.data.is_playing,
         title: res.data.item.name,
         album: res.data.item.album.name,
-        artist: res.data.item.album.artists[0].name,
+        artist: res.data.item.album.artists
+            .map((artist) => artist.name)
+            .join(', '),
         albumImageUrl: res.data.item.album.images[0].url,
         songUrl: res.data.item.external_urls.spotify,
     };
