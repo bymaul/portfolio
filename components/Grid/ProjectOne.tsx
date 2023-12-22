@@ -14,6 +14,7 @@ export default function ProjectOne() {
                 fill
                 objectFit='cover'
                 placeholder='blur'
+                priority
             />
             <div className='absolute bottom-3 left-3'>
                 <Button

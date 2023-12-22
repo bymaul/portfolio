@@ -1,1 +1,1 @@
-export const WEBSITE_HOST_URL = 'https://maul-portfolio.vercel.app';
+export const WEBSITE_HOST_URL = 'https://maulana.dev';
