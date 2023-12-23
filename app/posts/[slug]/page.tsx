@@ -1,5 +1,7 @@
 import Button from '@/components/Button';
+import GridLayout from '@/components/Layout/GridLayout';
 import { WEBSITE_HOST_URL } from '@/lib/constants';
+import { lgLayout, mdLayout, smLayout } from '@/lib/layouts';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';

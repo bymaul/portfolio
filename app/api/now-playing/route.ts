@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { SpotifyApiTypes } from '@/types/spotify';
+import { ISpotifyApi } from '@/types/spotify';
 import axios from 'axios';
 
 const clientId = process.env.SPOTIFY_CLIENT_ID;
@@ -32,7 +32,7 @@ const getAccessToken = async () => {
 const getNowPlaying = async () => {
     const access_token = await getAccessToken();
 
-    const response = await axios.get<SpotifyApiTypes>(
+    const response = await axios.get<ISpotifyApi>(
         'https://api.spotify.com/v1/me/player/currently-playing',
         {
             headers: {

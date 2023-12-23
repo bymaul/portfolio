@@ -11,6 +11,7 @@ import clsx from 'clsx';
 import { useTheme } from 'next-themes';
 
 const center: LatLngTuple = [-7.789676, 110.363197];
+const defaultZoom: number = 11;
 
 const darkThemeUrl =
     'https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}';
@@ -18,7 +19,7 @@ const lightThemeUrl =
     'https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token={accessToken}';
 
 const DynamicMap = () => {
-    const [isZoomValue, setIsZoomValue] = useState(10);
+    const [isZoomValue, setIsZoomValue] = useState(defaultZoom);
     const mapRef = useRef<MapContainerProps | any>(null);
 
     const { resolvedTheme } = useTheme();
@@ -43,7 +44,7 @@ const DynamicMap = () => {
                     url={
                         resolvedTheme === 'dark' ? darkThemeUrl : lightThemeUrl
                     }
-                    maxZoom={10}
+                    maxZoom={defaultZoom}
                     minZoom={5}
                     accessToken={process.env.NEXT_PUBLIC_JAWG_ACCESS_TOKEN}
                 />
@@ -64,7 +65,7 @@ const DynamicMap = () => {
                 </Button>
                 <Button
                     className={clsx(
-                        isZoomValue === 10 ? 'hidden' : '',
+                        isZoomValue === defaultZoom ? 'hidden' : '',
                         'cancel-drag float-right'
                     )}
                     aria-label='Zoom In'

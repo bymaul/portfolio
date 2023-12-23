@@ -1,14 +1,25 @@
 'use client';
 
-import { gridItem, lgLayout, mdLayout, smLayout } from '@/lib/layouts';
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { Responsive, WidthProvider } from 'react-grid-layout';
+import { Layout, Responsive, WidthProvider } from 'react-grid-layout';
 
 import '@/styles/react-grid-layout.css';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-export default function GridLayout() {
+interface GridLayoutProps {
+    lgLayout: Layout[];
+    mdLayout: Layout[];
+    smLayout: Layout[];
+    children: React.ReactNode;
+}
+
+export default function GridLayout({
+    lgLayout,
+    mdLayout,
+    smLayout,
+    children,
+}: GridLayoutProps) {
     const [breakpoint, setBreakpoint] = useState('');
     const [isMounted, setIsMounted] = useState(false);
 
@@ -50,7 +61,6 @@ export default function GridLayout() {
         cols: { lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 },
         isBounded: true,
         isResizable: false,
-
         rowHeight: rowHeightValue[breakpoint],
         useCSSTransforms: false,
         measureBeforeMount: true,
@@ -70,9 +80,7 @@ export default function GridLayout() {
                 }}
                 margin={[16, 16]}
                 {...responsiveProps}>
-                {gridItem.map((item) => (
-                    <div key={item.i}>{<item.component />}</div>
-                ))}
+                {children}
             </ResponsiveGridLayout>
         </section>
     );

@@ -1,13 +1,19 @@
-import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa6';
+import {
+    FaFacebook,
+    FaGithub,
+    FaInstagram,
+    FaLinkedin,
+    FaYoutube,
+} from 'react-icons/fa6';
 import { IconType } from 'react-icons/lib';
 
-export type SocialsType = {
+interface ISocials {
     name: string;
     url: string;
     icon: IconType;
-};
+}
 
-const socials: SocialsType[] = [
+const socials: ISocials[] = [
     {
         name: 'Facebook',
         url: 'https://facebook.com/maulism',
