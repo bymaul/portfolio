@@ -1,7 +1,5 @@
 import Button from '@/components/Button';
-import GridLayout from '@/components/Layout/GridLayout';
 import { WEBSITE_HOST_URL } from '@/lib/constants';
-import { lgLayout, mdLayout, smLayout } from '@/lib/layouts';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
@@ -93,6 +91,10 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                     <div className='sr-only'>Close</div>
                 </Button>
             </header>
+            <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className='text-center'>
                 <h1 className='text-3xl font-bold'>{post.title}</h1>
                 <p className='text-xs text-gray-600 dark:text-gray-400 mt-2'>
@@ -102,10 +104,6 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                     • <span>{post.readingTime.text}</span>
                 </p>
             </div>
-            <script
-                type='application/ld+json'
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
             <article className='py-8 prose dark:prose-invert mx-auto px-4'>
                 <MDXContent components={mdxComponents} />
             </article>
