@@ -1,8 +1,8 @@
 import socials from '@/lib/socials';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Card from '../Card';
 import Button from '../Button';
+import Card from '../Card';
 
 export default function Contact() {
     return (

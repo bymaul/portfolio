@@ -1,14 +1,14 @@
 'use client';
 
-import { LatLngTuple } from 'leaflet';
-import { useRef, useState } from 'react';
-import { FaMinus, FaPlus } from 'react-icons/fa6';
-import { MapContainer, MapContainerProps, TileLayer } from 'react-leaflet';
-
-import 'leaflet/dist/leaflet.css';
 import Button from '@/components/Button';
 import clsx from 'clsx';
+import { LatLngTuple, Map } from 'leaflet';
 import { useTheme } from 'next-themes';
+import { useRef, useState } from 'react';
+import { FaMinus, FaPlus } from 'react-icons/fa6';
+import { MapContainer, TileLayer } from 'react-leaflet';
+
+import 'leaflet/dist/leaflet.css';
 
 const center: LatLngTuple = [-7.789676, 110.363197];
 const defaultZoom: number = 11;
@@ -20,7 +20,7 @@ const lightThemeUrl =
 
 const DynamicMap = () => {
     const [isZoomValue, setIsZoomValue] = useState(defaultZoom);
-    const mapRef = useRef<MapContainerProps | any>(null);
+    const mapRef = useRef<Map>(null);
 
     const { resolvedTheme } = useTheme();
 

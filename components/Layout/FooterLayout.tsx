@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Container from '../Container';
 import { useLayoutEffect, useState } from 'react';
+import Container from '../Container';
 
 export default function FooterLayout() {
     const [isMounted, setIsMounted] = useState(false);

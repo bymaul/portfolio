@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import profile from '@/public/images/profile.jpg';
+import Image from 'next/image';
 import Card from '../Card';
 
 export default function Description() {

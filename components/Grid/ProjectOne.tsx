@@ -1,9 +1,9 @@
+import projectImage from '@/public/projects/next-blog-starter.png';
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Card from '../Card';
 import Button from '../Button';
-import Image from 'next/image';
-import projectImage from '@/public/projects/next-blog-starter.png';
+import Card from '../Card';
 
 export default function ProjectOne() {
     return (
