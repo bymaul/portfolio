@@ -1,8 +1,9 @@
-import '@/styles/globals.css';
+import { WEBSITE_HOST_URL } from '@/lib/constants';
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import { ThemeProvider } from './providers';
-import { WEBSITE_HOST_URL } from '@/lib/constants';
+
+import '@/styles/globals.css';
 
 const poppins = Poppins({
     weight: ['300', '400', '500', '600', '700'],
@@ -44,7 +45,6 @@ export const metadata: Metadata = {
     robots: {
         index: true,
         follow: true,
-        nocache: true,
         googleBot: {
             index: true,
             follow: true,
