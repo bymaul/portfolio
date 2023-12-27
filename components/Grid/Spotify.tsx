@@ -33,11 +33,21 @@ function NowPlaying() {
         <div>
             <div className='flex items-center gap-2'>
                 <div className='inline-flex gap-1 justify-center items-center'>
-                    <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.85s_ease_infinite]' />
-                    <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_1.26s_ease_infinite]' />
-                    <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.62s_ease_infinite]' />
+                    {data?.isPlaying ? (
+                        <>
+                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.85s_ease_infinite]' />
+                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_1.26s_ease_infinite]' />
+                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.62s_ease_infinite]' />
+                        </>
+                    ) : (
+                        <>
+                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
+                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
+                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
+                        </>
+                    )}
                 </div>
-                <p className='text-sm dark:text-[#1DB954]'>
+                <p className='text-sm'>
                     {data?.isPlaying ? 'Now Playing' : 'Offline. Last Played'}
                 </p>
             </div>
