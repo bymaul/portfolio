@@ -16,7 +16,8 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 isMounted
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-12',
-                'transition-all duration-500'
+                'transition-all duration-500',
+                'max-w-prose mx-auto my-10 px-4'
             )}>
             {children}
         </main>

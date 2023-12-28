@@ -6,7 +6,7 @@ import remarkGfm from 'remark-gfm';
 
 export const Post = defineDocumentType(() => ({
     name: 'Post',
-    filePathPattern: `**/*.mdx`,
+    filePathPattern: `posts/**/*.mdx`,
     contentType: 'mdx',
     fields: {
         title: { type: 'string', required: true },
@@ -16,7 +16,12 @@ export const Post = defineDocumentType(() => ({
     computedFields: {
         url: {
             type: 'string',
-            resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+            resolve: (post) => `/${post._raw.flattenedPath}`,
+        },
+        slug: {
+            type: 'string',
+            resolve: (post) =>
+                post._raw.flattenedPath.split('/').slice(1).join('/'),
         },
         readingTime: {
             type: 'json',
@@ -37,7 +42,7 @@ const codeOptions = {
 };
 
 export default makeSource({
-    contentDirPath: 'posts',
+    contentDirPath: 'content',
     documentTypes: [Post],
     mdx: {
         remarkPlugins: [remarkGfm],

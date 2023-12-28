@@ -10,13 +10,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaX } from 'react-icons/fa6';
 
-export const generateStaticParams = async () =>
-    allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
+interface PostProps {
+    params: { slug: string };
+}
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-    const post = allPosts.find(
-        (post) => post._raw.flattenedPath === params.slug
-    );
+export const generateStaticParams = async () =>
+    allPosts.map((post) => ({ slug: post.slug }));
+
+export const generateMetadata = ({ params }: PostProps) => {
+    const post = allPosts.find((post) => post.slug === params.slug);
     if (!post) return;
 
     const { title, description, date, url } = post;
@@ -44,7 +46,6 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     };
 };
 
-// Define your custom MDX components.
 const mdxComponents: MDXComponents = {
     a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
     Image: ({ className, alt, ...props }) => (
@@ -52,10 +53,8 @@ const mdxComponents: MDXComponents = {
     ),
 };
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
-    const post = allPosts.find(
-        (post) => post._raw.flattenedPath === params.slug
-    );
+const PostLayout = ({ params }: PostProps) => {
+    const post = allPosts.find((post) => post.slug === params.slug);
 
     if (!post) notFound();
 
@@ -78,7 +77,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
     return (
         <>
-            <header className='flex justify-center items-center py-10'>
+            <header className='flex justify-center items-center pb-10'>
                 <Button
                     as={Link}
                     className='inline-flex hover:scale-125 hover:mb-6'
@@ -92,7 +91,9 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <div className='text-center'>
-                <h1 className='text-3xl font-bold'>{post.title}</h1>
+                <h1 className='text-3xl font-bold leading-relaxed'>
+                    {post.title}
+                </h1>
                 <p className='text-xs text-gray-600 dark:text-gray-400 mt-2'>
                     <time dateTime={post.date}>
                         {format(parseISO(post.date), 'LLLL d, yyyy')}
@@ -100,7 +101,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
                     • <span>{post.readingTime.text}</span>
                 </p>
             </div>
-            <article className='py-8 prose dark:prose-invert mx-auto px-4'>
+            <article className='pt-8 prose dark:prose-invert'>
                 <MDXContent components={mdxComponents} />
             </article>
         </>
