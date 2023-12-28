@@ -1,7 +1,6 @@
 'use client';
 
 import Button from '@/components/Button';
-import clsx from 'clsx';
 import { LatLngTuple, Map } from 'leaflet';
 import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
@@ -11,7 +10,8 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const center: LatLngTuple = [-7.789676, 110.363197];
-const defaultZoom: number = 11;
+const maxZoom: number = 11;
+const minZoom: number = 5;
 
 const darkThemeUrl =
     'https://{s}.tile.jawg.io/jawg-dark/{z}/{x}/{y}{r}.png?access-token={accessToken}';
@@ -19,10 +19,34 @@ const lightThemeUrl =
     'https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}{r}.png?access-token={accessToken}';
 
 const DynamicMap = () => {
-    const [isZoomValue, setIsZoomValue] = useState(defaultZoom);
+    const [isZoom, setIsZoom] = useState<number>(maxZoom);
+    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
     const mapRef = useRef<Map>(null);
 
     const { resolvedTheme } = useTheme();
+
+    const handleZoomIn = () => {
+        if (!isButtonDisabled) {
+            setIsZoom((prevZoom) => prevZoom + 1);
+            mapRef.current?.zoomIn();
+            disableButton();
+        }
+    };
+
+    const handleZoomOut = () => {
+        if (!isButtonDisabled) {
+            setIsZoom((prevZoom) => prevZoom - 1);
+            mapRef.current?.zoomOut();
+            disableButton();
+        }
+    };
+
+    const disableButton = () => {
+        setIsButtonDisabled(true);
+        setTimeout(() => {
+            setIsButtonDisabled(false);
+        }, 300);
+    };
 
     return (
         <div className='relative w-full h-full'>
@@ -30,7 +54,7 @@ const DynamicMap = () => {
                 ref={mapRef}
                 className='w-full h-full'
                 center={center}
-                zoom={10}
+                zoom={maxZoom}
                 scrollWheelZoom={false}
                 attributionControl={false}
                 zoomControl={false}
@@ -44,36 +68,28 @@ const DynamicMap = () => {
                     url={
                         resolvedTheme === 'dark' ? darkThemeUrl : lightThemeUrl
                     }
-                    maxZoom={defaultZoom}
-                    minZoom={5}
-                    accessToken={process.env.NEXT_PUBLIC_JAWG_ACCESS_TOKEN}
+                    maxZoom={maxZoom}
+                    minZoom={minZoom}
+                    accessToken={
+                        process.env.NEXT_PUBLIC_JAWG_ACCESS_TOKEN || ''
+                    }
                 />
             </MapContainer>
-            <div className='absolute bottom-3 left-3 right-3'>
+            <div className='absolute bottom-3 left-3 right-3 flex justify-between items-center'>
                 <Button
-                    className={clsx(
-                        isZoomValue === 5 ? 'hidden' : '',
-                        'cancel-drag float-left'
-                    )}
+                    className={isZoom === minZoom ? 'invisible' : 'cancel-drag'}
                     aria-label='Zoom Out'
                     type='button'
-                    onClick={() => {
-                        setIsZoomValue(isZoomValue - 1);
-                        mapRef.current?.zoomOut();
-                    }}>
+                    disabled={isButtonDisabled}
+                    onClick={handleZoomOut}>
                     <FaMinus />
                 </Button>
                 <Button
-                    className={clsx(
-                        isZoomValue === defaultZoom ? 'hidden' : '',
-                        'cancel-drag float-right'
-                    )}
+                    className={isZoom === maxZoom ? 'invisible' : 'cancel-drag'}
                     aria-label='Zoom In'
                     type='button'
-                    onClick={() => {
-                        setIsZoomValue(isZoomValue + 1);
-                        mapRef.current?.zoomIn();
-                    }}>
+                    disabled={isButtonDisabled}
+                    onClick={handleZoomIn}>
                     <FaPlus />
                 </Button>
             </div>
