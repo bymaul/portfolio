@@ -1,45 +1,34 @@
-import { WEBSITE_HOST_URL } from '@/lib/constants';
+import { siteConfig } from '@/config/site';
+import { poppins } from '@/lib/fonts';
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 import { ThemeProvider } from './providers';
 
 import '@/styles/globals.css';
-
-const poppins = Poppins({
-    weight: ['300', '400', '500', '600', '700'],
-    subsets: ['latin'],
-    variable: '--font-poppins',
-});
-
-const meta = {
-    title: 'Maulana Ahmad Aji Triadi — Web Developer',
-    description: `I'm a web developer based in Yogyakarta, Indonesia.`,
-    image: `${WEBSITE_HOST_URL}/images/og-image.png`,
-};
+import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
     title: {
-        default: meta.title,
+        default: siteConfig.title,
         template: '%s',
     },
-    description: meta.description,
+    description: siteConfig.description,
     openGraph: {
-        title: meta.title,
-        description: meta.description,
-        url: WEBSITE_HOST_URL,
-        siteName: meta.title,
+        title: siteConfig.title,
+        description: siteConfig.description,
+        url: siteConfig.url,
+        siteName: siteConfig.title,
         locale: 'en-US',
         type: 'website',
         images: [
             {
-                url: meta.image,
+                url: siteConfig.image,
             },
         ],
     },
     twitter: {
-        title: meta.title,
-        description: meta.description,
-        images: meta.image,
+        title: siteConfig.title,
+        description: siteConfig.description,
+        images: siteConfig.image,
         card: 'summary_large_image',
     },
     robots: {
@@ -55,7 +44,7 @@ export const metadata: Metadata = {
         },
     },
     alternates: {
-        canonical: WEBSITE_HOST_URL,
+        canonical: siteConfig.url,
     },
 };
 
@@ -67,7 +56,10 @@ export default function RootLayout({
     return (
         <html lang='en' suppressHydrationWarning>
             <body
-                className={`${poppins.className} bg-gray-100 dark:bg-dark-950 antialiased`}>
+                className={cn(
+                    poppins.className,
+                    'bg-gray-100 dark:bg-dark-950 antialiased'
+                )}>
                 <ThemeProvider attribute='class'>{children}</ThemeProvider>
             </body>
         </html>

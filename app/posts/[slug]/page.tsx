@@ -1,5 +1,5 @@
 import Button from '@/components/Button';
-import { WEBSITE_HOST_URL } from '@/lib/constants';
+import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';
 import { format, parseISO } from 'date-fns';
@@ -21,10 +21,6 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
     const { title, description, date, url } = post;
 
-    const meta = {
-        images: `${WEBSITE_HOST_URL}/images/og-image.png`,
-    };
-
     return {
         title,
         description,
@@ -33,17 +29,17 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
             description,
             type: 'article',
             publishedTime: date,
-            url: `${WEBSITE_HOST_URL}${url}`,
+            url: `${siteConfig.url}${url}`,
             authors: 'Maulana',
-            images: meta.images,
+            images: siteConfig.image,
         },
         twitter: {
             title,
             description,
-            images: meta.images,
+            images: siteConfig.image,
         },
         alternates: {
-            canonical: `${WEBSITE_HOST_URL}${url}`,
+            canonical: `${siteConfig.url}${url}`,
         },
     };
 };
@@ -75,7 +71,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
             {
                 '@type': 'Person',
                 name: 'Maulana',
-                url: WEBSITE_HOST_URL,
+                url: siteConfig.url,
             },
         ],
     };

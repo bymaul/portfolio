@@ -7,13 +7,13 @@ import {
 } from 'react-icons/fa6';
 import { IconType } from 'react-icons/lib';
 
-interface ISocials {
+interface Socials {
     name: string;
     url: string;
     icon: IconType;
 }
 
-const socials: ISocials[] = [
+const socials: Socials[] = [
     {
         name: 'Facebook',
         url: 'https://facebook.com/maulism',

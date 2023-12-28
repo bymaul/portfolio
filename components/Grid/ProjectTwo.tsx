@@ -12,6 +12,7 @@ export default function ProjectTwo() {
                 src={projectImage}
                 alt='laravel-pos'
                 fill
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 objectFit='cover'
                 placeholder='blur'
             />

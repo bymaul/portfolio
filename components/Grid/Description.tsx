@@ -11,6 +11,7 @@ export default function Description() {
                         src={profile}
                         alt='Maulana Ahmad Aji Triadi'
                         fill
+                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                         placeholder='blur'
                         priority
                     />
@@ -18,8 +19,8 @@ export default function Description() {
                 <p>
                     I&apos;m{' '}
                     <span className='text-xl font-semibold'>Maulana</span>, a
-                    developer from Yogyakarta, Indonesia. I&apos;m interested in
-                    Laravel, Node, Go, and React.
+                    web developer from Yogyakarta, Indonesia. I&apos;m
+                    interested in Laravel, Node, Go, and React.
                 </p>
             </div>
         </Card>

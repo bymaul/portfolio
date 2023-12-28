@@ -1,4 +1,4 @@
-export interface ISpotifyApi {
+export interface SpotifyApi {
     is_playing: boolean;
     item: {
         name: string;
@@ -14,7 +14,7 @@ export interface ISpotifyApi {
     currently_playing_type: string;
 }
 
-export interface ISpotify {
+export interface Spotify {
     isPlaying: boolean;
     title: string;
     album: string;

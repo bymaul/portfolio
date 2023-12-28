@@ -1,13 +1,13 @@
 'use client';
 
-import { ISpotify } from '@/types/spotify';
+import { Spotify } from '@/types/spotify';
 import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
 import Card from '../Card';
 
 function NowPlaying() {
-    const { data } = useSWR<ISpotify>('/api/now-playing', (url: string) =>
+    const { data } = useSWR<Spotify>('/api/now-playing', (url: string) =>
         fetch(url).then((r) => r.json())
     );
 

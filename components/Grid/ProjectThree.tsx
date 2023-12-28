@@ -12,6 +12,7 @@ export default function ProjectThree() {
                 src={projectImage}
                 alt='laravel-ecommerce'
                 fill
+                sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 objectFit='cover'
                 placeholder='blur'
             />

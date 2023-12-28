@@ -9,12 +9,12 @@ import ProjectThree from '@/components/Grid/ProjectThree';
 import ProjectTwo from '@/components/Grid/ProjectTwo';
 import Spotify from '@/components/Grid/Spotify';
 
-interface IGridItems {
+interface GridItems {
     i: string;
     component: () => JSX.Element;
 }
 
-export const gridItems: IGridItems[] = [
+export const gridItems: GridItems[] = [
     { i: 'description', component: Description },
     { i: 'location', component: Location },
     { i: 'project-1', component: ProjectOne },
