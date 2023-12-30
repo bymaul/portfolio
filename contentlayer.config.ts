@@ -1,4 +1,8 @@
-import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import {
+    defineDocumentType,
+    defineNestedType,
+    makeSource,
+} from 'contentlayer/source-files';
 import readingTime from 'reading-time';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
@@ -30,6 +34,29 @@ export const Post = defineDocumentType(() => ({
     },
 }));
 
+export const Project = defineDocumentType(() => ({
+    name: 'Project',
+    filePathPattern: `projects/**/*.mdx`,
+    contentType: 'mdx',
+    fields: {
+        title: { type: 'string', required: true },
+        description: { type: 'string', required: true },
+        links: { type: 'json', required: true },
+        date: { type: 'date', required: true },
+    },
+    computedFields: {
+        url: {
+            type: 'string',
+            resolve: (post) => `/${post._raw.flattenedPath}`,
+        },
+        slug: {
+            type: 'string',
+            resolve: (post) =>
+                post._raw.flattenedPath.split('/').slice(1).join('/'),
+        },
+    },
+}));
+
 const codeOptions = {
     theme: 'github-dark',
     // Prevent lines from collapsing in `display: grid` mode, and allow empty
@@ -43,7 +70,7 @@ const codeOptions = {
 
 export default makeSource({
     contentDirPath: 'content',
-    documentTypes: [Post],
+    documentTypes: [Post, Project],
     mdx: {
         remarkPlugins: [remarkGfm],
         rehypePlugins: [rehypeSlug, [rehypePrettyCode, codeOptions]],

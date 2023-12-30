@@ -53,7 +53,7 @@ const mdxComponents: MDXComponents = {
     ),
 };
 
-const PostLayout = ({ params }: PostProps) => {
+const PostPage = ({ params }: PostProps) => {
     const post = allPosts.find((post) => post.slug === params.slug);
 
     if (!post) notFound();
@@ -94,12 +94,12 @@ const PostLayout = ({ params }: PostProps) => {
                 <h1 className='text-3xl font-bold leading-relaxed'>
                     {post.title}
                 </h1>
-                <p className='text-xs text-gray-600 dark:text-gray-400 mt-2'>
+                <small className='text-gray-600 dark:text-gray-400 mt-2'>
                     <time dateTime={post.date}>
                         {format(parseISO(post.date), 'LLLL d, yyyy')}
                     </time>{' '}
                     • <span>{post.readingTime.text}</span>
-                </p>
+                </small>
             </div>
             <article className='pt-8 prose dark:prose-invert'>
                 <MDXContent components={mdxComponents} />
@@ -108,4 +108,4 @@ const PostLayout = ({ params }: PostProps) => {
     );
 };
 
-export default PostLayout;
+export default PostPage;

@@ -9,9 +9,7 @@ export default function Home() {
         <>
             <header>
                 <Container className='pt-10 pb-6 flex justify-end items-center'>
-                    <div className='sr-only'>
-                        <h1>Maulana Ahmad Aji Triadi</h1>
-                    </div>
+                    <h1 className='invisible'>Maulana Ahmad Aji Triadi</h1>
                     <ThemeToggle />
                 </Container>
             </header>

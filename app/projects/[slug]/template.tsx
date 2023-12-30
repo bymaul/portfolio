@@ -18,7 +18,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                     : 'opacity-0 translate-y-12',
                 'transition-all duration-500'
             )}>
-            <div className='max-w-prose mx-auto my-10 px-4'>{children}</div>
+            <div className='max-w-screen-xl mx-auto px-4 py-8'>{children}</div>
         </main>
     );
 }

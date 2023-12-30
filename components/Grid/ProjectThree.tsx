@@ -19,12 +19,10 @@ export default function ProjectThree() {
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
-                    className='cancel-drag w-10 h-10 justify-end group-hover:w-full transition-all ease-in-out'
-                    href='https://github.com/bymaul/laravel-ecommerce'
-                    target='_blank'
-                    rel='nofollow noopener noreferrer'>
+                    className='cancel-drag size-10 justify-end group-hover:w-full transition-all ease-in-out'
+                    href='/projects/laravel-ecommerce'>
                     <span className='group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in whitespace-nowrap'>
-                        laravel-ecom
+                        E-Commerce
                     </span>
                     <div>
                         <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />

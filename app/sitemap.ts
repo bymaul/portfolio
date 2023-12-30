@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { allPosts } from 'contentlayer/generated';
+import { allPosts, allProjects } from 'contentlayer/generated';
 
 export default async function sitemap() {
     const routes = [''].map((route) => ({
@@ -12,5 +12,10 @@ export default async function sitemap() {
         lastModified: post.date,
     }));
 
-    return [...routes, ...posts];
+    const projects = allProjects.map((projects) => ({
+        url: `${siteConfig.url}${projects.url}`,
+        lastModified: new Date(),
+    }));
+
+    return [...routes, ...posts, ...projects];
 }
