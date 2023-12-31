@@ -16,7 +16,7 @@ export default function Description() {
                         priority
                     />
                 </div>
-                <p>
+                <p className='leading-relaxed'>
                     I&apos;m{' '}
                     <span className='text-xl font-semibold'>Maulana</span>, a
                     web developer from Yogyakarta, Indonesia. I&apos;m

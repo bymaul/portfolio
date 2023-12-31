@@ -1,7 +1,8 @@
 import { allProjects } from '@/.contentlayer/generated';
 import Button from '@/components/Button';
+import Card from '@/components/Card';
 import GridLayout from '@/components/Layout/GridLayout';
-import { lgLayout } from '@/config/layouts';
+import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
@@ -94,9 +95,11 @@ const ProjectPage = ({ params }: ProjectProps) => {
             <h1 className='text-3xl font-bold leading-relaxed'>
                 {project.title}
             </h1>
-            <div className='grid grid-cols-1 gap-3 sm:grid-cols-2'>
+            <div className='grid grid-cols-1 gap-10 sm:grid-cols-2'>
                 <div>
-                    <p>{project.description}</p>
+                    <p className='text-xl font-medium leading-relaxed'>
+                        {project.description}
+                    </p>
                     <div className='flex items-center flex-wrap gap-3 pt-4'>
                         {project.links &&
                             project.links?.map(

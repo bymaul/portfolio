@@ -71,7 +71,7 @@ export default function GridLayout({
     };
 
     return (
-        <section>
+        <section className='max-w-[1200px] max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px] mx-auto'>
             <ResponsiveGridLayout
                 style={{
                     opacity: isMounted ? 100 : 0,
