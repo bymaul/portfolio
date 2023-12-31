@@ -1,8 +1,5 @@
 import { allProjects } from '@/.contentlayer/generated';
 import Button from '@/components/Button';
-import Card from '@/components/Card';
-import GridLayout from '@/components/Layout/GridLayout';
-import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
