@@ -42,6 +42,7 @@ export const Project = defineDocumentType(() => ({
         title: { type: 'string', required: true },
         description: { type: 'string', required: true },
         links: { type: 'json', required: true },
+        images: { type: 'json' },
         date: { type: 'date', required: true },
     },
     computedFields: {

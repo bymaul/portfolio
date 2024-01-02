@@ -8,12 +8,12 @@ export default function Home() {
     return (
         <>
             <header>
-                <Container className='pt-10 pb-6 flex justify-end items-center'>
+                <Container className='py-0 pt-8 flex justify-between items-center'>
                     <h1 className='invisible'>Maulana Ahmad Aji Triadi</h1>
                     <ThemeToggle />
                 </Container>
             </header>
-            <main className='max-w-[1200px] mx-auto max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px] pb-8'>
+            <main>
                 <GridLayout
                     lgLayout={lgLayout}
                     mdLayout={mdLayout}

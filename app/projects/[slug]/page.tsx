@@ -1,12 +1,18 @@
 import { allProjects } from '@/.contentlayer/generated';
 import Button from '@/components/Button';
+import Card from '@/components/Card';
+import Container from '@/components/Container';
+import GridLayout from '@/components/Layout/GridLayout';
+import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Key } from 'react';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
 interface ProjectProps {
@@ -76,30 +82,30 @@ const ProjectPage = ({ params }: ProjectProps) => {
 
     return (
         <>
-            <header className='flex justify-center items-center pb-10'>
-                <Button
-                    as={Link}
-                    className='inline-flex hover:scale-125 hover:mb-6'
-                    href='/'>
-                    <FaX />
-                    <div className='sr-only'>Close</div>
-                </Button>
-            </header>
-            <script
-                type='application/ld+json'
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <h1 className='text-3xl font-bold leading-relaxed'>
-                {project.title}
-            </h1>
-            <div className='grid grid-cols-1 gap-10 sm:grid-cols-2'>
-                <div>
-                    <p className='text-xl font-medium leading-relaxed'>
-                        {project.description}
-                    </p>
-                    <div className='flex items-center flex-wrap gap-3 pt-4'>
-                        {project.links &&
-                            project.links?.map(
+            <Container className='py-0 pt-8'>
+                <header className='flex justify-center items-center pb-10'>
+                    <Button
+                        as={Link}
+                        className='inline-flex hover:scale-125 hover:mb-6'
+                        href='/'>
+                        <FaX />
+                        <div className='sr-only'>Close</div>
+                    </Button>
+                </header>
+                <script
+                    type='application/ld+json'
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+                <h1 className='text-3xl font-bold leading-relaxed'>
+                    {project.title}
+                </h1>
+                <div className='grid grid-cols-2 gap-10 max-[799px]:grid-cols-1'>
+                    <div>
+                        <p className='text-xl font-medium leading-relaxed'>
+                            {project.description}
+                        </p>
+                        <div className='flex items-center flex-wrap gap-3 pt-4'>
+                            {project.links.map(
                                 (link: { url: string; name: string }) => (
                                     <Button
                                         key={link.url}
@@ -113,12 +119,33 @@ const ProjectPage = ({ params }: ProjectProps) => {
                                     </Button>
                                 )
                             )}
+                        </div>
                     </div>
+                    <article className='prose dark:prose-invert'>
+                        <MDXContent components={mdxComponents} />
+                    </article>
                 </div>
-                <article className='prose dark:prose-invert'>
-                    <MDXContent components={mdxComponents} />
-                </article>
-            </div>
+            </Container>
+            {project.images && (
+                <GridLayout
+                    lgLayout={lgLayout}
+                    mdLayout={lgLayout}
+                    smLayout={smLayout}>
+                    {project.images?.map((image: { i: Key; url: string }) => (
+                        <div key={image.i}>
+                            <Card className='relative'>
+                                <Image
+                                    src={image.url}
+                                    alt={project.title}
+                                    fill
+                                    objectFit='cover'
+                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                />
+                            </Card>
+                        </div>
+                    ))}
+                </GridLayout>
+            )}
         </>
     );
 };
