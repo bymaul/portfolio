@@ -5,7 +5,7 @@ export function GET() {
             description: 'I am a web developer based in Yogyakarta, Indonesia.',
             role: 'Web Developer',
             stacks: {
-                frontend: ['React'],
+                frontend: ['React', 'Next.js'],
                 backend: ['Laravel', 'Go', 'Node'],
                 databases: ['MySQL', 'PostgreSQL', 'MongoDB'],
             },

@@ -26,12 +26,8 @@ export default function Article() {
                         Read More
                         <span className='sr-only'>{post.title}</span>
                     </Button>
-                    <small>
-                        <time
-                            dateTime={post.date}
-                            className='text-gray-600 dark:text-gray-400'>
-                            {format(parseISO(post.date), 'LLL d, yyyy')}
-                        </time>
+                    <small className='text-gray-600 dark:text-gray-400'>
+                        {format(parseISO(post.date), 'LLL d, yyyy')}
                     </small>
                 </div>
             </div>
