@@ -8,7 +8,6 @@ import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -99,7 +98,7 @@ const ProjectPage = ({ params }: ProjectProps) => {
                 <h1 className='text-3xl font-bold leading-relaxed'>
                     {project.title}
                 </h1>
-                <div className='grid grid-cols-2 gap-10 max-[799px]:grid-cols-1'>
+                <div className='grid grid-cols-2 gap-10 max-[799px]:grid-cols-1 pb-8'>
                     <div>
                         <p className='text-xl font-medium leading-relaxed'>
                             {project.description}
@@ -130,7 +129,8 @@ const ProjectPage = ({ params }: ProjectProps) => {
                 <GridLayout
                     lgLayout={lgLayout}
                     mdLayout={lgLayout}
-                    smLayout={smLayout}>
+                    smLayout={smLayout}
+                    className='pb-8'>
                     {project.images?.map((image: { i: Key; url: string }) => (
                         <div key={image.i}>
                             <Card className='relative'>

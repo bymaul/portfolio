@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { Layout, Responsive, WidthProvider } from 'react-grid-layout';
 
 import '@/styles/react-grid-layout.css';
+import { cn } from '@/lib/utils';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -11,6 +12,7 @@ interface GridLayoutProps {
     lgLayout: Layout[];
     mdLayout: Layout[];
     smLayout: Layout[];
+    className?: string;
     children: React.ReactNode;
 }
 
@@ -18,6 +20,7 @@ export default function GridLayout({
     lgLayout,
     mdLayout,
     smLayout,
+    className,
     children,
 }: GridLayoutProps) {
     const [breakpoint, setBreakpoint] = useState('');
@@ -71,7 +74,11 @@ export default function GridLayout({
     };
 
     return (
-        <section className='max-w-[1200px] max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px] mx-auto py-6'>
+        <section
+            className={cn(
+                'max-w-[1200px] max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px] mx-auto',
+                className
+            )}>
             <ResponsiveGridLayout
                 style={{
                     opacity: isMounted ? 100 : 0,

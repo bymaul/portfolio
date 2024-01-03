@@ -13,7 +13,7 @@ export default function FooterLayout() {
 
     return (
         <footer className={isMounted ? 'opacity-100' : 'opacity-0'}>
-            <Container className='pt-0 pb-10'>
+            <Container className='py-8'>
                 <p className='text-sm text-center'>
                     Crafted by{' '}
                     <Link
