@@ -49,10 +49,10 @@ const DynamicMap = () => {
     };
 
     return (
-        <div className='relative w-full h-full'>
+        <div className='relative size-full'>
             <MapContainer
                 ref={mapRef}
-                className='w-full h-full'
+                className='size-full'
                 center={center}
                 zoom={maxZoom}
                 scrollWheelZoom={false}
