@@ -25,7 +25,7 @@ export const generateMetadata = ({ params }: ProjectProps) => {
     const project = allProjects.find((project) => project.slug === params.slug);
     if (!project) return;
 
-    const { title, description, date, url } = project;
+    const { title, description, url } = project;
 
     return {
         title: `${title} — Projects`,
@@ -34,7 +34,6 @@ export const generateMetadata = ({ params }: ProjectProps) => {
             title,
             description,
             type: 'article',
-            publishedTime: date,
             url: `${siteConfig.url}${url}`,
             authors: 'Maulana',
             images: siteConfig.image,
@@ -69,7 +68,6 @@ const ProjectPage = ({ params }: ProjectProps) => {
         '@type': 'Article',
         headline: project.title,
         description: project.description,
-        datePublished: project.date,
         author: [
             {
                 '@type': 'Person',

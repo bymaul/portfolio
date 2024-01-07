@@ -1,12 +1,12 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const [isMounted, setIsMounted] = useState(false);
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         setIsMounted(true);
     }, []);
 
