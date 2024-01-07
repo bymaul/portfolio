@@ -9,7 +9,7 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
-const center: LatLngTuple = [-7.789676, 110.363197];
+const center: LatLngTuple = [-7.7962967, 110.3667211];
 const maxZoom: number = 11;
 const minZoom: number = 5;
 
