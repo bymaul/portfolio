@@ -71,7 +71,7 @@ const DynamicMap = () => {
                     maxZoom={maxZoom}
                     minZoom={minZoom}
                     accessToken={
-                        process.env.NEXT_PUBLIC_JAWG_ACCESS_TOKEN || ''
+                        process.env.NEXT_PUBLIC_JAWG_ACCESS_TOKEN ?? ''
                     }
                 />
             </MapContainer>

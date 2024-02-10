@@ -90,7 +90,7 @@ const PostPage = ({ params }: PostProps) => {
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <div className='text-center'>
+            <section className='text-center'>
                 <h1 className='text-3xl font-bold leading-relaxed'>
                     {post.title}
                 </h1>
@@ -100,7 +100,7 @@ const PostPage = ({ params }: PostProps) => {
                     </time>{' '}
                     • <span>{post.readingTime.text}</span>
                 </small>
-            </div>
+            </section>
             <article className='pt-8 prose dark:prose-invert'>
                 <MDXContent components={mdxComponents} />
             </article>

@@ -3,7 +3,11 @@
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function Template({
+    children,
+}: {
+    readonly children: React.ReactNode;
+}) {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
@@ -16,9 +20,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 isMounted
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-12',
-                'transition-all duration-500'
+                'transition-all duration-500',
+                'max-w-prose mx-auto py-10 px-4'
             )}>
-            <div className='max-w-prose mx-auto my-10 px-4'>{children}</div>
+            {children}
         </main>
     );
 }
