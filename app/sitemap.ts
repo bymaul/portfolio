@@ -1,5 +1,6 @@
 import { siteConfig } from '@/config/site';
-import { allPosts, allProjects } from 'contentlayer/generated';
+import { getAllPosts } from '@/lib/posts';
+import { getAllProjects } from '@/lib/projects';
 
 export default async function sitemap() {
     const routes = [''].map((route) => ({
@@ -7,13 +8,13 @@ export default async function sitemap() {
         lastModified: new Date(),
     }));
 
-    const posts = allPosts.map((post) => ({
-        url: `${siteConfig.url}${post.url}`,
-        lastModified: post.date,
+    const posts = getAllPosts().map((post) => ({
+        url: `${siteConfig.url}/posts/${post.slug}`,
+        lastModified: post.metadata.date,
     }));
 
-    const projects = allProjects.map((projects) => ({
-        url: `${siteConfig.url}${projects.url}`,
+    const projects = getAllProjects().map((projects) => ({
+        url: `${siteConfig.url}/projects/${projects.slug}`,
         lastModified: new Date(),
     }));
 
