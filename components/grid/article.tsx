@@ -8,8 +8,6 @@ import Card from '../card';
 export default function Article() {
     const post = getAllPosts()[0];
 
-    console.log(post);
-
     return (
         <Card>
             <div className='h-full flex flex-col gap-6 justify-center p-6 md:py-6 md:px-10'>

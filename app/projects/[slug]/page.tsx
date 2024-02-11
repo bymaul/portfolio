@@ -69,8 +69,6 @@ const ProjectPage = ({ params }: ProjectProps) => {
         ],
     };
 
-    console.log(getAllProjects());
-
     return (
         <>
             <Container className='py-8'>
