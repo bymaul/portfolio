@@ -22,7 +22,7 @@ export default function ProjectOne() {
                     as={Link}
                     className='cancel-drag size-10 justify-end group-hover:w-full transition-all ease-in-out'
                     href='/projects/next-blog-starter'>
-                    <span className='group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in whitespace-nowrap'>
+                    <span className='group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in whitespace-nowrap hidden md:inline'>
                         Blog Starter
                     </span>
                     <div>
