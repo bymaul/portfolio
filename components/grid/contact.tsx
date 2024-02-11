@@ -1,8 +1,8 @@
 import socials from '@/config/socials';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Button from '../Button';
-import Card from '../Card';
+import Button from '../button';
+import Card from '../card';
 
 export default function Contact() {
     return (
@@ -27,9 +27,9 @@ export default function Contact() {
                         Contact Me
                     </Button>
                     <div className='inline-flex gap-6'>
-                        {socials.map((social, i) => (
+                        {socials.map((social) => (
                             <Link
-                                key={i}
+                                key={social.name}
                                 href={social.url}
                                 className='cancel-drag'
                                 target='_blank'

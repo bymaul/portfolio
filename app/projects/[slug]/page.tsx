@@ -1,17 +1,14 @@
-import { allProjects } from '@/.contentlayer/generated';
-import Button from '@/components/Button';
-import Card from '@/components/Card';
-import Container from '@/components/Container';
-import GridLayout from '@/components/Layout/GridLayout';
+import Button from '@/components/button';
+import Card from '@/components/card';
+import Container from '@/components/container';
+import GridLayout from '@/components/layout/grid-layout';
+import { CustomMDX } from '@/components/mdx';
 import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
-import type { MDXComponents } from 'mdx/types';
-import { useMDXComponent } from 'next-contentlayer/hooks';
+import { getAllProjects } from '@/lib/projects';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Key } from 'react';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
 interface ProjectProps {
@@ -19,13 +16,15 @@ interface ProjectProps {
 }
 
 export const generateStaticParams = async () =>
-    allProjects.map((project) => ({ slug: project.slug }));
+    getAllProjects().map((project) => ({ slug: project.slug }));
 
 export const generateMetadata = ({ params }: ProjectProps) => {
-    const project = allProjects.find((project) => project.slug === params.slug);
+    const project = getAllProjects().find(
+        (project) => project.slug === params.slug
+    );
     if (!project) return;
 
-    const { title, description, url } = project;
+    const { title, description } = project.metadata;
 
     return {
         title: `${title} — Projects`,
@@ -34,7 +33,7 @@ export const generateMetadata = ({ params }: ProjectProps) => {
             title,
             description,
             type: 'article',
-            url: `${siteConfig.url}${url}`,
+            url: `${siteConfig.url}/projects/${project.slug}`,
             authors: 'Maulana',
             images: siteConfig.image,
         },
@@ -44,30 +43,23 @@ export const generateMetadata = ({ params }: ProjectProps) => {
             images: siteConfig.image,
         },
         alternates: {
-            canonical: `${siteConfig.url}${url}`,
+            canonical: `${siteConfig.url}/projects/${project.slug}`,
         },
     };
 };
 
-const mdxComponents: MDXComponents = {
-    a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-    Image: ({ className, alt, ...props }) => (
-        <Image className={cn('rounded-lg', className)} alt={alt} {...props} />
-    ),
-};
-
 const ProjectPage = ({ params }: ProjectProps) => {
-    const project = allProjects.find((project) => project.slug === params.slug);
+    const project = getAllProjects().find(
+        (project) => project.slug === params.slug
+    );
 
     if (!project) notFound();
-
-    const MDXContent = useMDXComponent(project.body.code);
 
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        headline: project.title,
-        description: project.description,
+        headline: project.metadata.title,
+        description: project.metadata.description,
         author: [
             {
                 '@type': 'Person',
@@ -79,7 +71,7 @@ const ProjectPage = ({ params }: ProjectProps) => {
 
     return (
         <>
-            <Container className='py-0 pt-8'>
+            <Container className='py-8'>
                 <header className='flex justify-center items-center pb-10'>
                     <Button
                         as={Link}
@@ -94,15 +86,15 @@ const ProjectPage = ({ params }: ProjectProps) => {
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
                 <h1 className='text-3xl font-bold leading-relaxed'>
-                    {project.title}
+                    {project.metadata.title}
                 </h1>
                 <div className='grid grid-cols-2 gap-10 max-[799px]:grid-cols-1 pb-8'>
                     <div>
                         <p className='text-xl font-medium leading-relaxed'>
-                            {project.description}
+                            {project.metadata.description}
                         </p>
                         <div className='flex items-center flex-wrap gap-3 pt-4'>
-                            {project.links.map(
+                            {JSON.parse(project.metadata.links).map(
                                 (link: { url: string; name: string }) => (
                                     <Button
                                         key={link.url}
@@ -119,29 +111,31 @@ const ProjectPage = ({ params }: ProjectProps) => {
                         </div>
                     </div>
                     <article className='prose dark:prose-invert'>
-                        <MDXContent components={mdxComponents} />
+                        <CustomMDX source={project.content} />
                     </article>
                 </div>
             </Container>
-            {project.images && (
+            {project.metadata.images && (
                 <GridLayout
                     lgLayout={lgLayout}
                     mdLayout={lgLayout}
                     smLayout={smLayout}
-                    className='pb-8'>
-                    {project.images?.map((image: { i: Key; url: string }) => (
-                        <div key={image.i}>
-                            <Card className='relative'>
-                                <Image
-                                    src={image.url}
-                                    alt={project.title}
-                                    fill
-                                    objectFit='cover'
-                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                                />
-                            </Card>
-                        </div>
-                    ))}
+                    className='-mt-8 pb-16'>
+                    {JSON.parse(project.metadata.images).map(
+                        (image: { i: string; url: string }) => (
+                            <div key={image.i}>
+                                <Card className='relative'>
+                                    <Image
+                                        src={image.url}
+                                        alt={project.metadata.title}
+                                        fill
+                                        objectFit='cover'
+                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    />
+                                </Card>
+                            </div>
+                        )
+                    )}
                 </GridLayout>
             )}
         </>

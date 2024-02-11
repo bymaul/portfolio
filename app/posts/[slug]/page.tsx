@@ -1,27 +1,21 @@
-import Button from '@/components/Button';
+import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
-import { cn } from '@/lib/utils';
-import { allPosts } from 'contentlayer/generated';
+import { getAllPosts } from '@/lib/posts';
 import { format, parseISO } from 'date-fns';
-import type { MDXComponents } from 'mdx/types';
-import { useMDXComponent } from 'next-contentlayer/hooks';
-import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { FaX } from 'react-icons/fa6';
 
 interface PostProps {
     params: { slug: string };
 }
 
 export const generateStaticParams = async () =>
-    allPosts.map((post) => ({ slug: post.slug }));
+    getAllPosts().map((post) => ({ slug: post.slug }));
 
 export const generateMetadata = ({ params }: PostProps) => {
-    const post = allPosts.find((post) => post.slug === params.slug);
+    const post = getAllPosts().find((post) => post.slug === params.slug);
     if (!post) return;
 
-    const { title, description, date, url } = post;
+    const { title, description, date } = post.metadata;
 
     return {
         title,
@@ -31,7 +25,7 @@ export const generateMetadata = ({ params }: PostProps) => {
             description,
             type: 'article',
             publishedTime: date,
-            url: `${siteConfig.url}${url}`,
+            url: `${siteConfig.url}/posts/${post.slug}`,
             authors: 'Maulana',
             images: siteConfig.image,
         },
@@ -41,31 +35,22 @@ export const generateMetadata = ({ params }: PostProps) => {
             images: siteConfig.image,
         },
         alternates: {
-            canonical: `${siteConfig.url}${url}`,
+            canonical: `${siteConfig.url}/posts/${post.slug}`,
         },
     };
 };
 
-const mdxComponents: MDXComponents = {
-    a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
-    Image: ({ className, alt, ...props }) => (
-        <Image className={cn('rounded-lg', className)} alt={alt} {...props} />
-    ),
-};
-
 const PostPage = ({ params }: PostProps) => {
-    const post = allPosts.find((post) => post.slug === params.slug);
+    const post = getAllPosts().find((post) => post.slug === params.slug);
 
     if (!post) notFound();
-
-    const MDXContent = useMDXComponent(post.body.code);
 
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
-        headline: post.title,
-        description: post.description,
-        datePublished: post.date,
+        headline: post.metadata.title,
+        description: post.metadata.description,
+        datePublished: post.metadata.date,
         author: [
             {
                 '@type': 'Person',
@@ -77,32 +62,22 @@ const PostPage = ({ params }: PostProps) => {
 
     return (
         <>
-            <header className='flex justify-center items-center pb-10'>
-                <Button
-                    as={Link}
-                    className='inline-flex hover:scale-125 hover:mb-6'
-                    href='/'>
-                    <FaX />
-                    <div className='sr-only'>Close</div>
-                </Button>
-            </header>
             <script
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <section className='text-center'>
                 <h1 className='text-3xl font-bold leading-relaxed'>
-                    {post.title}
+                    {post.metadata.title}
                 </h1>
                 <small className='text-gray-600 dark:text-gray-400 mt-2'>
-                    <time dateTime={post.date}>
-                        {format(parseISO(post.date), 'LLLL d, yyyy')}
-                    </time>{' '}
-                    • <span>{post.readingTime.text}</span>
+                    <time dateTime={post.metadata.date}>
+                        {format(parseISO(post.metadata.date), 'LLLL d, yyyy')}
+                    </time>
                 </small>
             </section>
-            <article className='pt-8 prose dark:prose-invert'>
-                <MDXContent components={mdxComponents} />
+            <article className='py-8 prose dark:prose-invert'>
+                <CustomMDX source={post.content} />
             </article>
         </>
     );

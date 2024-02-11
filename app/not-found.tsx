@@ -1,6 +1,6 @@
 'use client';
 
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import Link from 'next/link';
 import { useLayoutEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';

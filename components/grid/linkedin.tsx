@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FaArrowRight, FaLinkedin } from 'react-icons/fa6';
-import Button from '../Button';
-import Card from '../Card';
+import Button from '../button';
+import Card from '../card';
 
 export default function LinkedIn() {
     return (

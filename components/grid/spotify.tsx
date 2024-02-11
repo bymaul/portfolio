@@ -4,7 +4,7 @@ import { Spotify } from '@/types/spotify';
 import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
-import Card from '../Card';
+import Card from '../card';
 
 function NowPlaying() {
     const { data } = useSWR<Spotify>('/api/now-playing', (url: string) =>
@@ -14,17 +14,23 @@ function NowPlaying() {
     if (!data)
         return (
             <div>
-                <div className='animate-pulse flex flex-col gap-2'>
+                <div className='flex flex-col gap-2'>
                     <div className='flex items-center gap-2'>
                         <div className='inline-flex gap-1 justify-center items-center'>
                             <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
                             <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
                             <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
                         </div>
-                        <div className='h-4 w-full rounded-md bg-gray-300'></div>
+                        <div className='animate-pulse h-4 rounded-md bg-gray-300'>
+                            <span className='invisible'>Now Playing</span>
+                        </div>
                     </div>
-                    <div className='h-6 w-full rounded-md bg-gray-300'></div>
-                    <div className='h-4 w-full rounded-md bg-gray-300'></div>
+                    <div className='animate-pulse h-6 rounded-md bg-gray-300'>
+                        <span className='invisible'>Song Title</span>
+                    </div>
+                    <div className='animate-pulse h-4 rounded-md bg-gray-300'>
+                        <span className='invisible'>Artist</span>
+                    </div>
                 </div>
             </div>
         );
