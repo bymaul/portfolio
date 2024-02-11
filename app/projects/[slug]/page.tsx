@@ -1,8 +1,8 @@
 import { allProjects } from '@/.contentlayer/generated';
-import Button from '@/components/Button';
-import Card from '@/components/Card';
-import Container from '@/components/Container';
-import GridLayout from '@/components/Layout/GridLayout';
+import Button from '@/components/button';
+import Card from '@/components/card';
+import Container from '@/components/container';
+import GridLayout from '@/components/layout/grid-layout';
 import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';

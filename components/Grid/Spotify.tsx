@@ -4,7 +4,7 @@ import { Spotify } from '@/types/spotify';
 import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
-import Card from '../Card';
+import Card from '../card';
 
 function NowPlaying() {
     const { data } = useSWR<Spotify>('/api/now-playing', (url: string) =>

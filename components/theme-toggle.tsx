@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa6';
-import Button from './Button';
+import Button from './button';
 
 export default function ThemeToggle() {
     const [isMounted, setIsMounted] = useState(false);

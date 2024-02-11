@@ -1,7 +1,7 @@
-import Container from '@/components/Container';
-import FooterLayout from '@/components/Layout/FooterLayout';
-import GridLayout from '@/components/Layout/GridLayout';
-import ThemeToggle from '@/components/ThemeToggle';
+import Container from '@/components/container';
+import FooterLayout from '@/components/layout/footer-layout';
+import GridLayout from '@/components/layout/grid-layout';
+import ThemeToggle from '@/components/theme-toggle';
 import { gridItems, lgLayout, mdLayout, smLayout } from '@/config/layouts';
 
 export default function Home() {

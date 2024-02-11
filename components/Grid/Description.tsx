@@ -1,6 +1,6 @@
 import profile from '@/public/images/profile.jpg';
 import Image from 'next/image';
-import Card from '../Card';
+import Card from '../card';
 
 export default function Description() {
     return (

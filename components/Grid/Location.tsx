@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import Card from '../Card';
+import Card from '../card';
 
 const DynamicMap = dynamic(
-    () => import('@/components/Grid/Partial/DynamicMap'),
+    () => import('@/components/grid/partial/dynamic-map'),
     {
         ssr: false,
     }

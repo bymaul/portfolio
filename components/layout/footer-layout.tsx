@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useLayoutEffect, useState } from 'react';
-import Container from '../Container';
+import Container from '../container';
 
 export default function FooterLayout() {
     const [isMounted, setIsMounted] = useState(false);

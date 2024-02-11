@@ -2,8 +2,8 @@ import projectImage from '@/public/projects/laravel-ecommerce.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Button from '../Button';
-import Card from '../Card';
+import Button from '../button';
+import Card from '../card';
 
 export default function ProjectThree() {
     return (

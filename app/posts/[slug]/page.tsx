@@ -1,4 +1,4 @@
-import Button from '@/components/Button';
+import Button from '@/components/button';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { allPosts } from 'contentlayer/generated';

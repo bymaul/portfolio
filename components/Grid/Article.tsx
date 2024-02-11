@@ -2,8 +2,8 @@ import { allPosts } from '@/.contentlayer/generated';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Button from '../Button';
-import Card from '../Card';
+import Button from '../button';
+import Card from '../card';
 
 export default function Article() {
     const post = allPosts[0];

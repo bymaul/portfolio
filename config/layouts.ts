@@ -1,13 +1,13 @@
-import Article from '@/components/Grid/Article';
-import Contact from '@/components/Grid/Contact';
-import Description from '@/components/Grid/Description';
-import Github from '@/components/Grid/Github';
-import LinkedIn from '@/components/Grid/LinkedIn';
-import Location from '@/components/Grid/Location';
-import ProjectOne from '@/components/Grid/ProjectOne';
-import ProjectThree from '@/components/Grid/ProjectThree';
-import ProjectTwo from '@/components/Grid/ProjectTwo';
-import Spotify from '@/components/Grid/Spotify';
+import Article from '@/components/grid/article';
+import Contact from '@/components/grid/contact';
+import Description from '@/components/grid/description';
+import Github from '@/components/grid/github';
+import LinkedIn from '@/components/grid/linkedin';
+import Location from '@/components/grid/location';
+import ProjectOne from '@/components/grid/project-one';
+import ProjectThree from '@/components/grid/project-three';
+import ProjectTwo from '@/components/grid/project-two';
+import Spotify from '@/components/grid/spotify';
 
 interface GridItems {
     i: string;
