@@ -1,14 +1,14 @@
 import dynamic from 'next/dynamic';
-import Card from '../card';
+import Card from '../../card';
 
 const DynamicMap = dynamic(
-    () => import('@/components/grid/partial/dynamic-map'),
+    () => import('@/components/grid/location/dynamic-map'),
     {
         ssr: false,
     }
 );
 
-export default function Map() {
+export default function Location() {
     return (
         <Card className='relative'>
             <DynamicMap />

@@ -27,9 +27,9 @@ export default function Contact() {
                         Contact Me
                     </Button>
                     <div className='inline-flex gap-6'>
-                        {socials.map((social, i) => (
+                        {socials.map((social) => (
                             <Link
-                                key={i}
+                                key={social.name}
                                 href={social.url}
                                 className='cancel-drag'
                                 target='_blank'
