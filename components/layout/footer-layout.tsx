@@ -14,7 +14,7 @@ export default function FooterLayout() {
     return (
         <footer className={isMounted ? 'opacity-100' : 'opacity-0'}>
             <Container className='pb-8'>
-                <p className='text-sm text-center'>
+                <p className='text-center text-sm'>
                     Crafted by{' '}
                     <Link
                         href={'https://github.com/bymaul/'}

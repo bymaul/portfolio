@@ -7,7 +7,7 @@ import Card from '../card';
 
 export default function ProjectThree() {
     return (
-        <Card className='relative bg-blue-100 dark:bg-blue-100 group'>
+        <Card className='group relative bg-blue-100 dark:bg-blue-100'>
             <Image
                 src={projectImage}
                 alt='laravel-pos'
@@ -19,13 +19,13 @@ export default function ProjectThree() {
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
-                    className='cancel-drag size-10 justify-end group-hover:w-full transition-all ease-in-out'
+                    className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
                     href='/projects/laravel-pos'>
-                    <span className='group-hover:translate-x-0 opacity-0 group-hover:opacity-100 transition-all duration-300 ease-in whitespace-nowrap hidden md:inline'>
+                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         Point of Sales
                     </span>
                     <div>
-                        <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />
+                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     </div>
                 </Button>
             </div>

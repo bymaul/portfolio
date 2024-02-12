@@ -7,8 +7,8 @@ import Card from '../card';
 export default function Contact() {
     return (
         <Card>
-            <div className='h-full flex flex-col gap-6 justify-center p-6 md:py-6 md:px-10'>
-                <h2 className='text-2xl font-semibold text-center sm:text-start'>
+            <div className='flex h-full flex-col justify-center gap-6 p-6 md:px-10 md:py-6'>
+                <h2 className='text-center text-2xl font-semibold sm:text-start'>
                     Have an interesting project in mind? 👋
                 </h2>
                 <p className='hidden sm:block'>
@@ -16,14 +16,14 @@ export default function Contact() {
                     you need my help with something or just fancy saying hey,
                     then get in touch.
                 </p>
-                <div className='inline-flex flex-col min-[1199px]:flex-row items-center gap-6'>
+                <div className='inline-flex flex-col items-center gap-6 min-[1199px]:flex-row'>
                     <Button
                         as={Link}
-                        className='cancel-drag py-2 px-4'
+                        className='cancel-drag px-4 py-2'
                         href='mailto:maulanaajk@gmail.com'
                         target='_blank'
                         rel='nofollow noopener noreferrer'>
-                        <FaArrowRight className='group-hover:rotate-0 -rotate-45 transition-transform duration-300' />{' '}
+                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />{' '}
                         Contact Me
                     </Button>
                     <div className='inline-flex gap-6'>

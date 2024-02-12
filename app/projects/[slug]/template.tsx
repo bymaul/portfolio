@@ -18,8 +18,8 @@ export default function Template({
         <main
             className={cn(
                 isMounted
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-12',
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-12 opacity-0',
                 'transition-all duration-500'
             )}>
             {children}

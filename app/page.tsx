@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <header>
-                <Container className='pt-9 flex justify-between items-center'>
+                <Container className='flex items-center justify-between pt-9'>
                     <h1 className='invisible'>Maulana Ahmad Aji Triadi</h1>
                     <ThemeToggle />
                 </Container>

@@ -58,7 +58,7 @@ export default function RootLayout({
             <body
                 className={cn(
                     poppins.className,
-                    'bg-gray-100 dark:bg-dark-950 antialiased'
+                    'bg-gray-100 antialiased dark:bg-dark-950'
                 )}>
                 <ThemeProvider attribute='class'>{children}</ThemeProvider>
             </body>

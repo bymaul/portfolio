@@ -24,8 +24,8 @@ export default function ThemeToggle() {
         <Button
             className={
                 !isMounted
-                    ? 'opacity-0 translate-y-12'
-                    : 'opacity-100 translate-y-0'
+                    ? 'translate-y-12 opacity-0'
+                    : 'translate-y-0 opacity-100'
             }
             onClick={handleClick}
             aria-label='Theme Toggle'>

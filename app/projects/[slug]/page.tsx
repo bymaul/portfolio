@@ -72,10 +72,10 @@ const ProjectPage = ({ params }: ProjectProps) => {
     return (
         <>
             <Container className='py-8'>
-                <header className='flex justify-center items-center pb-10'>
+                <header className='flex items-center justify-center pb-10'>
                     <Button
                         as={Link}
-                        className='inline-flex hover:scale-125 hover:mb-6'
+                        className='inline-flex hover:mb-6 hover:scale-125'
                         href='/'>
                         <FaX />
                         <div className='sr-only'>Close</div>
@@ -88,12 +88,12 @@ const ProjectPage = ({ params }: ProjectProps) => {
                 <h1 className='text-3xl font-bold leading-relaxed'>
                     {project.metadata.title}
                 </h1>
-                <div className='grid grid-cols-2 gap-10 max-[799px]:grid-cols-1 pb-8'>
+                <div className='grid grid-cols-2 gap-10 pb-8 max-[799px]:grid-cols-1'>
                     <div>
                         <p className='text-xl font-medium leading-relaxed'>
                             {project.metadata.description}
                         </p>
-                        <div className='flex items-center flex-wrap gap-3 pt-4'>
+                        <div className='flex flex-wrap items-center gap-3 pt-4'>
                             {JSON.parse(project.metadata.links).map(
                                 (link: { url: string; name: string }) => (
                                     <Button
@@ -102,9 +102,9 @@ const ProjectPage = ({ params }: ProjectProps) => {
                                         href={link.url}
                                         target='_blank'
                                         rel='noreferrer nofollow noopener'
-                                        className='inline-flex py-3 px-5 text-sm'>
+                                        className='inline-flex px-5 py-3 text-sm'>
                                         {link.name}
-                                        <FaArrowRight className='-rotate-45 group-hover:rotate-0 transition-transform duration-300' />
+                                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                                     </Button>
                                 )
                             )}

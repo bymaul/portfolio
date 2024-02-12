@@ -5,8 +5,8 @@ import Card from '../card';
 export default function Description() {
     return (
         <Card>
-            <div className='h-full p-6 md:py-6 md:px-10 flex flex-col gap-4 justify-center'>
-                <div className='relative size-14 sm:size-16 overflow-hidden rounded-full'>
+            <div className='flex h-full flex-col justify-center gap-4 p-6 md:px-10 md:py-6'>
+                <div className='relative size-14 overflow-hidden rounded-full sm:size-16'>
                     <Image
                         src={profile}
                         alt='Maulana Ahmad Aji Triadi'

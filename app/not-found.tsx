@@ -21,16 +21,16 @@ export default function NotFound() {
                 transform: isMounted ? 'translateY(0)' : 'translateY(20px)',
                 transition: 'opacity 500ms, transform 500ms',
             }}
-            className='flex flex-col gap-4 items-center justify-center px-4 min-h-screen'>
-            <h1 className='text-9xl font-bold text-center'>404</h1>
-            <h2 className='text-3xl font-semibold text-center'>
+            className='flex min-h-screen flex-col items-center justify-center gap-4 px-4'>
+            <h1 className='text-center text-9xl font-bold'>404</h1>
+            <h2 className='text-center text-3xl font-semibold'>
                 Page Not Found
             </h2>
             <p className='text-center '>
                 Sorry, we couldn&apos;t find what you were looking for.
             </p>
-            <Button as={Link} className='py-2 px-4' href='/'>
-                <FaArrowRight className='group-hover:-rotate-180 -rotate-45 transition-transform duration-300' />
+            <Button as={Link} className='px-4 py-2' href='/'>
+                <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:-rotate-180' />
                 Back to Home
             </Button>
         </div>
