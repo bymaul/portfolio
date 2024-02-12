@@ -21,15 +21,15 @@ export default function Template({
         <main
             className={cn(
                 isMounted
-                    ? 'opacity-100 translate-y-0'
-                    : 'opacity-0 translate-y-12',
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-12 opacity-0',
                 'transition-all duration-500',
-                'max-w-prose mx-auto py-10 px-4'
+                'mx-auto max-w-prose px-4 py-10'
             )}>
-            <header className='flex justify-center items-center pb-10'>
+            <header className='flex items-center justify-center pb-10'>
                 <Button
                     as={Link}
-                    className='inline-flex hover:scale-125 hover:mb-6'
+                    className='inline-flex hover:mb-6 hover:scale-125'
                     href='/'>
                     <FaX />
                     <div className='sr-only'>Close</div>

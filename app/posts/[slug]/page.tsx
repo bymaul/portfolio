@@ -70,13 +70,13 @@ const PostPage = ({ params }: PostProps) => {
                 <h1 className='text-3xl font-bold leading-relaxed'>
                     {post.metadata.title}
                 </h1>
-                <small className='text-gray-600 dark:text-gray-400 mt-2'>
+                <small className='mt-2 text-gray-600 dark:text-gray-400'>
                     <time dateTime={post.metadata.date}>
                         {format(parseISO(post.metadata.date), 'LLLL d, yyyy')}
                     </time>
                 </small>
             </section>
-            <article className='py-8 prose dark:prose-invert'>
+            <article className='prose py-8 dark:prose-invert'>
                 <CustomMDX source={post.content} />
             </article>
         </>

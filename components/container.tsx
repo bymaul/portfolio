@@ -12,7 +12,7 @@ export default function Container({
     return (
         <div
             className={cn(
-                'max-w-[1200px] max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px] py-6 px-4 mx-auto',
+                'mx-auto max-w-[1200px] px-4 py-6 max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px]',
                 className
             )}>
             {children}

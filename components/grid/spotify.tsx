@@ -16,19 +16,19 @@ function NowPlaying() {
             <div>
                 <div className='flex flex-col gap-2'>
                     <div className='flex items-center gap-2'>
-                        <div className='inline-flex gap-1 justify-center items-center'>
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
+                        <div className='inline-flex items-center justify-center gap-1'>
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
                         </div>
-                        <div className='animate-pulse h-4 rounded-md bg-gray-300'>
+                        <div className='h-4 animate-pulse rounded-md bg-gray-300'>
                             <span className='invisible'>Now Playing</span>
                         </div>
                     </div>
-                    <div className='animate-pulse h-6 rounded-md bg-gray-300'>
+                    <div className='h-6 animate-pulse rounded-md bg-gray-300'>
                         <span className='invisible'>Song Title</span>
                     </div>
-                    <div className='animate-pulse h-4 rounded-md bg-gray-300'>
+                    <div className='h-4 animate-pulse rounded-md bg-gray-300'>
                         <span className='invisible'>Artist</span>
                     </div>
                 </div>
@@ -38,18 +38,18 @@ function NowPlaying() {
     return (
         <div>
             <div className='flex items-center gap-2'>
-                <div className='inline-flex gap-1 justify-center items-center'>
+                <div className='inline-flex items-center justify-center gap-1'>
                     {data?.isPlaying ? (
                         <>
-                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.85s_ease_infinite]' />
-                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_1.26s_ease_infinite]' />
-                            <div className='bg-[#1DB954] w-1 rounded-full animate-[playing_0.62s_ease_infinite]' />
+                            <div className='w-1 animate-[playing_0.85s_ease_infinite] rounded-full bg-[#1DB954]' />
+                            <div className='w-1 animate-[playing_1.26s_ease_infinite] rounded-full bg-[#1DB954]' />
+                            <div className='w-1 animate-[playing_0.62s_ease_infinite] rounded-full bg-[#1DB954]' />
                         </>
                     ) : (
                         <>
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
-                            <div className='bg-[#1DB954] w-1 h-1 rounded-full' />
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
                         </>
                     )}
                 </div>
@@ -58,7 +58,7 @@ function NowPlaying() {
                 </p>
             </div>
             <Link
-                className='cancel-drag text-2xl font-semibold line-clamp-3'
+                className='cancel-drag line-clamp-3 text-2xl font-semibold'
                 href={
                     data?.isPlaying
                         ? data?.songUrl
@@ -76,7 +76,7 @@ function NowPlaying() {
 export default function Spotify() {
     return (
         <Card>
-            <div className='h-full p-6 md:py-6 md:px-10 flex flex-col gap-3 justify-between'>
+            <div className='flex h-full flex-col justify-between gap-3 p-6 md:px-10 md:py-6'>
                 <FaSpotify size='3.5rem' color='#1DB954' />
                 <NowPlaying />
             </div>

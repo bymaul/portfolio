@@ -10,8 +10,8 @@ export default function Article() {
 
     return (
         <Card>
-            <div className='h-full flex flex-col gap-6 justify-center p-6 md:py-6 md:px-10'>
-                <h2 className='cancel-drag text-2xl font-semibold line-clamp-1'>
+            <div className='flex h-full flex-col justify-center gap-6 p-6 md:px-10 md:py-6'>
+                <h2 className='cancel-drag line-clamp-1 text-2xl font-semibold'>
                     <Link href={`/posts/${post.slug}`}>
                         {post.metadata.title}
                     </Link>
@@ -19,12 +19,12 @@ export default function Article() {
                 <p className='line-clamp-3 max-[1199px]:line-clamp-1 max-[799px]:line-clamp-3 max-[374px]:line-clamp-2'>
                     {post.metadata.description}
                 </p>
-                <div className='inline-flex flex-col sm:flex-row justify-center sm:justify-between items-center gap-6'>
+                <div className='inline-flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between'>
                     <Button
                         as={Link}
                         className='cancel-drag px-4 py-2'
                         href={`/posts/${post.slug}`}>
-                        <FaArrowRight className=' group-hover:rotate-0 -rotate-45 transition-transform duration-300' />{' '}
+                        <FaArrowRight className=' -rotate-45 transition-transform duration-300 group-hover:rotate-0' />{' '}
                         Read More
                         <span className='sr-only'>{post.metadata.title}</span>
                     </Button>
