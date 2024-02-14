@@ -1,14 +1,25 @@
 'use client';
 
-import { Spotify } from '@/types/spotify';
 import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
 import Card from '../card';
 
+interface Spotify {
+    isPlaying: boolean;
+    title: string;
+    album: string;
+    artist: string;
+    albumImageUrl: string;
+    songUrl: string;
+}
+
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
+
 function NowPlaying() {
-    const { data } = useSWR<Spotify>('/api/now-playing', (url: string) =>
-        fetch(url).then((r) => r.json())
+    const { data } = useSWR<Spotify>(
+        `${process.env.NEXT_PUBLIC_BASE_API_URL}/spotify/now-playing`,
+        fetcher
     );
 
     if (!data)
