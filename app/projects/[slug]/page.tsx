@@ -5,7 +5,7 @@ import GridLayout from '@/components/layout/grid-layout';
 import { CustomMDX } from '@/components/mdx';
 import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
-import { getAllProjects } from '@/lib/projects';
+import { getAllProjects } from '@/lib/mdx';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
