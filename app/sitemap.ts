@@ -1,6 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { getAllPosts } from '@/lib/posts';
-import { getAllProjects } from '@/lib/projects';
+import { getAllPosts, getAllProjects } from '@/lib/mdx';
 
 export default async function sitemap() {
     const routes = [''].map((route) => ({

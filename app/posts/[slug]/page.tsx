@@ -1,6 +1,6 @@
 import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts } from '@/lib/mdx';
 import { format, parseISO } from 'date-fns';
 import { notFound } from 'next/navigation';
 

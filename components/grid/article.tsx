@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/posts';
+import { getAllPosts } from '@/lib/mdx';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
