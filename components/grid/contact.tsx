@@ -11,7 +11,7 @@ export default function Contact() {
                 <h2 className='text-center text-2xl font-semibold sm:text-start'>
                     Have an interesting project in mind? 👋
                 </h2>
-                <p className='hidden sm:block'>
+                <p className='hidden leading-relaxed sm:block'>
                     If you have a project that you want to get started, think
                     you need my help with something or just fancy saying hey,
                     then get in touch.
