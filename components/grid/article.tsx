@@ -16,7 +16,7 @@ export default function Article() {
                         {post.metadata.title}
                     </Link>
                 </h2>
-                <p className='line-clamp-3 max-[1199px]:line-clamp-1 max-[799px]:line-clamp-3 max-[374px]:line-clamp-2'>
+                <p className='line-clamp-3 leading-relaxed max-[1199px]:line-clamp-1 max-[799px]:line-clamp-3 max-[374px]:line-clamp-2'>
                     {post.metadata.description}
                 </p>
                 <div className='inline-flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between'>
