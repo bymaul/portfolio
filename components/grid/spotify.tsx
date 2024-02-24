@@ -69,7 +69,7 @@ function NowPlaying() {
                 </p>
             </div>
             <Link
-                className='cancel-drag line-clamp-3 text-2xl font-semibold'
+                className='cancel-drag'
                 href={
                     data?.isPlaying
                         ? data?.songUrl
@@ -77,7 +77,9 @@ function NowPlaying() {
                 }
                 target='_blank'
                 rel='nofollow noopener noreferrer'>
-                {data?.isPlaying ? data?.title : 'Pink + White'}
+                <h2 className='line-clamp-3 text-2xl font-semibold'>
+                    {data?.isPlaying ? data?.title : 'Pink + White'}
+                </h2>
             </Link>
             <p>{data?.isPlaying ? data?.artist : 'Frank Ocean'}</p>
         </div>
