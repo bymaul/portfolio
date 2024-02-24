@@ -1,12 +1,12 @@
 'use client';
 
-import Button from '@/components/button';
 import { LatLngTuple, Map } from 'leaflet';
 import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
+import Button from '@/components/button';
 import 'leaflet/dist/leaflet.css';
 
 const center: LatLngTuple = [-7.7962967, 110.3667211];
