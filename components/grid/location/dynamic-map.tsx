@@ -75,7 +75,7 @@ const DynamicMap = () => {
                     }
                 />
             </MapContainer>
-            <div className='absolute bottom-3 left-3 right-3 flex items-center justify-between'>
+            <div className='absolute inset-x-3 bottom-3 flex items-center justify-between'>
                 <Button
                     className={isZoom === minZoom ? 'invisible' : 'cancel-drag'}
                     aria-label='Zoom Out'

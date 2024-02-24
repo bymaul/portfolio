@@ -28,9 +28,9 @@ function NowPlaying() {
                 <div className='flex flex-col gap-2'>
                     <div className='flex items-center gap-2'>
                         <div className='inline-flex items-center justify-center gap-1'>
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
                         </div>
                         <div className='h-4 animate-pulse rounded-md bg-gray-300'>
                             <span className='invisible'>Now Playing</span>
@@ -58,9 +58,9 @@ function NowPlaying() {
                         </>
                     ) : (
                         <>
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
-                            <div className='h-1 w-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
+                            <div className='size-1 rounded-full bg-[#1DB954]' />
                         </>
                     )}
                 </div>
