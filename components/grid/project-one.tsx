@@ -25,6 +25,7 @@ export default function ProjectOne() {
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         Blog Starter
                     </span>
+                    <span className='sr-only'>Blog Starter</span>
                     <div>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     </div>

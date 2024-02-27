@@ -24,6 +24,7 @@ export default function ProjectTwo() {
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         API Collection
                     </span>
+                    <span className='sr-only'>API Collection</span>
                     <div>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     </div>
