@@ -13,21 +13,21 @@ export default function ProjectThree() {
                 alt='laravel-pos'
                 fill
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                objectFit='cover'
+                className='object-cover'
                 placeholder='blur'
             />
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
-                    href='/projects/laravel-pos'>
+                    href='/projects/laravel-pos'
+                    aria-label='Point of Sales'>
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         Point of Sales
                     </span>
-                    <span className='sr-only'>Point of Sales</span>
-                    <div>
+                    <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
-                    </div>
+                    </span>
                 </Button>
             </div>
         </Card>

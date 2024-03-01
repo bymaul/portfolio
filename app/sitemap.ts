@@ -1,7 +1,8 @@
 import { siteConfig } from '@/config/site';
 import { getAllPosts, getAllProjects } from '@/lib/mdx';
+import { MetadataRoute } from 'next';
 
-export default async function sitemap() {
+export default function sitemap(): MetadataRoute.Sitemap {
     const routes = [''].map((route) => ({
         url: `${siteConfig.url}${route}`,
         lastModified: new Date(),

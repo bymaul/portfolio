@@ -13,7 +13,7 @@ export default function ProjectOne() {
                 alt='next-blog-starter'
                 fill
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                objectFit='cover'
+                className='object-cover'
                 placeholder='blur'
                 priority
             />
@@ -21,14 +21,14 @@ export default function ProjectOne() {
                 <Button
                     as={Link}
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
-                    href='/projects/next-blog-starter'>
+                    href='/projects/next-blog-starter'
+                    aria-label='Blog Starter'>
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         Blog Starter
                     </span>
-                    <span className='sr-only'>Blog Starter</span>
-                    <div>
+                    <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
-                    </div>
+                    </span>
                 </Button>
             </div>
         </Card>
