@@ -6,7 +6,6 @@ import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Button from '../button';
 import Card from '../card';
-import { set } from 'date-fns';
 
 const maxZoom: number = 11;
 const minZoom: number = 4;
