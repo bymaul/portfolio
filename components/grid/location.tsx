@@ -8,7 +8,7 @@ import Button from '../button';
 import Card from '../card';
 
 const maxZoom: number = 11;
-const minZoom: number = 5;
+const minZoom: number = 4;
 
 export default function Location() {
     const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
@@ -66,8 +66,8 @@ export default function Location() {
                         longitude: 110.3667211,
                         zoom: 10,
                     }}
-                    maxZoom={10}
-                    minZoom={4}>
+                    maxZoom={maxZoom}
+                    minZoom={minZoom}>
                     <div className='absolute inset-x-3 bottom-3 flex items-center justify-between'>
                         <Button
                             className={
