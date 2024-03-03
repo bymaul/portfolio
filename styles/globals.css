@@ -1,9 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* leaflet styles */
-
-.leaflet-pane {
-    z-index: 0 !important;
-}
