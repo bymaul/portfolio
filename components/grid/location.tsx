@@ -49,8 +49,8 @@ export default function Location() {
                     mapboxAccessToken={mapboxToken}
                     mapStyle={
                         resolvedTheme === 'dark'
-                            ? 'mapbox://styles/mapbox/dark-v11?optimize=true'
-                            : 'mapbox://styles/mapbox/streets-v12?optimize=true'
+                            ? 'mapbox://styles/mapbox/dark-v11'
+                            : 'mapbox://styles/mapbox/streets-v12'
                     }
                     ref={mapRef}
                     scrollZoom={false}
