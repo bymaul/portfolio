@@ -19,8 +19,7 @@ export default function FooterLayout() {
                     <Link
                         href={'https://github.com/bymaul/'}
                         target='_blank'
-                        className='font-semibold'
-                        rel='nofollow noopener noreferrer'>
+                        className='font-semibold'>
                         Maulana
                     </Link>
                 </p>

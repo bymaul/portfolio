@@ -11,8 +11,7 @@ export default function Github() {
                     as={Link}
                     className='cancel-drag'
                     href='https://github.com/bymaul/'
-                    target='_blank'
-                    rel='nofollow noopener noreferrer'>
+                    target='_blank'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     <span className='sr-only'>Github</span>
                 </Button>

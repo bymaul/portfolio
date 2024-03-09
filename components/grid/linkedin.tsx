@@ -11,8 +11,7 @@ export default function LinkedIn() {
                     as={Link}
                     className='cancel-drag'
                     href='https://linkedin.com/in/maulana-ahmad'
-                    target='_blank'
-                    rel='nofollow noopener noreferrer'>
+                    target='_blank'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     <span className='sr-only'>LinkedIn</span>
                 </Button>

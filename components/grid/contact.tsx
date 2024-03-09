@@ -20,10 +20,8 @@ export default function Contact() {
                     <Button
                         as={Link}
                         className='cancel-drag px-4 py-2'
-                        href='mailto:maulanaajk@gmail.com'
-                        target='_blank'
-                        rel='nofollow noopener noreferrer'>
-                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />{' '}
+                        href='mailto:maulanaajk@gmail.com'>
+                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                         Contact Me
                     </Button>
                     <div className='inline-flex gap-6'>
@@ -33,8 +31,7 @@ export default function Contact() {
                                 href={social.url}
                                 className='cancel-drag'
                                 target='_blank'
-                                aria-label={`My ${social.name}`}
-                                rel='nofollow noopener noreferrer'>
+                                aria-label={`My ${social.name}`}>
                                 {<social.icon size='1.3rem' />}
                             </Link>
                         ))}
