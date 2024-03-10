@@ -1,7 +1,6 @@
 import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
-import { format, parseISO } from 'date-fns';
 import { notFound } from 'next/navigation';
 
 interface PostProps {
@@ -72,7 +71,14 @@ const PostPage = ({ params }: PostProps) => {
                 </h1>
                 <small className='mt-2 text-gray-600 dark:text-gray-400'>
                     <time dateTime={post.metadata.date}>
-                        {format(parseISO(post.metadata.date), 'LLLL d, yyyy')}
+                        {new Date(post.metadata.date).toLocaleDateString(
+                            'en-us',
+                            {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric',
+                            }
+                        )}
                     </time>
                 </small>
             </section>

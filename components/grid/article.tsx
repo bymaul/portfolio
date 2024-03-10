@@ -1,5 +1,4 @@
 import { getAllPosts } from '@/lib/mdx';
-import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import Button from '../button';
@@ -29,7 +28,14 @@ export default function Article() {
                         <span className='sr-only'>{post.metadata.title}</span>
                     </Button>
                     <small className='text-gray-600 dark:text-gray-400'>
-                        {format(parseISO(post.metadata.date), 'LLL d, yyyy')}
+                        {new Date(post.metadata.date).toLocaleDateString(
+                            'en-us',
+                            {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                            }
+                        )}
                     </small>
                 </div>
             </div>

@@ -20,7 +20,9 @@ export default function Contact() {
                     <Button
                         as={Link}
                         className='cancel-drag px-4 py-2'
-                        href='mailto:maulanaajk@gmail.com'>
+                        href='mailto:maulanaajk@gmail.com'
+                        target='_blank'
+                        rel='noreferrer'>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                         Contact Me
                     </Button>
@@ -30,8 +32,9 @@ export default function Contact() {
                                 key={social.name}
                                 href={social.url}
                                 className='cancel-drag'
+                                aria-label={`My ${social.name}`}
                                 target='_blank'
-                                aria-label={`My ${social.name}`}>
+                                rel='noreferrer'>
                                 {<social.icon size='1.3rem' />}
                             </Link>
                         ))}
