@@ -18,7 +18,7 @@ export default function Location() {
 
     const mapRef = useRef<MapRef>(null);
 
-    const { resolvedTheme } = useTheme();
+    const { theme } = useTheme();
 
     const handleZoomIn = () => {
         if (!isButtonDisabled) {
@@ -49,7 +49,7 @@ export default function Location() {
                 <Map
                     mapboxAccessToken={mapboxToken}
                     mapStyle={
-                        resolvedTheme === 'dark'
+                        theme === 'dark'
                             ? 'mapbox://styles/mapbox/dark-v11'
                             : 'mapbox://styles/mapbox/streets-v12'
                     }

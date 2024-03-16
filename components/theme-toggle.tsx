@@ -8,7 +8,7 @@ import Button from './button';
 export default function ThemeToggle() {
     const [isMounted, setIsMounted] = useState(false);
 
-    const { resolvedTheme, setTheme } = useTheme();
+    const { theme, setTheme } = useTheme();
 
     useEffect(() => {
         setIsMounted(true);
@@ -17,7 +17,7 @@ export default function ThemeToggle() {
     if (!isMounted) return null;
 
     const handleClick = () => {
-        resolvedTheme === 'dark' ? setTheme('light') : setTheme('dark');
+        theme === 'dark' ? setTheme('light') : setTheme('dark');
     };
 
     return (
@@ -29,7 +29,7 @@ export default function ThemeToggle() {
             }
             onClick={handleClick}
             aria-label='Theme Toggle'>
-            {resolvedTheme === 'dark' ? <FaSun /> : <FaMoon />}
+            {theme === 'dark' ? <FaSun /> : <FaMoon />}
         </Button>
     );
 }

@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mapboxgl-control-container {
+    @apply hidden;
+}
+
+div[mapboxgl-children] {
+    @apply absolute inset-0;
+}

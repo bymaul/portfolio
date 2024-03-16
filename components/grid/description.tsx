@@ -20,7 +20,7 @@ export default function Description() {
                     I&apos;m{' '}
                     <span className='text-xl font-semibold'>Maulana</span>, a
                     web developer from Yogyakarta, Indonesia. I&apos;m
-                    interested in Laravel, Node, Go, and React.
+                    interested in Laravel, Go, Node, and React.
                 </p>
             </div>
         </Card>
