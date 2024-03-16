@@ -1,19 +1,22 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { Layout, Responsive, WidthProvider } from 'react-grid-layout';
+import {
+    Layout,
+    ReactGridLayoutProps,
+    Responsive,
+    WidthProvider,
+} from 'react-grid-layout';
 
 import '@/styles/react-grid-layout.css';
 import { cn } from '@/lib/utils';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-interface GridLayoutProps {
+interface GridLayoutProps extends ReactGridLayoutProps {
     lgLayout: Layout[];
     mdLayout: Layout[];
     smLayout: Layout[];
-    className?: string;
-    children: React.ReactNode;
 }
 
 export default function GridLayout({
