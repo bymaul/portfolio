@@ -22,7 +22,7 @@ export default function GridLayout({
     smLayout,
     className,
     children,
-}: Readonly<GridLayoutProps>) {
+}: GridLayoutProps) {
     const [breakpoint, setBreakpoint] = useState('');
     const [isMounted, setIsMounted] = useState(false);
 

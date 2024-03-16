@@ -3,11 +3,7 @@
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
-export default function Template({
-    children,
-}: {
-    readonly children: React.ReactNode;
-}) {
+export default function Template({ children }: { children: React.ReactNode }) {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {

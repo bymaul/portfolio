@@ -6,11 +6,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaX } from 'react-icons/fa6';
 
-export default function Template({
-    children,
-}: {
-    readonly children: React.ReactNode;
-}) {
+export default function Template({ children }: { children: React.ReactNode }) {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {

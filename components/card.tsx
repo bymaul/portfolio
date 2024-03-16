@@ -5,7 +5,7 @@ interface CardProps {
     children: React.ReactNode;
 }
 
-export default function Card({ className, children }: Readonly<CardProps>) {
+export default function Card({ className, children }: CardProps) {
     return (
         <div
             className={cn(
