@@ -3,11 +3,9 @@ import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
     return {
-        rules: [
-            {
-                userAgent: '*',
-            },
-        ],
+        rules: {
+            userAgent: '*',
+        },
         sitemap: `${siteConfig.url}/sitemap.xml`,
     };
 }
