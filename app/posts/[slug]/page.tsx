@@ -82,7 +82,7 @@ const PostPage = ({ params }: PostProps) => {
                     </time>
                 </small>
             </section>
-            <article className='prose py-8 dark:prose-invert'>
+            <article className='prose px-4 py-8 dark:prose-invert'>
                 <CustomMDX source={post.content} />
             </article>
         </>
