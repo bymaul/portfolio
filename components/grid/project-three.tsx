@@ -22,7 +22,7 @@ export default function ProjectThree() {
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
                     href='/projects/laravel-pos'
                     aria-label='Point of Sales'>
-                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
+                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 min-[799px]:inline'>
                         Point of Sales
                     </span>
                     <span>

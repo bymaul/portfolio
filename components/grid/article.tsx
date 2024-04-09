@@ -8,16 +8,16 @@ export default function Article() {
     const post = getAllPosts()[0];
 
     return (
-        <Card className='flex flex-col justify-center gap-6 p-6 md:px-10 md:py-6'>
+        <Card className='flex flex-col justify-center gap-6 p-8'>
             <h2
                 className='cancel-drag truncate text-2xl font-semibold'
                 title={post.metadata.title}>
                 <Link href={`/posts/${post.slug}`}>{post.metadata.title}</Link>
             </h2>
-            <p className='line-clamp-3 leading-relaxed max-[1199px]:line-clamp-1 max-[799px]:line-clamp-3 max-[374px]:line-clamp-2'>
+            <p className='leading-relaxed max-[799px]:line-clamp-4 max-[374px]:line-clamp-2'>
                 {post.metadata.description}
             </p>
-            <div className='inline-flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between'>
+            <div className='inline-flex flex-col items-center justify-center gap-6 min-[374px]:flex-row min-[374px]:justify-between'>
                 <Button
                     as={Link}
                     className='cancel-drag px-4 py-2'

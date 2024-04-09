@@ -5,7 +5,7 @@ import Card from '../card';
 
 export default function Github() {
     return (
-        <Card className='bg-[#181717] dark:bg-[#181717]'>
+        <Card className='relative flex h-full flex-col items-center justify-center bg-[#181717] dark:bg-[#181717]'>
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
@@ -16,9 +16,7 @@ export default function Github() {
                     <span className='sr-only'>Github</span>
                 </Button>
             </div>
-            <div className='flex h-full flex-col items-center justify-center gap-4 p-6 md:px-10 md:py-6'>
-                <FaGithub size='4rem' color='white' />
-            </div>
+            <FaGithub size='4rem' color='white' />
         </Card>
     );
 }

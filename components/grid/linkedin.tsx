@@ -5,7 +5,7 @@ import Card from '../card';
 
 export default function LinkedIn() {
     return (
-        <Card className='bg-[#0A66C2] dark:bg-[#0A66C2]'>
+        <Card className='relative flex h-full flex-col items-center justify-center bg-[#0A66C2] dark:bg-[#0A66C2]'>
             <div className='absolute bottom-3 left-3'>
                 <Button
                     as={Link}
@@ -16,9 +16,7 @@ export default function LinkedIn() {
                     <span className='sr-only'>LinkedIn</span>
                 </Button>
             </div>
-            <div className='flex h-full flex-col items-center justify-center gap-4 p-6 md:px-10 md:py-6'>
-                <FaLinkedin size='4rem' color='white' />
-            </div>
+            <FaLinkedin size='4rem' color='white' />
         </Card>
     );
 }

@@ -58,7 +58,9 @@ function NowPlaying() {
                     {data?.isPlaying ? 'Now Playing' : 'Offline. Last Played'}
                 </p>
             </div>
-            <h2 className='cancel-drag line-clamp-3 text-2xl font-semibold'>
+            <h2
+                className='cancel-drag line-clamp-3 text-2xl font-semibold min-[799px]:line-clamp-1 min-[1199px]:line-clamp-3'
+                title={data?.isPlaying ? data?.title : 'Pink + White'}>
                 <Link
                     href={
                         data?.isPlaying
@@ -70,14 +72,18 @@ function NowPlaying() {
                     {data?.isPlaying ? data?.title : 'Pink + White'}
                 </Link>
             </h2>
-            <p>{data?.isPlaying ? data?.artist : 'Frank Ocean'}</p>
+            <p
+                className='truncate'
+                title={data?.isPlaying ? data?.artist : 'Frank Ocean'}>
+                {data?.isPlaying ? data?.artist : 'Frank Ocean'}
+            </p>
         </div>
     );
 }
 
 export default function Spotify() {
     return (
-        <Card className='flex h-full flex-col justify-between gap-3 p-6 md:px-10 md:py-6'>
+        <Card className='flex h-full flex-col justify-between gap-3 p-8'>
             <FaSpotify size='3.5rem' color='#1DB954' />
             <NowPlaying />
         </Card>
