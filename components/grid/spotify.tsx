@@ -58,19 +58,18 @@ function NowPlaying() {
                     {data?.isPlaying ? 'Now Playing' : 'Offline. Last Played'}
                 </p>
             </div>
-            <Link
-                className='cancel-drag'
-                href={
-                    data?.isPlaying
-                        ? data?.songUrl
-                        : 'https://open.spotify.com/track/3xKsf9qdS1CyvXSMEid6g8?si=15c53cbc7c774697'
-                }
-                target='_blank'
-                rel='nofollow noopener noreferrer'>
-                <h2 className='line-clamp-3 text-2xl font-semibold'>
+            <h2 className='cancel-drag line-clamp-3 text-2xl font-semibold'>
+                <Link
+                    href={
+                        data?.isPlaying
+                            ? data?.songUrl
+                            : 'https://open.spotify.com/track/3xKsf9qdS1CyvXSMEid6g8?si=15c53cbc7c774697'
+                    }
+                    target='_blank'
+                    rel='nofollow noopener noreferrer'>
                     {data?.isPlaying ? data?.title : 'Pink + White'}
-                </h2>
-            </Link>
+                </Link>
+            </h2>
             <p>{data?.isPlaying ? data?.artist : 'Frank Ocean'}</p>
         </div>
     );
