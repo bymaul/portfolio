@@ -59,7 +59,7 @@ function NowPlaying() {
                 </p>
             </div>
             <h2
-                className='cancel-drag line-clamp-3 text-2xl font-semibold min-[799px]:line-clamp-1 min-[1199px]:line-clamp-3'
+                className='cancel-drag line-clamp-3 text-2xl font-semibold md:line-clamp-1 lg:line-clamp-3'
                 title={data?.isPlaying ? data?.title : 'Pink + White'}>
                 <Link
                     href={

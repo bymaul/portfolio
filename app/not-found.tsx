@@ -26,7 +26,7 @@ export default function NotFound() {
             <h2 className='text-center text-3xl font-semibold'>
                 Page Not Found
             </h2>
-            <p className='text-center '>
+            <p className='text-center'>
                 Sorry, we couldn&apos;t find what you were looking for.
             </p>
             <Button as={Link} className='px-4 py-2' href='/'>

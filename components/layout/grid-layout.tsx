@@ -79,7 +79,7 @@ export default function GridLayout({
     return (
         <section
             className={cn(
-                'mx-auto max-w-[1200px] max-[1199px]:max-w-[800px] max-[799px]:max-w-[375px] max-[374px]:max-w-[320px]',
+                'mx-auto max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]',
                 className
             )}>
             <ResponsiveGridLayout

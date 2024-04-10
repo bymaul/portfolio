@@ -7,15 +7,15 @@ import Card from '../card';
 export default function Contact() {
     return (
         <Card className='flex flex-col justify-center gap-6 p-8'>
-            <h2 className='text-2xl font-semibold max-[799px]:text-center'>
+            <h2 className='text-2xl font-semibold max-md:text-center'>
                 Have an interesting project in mind? 👋
             </h2>
-            <p className='leading-relaxed max-[799px]:hidden'>
+            <p className='leading-relaxed max-md:hidden'>
                 If you have a project that you want to get started, think you
                 need my help with something or just fancy saying hey, then get
                 in touch.
             </p>
-            <div className='inline-flex flex-col items-center gap-6 min-[1199px]:flex-row'>
+            <div className='inline-flex flex-col items-center gap-6 lg:flex-row'>
                 <Button
                     as={Link}
                     className='cancel-drag px-4 py-2'

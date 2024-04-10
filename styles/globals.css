@@ -13,15 +13,11 @@ div[mapboxgl-children] {
 
 /* custom styles for prose heading */
 .prose .anchor {
-    @apply invisible absolute -ml-6 w-[80%] max-w-[700px] pr-2 no-underline;
+    @apply invisible absolute -ml-6 w-full pr-2 no-underline;
 }
 
 .anchor:hover {
     @apply visible;
-}
-
-.prose a {
-    @apply decoration-neutral-400 decoration-[0.1em] underline-offset-2 transition-all dark:decoration-neutral-600;
 }
 
 .prose .anchor:after {
@@ -30,10 +26,4 @@ div[mapboxgl-children] {
 
 .prose *:hover > .anchor {
     @apply visible;
-}
-
-.prose h2,
-h3,
-h4 {
-    @apply font-medium tracking-tighter !important;
 }

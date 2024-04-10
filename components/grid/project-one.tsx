@@ -23,7 +23,7 @@ export default function ProjectOne() {
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
                     href='/projects/next-blog-starter'
                     aria-label='Blog Starter'>
-                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 min-[799px]:inline'>
+                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
                         Blog Starter
                     </span>
                     <span>
