@@ -60,7 +60,9 @@ export default function RootLayout({
                     poppins.className,
                     'bg-gray-100 antialiased dark:bg-dark-950'
                 )}>
-                <ThemeProvider attribute='class'>{children}</ThemeProvider>
+                <ThemeProvider attribute='class' enableSystem={false}>
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     );
