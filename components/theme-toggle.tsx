@@ -14,8 +14,9 @@ export default function ThemeToggle() {
         setIsMounted(true);
     }, []);
 
-    const toggleTheme = () => {
-        theme === 'dark' ? setTheme('light') : setTheme('dark');
+    const handleToggle = () => {
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
     };
 
     if (!isMounted) return null;
@@ -23,7 +24,7 @@ export default function ThemeToggle() {
     return (
         <button
             className='cancel-drag flex h-10 w-20 items-center rounded-full bg-gray-200 transition duration-300 focus:outline-none lg:h-12 lg:w-24'
-            onClick={toggleTheme}>
+            onClick={handleToggle}>
             <div
                 className={cn(
                     `flex size-10 items-center justify-center rounded-full border-2 border-gray-200 text-white transition duration-300 lg:size-12 lg:border-4`,
