@@ -6,11 +6,11 @@ import { gridItems, lgLayout, mdLayout, smLayout } from '@/config/layouts';
 export default function Home() {
     return (
         <>
-            <header>
-                <Container className='flex items-center justify-between pt-9'>
-                    <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
-                </Container>
-            </header>
+            <Container
+                as='header'
+                className='flex items-center justify-between pt-9'>
+                <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
+            </Container>
             <main>
                 <GridLayout
                     lgLayout={lgLayout}
