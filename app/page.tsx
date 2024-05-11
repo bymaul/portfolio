@@ -1,5 +1,4 @@
 import Container from '@/components/container';
-import FooterLayout from '@/components/layout/footer-layout';
 import GridLayout from '@/components/layout/grid-layout';
 import { gridItems, lgLayout, mdLayout, smLayout } from '@/config/layouts';
 
@@ -8,10 +7,10 @@ export default function Home() {
         <>
             <Container
                 as='header'
-                className='flex items-center justify-between pt-9'>
+                className='flex items-center justify-between py-0'>
                 <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
             </Container>
-            <main>
+            <main className='py-3'>
                 <GridLayout
                     lgLayout={lgLayout}
                     mdLayout={mdLayout}
@@ -21,7 +20,6 @@ export default function Home() {
                     ))}
                 </GridLayout>
             </main>
-            <FooterLayout />
         </>
     );
 }
