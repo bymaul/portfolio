@@ -15,10 +15,12 @@ export default function Description() {
                     priority
                 />
             </div>
-            <p className='leading-relaxed'>
+            <p className='text-balance leading-relaxed'>
                 I&apos;m <span className='text-xl font-semibold'>Maulana</span>,
-                a web developer from Yogyakarta, Indonesia. I&apos;m interested
-                in Laravel, Go, Node, and React.
+                a web developer from Yogyakarta, Indonesia.{' '}
+                <span className='hidden md:inline'>
+                    I&apos;m interested in Laravel, Go, Node, and React.
+                </span>
             </p>
         </Card>
     );
