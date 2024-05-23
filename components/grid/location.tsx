@@ -9,9 +9,9 @@ import Card from '../card';
 
 const maxZoom: number = 11;
 const minZoom: number = 4;
+const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 export default function Location() {
-    const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
     const [currentZoom, setCurrentZoom] = useState<number>(maxZoom);
     const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
     const [isMapLoaded, setIsMapLoaded] = useState<boolean>(false);
