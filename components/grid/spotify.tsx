@@ -23,7 +23,7 @@ function NowPlaying() {
         return (
             <div>
                 <div className='flex flex-col gap-2'>
-                    <div className='items-cokay i give up, its still doesnt work. i will still use swr :)enter flex gap-2'>
+                    <div className='flex items-center gap-2'>
                         <div className='inline-flex items-center justify-center gap-1'>
                             <div className='size-1 rounded-full bg-[#1DB954]' />
                             <div className='size-1 rounded-full bg-[#1DB954]' />
