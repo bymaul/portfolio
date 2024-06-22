@@ -10,7 +10,7 @@ export default function Home() {
                 className='flex items-center justify-between py-0'>
                 <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
             </Container>
-            <main className='py-3'>
+            <main className='py-6'>
                 <GridLayout
                     lgLayout={lgLayout}
                     mdLayout={mdLayout}
