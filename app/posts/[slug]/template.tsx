@@ -1,27 +1,14 @@
 'use client';
 
 import Button from '@/components/button';
-import { cn } from '@/lib/utils';
+import Content from '@/components/template/content';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 import { FaX } from 'react-icons/fa6';
 
-export default function Template({ children }: { children: React.ReactNode }) {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
+export default function Template({ children }: PropsWithChildren) {
     return (
-        <main
-            className={cn(
-                isMounted
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-12 opacity-0',
-                'transition-all duration-500',
-                'mx-auto max-w-prose px-4 py-10'
-            )}>
+        <Content className='mx-auto max-w-prose px-4 py-10'>
             <header className='flex items-center justify-center pb-10'>
                 <Button
                     as={Link}
@@ -32,6 +19,6 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 </Button>
             </header>
             {children}
-        </main>
+        </Content>
     );
 }

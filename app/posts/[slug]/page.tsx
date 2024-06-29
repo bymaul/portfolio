@@ -1,16 +1,13 @@
 import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
+import { ContentProps } from '@/types/content';
 import { notFound } from 'next/navigation';
-
-interface PostProps {
-    params: { slug: string };
-}
 
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: PostProps) => {
+export const generateMetadata = ({ params }: ContentProps) => {
     const post = getAllPosts().find((post) => post.slug === params.slug);
     if (!post) return;
 
@@ -39,7 +36,7 @@ export const generateMetadata = ({ params }: PostProps) => {
     };
 };
 
-const PostPage = ({ params }: PostProps) => {
+const PostPage = ({ params }: ContentProps) => {
     const post = getAllPosts().find((post) => post.slug === params.slug);
 
     if (!post) notFound();

@@ -1,24 +1,6 @@
-'use client';
+import Content from '@/components/template/content';
+import { PropsWithChildren } from 'react';
 
-import { cn } from '@/lib/utils';
-import { useEffect, useState } from 'react';
-
-export default function Template({ children }: { children: React.ReactNode }) {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
-
-    return (
-        <main
-            className={cn(
-                isMounted
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-12 opacity-0',
-                'transition-all duration-500'
-            )}>
-            {children}
-        </main>
-    );
+export default function Template({ children }: PropsWithChildren) {
+    return <Content>{children}</Content>;
 }

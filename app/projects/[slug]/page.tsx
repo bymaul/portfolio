@@ -6,19 +6,16 @@ import { CustomMDX } from '@/components/mdx';
 import { lgLayout, smLayout } from '@/config/projectLayouts';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
+import { ContentProps } from '@/types/content';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
-interface ProjectProps {
-    params: { slug: string };
-}
-
 export const generateStaticParams = async () =>
     getAllProjects().map((project) => ({ slug: project.slug }));
 
-export const generateMetadata = ({ params }: ProjectProps) => {
+export const generateMetadata = ({ params }: ContentProps) => {
     const project = getAllProjects().find(
         (project) => project.slug === params.slug
     );
@@ -48,7 +45,7 @@ export const generateMetadata = ({ params }: ProjectProps) => {
     };
 };
 
-const ProjectPage = ({ params }: ProjectProps) => {
+const ProjectPage = ({ params }: ContentProps) => {
     const project = getAllProjects().find(
         (project) => project.slug === params.slug
     );
