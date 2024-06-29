@@ -1,10 +1,11 @@
 import { siteConfig } from '@/config/site';
 import { poppins } from '@/lib/fonts';
+import { cn } from '@/lib/utils';
 import type { Metadata } from 'next';
+import { PropsWithChildren } from 'react';
 import { ThemeProvider } from './providers';
 
 import '@/styles/globals.css';
-import { cn } from '@/lib/utils';
 
 export const metadata: Metadata = {
     title: {
@@ -48,11 +49,7 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: PropsWithChildren) {
     return (
         <html lang='en' suppressHydrationWarning>
             <body

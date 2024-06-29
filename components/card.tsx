@@ -1,8 +1,7 @@
 import { cn } from '@/lib/utils';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;
-    children: React.ReactNode;
 }
 
 export default function Card({ className, children }: CardProps) {
