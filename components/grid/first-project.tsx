@@ -5,9 +5,9 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Button from '../button';
 import Card from '../card';
 
-export default function ProjectOne() {
+export default function FirstProject() {
     return (
-        <Card className='group relative bg-red-100 dark:bg-red-100'>
+        <Card className='group relative bg-red-100'>
             <Image
                 src={projectImage}
                 alt='next-blog-starter'

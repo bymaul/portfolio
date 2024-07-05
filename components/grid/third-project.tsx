@@ -1,16 +1,16 @@
-import projectImage from '@/public/projects/api-collection.png';
+import projectImage from '@/public/projects/laravel-pos.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import Button from '../button';
 import Card from '../card';
 
-export default function ProjectTwo() {
+export default function ThirdProject() {
     return (
-        <Card className='group relative bg-orange-100 dark:bg-orange-100'>
+        <Card className='group relative bg-blue-100'>
             <Image
                 src={projectImage}
-                alt='api-collection'
+                alt='laravel-pos'
                 fill
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 className='object-cover'
@@ -20,10 +20,10 @@ export default function ProjectTwo() {
                 <Button
                     as={Link}
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
-                    href='/projects/api-collection'
-                    aria-label='API Collection'>
+                    href='/projects/laravel-pos'
+                    aria-label='Point of Sales'>
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
-                        API Collection
+                        Point of Sales
                     </span>
                     <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
