@@ -3,7 +3,7 @@ import Card from '@/components/card';
 import Container from '@/components/container';
 import GridLayout from '@/components/layout/grid-layout';
 import { CustomMDX } from '@/components/mdx';
-import { lgLayout, smLayout } from '@/config/projectLayouts';
+import { lgLayout, smLayout } from '@/config/project-layouts';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
 import { ContentProps } from '@/types/content';

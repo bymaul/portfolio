@@ -1,6 +1,7 @@
 import Container from '@/components/container';
 import GridLayout from '@/components/layout/grid-layout';
-import { gridItems, lgLayout, mdLayout, smLayout } from '@/config/layouts';
+import { gridItems } from '@/config/grid-items';
+import { lgLayout, mdLayout, smLayout } from '@/config/layouts';
 
 export default function Home() {
     return (

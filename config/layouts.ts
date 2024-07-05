@@ -1,32 +1,4 @@
-import Article from '@/components/grid/article';
-import Contact from '@/components/grid/contact';
-import Description from '@/components/grid/description';
-import LinkedIn from '@/components/grid/linkedin';
-import Location from '@/components/grid/location';
-import ProjectOne from '@/components/grid/project-one';
-import ProjectThree from '@/components/grid/project-three';
-import ProjectTwo from '@/components/grid/project-two';
-import Spotify from '@/components/grid/spotify';
-import Theme from '@/components/grid/theme';
 import { Layout } from 'react-grid-layout';
-
-interface GridItem {
-    i: string;
-    component: () => JSX.Element;
-}
-
-export const gridItems: GridItem[] = [
-    { i: 'description', component: Description },
-    { i: 'location', component: Location },
-    { i: 'project-1', component: ProjectOne },
-    { i: 'linkedin', component: LinkedIn },
-    { i: 'theme', component: Theme },
-    { i: 'project-2', component: ProjectTwo },
-    { i: 'spotify', component: Spotify },
-    { i: 'project-3', component: ProjectThree },
-    { i: 'article', component: Article },
-    { i: 'contact', component: Contact },
-];
 
 export const lgLayout: Layout[] = [
     { i: 'description', x: 0, y: 0, w: 2, h: 1 },
