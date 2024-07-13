@@ -1,15 +1,16 @@
 'use client';
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
     Layout,
     ReactGridLayoutProps,
     Responsive,
     WidthProvider,
 } from 'react-grid-layout';
+import usePageTransition from '@/hooks/use-page-transition';
+import { cn } from '@/lib/utils';
 
 import '@/styles/react-grid-layout.css';
-import { cn } from '@/lib/utils';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
@@ -27,29 +28,11 @@ export default function GridLayout({
     children,
 }: GridLayoutProps) {
     const [breakpoint, setBreakpoint] = useState('');
-    const [isMounted, setIsMounted] = useState(false);
+    const isMounted = usePageTransition();
 
-    useLayoutEffect(() => {
-        setTimeout(() => {
-            setIsMounted(true);
-        }, 0);
-    }, []);
-
-    useEffect(() => {
-        if (window.innerWidth > 1199) {
-            setBreakpoint('lg');
-        } else if (window.innerWidth > 799) {
-            setBreakpoint('md');
-        } else if (window.innerWidth > 374) {
-            setBreakpoint('sm');
-        } else if (window.innerWidth > 319) {
-            setBreakpoint('xs');
-        } else {
-            setBreakpoint('xxs');
-        }
-    }, []);
-
-    const rowHeightValue: { [key: string]: number } = {
+    const breakpoints = { lg: 1199, md: 799, sm: 374, xs: 319, xxs: 0 };
+    const cols = { lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 };
+    const rowHeights: { [key: string]: number } = {
         lg: 280,
         md: 180,
         sm: 164,
@@ -57,17 +40,26 @@ export default function GridLayout({
         xxs: 132,
     };
 
+    useEffect(() => {
+        const width = window.innerWidth;
+        if (width > breakpoints.lg) setBreakpoint('lg');
+        else if (width > breakpoints.md) setBreakpoint('md');
+        else if (width > breakpoints.sm) setBreakpoint('sm');
+        else if (width > breakpoints.xs) setBreakpoint('xs');
+        else setBreakpoint('xxs');
+    }, []);
+
     const responsiveProps = {
         layouts: {
             lg: lgLayout,
             md: mdLayout,
             sm: smLayout,
         },
-        breakpoints: { lg: 1199, md: 799, sm: 374, xs: 319, xxs: 0 },
-        cols: { lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 },
+        breakpoints,
+        cols,
         isBounded: true,
         isResizable: false,
-        rowHeight: rowHeightValue[breakpoint],
+        rowHeight: rowHeights[breakpoint],
         useCSSTransforms: false,
         measureBeforeMount: true,
         draggableCancel: '.cancel-drag',
@@ -84,7 +76,7 @@ export default function GridLayout({
             )}>
             <ResponsiveGridLayout
                 style={{
-                    opacity: isMounted ? 100 : 0,
+                    opacity: isMounted ? 1 : 0,
                     transform: isMounted ? 'translateY(0)' : 'translateY(48px)',
                     transition: 'opacity 500ms, transform 500ms',
                 }}

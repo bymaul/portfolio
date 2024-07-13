@@ -2,28 +2,26 @@
 
 import Button from '@/components/button';
 import Container from '@/components/container';
+import usePageTransition from '@/hooks/use-page-transition';
+import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { useLayoutEffect, useState } from 'react';
 import { FaArrowRight } from 'react-icons/fa6';
 
 export default function NotFound() {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useLayoutEffect(() => {
-        setIsMounted(true);
-    }, []);
+    const isMounted = usePageTransition();
 
     return (
         <Container
             as='main'
             className='flex min-h-screen items-center justify-center'>
             <div
-                className='space-y-4 text-center'
-                style={{
-                    opacity: isMounted ? 1 : 0,
-                    transform: isMounted ? 'translateY(0)' : 'translateY(20px)',
-                    transition: 'opacity 500ms, transform 500ms',
-                }}>
+                className={cn(
+                    'space-y-4 text-center',
+                    isMounted
+                        ? 'translate-y-0 opacity-100'
+                        : 'translate-y-12 opacity-0',
+                    'transition-all duration-500'
+                )}>
                 <h1 className='text-7xl font-bold md:text-9xl'>404</h1>
                 <h2 className='text-xl font-semibold md:text-3xl'>
                     Page Not Found

@@ -1,18 +1,15 @@
 'use client';
 
+import usePageTransition from '@/hooks/use-page-transition';
 import { cn } from '@/lib/utils';
-import { PropsWithChildren, useEffect, useState } from 'react';
+import { PropsWithChildren } from 'react';
 
 interface ContentTemplateProps extends PropsWithChildren {
     className?: string;
 }
 
 export default function Content({ children, className }: ContentTemplateProps) {
-    const [isMounted, setIsMounted] = useState(false);
-
-    useEffect(() => {
-        setIsMounted(true);
-    }, []);
+    const isMounted = usePageTransition();
 
     return (
         <main
