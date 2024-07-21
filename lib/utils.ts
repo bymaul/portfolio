@@ -12,11 +12,11 @@ export function cn(...inputs: ClassValue[]) {
 
 /**
  * Converts a string to kebab case (slug).
- * @param input The string to be converted.
+ * @param string The string to be converted.
  * @returns The kebab-cased string.
  */
-export function toKebabCase(input: string): string {
-    return input
+export function toKebabCase(string: string): string {
+    return string
         .trim()
         .toLowerCase()
         .replace(/[^a-z0-9]+/g, '-')
