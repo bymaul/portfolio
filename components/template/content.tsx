@@ -2,13 +2,11 @@
 
 import usePageTransition from '@/hooks/use-page-transition';
 import { cn } from '@/lib/utils';
-import { PropsWithChildren } from 'react';
 
-interface ContentTemplateProps extends PropsWithChildren {
-    className?: string;
-}
-
-export default function Content({ children, className }: ContentTemplateProps) {
+export default function Content({
+    children,
+    className,
+}: React.HTMLAttributes<HTMLElement>) {
     const isMounted = usePageTransition();
 
     return (
