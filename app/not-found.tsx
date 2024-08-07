@@ -2,13 +2,13 @@
 
 import Button from '@/components/button';
 import Container from '@/components/container';
-import usePageTransition from '@/hooks/use-page-transition';
+import useMounted from '@/hooks/use-mounted';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 
 export default function NotFound() {
-    const isMounted = usePageTransition();
+    const isMounted = useMounted();
 
     return (
         <Container
@@ -19,7 +19,7 @@ export default function NotFound() {
                     'space-y-4 text-center',
                     isMounted
                         ? 'translate-y-0 opacity-100'
-                        : 'translate-y-12 opacity-0',
+                        : '-translate-y-12 opacity-0',
                     'transition-all duration-500'
                 )}>
                 <h1 className='text-7xl font-bold md:text-9xl'>404</h1>

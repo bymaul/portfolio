@@ -1,5 +1,5 @@
 import Container from '@/components/container';
-import GridLayout from '@/components/layout/grid-layout';
+import GridLayout from '@/components/grid-layout';
 import { gridItems } from '@/config/grid-items';
 import { lgLayout, mdLayout, smLayout } from '@/config/layouts';
 

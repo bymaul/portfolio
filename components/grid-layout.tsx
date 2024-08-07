@@ -7,7 +7,7 @@ import {
     Responsive,
     WidthProvider,
 } from 'react-grid-layout';
-import usePageTransition from '@/hooks/use-page-transition';
+import useMounted from '@/hooks/use-mounted';
 import { cn } from '@/lib/utils';
 
 import '@/styles/react-grid-layout.css';
@@ -28,7 +28,7 @@ export default function GridLayout({
     children,
 }: GridLayoutProps) {
     const [breakpoint, setBreakpoint] = useState('');
-    const isMounted = usePageTransition();
+    const isMounted = useMounted();
 
     const breakpoints = { lg: 1199, md: 799, sm: 374, xs: 319, xxs: 0 };
     const cols = { lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 };
@@ -77,7 +77,9 @@ export default function GridLayout({
             <ResponsiveGridLayout
                 style={{
                     opacity: isMounted ? 1 : 0,
-                    transform: isMounted ? 'translateY(0)' : 'translateY(48px)',
+                    transform: isMounted
+                        ? 'translateY(0)'
+                        : 'translateY(-48px)',
                     transition: 'opacity 500ms, transform 500ms',
                 }}
                 margin={[16, 16]}

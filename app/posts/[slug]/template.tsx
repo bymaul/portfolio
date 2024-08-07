@@ -1,14 +1,14 @@
 'use client';
 
 import Button from '@/components/button';
-import Content from '@/components/template/content';
+import ContentTemplate from '@/components/content-template';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 import { FaX } from 'react-icons/fa6';
 
 export default function Template({ children }: PropsWithChildren) {
     return (
-        <Content className='mx-auto max-w-prose px-4 py-10'>
+        <ContentTemplate className='mx-auto max-w-prose px-4 py-10'>
             <header className='flex items-center justify-center pb-10'>
                 <Button
                     as={Link}
@@ -19,6 +19,6 @@ export default function Template({ children }: PropsWithChildren) {
                 </Button>
             </header>
             {children}
-        </Content>
+        </ContentTemplate>
     );
 }

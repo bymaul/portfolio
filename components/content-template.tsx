@@ -1,20 +1,20 @@
 'use client';
 
-import usePageTransition from '@/hooks/use-page-transition';
+import useMounted from '@/hooks/use-mounted';
 import { cn } from '@/lib/utils';
 
-export default function Content({
+export default function ContentTemplate({
     children,
     className,
 }: React.HTMLAttributes<HTMLElement>) {
-    const isMounted = usePageTransition();
+    const isMounted = useMounted();
 
     return (
         <main
             className={cn(
                 isMounted
                     ? 'translate-y-0 opacity-100'
-                    : 'translate-y-12 opacity-0',
+                    : '-translate-y-12 opacity-0',
                 'transition-all duration-500',
                 className
             )}>

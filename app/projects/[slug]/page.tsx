@@ -1,7 +1,7 @@
 import Button from '@/components/button';
 import Card from '@/components/card';
 import Container from '@/components/container';
-import GridLayout from '@/components/layout/grid-layout';
+import GridLayout from '@/components/grid-layout';
 import { CustomMDX } from '@/components/mdx';
 import { lgLayout, smLayout } from '@/config/project-layouts';
 import { siteConfig } from '@/config/site';

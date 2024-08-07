@@ -1,6 +1,6 @@
-import Content from '@/components/template/content';
+import ContentTemplate from '@/components/content-template';
 import { PropsWithChildren } from 'react';
 
 export default function Template({ children }: PropsWithChildren) {
-    return <Content>{children}</Content>;
+    return <ContentTemplate>{children}</ContentTemplate>;
 }

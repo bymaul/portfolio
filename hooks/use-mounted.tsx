@@ -1,6 +1,6 @@
 import { useLayoutEffect, useState } from 'react';
 
-export default function usePageTransition(delay = 0) {
+export default function useMounted(delay = 0) {
     const [isMounted, setIsMounted] = useState(false);
 
     useLayoutEffect(() => {
