@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useRef, useState } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Button from '../button';
@@ -15,36 +15,42 @@ const INITIAL_VIEW_STATE = {
     zoom: MAX_ZOOM,
 };
 
-const mapboxToken: string | undefined =
-    process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 export default function Location() {
-    const [currentZoom, setCurrentZoom] = useState<number>(MAX_ZOOM);
-    const [isButtonDisabled, setIsButtonDisabled] = useState<boolean>(false);
-    const [isMapLoaded, setIsMapLoaded] = useState<boolean>(false);
-
+    const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [isMapLoaded, setIsMapLoaded] = useState(false);
     const mapRef = useRef<MapRef>(null);
-
     const { theme } = useTheme();
 
-    const handleZoom = (zoomIn: boolean) => {
-        if (!isButtonDisabled) {
-            setCurrentZoom((prevZoom) => prevZoom + (zoomIn ? 1 : -1));
-            zoomIn ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut();
-            disableButton();
-        }
-    };
+    const handleZoom = useCallback(
+        (zoomIn: boolean) => {
+            if (isButtonDisabled) return;
 
-    const disableButton = () => {
-        setIsButtonDisabled(true);
-        setTimeout(() => setIsButtonDisabled(false), 300);
-    };
+            setCurrentZoom((prevZoom) => {
+                const newZoom = prevZoom + (zoomIn ? 1 : -1);
+                if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
+                    zoomIn
+                        ? mapRef.current?.zoomIn()
+                        : mapRef.current?.zoomOut();
+                    setIsButtonDisabled(true);
+                    setTimeout(() => setIsButtonDisabled(false), 300);
+                    return newZoom;
+                }
+                return prevZoom;
+            });
+        },
+        [isButtonDisabled]
+    );
+
+    const mapStyle = `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`;
 
     return (
         <Card className='relative size-full'>
             <Map
                 mapboxAccessToken={mapboxToken}
-                mapStyle={`mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`}
+                mapStyle={mapStyle}
                 ref={mapRef}
                 scrollZoom={false}
                 dragPan={false}
@@ -60,31 +66,43 @@ export default function Location() {
                 minZoom={MIN_ZOOM}>
                 {isMapLoaded && (
                     <div className='absolute inset-x-3 bottom-3 flex items-center justify-between'>
-                        <Button
-                            className={
-                                currentZoom === MIN_ZOOM
-                                    ? 'invisible'
-                                    : 'cancel-drag'
-                            }
-                            aria-label='Zoom Out'
-                            type='button'
-                            onClick={() => handleZoom(false)}>
-                            <FaMinus />
-                        </Button>
-                        <Button
-                            className={
-                                currentZoom === MAX_ZOOM
-                                    ? 'invisible'
-                                    : 'cancel-drag'
-                            }
-                            aria-label='Zoom In'
-                            type='button'
-                            onClick={() => handleZoom(true)}>
-                            <FaPlus />
-                        </Button>
+                        <ZoomButton
+                            isVisible={currentZoom > MIN_ZOOM}
+                            onClick={() => handleZoom(false)}
+                            icon={<FaMinus />}
+                            label='Zoom Out'
+                        />
+                        <ZoomButton
+                            isVisible={currentZoom < MAX_ZOOM}
+                            onClick={() => handleZoom(true)}
+                            icon={<FaPlus />}
+                            label='Zoom In'
+                        />
                     </div>
                 )}
             </Map>
         </Card>
     );
 }
+
+interface ZoomButtonProps {
+    isVisible: boolean;
+    onClick: () => void;
+    icon: React.ReactNode;
+    label: string;
+}
+
+const ZoomButton: React.FC<ZoomButtonProps> = ({
+    isVisible,
+    onClick,
+    icon,
+    label,
+}) => (
+    <Button
+        className={isVisible ? 'cancel-drag' : 'invisible'}
+        aria-label={label}
+        type='button'
+        onClick={onClick}>
+        {icon}
+    </Button>
+);
