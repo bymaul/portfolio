@@ -82,7 +82,6 @@ export async function GET() {
 
         return NextResponse.json(formatResponse(data));
     } catch (error) {
-        console.error('Error fetching Spotify data:', error);
         return NextResponse.json({ isPlaying: false });
     }
 }
