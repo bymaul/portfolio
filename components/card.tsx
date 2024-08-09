@@ -5,15 +5,17 @@ export default function Card({
     children,
 }: React.HTMLAttributes<HTMLDivElement>) {
     return (
-        <div
-            className={cn(
-                'h-full overflow-hidden rounded-3xl bg-white dark:bg-dark-900',
-                'cursor-grab select-none active:cursor-grabbing',
-                'dark:ring-1 dark:ring-dark-800',
-                'shadow-sm hover:shadow-lg',
-                className
-            )}>
-            {children}
+        <div className='size-full rounded-3xl shadow-sm transition-shadow duration-300 hover:shadow-lg'>
+            <div
+                className={cn(
+                    'size-full overflow-hidden rounded-3xl',
+                    'bg-white dark:bg-dark-900',
+                    'cursor-grab select-none active:cursor-grabbing',
+                    'dark:ring-1 dark:ring-dark-800',
+                    className
+                )}>
+                {children}
+            </div>
         </div>
     );
 }
