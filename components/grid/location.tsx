@@ -7,6 +7,8 @@ import Map, { MapRef } from 'react-map-gl';
 import Button from '../button';
 import Card from '../card';
 
+import '@/styles/react-map-gl.css';
+
 const MAX_ZOOM = 10;
 const MIN_ZOOM = 4;
 const INITIAL_VIEW_STATE = {

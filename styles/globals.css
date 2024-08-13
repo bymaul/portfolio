@@ -1,29 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* custom styles for mapbox */
-.mapboxgl-control-container {
-    @apply hidden;
-}
-
-div[mapboxgl-children] {
-    @apply absolute inset-0;
-}
-
-/* custom styles for prose heading */
-.prose .anchor {
-    @apply invisible absolute -ml-6 w-full pr-2 no-underline;
-}
-
-.anchor:hover {
-    @apply visible;
-}
-
-.prose .anchor:after {
-    @apply text-neutral-300 content-['#'] dark:text-neutral-700;
-}
-
-.prose *:hover > .anchor {
-    @apply visible;
-}

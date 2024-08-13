@@ -4,6 +4,8 @@ import { getAllPosts } from '@/lib/mdx';
 import { ContentProps } from '@/types/content';
 import { notFound } from 'next/navigation';
 
+import '@/styles/mdx.css';
+
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 

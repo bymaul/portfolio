@@ -12,6 +12,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
+import '@/styles/mdx.css';
+
 export const generateStaticParams = async () =>
     getAllProjects().map((project) => ({ slug: project.slug }));
 
