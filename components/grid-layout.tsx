@@ -1,15 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { breakpoints, cols, rowHeights } from '@/config/grid';
+import { cn } from '@/lib/utils';
 import {
     Layout,
     ReactGridLayoutProps,
     Responsive,
     WidthProvider,
 } from 'react-grid-layout';
-import useMounted from '@/hooks/use-mounted';
-import { cn } from '@/lib/utils';
 
+import { useBreakpoint, useMounted } from '@/hooks';
 import '@/styles/react-grid-layout.css';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -27,34 +27,11 @@ export default function GridLayout({
     className,
     children,
 }: GridLayoutProps) {
-    const [breakpoint, setBreakpoint] = useState('');
+    const { breakpoint, setBreakpoint } = useBreakpoint();
     const isMounted = useMounted();
 
-    const breakpoints = { lg: 1199, md: 799, sm: 374, xs: 319, xxs: 0 };
-    const cols = { lg: 4, md: 4, sm: 2, xs: 2, xxs: 2 };
-    const rowHeights: { [key: string]: number } = {
-        lg: 280,
-        md: 180,
-        sm: 164,
-        xs: 136,
-        xxs: 132,
-    };
-
-    useEffect(() => {
-        const width = window.innerWidth;
-        if (width > breakpoints.lg) setBreakpoint('lg');
-        else if (width > breakpoints.md) setBreakpoint('md');
-        else if (width > breakpoints.sm) setBreakpoint('sm');
-        else if (width > breakpoints.xs) setBreakpoint('xs');
-        else setBreakpoint('xxs');
-    }, []);
-
     const responsiveProps = {
-        layouts: {
-            lg: lgLayout,
-            md: mdLayout,
-            sm: smLayout,
-        },
+        layouts: { lg: lgLayout, md: mdLayout, sm: smLayout },
         breakpoints,
         cols,
         isBounded: true,
@@ -63,9 +40,7 @@ export default function GridLayout({
         useCSSTransforms: false,
         measureBeforeMount: true,
         draggableCancel: '.cancel-drag',
-        onBreakpointChange: (newBreakpoint: string) => {
-            setBreakpoint(newBreakpoint);
-        },
+        onBreakpointChange: setBreakpoint,
     };
 
     return (
