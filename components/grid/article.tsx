@@ -1,11 +1,12 @@
-import { getAllPosts } from '@/lib/mdx';
+import { getLatestPost } from '@/lib/mdx';
+import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import Button from '../button';
 import Card from '../card';
 
 export default function Article() {
-    const post = getAllPosts()[0];
+    const post = getLatestPost();
 
     return (
         <Card className='flex flex-col justify-center gap-6 p-8'>
@@ -27,11 +28,7 @@ export default function Article() {
                     <span className='sr-only'>{post.metadata.title}</span>
                 </Button>
                 <small className='text-gray-600 dark:text-gray-400'>
-                    {new Date(post.metadata.date).toLocaleDateString('en-us', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric',
-                    })}
+                    {formatDate(post.metadata.date)}
                 </small>
             </div>
         </Card>
