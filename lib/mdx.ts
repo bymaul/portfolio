@@ -59,6 +59,10 @@ export function getAllPosts() {
     return getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
 }
 
+export function getLatestPost() {
+    return getAllPosts()[0];
+}
+
 export function getAllProjects() {
     return getMDXData<ProjectMetadata>(
         path.join(process.cwd(), 'content/projects')

@@ -1,6 +1,7 @@
 import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
+import { formatDate } from '@/lib/utils';
 import { ContentProps } from '@/types/content';
 import { notFound } from 'next/navigation';
 
@@ -70,14 +71,7 @@ const PostPage = ({ params }: ContentProps) => {
                 </h1>
                 <small className='mt-2 text-gray-600 dark:text-gray-400'>
                     <time dateTime={post.metadata.date}>
-                        {new Date(post.metadata.date).toLocaleDateString(
-                            'en-us',
-                            {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric',
-                            }
-                        )}
+                        {formatDate(post.metadata.date)}
                     </time>
                 </small>
             </section>

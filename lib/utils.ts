@@ -22,3 +22,16 @@ export function toKebabCase(string: string): string {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-+)|(-+$)/g, '');
 }
+
+/**
+ * Formats a date string to a human-readable format.
+ * @param date The date string to be formatted.
+ * @returns The formatted date string.
+ */
+export function formatDate(date: string): string {
+    return new Date(date).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+}
