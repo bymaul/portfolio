@@ -64,8 +64,7 @@ const fetchSpotifyData = async (
     if (!response.ok) {
         throw new Error(`Failed to fetch data from ${url}`);
     }
-
-    return await response.json();
+    return response.json();
 };
 
 const formatResponse = (data: SpotifyApi) => {
@@ -85,12 +84,25 @@ const formatResponse = (data: SpotifyApi) => {
 };
 
 export async function GET() {
-    const accessToken = await getAccessToken();
-    let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
+    try {
+        const accessToken = await getAccessToken();
+        let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
 
-    if (!data.is_playing || data.currently_playing_type !== 'track') {
-        data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
+        if (!data.is_playing || data.currently_playing_type !== 'track') {
+            data = await fetchSpotifyData(
+                SPOTIFY_RECENTLY_PLAYED_URL,
+                accessToken
+            );
+        }
+
+        return NextResponse.json(formatResponse(data));
+    } catch (error) {
+        const accessToken = await getAccessToken();
+        const data = await fetchSpotifyData(
+            SPOTIFY_RECENTLY_PLAYED_URL,
+            accessToken
+        );
+
+        return NextResponse.json(formatResponse(data));
     }
-
-    return NextResponse.json(formatResponse(data));
 }
