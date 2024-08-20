@@ -65,12 +65,11 @@ const fetchSpotifyData = async (
         throw new Error(`Failed to fetch data from ${url}`);
     }
 
-    return response.json();
+    return await response.json();
 };
 
 const formatResponse = (data: SpotifyApi) => {
     const track = data.item ?? data.items?.[0]?.track;
-
     if (!track) {
         throw new Error('No track data available');
     }
@@ -86,34 +85,12 @@ const formatResponse = (data: SpotifyApi) => {
 };
 
 export async function GET() {
-    try {
-        const accessToken = await getAccessToken();
-        let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
+    const accessToken = await getAccessToken();
+    let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
 
-        if (!data.is_playing || data.currently_playing_type !== 'track') {
-            data = await fetchSpotifyData(
-                SPOTIFY_RECENTLY_PLAYED_URL,
-                accessToken
-            );
-        }
-
-        return NextResponse.json(formatResponse(data));
-    } catch (error) {
-        try {
-            const accessToken = await getAccessToken();
-            const recentlyData = await fetchSpotifyData(
-                SPOTIFY_RECENTLY_PLAYED_URL,
-                accessToken
-            );
-            return NextResponse.json(formatResponse(recentlyData));
-        } catch (recentlyPlayedError) {
-            return NextResponse.json({
-                isPlaying: false,
-                title: 'Pink + White',
-                artist: 'Frank Ocean',
-                songUrl:
-                    'https://open.spotify.com/track/3xKsf9qdS1CyvXSMEid6g8',
-            });
-        }
+    if (!data.is_playing || data.currently_playing_type !== 'track') {
+        data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
     }
+
+    return NextResponse.json(formatResponse(data));
 }
