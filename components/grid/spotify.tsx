@@ -16,32 +16,31 @@ interface Spotify {
 
 const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-function NowPlaying() {
-    const { data } = useSWR<Spotify>(`/api/now-playing`, fetcher);
-
-    if (!data)
-        return (
-            <div>
-                <div className='flex flex-col gap-2'>
-                    <div className='flex items-center gap-2'>
-                        <div className='inline-flex items-center justify-center gap-1'>
-                            <div className='size-1 rounded-full bg-[#1DB954]' />
-                            <div className='size-1 rounded-full bg-[#1DB954]' />
-                            <div className='size-1 rounded-full bg-[#1DB954]' />
-                        </div>
-                        <div className='h-4 animate-pulse rounded-md bg-gray-300'>
-                            <span className='invisible'>Now Playing</span>
-                        </div>
-                    </div>
-                    <div className='h-6 animate-pulse rounded-md bg-gray-300'>
-                        <span className='invisible'>Song Title</span>
-                    </div>
-                    <div className='h-4 animate-pulse rounded-md bg-gray-300'>
-                        <span className='invisible'>Artist</span>
-                    </div>
-                </div>
+const NowPlayingLoading = () => (
+    <div className='flex flex-col gap-2'>
+        <div className='flex items-center gap-2'>
+            <div className='inline-flex items-center justify-center gap-1'>
+                <div className='size-1 rounded-full bg-[#1DB954]' />
+                <div className='size-1 rounded-full bg-[#1DB954]' />
+                <div className='size-1 rounded-full bg-[#1DB954]' />
             </div>
-        );
+            <div className='h-4 animate-pulse rounded-md bg-gray-300'>
+                <span className='invisible'>Now Playing</span>
+            </div>
+        </div>
+        <div className='h-6 animate-pulse rounded-md bg-gray-300'>
+            <span className='invisible'>Song Title</span>
+        </div>
+        <div className='h-4 animate-pulse rounded-md bg-gray-300'>
+            <span className='invisible'>Artist</span>
+        </div>
+    </div>
+);
+
+function NowPlaying() {
+    const { data, isLoading } = useSWR<Spotify>(`/api/now-playing`, fetcher);
+
+    if (isLoading) return <NowPlayingLoading />;
 
     return (
         <div>
@@ -57,22 +56,16 @@ function NowPlaying() {
             </div>
             <h2
                 className='cancel-drag line-clamp-3 text-2xl font-semibold md:line-clamp-1 lg:line-clamp-3'
-                title={data?.isPlaying ? data?.title : 'Pink + White'}>
+                title={data?.title}>
                 <Link
-                    href={
-                        data?.isPlaying
-                            ? data?.songUrl
-                            : 'https://open.spotify.com/track/3xKsf9qdS1CyvXSMEid6g8?si=15c53cbc7c774697'
-                    }
+                    href={data?.songUrl ?? '#'}
                     target='_blank'
                     rel='nofollow noopener noreferrer'>
-                    {data?.isPlaying ? data?.title : 'Pink + White'}
+                    {data?.title}
                 </Link>
             </h2>
-            <p
-                className='truncate'
-                title={data?.isPlaying ? data?.artist : 'Frank Ocean'}>
-                {data?.isPlaying ? data?.artist : 'Frank Ocean'}
+            <p className='truncate' title={data?.artist}>
+                {data?.artist}
             </p>
         </div>
     );
