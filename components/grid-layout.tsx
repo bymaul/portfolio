@@ -1,6 +1,7 @@
 'use client';
 
 import { breakpoints, cols, rowHeights } from '@/config/grid';
+import { useBreakpoint, useMounted } from '@/hooks';
 import { cn } from '@/lib/utils';
 import {
     Layout,
@@ -9,7 +10,6 @@ import {
     WidthProvider,
 } from 'react-grid-layout';
 
-import { useBreakpoint, useMounted } from '@/hooks';
 import '@/styles/react-grid-layout.css';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -49,7 +49,7 @@ export default function GridLayout({
                 'mx-auto max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]',
                 isMounted ? 'opacity-100' : 'opacity-0',
                 isMounted ? 'translate-y-0' : '-translate-y-12',
-                'transition-all duration-500',
+                'transition-[opacity,_transform] duration-500',
                 className
             )}>
             <ResponsiveGridLayout margin={[16, 16]} {...responsiveProps}>
