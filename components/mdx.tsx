@@ -1,3 +1,4 @@
+import { toKebabCase } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,20 +33,9 @@ function RoundedImage({ ...props }) {
     );
 }
 
-function slugify(str: string) {
-    return str
-        .toString()
-        .toLowerCase()
-        .trim() // Remove whitespace from both ends of a string
-        .replace(/\s+/g, '-') // Replace spaces with -
-        .replace(/&/g, '-and-') // Replace & with 'and'
-        .replace(/[^\w-]+/g, '') // Remove all non-word characters except for -
-        .replace(/--+/g, '-'); // Replace multiple - with single -
-}
-
 function createHeading(level: number) {
     const Heading = ({ children }: { children: string }) => {
-        let slug = slugify(children);
+        let slug = toKebabCase(children);
         return createElement(
             `h${level}`,
             { id: slug },
