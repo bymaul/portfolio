@@ -3,7 +3,7 @@
 import useMounted from '@/hooks/use-mounted';
 import { cn } from '@/lib/utils';
 
-export default function ContentTemplate({
+export default function Content({
     children,
     className,
 }: React.HTMLAttributes<HTMLElement>) {
