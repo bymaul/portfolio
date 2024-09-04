@@ -1,3 +1,10 @@
+import { ReactNode } from 'react';
+import { IconType } from 'react-icons';
+
+export interface Content {
+    params: { slug: string };
+}
+
 interface Breakpoints {
     [key: string]: number;
 }
@@ -22,3 +29,14 @@ export const rowHeights: RowHeights = {
     xs: 136,
     xxs: 132,
 };
+
+export interface GridItem {
+    i: string;
+    component: () => ReactNode;
+}
+
+export interface Social {
+    name: string;
+    url: string;
+    icon: IconType;
+}

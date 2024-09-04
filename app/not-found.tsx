@@ -2,7 +2,7 @@
 
 import Button from '@/components/button';
 import Container from '@/components/container';
-import useMounted from '@/hooks/use-mounted';
+import { useMounted } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';

@@ -1,9 +1,9 @@
 'use client';
 
-import { breakpoints } from '@/config/grid';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
+import { breakpoints } from './types';
 
-export default function useBreakpoint() {
+function useBreakpoint() {
     const [breakpoint, setBreakpoint] = useState<string>('');
 
     useEffect(() => {
@@ -23,3 +23,18 @@ export default function useBreakpoint() {
 
     return { breakpoint, setBreakpoint };
 }
+
+function useMounted(delay: number = 0) {
+    const [isMounted, setIsMounted] = useState(false);
+
+    useLayoutEffect(() => {
+        setTimeout(() => {
+            setIsMounted(true);
+        }, delay);
+    }, []);
+
+    return isMounted;
+}
+
+export { useBreakpoint, useMounted };
+

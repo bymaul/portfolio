@@ -1,7 +1,7 @@
 'use client';
 
-import { breakpoints, cols, rowHeights } from '@/config/grid';
-import { useBreakpoint, useMounted } from '@/hooks';
+import { useBreakpoint, useMounted } from '@/lib/hooks';
+import { breakpoints, cols, rowHeights } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import {
     Layout,

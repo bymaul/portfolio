@@ -1,6 +1,6 @@
 'use client';
 
-import useMounted from '@/hooks/use-mounted';
+import { useMounted } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
 
 export default function Content({

@@ -1,6 +1,6 @@
 'use client';
 
-import { useMounted } from '@/hooks';
+import { useMounted } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import { FaMoon, FaSun } from 'react-icons/fa6';

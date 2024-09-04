@@ -6,7 +6,7 @@ import { CustomMDX } from '@/components/mdx';
 import { lgLayout, smLayout } from '@/config/project-layouts';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
-import { ContentProps } from '@/types/content';
+import { Content } from '@/lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -17,7 +17,7 @@ import '@/styles/mdx.css';
 export const generateStaticParams = async () =>
     getAllProjects().map((project) => ({ slug: project.slug }));
 
-export const generateMetadata = ({ params }: ContentProps) => {
+export const generateMetadata = ({ params }: Content) => {
     const project = getAllProjects().find(
         (project) => project.slug === params.slug
     );
@@ -47,7 +47,7 @@ export const generateMetadata = ({ params }: ContentProps) => {
     };
 };
 
-const ProjectPage = ({ params }: ContentProps) => {
+const ProjectPage = ({ params }: Content) => {
     const project = getAllProjects().find(
         (project) => project.slug === params.slug
     );
