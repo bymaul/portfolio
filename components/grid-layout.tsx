@@ -47,9 +47,10 @@ export default function GridLayout({
         <section
             className={cn(
                 'mx-auto max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]',
-                isMounted ? 'opacity-100' : 'opacity-0',
-                isMounted ? 'translate-y-0' : '-translate-y-12',
-                'transition-[opacity,_transform] duration-500',
+                isMounted
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-6 opacity-0',
+                'transition-[opacity,_transform] duration-700',
                 className
             )}>
             <ResponsiveGridLayout margin={[16, 16]} {...responsiveProps}>

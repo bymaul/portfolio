@@ -19,8 +19,8 @@ export default function NotFound() {
                     'space-y-4 text-center',
                     isMounted
                         ? 'translate-y-0 opacity-100'
-                        : '-translate-y-12 opacity-0',
-                    'transition-all duration-500'
+                        : '-translate-y-6 opacity-0',
+                    'transition-[opacity,_transform] duration-700'
                 )}>
                 <h1 className='text-7xl font-bold md:text-9xl'>404</h1>
                 <h2 className='text-xl font-semibold md:text-3xl'>
