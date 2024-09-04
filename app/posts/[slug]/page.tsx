@@ -1,8 +1,8 @@
 import { CustomMDX } from '@/components/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
+import { Content } from '@/lib/types';
 import { formatDate } from '@/lib/utils';
-import { ContentProps } from '@/types/content';
 import { notFound } from 'next/navigation';
 
 import '@/styles/mdx.css';
@@ -10,7 +10,7 @@ import '@/styles/mdx.css';
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: ContentProps) => {
+export const generateMetadata = ({ params }: Content) => {
     const post = getAllPosts().find((post) => post.slug === params.slug);
     if (!post) return;
 
@@ -39,7 +39,7 @@ export const generateMetadata = ({ params }: ContentProps) => {
     };
 };
 
-const PostPage = ({ params }: ContentProps) => {
+const PostPage = ({ params }: Content) => {
     const post = getAllPosts().find((post) => post.slug === params.slug);
 
     if (!post) notFound();
