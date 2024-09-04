@@ -55,12 +55,13 @@ function NowPlaying() {
                 </p>
             </div>
             <h2
-                className='cancel-drag line-clamp-3 text-2xl font-semibold md:line-clamp-1 lg:line-clamp-3'
+                className='line-clamp-3 text-2xl font-semibold md:line-clamp-1 lg:line-clamp-3'
                 title={data?.title}>
                 <Link
                     href={data?.songUrl ?? '#'}
                     target='_blank'
-                    rel='nofollow noopener noreferrer'>
+                    rel='nofollow noopener noreferrer'
+                    className='cancel-drag'>
                     {data?.title}
                 </Link>
             </h2>

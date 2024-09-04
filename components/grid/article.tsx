@@ -11,9 +11,11 @@ export default function Article() {
     return (
         <Card className='flex flex-col justify-center gap-6 p-8'>
             <h2
-                className='cancel-drag truncate text-2xl font-semibold'
+                className='truncate text-2xl font-semibold'
                 title={post.metadata.title}>
-                <Link href={`/posts/${post.slug}`}>{post.metadata.title}</Link>
+                <Link href={`/posts/${post.slug}`} className='cancel-drag'>
+                    {post.metadata.title}
+                </Link>
             </h2>
             <p className='leading-relaxed max-md:line-clamp-4 max-sm:line-clamp-2'>
                 {post.metadata.description}
