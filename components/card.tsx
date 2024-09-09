@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 export default function Card({
     className,
     children,
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: Readonly<{ className?: string; children: React.ReactNode }>) {
     return (
         <div className='size-full rounded-3xl shadow-sm transition-shadow duration-300 hover:shadow-lg'>
             <div

@@ -1,6 +1,7 @@
 import Content from '@/components/content';
-import { PropsWithChildren } from 'react';
 
-export default function Template({ children }: PropsWithChildren) {
+export default function Template({
+    children,
+}: Readonly<{ children: React.ReactNode }>) {
     return <Content>{children}</Content>;
 }

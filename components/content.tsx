@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export default function Content({
     children,
     className,
-}: React.HTMLAttributes<HTMLElement>) {
+}: Readonly<{ children: React.ReactNode; className?: string }>) {
     const isMounted = useMounted();
 
     return (

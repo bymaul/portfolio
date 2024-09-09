@@ -9,11 +9,11 @@ export default function Project({
     projectName,
     projectImage,
     backgroundColor,
-}: {
+}: Readonly<{
     projectName: string;
     projectImage: string | StaticImageData;
     backgroundColor: string;
-}) {
+}>) {
     return (
         <Card className={cn('group relative', backgroundColor)}>
             <Image

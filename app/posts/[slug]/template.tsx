@@ -1,10 +1,11 @@
 import Button from '@/components/button';
 import Content from '@/components/content';
 import Link from 'next/link';
-import { PropsWithChildren } from 'react';
 import { FaX } from 'react-icons/fa6';
 
-export default function Template({ children }: PropsWithChildren) {
+export default function Template({
+    children,
+}: Readonly<{ children: React.ReactNode }>) {
     return (
         <Content className='mx-auto max-w-prose px-4 py-10'>
             <header className='flex items-center justify-center pb-10'>

@@ -2,24 +2,39 @@ import { toKebabCase } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { createElement } from 'react';
+import { ComponentPropsWithoutRef, createElement } from 'react';
 
-function CustomLink({ ...props }) {
-    let href = props.href;
+type AnchorProps = ComponentPropsWithoutRef<'a'>;
 
-    if (href.startsWith('/')) {
+function Anchor({ href, children, ...props }: Readonly<AnchorProps>) {
+    const className = 'text-blue-500 hover:text-blue-700';
+
+    if (href?.startsWith('/')) {
         return (
-            <Link href={href} {...props}>
-                {props.children}
+            <Link href={href} className={className} {...props}>
+                {children}
             </Link>
         );
     }
 
-    if (href.startsWith('#')) {
-        return <a {...props} />;
+    if (href?.startsWith('#')) {
+        return (
+            <a href={href} className={className} {...props}>
+                {children}
+            </a>
+        );
     }
 
-    return <a target='_blank' rel='noopener noreferrer' {...props} />;
+    return (
+        <a
+            href={href}
+            target='_blank'
+            rel='noopener noreferrer'
+            className={className}
+            {...props}>
+            {children}
+        </a>
+    );
 }
 
 function RoundedImage({ ...props }) {
@@ -63,7 +78,7 @@ let components = {
     h5: createHeading(5),
     h6: createHeading(6),
     Image: RoundedImage,
-    a: CustomLink,
+    a: Anchor,
 };
 
 export function CustomMDX({ ...props }) {
