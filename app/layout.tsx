@@ -1,8 +1,8 @@
 import { siteConfig } from '@/config/site';
 import { poppins } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
-import { PropsWithChildren } from 'react';
 import { ThemeProvider } from './providers';
 
 import '@/styles/globals.css';
@@ -49,7 +49,11 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function RootLayout({
+    children,
+}: Readonly<{
+    children: React.ReactNode;
+}>) {
     return (
         <html lang='en' suppressHydrationWarning>
             <body
@@ -60,6 +64,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
                 <ThemeProvider attribute='class' enableSystem={false}>
                     {children}
                 </ThemeProvider>
+                <Analytics />
             </body>
         </html>
     );
