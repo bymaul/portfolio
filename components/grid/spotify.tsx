@@ -19,11 +19,6 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json());
 const NowPlayingLoading = () => (
     <div className='flex flex-col gap-2'>
         <div className='flex items-center gap-2'>
-            <div className='inline-flex items-center justify-center gap-1'>
-                <div className='size-1 rounded-full bg-[#1DB954]' />
-                <div className='size-1 rounded-full bg-[#1DB954]' />
-                <div className='size-1 rounded-full bg-[#1DB954]' />
-            </div>
             <div className='h-4 animate-pulse rounded-md bg-gray-300'>
                 <span className='invisible'>Now Playing</span>
             </div>
@@ -43,13 +38,15 @@ function NowPlaying() {
     if (isLoading) return <NowPlayingLoading />;
 
     return (
-        <div>
-            <div className='flex items-center gap-2'>
-                <div className='inline-flex items-center justify-center gap-1'>
-                    <div className='w-1 animate-[playing_0.85s_ease_infinite] rounded-full bg-[#1DB954]' />
-                    <div className='w-1 animate-[playing_1.26s_ease_infinite] rounded-full bg-[#1DB954]' />
-                    <div className='w-1 animate-[playing_0.62s_ease_infinite] rounded-full bg-[#1DB954]' />
-                </div>
+        <div className='space-y-1'>
+            <div className='flex items-center gap-3'>
+                {data?.isPlaying && (
+                    <div className='inline-flex items-center justify-center gap-1'>
+                        <div className='w-1 animate-[playing_0.85s_ease_infinite] rounded-full bg-[#1DB954]' />
+                        <div className='w-1 animate-[playing_1.26s_ease_infinite] rounded-full bg-[#1DB954]' />
+                        <div className='w-1 animate-[playing_0.62s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    </div>
+                )}
                 <p className='text-sm'>
                     {data?.isPlaying ? 'Now Playing' : 'Offline. Last Played'}
                 </p>
@@ -65,7 +62,7 @@ function NowPlaying() {
                     {data?.title}
                 </Link>
             </h2>
-            <p className='truncate' title={data?.artist}>
+            <p className='truncate font-medium' title={data?.artist}>
                 {data?.artist}
             </p>
         </div>
