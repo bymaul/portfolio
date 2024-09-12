@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { manrope } from './lib/fonts';
 
 const config: Config = {
     darkMode: 'class',
@@ -14,6 +15,9 @@ const config: Config = {
             lg: '1199px',
         },
         extend: {
+            fontFamily: {
+                calistoga: ['var(--font-calistoga)'],
+            },
             colors: {
                 dark: {
                     '50': '#dbdbdb',

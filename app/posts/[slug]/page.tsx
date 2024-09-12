@@ -66,7 +66,7 @@ const PostPage = ({ params }: Content) => {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <section className='text-center'>
-                <h1 className='text-3xl font-bold leading-relaxed'>
+                <h1 className='font-calistoga text-3xl leading-relaxed'>
                     {post.metadata.title}
                 </h1>
                 <small className='mt-2 text-gray-600 dark:text-gray-400'>
