@@ -15,56 +15,63 @@ interface ProjectMetadata extends BaseMetadata {
     images?: string;
 }
 
-function parseFrontmatter<T extends BaseMetadata>(fileContent: string) {
-    let frontmatterRegex = /---\s*([\s\S]*?)\s*---/;
-    let match = frontmatterRegex.exec(fileContent);
-    let frontMatterBlock = match![1];
-    let content = fileContent.replace(frontmatterRegex, '').trim();
-    let frontMatterLines = frontMatterBlock.trim().split('\n');
-    let metadata: Partial<T> = {};
+type MDXData<T extends BaseMetadata> = {
+    metadata: T;
+    slug: string;
+    content: string;
+};
 
-    frontMatterLines.forEach((line) => {
-        let [key, ...valueArr] = line.split(': ');
-        let value = valueArr.join(': ').trim();
-        value = value.replace(/^['"](.*)['"]$/, '$1');
-        metadata[key.trim() as keyof T] = value as T[keyof T];
-    });
+const FRONTMATTER_REGEX = /^---\s*([\s\S]*?)\s*---/;
 
-    return { metadata: metadata as T, content };
-}
+function parseFrontmatter<T extends BaseMetadata>(
+    fileContent: string
+): MDXData<T> {
+    const match = FRONTMATTER_REGEX.exec(fileContent);
+    if (!match) throw new Error('Invalid frontmatter');
 
-function getMDXFiles(dir: string) {
-    return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
-}
-
-function readMDXFile<T extends BaseMetadata>(filePath: string) {
-    let rawContent = fs.readFileSync(filePath, 'utf-8');
-    return parseFrontmatter<T>(rawContent);
-}
-
-function getMDXData<T extends BaseMetadata>(dir: string) {
-    let mdxFiles = getMDXFiles(dir);
-    return mdxFiles.map((file) => {
-        let { metadata, content } = readMDXFile<T>(path.join(dir, file));
-        let slug = path.basename(file, path.extname(file));
-        return {
-            metadata,
-            slug,
-            content,
-        };
-    });
-}
-
-export function getAllPosts() {
-    return getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
-}
-
-export function getLatestPost() {
-    return getAllPosts()[0];
-}
-
-export function getAllProjects() {
-    return getMDXData<ProjectMetadata>(
-        path.join(process.cwd(), 'content/projects')
+    const [fullMatch, frontMatterBlock] = match;
+    const content = fileContent.slice(fullMatch.length).trim();
+    const rawMetadata = Object.fromEntries(
+        frontMatterBlock
+            .trim()
+            .split('\n')
+            .map((line) => {
+                const [key, ...valueParts] = line.split(':');
+                const value = valueParts
+                    .join(':')
+                    .trim()
+                    .replace(/^['"](.*)['"]$/, '$1');
+                return [key.trim(), value];
+            })
     );
+
+    const metadata = rawMetadata as unknown as T;
+
+    return { metadata, content, slug: '' };
 }
+
+function getMDXData<T extends BaseMetadata>(dir: string): MDXData<T>[] {
+    return fs
+        .readdirSync(dir, { withFileTypes: true })
+        .filter(
+            (dirent) => dirent.isFile() && path.extname(dirent.name) === '.mdx'
+        )
+        .map((dirent) => {
+            const filePath = path.join(dir, dirent.name);
+            const fileContent = fs.readFileSync(filePath, 'utf-8');
+            const { metadata, content } = parseFrontmatter<T>(fileContent);
+            return {
+                metadata,
+                slug: path.basename(dirent.name, path.extname(dirent.name)),
+                content,
+            };
+        });
+}
+
+export const getAllPosts = (): MDXData<PostMetadata>[] =>
+    getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
+
+export const getLatestPost = (): MDXData<PostMetadata> => getAllPosts()[0];
+
+export const getAllProjects = (): MDXData<ProjectMetadata>[] =>
+    getMDXData<ProjectMetadata>(path.join(process.cwd(), 'content/projects'));
