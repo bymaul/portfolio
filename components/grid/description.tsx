@@ -16,8 +16,8 @@ export default function Description() {
                 />
             </div>
             <p className='text-balance leading-relaxed'>
-                I&apos;m <span className='text-xl font-semibold'>Maulana</span>,
-                a web developer from Yogyakarta, Indonesia.{' '}
+                I&apos;m <span className='font-calistoga text-xl'>Maulana</span>
+                , a web developer from Yogyakarta, Indonesia.{' '}
                 <span className='hidden md:inline'>
                     I&apos;m interested in Laravel, Go, Node, and React.
                 </span>

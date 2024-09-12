@@ -84,7 +84,7 @@ const ProjectPage = ({ params }: Content) => {
                     type='application/ld+json'
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-                <h1 className='text-3xl font-bold leading-relaxed'>
+                <h1 className='font-calistoga text-3xl leading-relaxed'>
                     {project.metadata.title}
                 </h1>
                 <div className='grid grid-cols-2 gap-10 pb-8 max-md:grid-cols-1'>

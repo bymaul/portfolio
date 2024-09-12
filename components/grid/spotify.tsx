@@ -52,7 +52,7 @@ function NowPlaying() {
                 </p>
             </div>
             <h2
-                className='line-clamp-3 text-2xl font-semibold md:line-clamp-1 lg:line-clamp-3'
+                className='font-calistoga line-clamp-3 text-2xl md:line-clamp-1 lg:line-clamp-3'
                 title={data?.title}>
                 <Link
                     href={data?.songUrl ?? '#'}

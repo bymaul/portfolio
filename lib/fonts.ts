@@ -1,7 +1,13 @@
-import { Poppins } from 'next/font/google';
+import { Manrope, Calistoga } from 'next/font/google';
 
-export const poppins = Poppins({
+export const manrope = Manrope({
     weight: ['300', '400', '500', '600', '700'],
     subsets: ['latin'],
-    variable: '--font-poppins',
+    variable: '--font-manrope',
+});
+
+export const calistoga = Calistoga({
+    weight: ['400'],
+    subsets: ['latin'],
+    variable: '--font-calistoga',
 });
