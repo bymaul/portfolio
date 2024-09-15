@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { calistoga, manrope } from '@/lib/fonts';
+import { calistoga, poppins } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
@@ -56,7 +56,7 @@ export default function RootLayout({
         <html lang='en' suppressHydrationWarning>
             <body
                 className={cn(
-                    manrope.className,
+                    poppins.className,
                     calistoga.variable,
                     'bg-gray-100 antialiased dark:bg-dark-950'
                 )}>

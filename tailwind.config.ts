@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { manrope } from './lib/fonts';
 
 const config: Config = {
     darkMode: 'class',
