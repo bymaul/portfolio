@@ -70,6 +70,10 @@ const ProjectPage = ({ params }: Content) => {
 
     return (
         <>
+            <script
+                type='application/ld+json'
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <Container className='py-8'>
                 <header className='flex items-center justify-center pb-10'>
                     <Button
@@ -80,10 +84,6 @@ const ProjectPage = ({ params }: Content) => {
                         <div className='sr-only'>Close</div>
                     </Button>
                 </header>
-                <script
-                    type='application/ld+json'
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
                 <h1 className='font-calistoga text-3xl leading-relaxed'>
                     {project.metadata.title}
                 </h1>

@@ -5,7 +5,10 @@ import { Content } from '@/lib/types';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 
+import Button from '@/components/button';
 import '@/styles/mdx.css';
+import Link from 'next/link';
+import { FaX } from 'react-icons/fa6';
 
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
@@ -65,19 +68,30 @@ const PostPage = ({ params }: Content) => {
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <section className='text-center'>
-                <h1 className='font-calistoga text-3xl leading-relaxed'>
-                    {post.metadata.title}
-                </h1>
-                <small className='mt-2 text-gray-600 dark:text-gray-400'>
-                    <time dateTime={post.metadata.date}>
-                        {formatDate(post.metadata.date)}
-                    </time>
-                </small>
-            </section>
-            <article className='prose px-4 py-8 dark:prose-invert'>
-                <CustomMDX source={post.content} />
-            </article>
+            <div className='mx-auto max-w-prose px-4 py-10'>
+                <header className='flex items-center justify-center pb-10'>
+                    <Button
+                        as={Link}
+                        className='inline-flex hover:mb-6 hover:scale-125'
+                        href='/'>
+                        <FaX />
+                        <div className='sr-only'>Close</div>
+                    </Button>
+                </header>
+                <section className='text-center'>
+                    <h1 className='font-calistoga text-3xl leading-relaxed'>
+                        {post.metadata.title}
+                    </h1>
+                    <small className='mt-2 text-gray-600 dark:text-gray-400'>
+                        <time dateTime={post.metadata.date}>
+                            {formatDate(post.metadata.date)}
+                        </time>
+                    </small>
+                </section>
+                <article className='prose px-4 py-8 dark:prose-invert'>
+                    <CustomMDX source={post.content} />
+                </article>
+            </div>
         </>
     );
 };
