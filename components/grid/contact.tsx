@@ -1,8 +1,8 @@
 import socials from '@/config/socials';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Button from '../button';
-import Card from '../card';
+import Anchor from '../ui/anchor';
+import Card from '../ui/card';
 
 export default function Contact() {
     return (
@@ -16,15 +16,14 @@ export default function Contact() {
                 in touch.
             </p>
             <div className='inline-flex flex-col items-center gap-6 lg:flex-row'>
-                <Button
-                    as={Link}
+                <Anchor
                     className='cancel-drag px-4 py-2'
                     href='mailto:maulanaajk@gmail.com'
                     target='_blank'
                     rel='noreferrer'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     Contact Me
-                </Button>
+                </Anchor>
                 <div className='inline-flex gap-6'>
                     {socials.map((social) => (
                         <Link

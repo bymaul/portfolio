@@ -1,10 +1,9 @@
 'use client';
 
-import Button from '@/components/button';
+import Anchor from '@/components/ui/anchor';
 import Container from '@/components/container';
 import { useMounted } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 
 export default function NotFound() {
@@ -27,10 +26,10 @@ export default function NotFound() {
                     Page Not Found
                 </h2>
                 <p>Sorry, we couldn&apos;t find what you were looking for.</p>
-                <Button as={Link} href='/' className='px-4 py-2'>
+                <Anchor href='/' className='px-4 py-2'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:-rotate-180' />
                     Back to Home
-                </Button>
+                </Anchor>
             </div>
         </Container>
     );

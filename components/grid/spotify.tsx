@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
-import Card from '../card';
+import Card from '../ui/card';
 
 interface Spotify {
     isPlaying: boolean;
@@ -52,7 +52,7 @@ function NowPlaying() {
                 </p>
             </div>
             <h2
-                className='font-calistoga line-clamp-3 text-2xl md:line-clamp-1 lg:line-clamp-3'
+                className='line-clamp-3 font-calistoga text-2xl md:line-clamp-1 lg:line-clamp-3'
                 title={data?.title}>
                 <Link
                     href={data?.songUrl ?? '#'}

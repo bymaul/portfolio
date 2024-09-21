@@ -1,9 +1,8 @@
 import { cn, toKebabCase } from '@/lib/utils';
 import Image, { StaticImageData } from 'next/image';
-import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Button from './button';
-import Card from './card';
+import Anchor from './ui/anchor';
+import Card from './ui/card';
 
 export default function Project({
     projectName,
@@ -26,8 +25,7 @@ export default function Project({
                 priority
             />
             <div className='absolute bottom-3 left-3'>
-                <Button
-                    as={Link}
+                <Anchor
                     className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
                     href={`/projects/${toKebabCase(projectName)}`}
                     aria-label={projectName}>
@@ -37,7 +35,7 @@ export default function Project({
                     <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     </span>
-                </Button>
+                </Anchor>
             </div>
         </Card>
     );

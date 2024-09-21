@@ -1,14 +1,13 @@
 import { CustomMDX } from '@/components/mdx';
+import Anchor from '@/components/ui/anchor';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
 import { Content } from '@/lib/types';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
-
-import Button from '@/components/button';
-import '@/styles/mdx.css';
-import Link from 'next/link';
 import { FaX } from 'react-icons/fa6';
+
+import '@/styles/mdx.css';
 
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
@@ -70,13 +69,12 @@ const PostPage = ({ params }: Content) => {
             />
             <div className='mx-auto max-w-prose px-4 py-10'>
                 <header className='flex items-center justify-center pb-10'>
-                    <Button
-                        as={Link}
+                    <Anchor
                         className='inline-flex hover:mb-6 hover:scale-125'
                         href='/'>
                         <FaX />
                         <div className='sr-only'>Close</div>
-                    </Button>
+                    </Anchor>
                 </header>
                 <section className='text-center'>
                     <h1 className='font-calistoga text-3xl leading-relaxed'>

@@ -1,14 +1,13 @@
-import Button from '@/components/button';
-import Card from '@/components/card';
 import Container from '@/components/container';
 import GridLayout from '@/components/grid-layout';
 import { CustomMDX } from '@/components/mdx';
+import Anchor from '@/components/ui/anchor';
+import Card from '@/components/ui/card';
 import { lgLayout, smLayout } from '@/config/project-layouts';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
 import { Content } from '@/lib/types';
 import Image from 'next/image';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
@@ -76,13 +75,12 @@ const ProjectPage = ({ params }: Content) => {
             />
             <Container className='py-8'>
                 <header className='flex items-center justify-center pb-10'>
-                    <Button
-                        as={Link}
+                    <Anchor
                         className='inline-flex hover:mb-6 hover:scale-125'
                         href='/'>
                         <FaX />
                         <div className='sr-only'>Close</div>
-                    </Button>
+                    </Anchor>
                 </header>
                 <h1 className='font-calistoga text-3xl leading-relaxed'>
                     {project.metadata.title}
@@ -95,16 +93,15 @@ const ProjectPage = ({ params }: Content) => {
                         <div className='flex flex-wrap items-center gap-3 pt-4'>
                             {JSON.parse(project.metadata.links).map(
                                 (link: { url: string; name: string }) => (
-                                    <Button
+                                    <Anchor
                                         key={link.url}
-                                        as={Link}
                                         href={link.url}
                                         target='_blank'
                                         rel='noreferrer nofollow noopener'
                                         className='inline-flex px-5 py-3 text-sm'>
                                         {link.name}
                                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
-                                    </Button>
+                                    </Anchor>
                                 )
                             )}
                         </div>

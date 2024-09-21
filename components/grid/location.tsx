@@ -1,11 +1,11 @@
 'use client';
 
+import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import { useCallback, useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
-import Button from '../button';
-import Card from '../card';
+import Card from '../ui/card';
 
 import '@/styles/react-map-gl.css';
 
@@ -68,18 +68,18 @@ export default function Location() {
                 minZoom={MIN_ZOOM}>
                 {isMapLoaded && (
                     <div className='absolute inset-x-3 bottom-3 flex items-center justify-between'>
-                        <ZoomButton
+                        <Button
                             isVisible={currentZoom > MIN_ZOOM}
                             onClick={() => handleZoom(false)}
-                            icon={<FaMinus />}
-                            label='Zoom Out'
-                        />
-                        <ZoomButton
+                            aria-label='Zoom Out'>
+                            <FaMinus />
+                        </Button>
+                        <Button
                             isVisible={currentZoom < MAX_ZOOM}
                             onClick={() => handleZoom(true)}
-                            icon={<FaPlus />}
-                            label='Zoom In'
-                        />
+                            aria-label='Zoom In'>
+                            <FaPlus />
+                        </Button>
                     </div>
                 )}
             </Map>
@@ -87,24 +87,20 @@ export default function Location() {
     );
 }
 
-interface ZoomButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     isVisible: boolean;
-    onClick: () => void;
-    icon: React.ReactNode;
-    label: string;
 }
 
-const ZoomButton: React.FC<ZoomButtonProps> = ({
-    isVisible,
-    onClick,
-    icon,
-    label,
-}) => (
-    <Button
-        className={isVisible ? 'cancel-drag' : 'invisible'}
-        aria-label={label}
-        type='button'
-        onClick={onClick}>
-        {icon}
-    </Button>
-);
+function Button({ isVisible, ...props }: Readonly<ButtonProps>) {
+    return (
+        <button
+            className={cn(
+                'group inline-flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-full bg-white p-3 transition-all duration-300',
+                'outline-none ring-2 ring-gray-200/45 focus-within:outline-none focus-within:ring-4 hover:ring-4 dark:text-black dark:ring-gray-200/30',
+                isVisible ? 'cancel-drag' : 'invisible'
+            )}
+            type='button'
+            {...props}
+        />
+    );
+}
