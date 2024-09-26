@@ -20,10 +20,12 @@ const INITIAL_VIEW_STATE = {
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 export default function Location() {
-    const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-    const [isMapLoaded, setIsMapLoaded] = useState(false);
+    const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM),
+        [isButtonDisabled, setIsButtonDisabled] = useState(false),
+        [isMapLoaded, setIsMapLoaded] = useState(false);
+
     const mapRef = useRef<MapRef>(null);
+
     const { theme } = useTheme();
 
     const handleZoom = useCallback(
