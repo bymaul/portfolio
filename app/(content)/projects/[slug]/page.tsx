@@ -8,6 +8,7 @@ import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Script from 'next/script';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
 import '@/styles/mdx.css';
@@ -72,7 +73,7 @@ const ProjectPage = ({ params }: Content) => {
 
     return (
         <>
-            <script
+            <Script
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
