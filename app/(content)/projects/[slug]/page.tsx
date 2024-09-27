@@ -6,12 +6,15 @@ import Card from '@/components/ui/card';
 import { lgLayout, smLayout } from '@/config/project-layouts';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
-import { Content } from '@/lib/types';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
 import '@/styles/mdx.css';
+
+interface Content {
+    params: { slug: string };
+}
 
 export const generateStaticParams = async () =>
     getAllProjects().map((project) => ({ slug: project.slug }));

@@ -2,12 +2,15 @@ import { CustomMDX } from '@/components/mdx';
 import Anchor from '@/components/ui/anchor';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
-import { Content } from '@/lib/types';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { FaX } from 'react-icons/fa6';
 
 import '@/styles/mdx.css';
+
+interface Content {
+    params: { slug: string };
+}
 
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));

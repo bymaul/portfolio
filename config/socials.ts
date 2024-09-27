@@ -1,4 +1,4 @@
-import { Social } from '@/lib/types';
+import { IconType } from 'react-icons';
 import {
     FaFacebook,
     FaGithub,
@@ -6,6 +6,12 @@ import {
     FaLinkedin,
     FaYoutube,
 } from 'react-icons/fa6';
+
+export interface Social {
+    name: string;
+    url: string;
+    icon: IconType;
+}
 
 const socials: Social[] = [
     {

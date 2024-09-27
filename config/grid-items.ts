@@ -1,5 +1,9 @@
 import * as GridComponents from '@/components/grid';
-import { GridItem } from '@/lib/types';
+
+export interface GridItem {
+    i: string;
+    component: () => React.ReactNode;
+}
 
 export const gridItems: GridItem[] = [
     { i: 'description', component: GridComponents.Description },
