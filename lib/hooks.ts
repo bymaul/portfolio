@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { breakpoints } from './types';
+import { breakpoints } from './consts';
 
 function useBreakpoint() {
     const [breakpoint, setBreakpoint] = useState<string>('');
@@ -37,4 +37,3 @@ function useMounted(delay: number = 0) {
 }
 
 export { useBreakpoint, useMounted };
-

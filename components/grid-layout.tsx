@@ -1,7 +1,6 @@
 'use client';
 
 import { useBreakpoint, useMounted } from '@/lib/hooks';
-import { breakpoints, cols, rowHeights } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import {
     Layout,
@@ -11,6 +10,7 @@ import {
 } from 'react-grid-layout';
 
 import '@/styles/react-grid-layout.css';
+import { breakpoints, cols, rowHeights } from '@/lib/consts';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
