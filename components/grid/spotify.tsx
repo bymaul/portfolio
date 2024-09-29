@@ -54,13 +54,13 @@ function NowPlaying() {
             <h2
                 className='line-clamp-3 font-calistoga text-2xl md:line-clamp-1 lg:line-clamp-3'
                 title={data?.title}>
-                <Link
+                <a
                     href={data?.songUrl ?? '#'}
                     target='_blank'
                     rel='nofollow noopener noreferrer'
                     className='cancel-drag'>
                     {data?.title}
-                </Link>
+                </a>
             </h2>
             <p className='truncate font-medium' title={data?.artist}>
                 {data?.artist}

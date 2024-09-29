@@ -17,16 +17,15 @@ export default function Contact() {
             </p>
             <div className='inline-flex flex-col items-center gap-6 lg:flex-row'>
                 <Anchor
+                    as='a'
                     className='cancel-drag px-4 py-2'
-                    href='mailto:maulanaajk@gmail.com'
-                    target='_blank'
-                    rel='noreferrer'>
+                    href='mailto:maulanaajk@gmail.com'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     Contact Me
                 </Anchor>
                 <div className='inline-flex gap-6'>
                     {socials.map((social) => (
-                        <Link
+                        <a
                             key={social.name}
                             href={social.url}
                             className='cancel-drag'
@@ -34,7 +33,7 @@ export default function Contact() {
                             target='_blank'
                             rel='noreferrer'>
                             {<social.icon size='1.3rem' />}
-                        </Link>
+                        </a>
                     ))}
                 </div>
             </div>
