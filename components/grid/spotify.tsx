@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { FaSpotify } from 'react-icons/fa6';
 import useSWR from 'swr';
 import Card from '../ui/card';

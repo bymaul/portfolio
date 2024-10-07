@@ -98,7 +98,6 @@ const ProjectPage = ({ params }: Content) => {
                             {JSON.parse(project.metadata.links).map(
                                 (link: { url: string; name: string }) => (
                                     <Anchor
-                                        as='a'
                                         key={link.url}
                                         href={link.url}
                                         target='_blank'
