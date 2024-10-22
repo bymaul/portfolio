@@ -20,10 +20,10 @@ interface Content {
 export const generateStaticParams = async () =>
     getAllProjects().map((project) => ({ slug: project.slug }));
 
-export const generateMetadata = ({ params }: Content) => {
-    const project = getAllProjects().find(
-        (project) => project.slug === params.slug
-    );
+export const generateMetadata = async ({ params }: Content) => {
+    const { slug } = await params;
+
+    const project = getAllProjects().find((project) => project.slug === slug);
     if (!project) return;
 
     const { title, description } = project.metadata;
@@ -50,10 +50,10 @@ export const generateMetadata = ({ params }: Content) => {
     };
 };
 
-const ProjectPage = ({ params }: Content) => {
-    const project = getAllProjects().find(
-        (project) => project.slug === params.slug
-    );
+const ProjectPage = async ({ params }: Content) => {
+    const { slug } = await params;
+
+    const project = getAllProjects().find((project) => project.slug === slug);
 
     if (!project) notFound();
 
