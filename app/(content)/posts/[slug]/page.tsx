@@ -9,14 +9,12 @@ import { FaX } from 'react-icons/fa6';
 
 import '@/styles/mdx.css';
 
-interface Content {
-    params: { slug: string };
-}
+type Params = Promise<{ slug: string }>;
 
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = async ({ params }: Content) => {
+export const generateMetadata = async ({ params }: { params: Params }) => {
     const { slug } = await params;
 
     const post = getAllPosts().find((post) => post.slug === slug);
@@ -47,7 +45,7 @@ export const generateMetadata = async ({ params }: Content) => {
     };
 };
 
-const PostPage = async ({ params }: Content) => {
+const PostPage = async ({ params }: {params: Params}) => {
     const { slug } = await params;
 
     const post = getAllPosts().find((post) => post.slug === slug);
