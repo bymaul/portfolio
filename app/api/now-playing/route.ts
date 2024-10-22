@@ -1,8 +1,5 @@
 import { NextResponse } from 'next/server';
 
-export const dynamic = 'force-dynamic';
-export const fetchCache = 'force-no-store';
-
 interface SpotifyTrack {
     name: string;
     album: {

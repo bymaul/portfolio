@@ -16,8 +16,10 @@ interface Content {
 export const generateStaticParams = async () =>
     getAllPosts().map((post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: Content) => {
-    const post = getAllPosts().find((post) => post.slug === params.slug);
+export const generateMetadata = async ({ params }: Content) => {
+    const { slug } = await params;
+
+    const post = getAllPosts().find((post) => post.slug === slug);
     if (!post) return;
 
     const { title, description, date } = post.metadata;
@@ -45,8 +47,10 @@ export const generateMetadata = ({ params }: Content) => {
     };
 };
 
-const PostPage = ({ params }: Content) => {
-    const post = getAllPosts().find((post) => post.slug === params.slug);
+const PostPage = async ({ params }: Content) => {
+    const { slug } = await params;
+
+    const post = getAllPosts().find((post) => post.slug === slug);
 
     if (!post) notFound();
 
