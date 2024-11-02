@@ -11,8 +11,6 @@ import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
 
-import '@/styles/mdx.css';
-
 type Params = Promise<{ slug: string }>;
 
 export const generateStaticParams = async () =>

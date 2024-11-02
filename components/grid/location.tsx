@@ -7,8 +7,6 @@ import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Card from '../ui/card';
 
-import '@/styles/react-map-gl.css';
-
 const MAX_ZOOM = 10;
 const MIN_ZOOM = 4;
 const INITIAL_VIEW_STATE = {

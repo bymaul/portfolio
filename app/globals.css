@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* React Grid Layout */
+.react-grid-layout {
+    @apply relative transition-[height] duration-200 ease-in-out;
+}
+
+.react-grid-item {
+    @apply transition-[left,_top,_width,_height] delay-0 duration-500 ease-in-out;
+}
+
+.react-grid-item img {
+    @apply pointer-events-none select-none;
+}
+
+.react-grid-item.resizing {
+    @apply z-[1] transition-none will-change-[width,_height];
+}
+
+.react-grid-item.react-draggable-dragging {
+    @apply z-[3] transition-none will-change-transform;
+}
+
+.react-grid-item.dropping {
+    @apply invisible;
+}
+
+.react-grid-item.react-grid-placeholder {
+    @apply z-[2] select-none rounded-3xl bg-black opacity-5 duration-100;
+}
+
+html.dark .react-grid-item.react-grid-placeholder {
+    @apply bg-white opacity-5;
+}
+
+/* Mapbox */
+.mapboxgl-control-container {
+    @apply hidden;
+}
+
+div[mapboxgl-children] {
+    @apply absolute inset-0;
+}
+
+/* MDX */
+.prose .anchor {
+    @apply invisible absolute -ml-6 w-full pr-2 no-underline;
+}
+
+.anchor:hover {
+    @apply visible;
+}
+
+.prose .anchor:after {
+    @apply text-neutral-300 content-['#'] dark:text-neutral-700;
+}
+
+.prose *:hover > .anchor {
+    @apply visible;
+}

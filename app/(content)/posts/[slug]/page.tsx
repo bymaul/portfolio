@@ -7,8 +7,6 @@ import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { FaX } from 'react-icons/fa6';
 
-import '@/styles/mdx.css';
-
 type Params = Promise<{ slug: string }>;
 
 export const generateStaticParams = async () =>
@@ -45,7 +43,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
     };
 };
 
-const PostPage = async ({ params }: {params: Params}) => {
+const PostPage = async ({ params }: { params: Params }) => {
     const { slug } = await params;
 
     const post = getAllPosts().find((post) => post.slug === slug);

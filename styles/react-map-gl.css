@@ -1,7 +1,0 @@
-.mapboxgl-control-container {
-    @apply hidden;
-}
-
-div[mapboxgl-children] {
-    @apply absolute inset-0;
-}
