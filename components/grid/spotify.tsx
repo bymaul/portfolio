@@ -32,9 +32,11 @@ const NowPlayingLoading = () => (
 );
 
 function NowPlaying() {
-    const { data, isLoading } = useSWR<Spotify>(`/api/now-playing`, fetcher);
+    const { data, isLoading, error } = useSWR<Spotify>(`/api/now-playing`, fetcher);
 
     if (isLoading) return <NowPlayingLoading />;
+
+    if (error) return <p className='text-red-500'>Failed to load</p>;
 
     return (
         <div className='space-y-1'>
