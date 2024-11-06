@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
-import { useCallback, useRef, useState } from 'react';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Card from '../ui/card';
@@ -17,10 +17,10 @@ const INITIAL_VIEW_STATE = {
 
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
-export default function Location() {
-    const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM),
-        [isButtonDisabled, setIsButtonDisabled] = useState(false),
-        [isMapLoaded, setIsMapLoaded] = useState(false);
+const Location = memo(function Location() {
+    const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const mapRef = useRef<MapRef>(null);
 
@@ -46,7 +46,11 @@ export default function Location() {
         [isButtonDisabled]
     );
 
-    const mapStyle = `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`;
+    const mapStyle = useMemo(
+        () =>
+            `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
+        [theme]
+    );
 
     return (
         <Card className='relative size-full'>
@@ -61,7 +65,7 @@ export default function Location() {
                 dragRotate={false}
                 pitchWithRotate={false}
                 touchZoomRotate={false}
-                antialias={true}
+                antialias
                 onLoad={() => setIsMapLoaded(true)}
                 initialViewState={INITIAL_VIEW_STATE}
                 maxZoom={MAX_ZOOM}
@@ -85,13 +89,16 @@ export default function Location() {
             </Map>
         </Card>
     );
-}
+});
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     isVisible: boolean;
 }
 
-function Button({ isVisible, ...props }: Readonly<ButtonProps>) {
+const Button = memo(function Button({
+    isVisible,
+    ...props
+}: Readonly<ButtonProps>) {
     return (
         <button
             className={cn(
@@ -103,4 +110,6 @@ function Button({ isVisible, ...props }: Readonly<ButtonProps>) {
             {...props}
         />
     );
-}
+});
+
+export default Location;
