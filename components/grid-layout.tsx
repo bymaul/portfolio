@@ -39,6 +39,7 @@ export default function GridLayout({
         measureBeforeMount: true,
         draggableCancel: '.cancel-drag',
         onBreakpointChange: setBreakpoint,
+        isDraggable: ['lg', 'md'].includes(breakpoint),
     };
 
     return (
