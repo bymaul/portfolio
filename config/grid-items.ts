@@ -2,7 +2,7 @@ import * as GridComponents from '@/components/grid';
 
 export interface GridItem {
     i: string;
-    component: () => React.ReactNode;
+    component: React.ComponentType;
 }
 
 export const gridItems: GridItem[] = [
