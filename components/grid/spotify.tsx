@@ -2,6 +2,7 @@
 
 import useSWR from 'swr';
 import Card from '../ui/card';
+import { cn } from '@/lib/utils';
 
 interface Spotify {
     isPlaying: boolean;
@@ -61,25 +62,16 @@ function LoadingText({ className }: Readonly<{ className?: string }>) {
 }
 
 function CardFooter({ isPlaying }: Readonly<{ isPlaying?: boolean }>) {
-    const bar = {
-        1: 0.85,
-        2: 0.62,
-        3: 1.26,
-        4: 0.85,
-        5: 0.48,
-        6: 1.26,
-    };
-
     return (
         <div className='flex items-center gap-3 border-t border-dark-50 bg-white px-8 py-2 text-dark-400 dark:border-dark-800 dark:bg-dark-900'>
             {isPlaying && (
                 <div className='inline-flex items-center justify-center gap-1'>
-                    {Object.entries(bar).map(([key, delay]) => (
-                        <div
-                            key={key}
-                            className={`w-1 animate-[playing_${delay}s_ease_infinite] rounded-full bg-[#1DB954]`}
-                        />
-                    ))}
+                    <div className='w-1 animate-[playing_0.85s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    <div className='w-1 animate-[playing_0.62s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    <div className='w-1 animate-[playing_1.26s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    <div className='w-1 animate-[playing_0.85s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    <div className='w-1 animate-[playing_0.49s_ease_infinite] rounded-full bg-[#1DB954]' />
+                    <div className='w-1 animate-[playing_1.26s_ease_infinite] rounded-full bg-[#1DB954]' />
                 </div>
             )}
             <p className='text-sm'>{isPlaying ? 'Now Playing' : 'Offline. Last Played'}</p>
