@@ -2,7 +2,6 @@
 
 import useSWR from 'swr';
 import Card from '../ui/card';
-import { cn } from '@/lib/utils';
 
 interface Spotify {
     isPlaying: boolean;
@@ -18,8 +17,8 @@ const fetcher = (url: string) => fetch(url).then((r) => r.json());
 export default function Spotify() {
     const { data, isLoading, error } = useSWR<Spotify>('/api/now-playing', fetcher);
 
-    if (isLoading) return <NowPlayingLoading />;
-    if (error) return <ErrorFallback />;
+    if (error) return <ErrorDisplay />;
+    if (isLoading) return <Loading />;
 
     return (
         <Card
@@ -79,7 +78,7 @@ function CardFooter({ isPlaying }: Readonly<{ isPlaying?: boolean }>) {
     );
 }
 
-function NowPlayingLoading() {
+function Loading() {
     return (
         <Card className='flex h-full flex-col justify-end gap-2'>
             <div className='flex flex-col gap-3 px-8'>
@@ -91,7 +90,7 @@ function NowPlayingLoading() {
     );
 }
 
-function ErrorFallback() {
+function ErrorDisplay() {
     return (
         <Card className='flex h-full flex-col justify-end gap-3'>
             <div className='flex flex-col gap-3 px-8'>

@@ -23,15 +23,10 @@ const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
-const SPOTIFY_NOW_PLAYING_URL =
-    'https://api.spotify.com/v1/me/player/currently-playing';
-const SPOTIFY_RECENTLY_PLAYED_URL =
-    'https://api.spotify.com/v1/me/player/recently-played?limit=1';
+const SPOTIFY_NOW_PLAYING_URL = 'https://api.spotify.com/v1/me/player/currently-playing';
+const SPOTIFY_RECENTLY_PLAYED_URL = 'https://api.spotify.com/v1/me/player/recently-played?limit=1';
 
-const getBasicToken = () =>
-    Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString(
-        'base64'
-    );
+const getBasicToken = () => Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString('base64');
 
 const getAccessToken = async (): Promise<string> => {
     const response = await fetch(SPOTIFY_TOKEN_URL, {
@@ -50,10 +45,7 @@ const getAccessToken = async (): Promise<string> => {
     return data.access_token;
 };
 
-const fetchSpotifyData = async (
-    url: string,
-    accessToken: string
-): Promise<SpotifyApi> => {
+const fetchSpotifyData = async (url: string, accessToken: string): Promise<SpotifyApi> => {
     const response = await fetch(url, {
         headers: { Authorization: `Bearer ${accessToken}` },
     });
@@ -86,19 +78,13 @@ export async function GET() {
         let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
 
         if (!data.is_playing || data.currently_playing_type !== 'track') {
-            data = await fetchSpotifyData(
-                SPOTIFY_RECENTLY_PLAYED_URL,
-                accessToken
-            );
+            data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
         }
 
         return NextResponse.json(formatResponse(data));
     } catch (error) {
         const accessToken = await getAccessToken();
-        const data = await fetchSpotifyData(
-            SPOTIFY_RECENTLY_PLAYED_URL,
-            accessToken
-        );
+        const data = await fetchSpotifyData(SPOTIFY_RECENTLY_PLAYED_URL, accessToken);
 
         return NextResponse.json(formatResponse(data));
     }
