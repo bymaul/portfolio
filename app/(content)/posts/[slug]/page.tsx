@@ -9,8 +9,7 @@ import { FaX } from 'react-icons/fa6';
 
 type Params = Promise<{ slug: string }>;
 
-export const generateStaticParams = async () =>
-    getAllPosts().map((post) => ({ slug: post.slug }));
+export const generateStaticParams = async () => getAllPosts().map((post) => ({ slug: post.slug }));
 
 export const generateMetadata = async ({ params }: { params: Params }) => {
     const { slug } = await params;
@@ -68,25 +67,20 @@ const PostPage = async ({ params }: { params: Params }) => {
     return (
         <div className='mx-auto max-w-prose px-4 py-10'>
             <Script
+                id='json-ld'
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <header className='flex items-center justify-center pb-10'>
-                <Anchor
-                    className='inline-flex hover:mb-6 hover:scale-125'
-                    href='/'>
+                <Anchor className='inline-flex hover:mb-6 hover:scale-125' href='/'>
                     <FaX />
                     <div className='sr-only'>Close</div>
                 </Anchor>
             </header>
             <section className='text-center'>
-                <h1 className='font-calistoga text-3xl leading-relaxed'>
-                    {post.metadata.title}
-                </h1>
+                <h1 className='font-calistoga text-3xl leading-relaxed'>{post.metadata.title}</h1>
                 <small className='mt-2 text-gray-600 dark:text-gray-400'>
-                    <time dateTime={post.metadata.date}>
-                        {formatDate(post.metadata.date)}
-                    </time>
+                    <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
                 </small>
             </section>
             <article className='prose px-4 py-8 dark:prose-invert'>

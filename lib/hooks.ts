@@ -9,10 +9,7 @@ function useBreakpoint() {
     useEffect(() => {
         const handleResize = () => {
             const width = window.innerWidth;
-            const newBreakpoint =
-                Object.keys(breakpoints).find(
-                    (key) => width > breakpoints[key]
-                ) ?? 'xxs';
+            const newBreakpoint = Object.keys(breakpoints).find((key) => width > breakpoints[key]) ?? 'xxs';
             setBreakpoint(newBreakpoint);
         };
 
@@ -31,7 +28,7 @@ function useMounted(delay: number = 0) {
         setTimeout(() => {
             setIsMounted(true);
         }, delay);
-    }, []);
+    }, [delay]);
 
     return isMounted;
 }
