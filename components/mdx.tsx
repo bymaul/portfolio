@@ -1,8 +1,10 @@
+'use client';
+
 import { toKebabCase } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, createElement } from 'react';
+import { ComponentPropsWithoutRef, createElement, useEffect, useState } from 'react';
 
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 
@@ -26,26 +28,14 @@ function Anchor({ href, children, ...props }: Readonly<AnchorProps>) {
     }
 
     return (
-        <a
-            href={href}
-            target='_blank'
-            rel='noopener noreferrer'
-            className={className}
-            {...props}>
+        <a href={href} target='_blank' rel='noopener noreferrer' className={className} {...props}>
             {children}
         </a>
     );
 }
 
 function RoundedImage({ ...props }) {
-    return (
-        <Image
-            src={props.src}
-            alt={props.alt}
-            className='rounded-lg'
-            {...props}
-        />
-    );
+    return <Image src={props.src} alt={props.alt} className='rounded-lg' {...props} />;
 }
 
 function createHeading(level: number) {
@@ -82,11 +72,13 @@ let components = {
 };
 
 export function CustomMDX({ ...props }) {
-    return (
-        <MDXRemote
-            {...props}
-            source={props.source}
-            components={{ ...components, ...(props.components || {}) }}
-        />
-    );
+    const [mdxContent, setMdxContent] = useState<React.ReactNode>(null);
+
+    useEffect(() => {
+        MDXRemote({ ...props, source: props.source, components: { ...components, ...(props.components || {}) } })
+            .then(setMdxContent)
+            .catch(console.error);
+    }, [props]);
+
+    return <>{mdxContent}</>;
 }
