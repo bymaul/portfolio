@@ -1,8 +1,8 @@
 import { cn, toKebabCase } from '@/lib/utils';
 import Image, { StaticImageData } from 'next/image';
 import { FaArrowRight } from 'react-icons/fa6';
-import Anchor from './ui/anchor';
-import Card from './ui/card';
+import Anchor from './anchor';
+import Card from './card';
 
 export default function Project({
     projectName,

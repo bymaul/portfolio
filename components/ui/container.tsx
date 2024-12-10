@@ -7,8 +7,7 @@ interface ContainerProps<T extends React.ElementType> {
 export default function Container<T extends React.ElementType = 'div'>({
     as,
     ...props
-}: ContainerProps<T> &
-    Omit<React.ComponentPropsWithoutRef<T>, keyof ContainerProps<T>>) {
+}: ContainerProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof ContainerProps<T>>) {
     const Component = as ?? 'div';
     return (
         <Component

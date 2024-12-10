@@ -49,17 +49,10 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout({
-    children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang='en' suppressHydrationWarning>
-            <body
-                className={cn(
-                    poppins.className,
-                    calistoga.variable,
-                    'bg-gray-100 antialiased dark:bg-dark-950'
-                )}>
+            <body className={cn(poppins.className, calistoga.variable, 'bg-gray-100 antialiased dark:bg-dark-950')}>
                 <ThemeProvider attribute='class' enableSystem={false}>
                     {children}
                 </ThemeProvider>

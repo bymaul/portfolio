@@ -1,9 +1,7 @@
 import { cn } from '@/lib/utils';
 import Link, { LinkProps } from 'next/link';
 
-export default function Anchor({
-    ...props
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps) {
+export default function Anchor({ ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement> & LinkProps) {
     return (
         <Link
             {...props}

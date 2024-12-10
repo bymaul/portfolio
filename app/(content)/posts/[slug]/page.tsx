@@ -1,4 +1,4 @@
-import { CustomMDX } from '@/components/mdx';
+import { CustomMDX } from '@/components/ui/mdx';
 import Anchor from '@/components/ui/anchor';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';

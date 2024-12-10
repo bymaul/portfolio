@@ -1,25 +1,20 @@
-import Container from '@/components/container';
-import GridLayout from '@/components/grid-layout';
+import Container from '@/components/ui/container';
+import Grid from '@/components/ui/grid';
 import { gridItems } from '@/config/grid-items';
 import { lgLayout, mdLayout, smLayout } from '@/config/layouts';
 
 export default function Home() {
     return (
         <>
-            <Container
-                as='header'
-                className='flex items-center justify-between py-0'>
+            <Container as='header' className='flex items-center justify-between py-0'>
                 <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
             </Container>
             <main className='py-8'>
-                <GridLayout
-                    lgLayout={lgLayout}
-                    mdLayout={mdLayout}
-                    smLayout={smLayout}>
+                <Grid lgLayout={lgLayout} mdLayout={mdLayout} smLayout={smLayout}>
                     {gridItems.map((item) => (
                         <div key={item.i}>{<item.component />}</div>
                     ))}
-                </GridLayout>
+                </Grid>
             </main>
         </>
     );

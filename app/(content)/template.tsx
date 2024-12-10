@@ -1,7 +1,23 @@
-import Content from '@/components/content';
+'use client';
 
-export default function Template({
-    children,
-}: Readonly<{ children: React.ReactNode }>) {
+import { useMounted } from '@/lib/hooks';
+import { cn } from '@/lib/utils';
+
+export default function Template({ children }: Readonly<{ children: React.ReactNode }>) {
     return <Content>{children}</Content>;
+}
+
+function Content({ children, className }: Readonly<{ children: React.ReactNode; className?: string }>) {
+    const isMounted = useMounted();
+
+    return (
+        <main
+            className={cn(
+                isMounted ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0',
+                'transition-[opacity,_transform] duration-700',
+                className
+            )}>
+            {children}
+        </main>
+    );
 }
