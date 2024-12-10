@@ -23,9 +23,7 @@ type MDXData<T extends BaseMetadata> = {
 
 const FRONTMATTER_REGEX = /^---\s*([\s\S]*?)\s*---/;
 
-function parseFrontmatter<T extends BaseMetadata>(
-    fileContent: string
-): MDXData<T> {
+function parseFrontmatter<T extends BaseMetadata>(fileContent: string): MDXData<T> {
     const match = FRONTMATTER_REGEX.exec(fileContent);
     if (!match) throw new Error('Invalid frontmatter');
 
@@ -53,9 +51,7 @@ function parseFrontmatter<T extends BaseMetadata>(
 function getMDXData<T extends BaseMetadata>(dir: string): MDXData<T>[] {
     return fs
         .readdirSync(dir, { withFileTypes: true })
-        .filter(
-            (dirent) => dirent.isFile() && path.extname(dirent.name) === '.mdx'
-        )
+        .filter((dirent) => dirent.isFile() && path.extname(dirent.name) === '.mdx')
         .map((dirent) => {
             const filePath = path.join(dir, dirent.name);
             const fileContent = fs.readFileSync(filePath, 'utf-8');
