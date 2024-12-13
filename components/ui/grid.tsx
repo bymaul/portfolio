@@ -29,6 +29,8 @@ export default function Grid({ lgLayout, mdLayout, smLayout, className, children
         draggableCancel: '.cancel-drag',
         onBreakpointChange: setBreakpoint,
         isDraggable: ['lg', 'md'].includes(breakpoint),
+        margin: [16, 16] as [number, number],
+        children,
     };
 
     return (
@@ -39,9 +41,7 @@ export default function Grid({ lgLayout, mdLayout, smLayout, className, children
                 'transition-[opacity,_transform] duration-700',
                 className
             )}>
-            <ResponsiveGridLayout margin={[16, 16]} {...responsiveProps}>
-                {children}
-            </ResponsiveGridLayout>
+            <ResponsiveGridLayout {...responsiveProps} />
         </section>
     );
 }

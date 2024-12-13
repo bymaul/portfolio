@@ -16,7 +16,6 @@ export default function Theme() {
 
 function ThemeToggle() {
     const isMounted = useMounted();
-
     const { theme, setTheme } = useTheme();
 
     const handleToggle = () => {

@@ -1,7 +1,6 @@
 import Container from '@/components/ui/container';
 import Grid from '@/components/ui/grid';
-import { gridItems } from '@/config/grid-items';
-import { lgLayout, mdLayout, smLayout } from '@/config/layouts';
+import { gridItems, layouts } from '@/config/grid';
 
 export default function Home() {
     return (
@@ -10,7 +9,7 @@ export default function Home() {
                 <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
             </Container>
             <main className='py-8'>
-                <Grid lgLayout={lgLayout} mdLayout={mdLayout} smLayout={smLayout}>
+                <Grid lgLayout={layouts.lgLayout} mdLayout={layouts.mdLayout} smLayout={layouts.smLayout}>
                     {gridItems.map((item) => (
                         <div key={item.i}>{<item.component />}</div>
                     ))}
