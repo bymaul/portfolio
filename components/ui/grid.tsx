@@ -17,22 +17,6 @@ export default function Grid({ lgLayout, mdLayout, smLayout, className, children
     const { breakpoint, setBreakpoint } = useBreakpoint();
     const isMounted = useMounted();
 
-    const responsiveProps = {
-        layouts: { lg: lgLayout, md: mdLayout, sm: smLayout },
-        breakpoints,
-        cols,
-        isBounded: true,
-        isResizable: false,
-        rowHeight: rowHeights[breakpoint],
-        useCSSTransforms: false,
-        measureBeforeMount: true,
-        draggableCancel: '.cancel-drag',
-        onBreakpointChange: setBreakpoint,
-        isDraggable: ['lg', 'md'].includes(breakpoint),
-        margin: [16, 16] as [number, number],
-        children,
-    };
-
     return (
         <section
             className={cn(
@@ -41,7 +25,21 @@ export default function Grid({ lgLayout, mdLayout, smLayout, className, children
                 'transition-[opacity,_transform] duration-700',
                 className
             )}>
-            <ResponsiveGridLayout {...responsiveProps} />
+            <ResponsiveGridLayout
+                layouts={{ lg: lgLayout, md: mdLayout, sm: smLayout }}
+                breakpoints={breakpoints}
+                cols={cols}
+                isBounded
+                isResizable={false}
+                rowHeight={rowHeights[breakpoint]}
+                useCSSTransforms={false}
+                measureBeforeMount
+                draggableCancel='.cancel-drag'
+                onBreakpointChange={setBreakpoint}
+                isDraggable={['lg', 'md'].includes(breakpoint)}
+                margin={[16, 16]}>
+                {children}
+            </ResponsiveGridLayout>
         </section>
     );
 }
