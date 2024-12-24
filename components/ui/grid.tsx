@@ -3,17 +3,11 @@
 import { breakpoints, cols, rowHeights } from '@/lib/consts';
 import { useBreakpoint, useMounted } from '@/lib/hooks';
 import { cn } from '@/lib/utils';
-import { Layout, ReactGridLayoutProps, Responsive, WidthProvider } from 'react-grid-layout';
+import { Responsive, ResponsiveProps, WidthProvider } from 'react-grid-layout';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-interface GridLayoutProps extends ReactGridLayoutProps {
-    lgLayout: Layout[];
-    mdLayout: Layout[];
-    smLayout: Layout[];
-}
-
-export default function Grid({ lgLayout, mdLayout, smLayout, className, children }: Readonly<GridLayoutProps>) {
+export default function Grid({ layouts, className, children }: Readonly<ResponsiveProps>) {
     const { breakpoint, setBreakpoint } = useBreakpoint();
     const isMounted = useMounted();
 
@@ -26,7 +20,7 @@ export default function Grid({ lgLayout, mdLayout, smLayout, className, children
                 className
             )}>
             <ResponsiveGridLayout
-                layouts={{ lg: lgLayout, md: mdLayout, sm: smLayout }}
+                layouts={layouts}
                 breakpoints={breakpoints}
                 cols={cols}
                 isBounded

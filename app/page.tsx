@@ -9,7 +9,7 @@ export default function Home() {
                 <h1 className='hidden'>Maulana Ahmad Aji Triadi</h1>
             </Container>
             <main className='py-8'>
-                <Grid lgLayout={layouts.lgLayout} mdLayout={layouts.mdLayout} smLayout={layouts.smLayout}>
+                <Grid layouts={layouts}>
                     {gridItems.map((item) => (
                         <div key={item.i}>{<item.component />}</div>
                     ))}
