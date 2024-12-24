@@ -2,8 +2,8 @@ import { getLatestPost } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
-import Card from '../ui/card';
 import Anchor from '../ui/anchor';
+import Card from '../ui/card';
 
 export default function Article() {
     const post = getLatestPost();
