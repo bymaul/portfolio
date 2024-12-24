@@ -16,9 +16,12 @@ export default function Description() {
                 />
             </div>
             <p className='text-balance leading-relaxed'>
-                I&apos;m <span className='font-calistoga text-xl'>Maulana</span>, a software engineer from Yogyakarta,
-                Indonesia.{' '}
-                <span className='hidden md:inline'>I&apos;m interested in Laravel, Go, Node, and React.</span>
+                Hi, I&apos;m <span className='font-calistoga text-xl'>Maulana</span>, a software engineer from
+                Yogyakarta, Indonesia.{' '}
+                <span className='hidden md:inline'>
+                    I&apos;m passionate about crafting reliable software solutions and continuously learning to improve
+                    my skills.
+                </span>
             </p>
         </Card>
     );
