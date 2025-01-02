@@ -1,5 +1,5 @@
-import { getLatestPost } from '@/lib/mdx';
-import { formatDate } from '@/lib/utils';
+import { getLatestPost } from '@/utils/mdx';
+import { formatDate } from '@/utils/lib';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa6';
 import Anchor from '../ui/anchor';

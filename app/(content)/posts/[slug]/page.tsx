@@ -1,8 +1,8 @@
 import { CustomMDX } from '@/components/ui/mdx';
 import Anchor from '@/components/ui/anchor';
 import { siteConfig } from '@/config/site';
-import { getAllPosts } from '@/lib/mdx';
-import { formatDate } from '@/lib/utils';
+import { getAllPosts } from '@/utils/mdx';
+import { formatDate } from '@/utils/lib';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { FaX } from 'react-icons/fa6';

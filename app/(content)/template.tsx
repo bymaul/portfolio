@@ -1,7 +1,7 @@
 'use client';
 
-import { useMounted } from '@/lib/hooks';
-import { cn } from '@/lib/utils';
+import { useMounted } from '@/utils/hooks';
+import { cn } from '@/utils/lib';
 
 export default function Template({ children }: Readonly<{ children: React.ReactNode }>) {
     return <Content>{children}</Content>;

@@ -1,6 +1,6 @@
 import { siteConfig } from '@/config/site';
-import { calistoga, poppins } from '@/lib/fonts';
-import { cn } from '@/lib/utils';
+import { calistoga, poppins } from '@/utils/fonts';
+import { cn } from '@/utils/lib';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { ThemeProvider } from './providers';

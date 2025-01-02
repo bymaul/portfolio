@@ -2,7 +2,7 @@ import Anchor from '@/components/ui/anchor';
 import Container from '@/components/ui/container';
 import { CustomMDX } from '@/components/ui/mdx';
 import { siteConfig } from '@/config/site';
-import { getAllProjects } from '@/lib/mdx';
+import { getAllProjects } from '@/utils/mdx';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { FaArrowRight, FaX } from 'react-icons/fa6';

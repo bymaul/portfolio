@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/lib';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     className?: string;

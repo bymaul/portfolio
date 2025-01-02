@@ -15,13 +15,10 @@ export default function Description() {
                     priority
                 />
             </div>
-            <p className='text-balance leading-relaxed'>
+            <p className='leading-relaxed'>
                 Hi, I&apos;m <span className='font-calistoga text-xl'>Maulana</span>, a software engineer from
                 Yogyakarta, Indonesia.{' '}
-                <span className='hidden md:inline'>
-                    I&apos;m passionate about crafting reliable software solutions and continuously learning to improve
-                    my skills.
-                </span>
+                <span className='hidden md:inline'>I love building reliable software and learning new things.</span>
             </p>
         </Card>
     );

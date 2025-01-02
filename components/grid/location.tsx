@@ -1,6 +1,6 @@
 'use client';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/utils/lib';
 import { useTheme } from 'next-themes';
 import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';

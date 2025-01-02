@@ -1,20 +1,15 @@
-import { cn, toKebabCase } from '@/lib/utils';
-import Image, { StaticImageData } from 'next/image';
+import projectImage from '@/public/projects/next-blog-starter.png';
+import Card from '../ui/card';
+import Image from 'next/image';
+import { toKebabCase } from '@/utils/lib';
+import Anchor from '../ui/anchor';
 import { FaArrowRight } from 'react-icons/fa6';
-import Anchor from './anchor';
-import Card from './card';
 
-export default function Project({
-    projectName,
-    projectImage,
-    backgroundColor,
-}: Readonly<{
-    projectName: string;
-    projectImage: string | StaticImageData;
-    backgroundColor: string;
-}>) {
+export default function Project() {
+    const projectName = 'Next Blog Starter';
+
     return (
-        <Card className={cn('group relative', backgroundColor)}>
+        <Card className='group relative bg-red-100'>
             <Image
                 src={projectImage}
                 alt={toKebabCase(projectName)}

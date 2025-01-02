@@ -1,8 +1,4 @@
-interface Breakpoints {
-    [key: string]: number;
-}
-
-export const breakpoints: Breakpoints = {
+export const breakpoints: { [key: string]: number } = {
     lg: 1199,
     md: 799,
     sm: 374,
@@ -10,11 +6,7 @@ export const breakpoints: Breakpoints = {
     xxs: 0,
 };
 
-interface RowHeights {
-    [key: string]: number;
-}
-
-export const rowHeights: RowHeights = {
+export const rowHeights: { [key: string]: number } = {
     lg: 280,
     md: 180,
     sm: 164,

@@ -2,8 +2,8 @@
 
 import Anchor from '@/components/ui/anchor';
 import Container from '@/components/ui/container';
-import { useMounted } from '@/lib/hooks';
-import { cn } from '@/lib/utils';
+import { useMounted } from '@/utils/hooks';
+import { cn } from '@/utils/lib';
 import { FaArrowRight } from 'react-icons/fa6';
 
 export default function NotFound() {

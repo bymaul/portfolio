@@ -1,6 +1,6 @@
 'use client';
 
-import { toKebabCase } from '@/lib/utils';
+import { toKebabCase } from '@/utils/lib';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
