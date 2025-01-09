@@ -1,10 +1,8 @@
-'use client';
-
 import { toKebabCase } from '@/utils/lib';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, createElement, useEffect, useState } from 'react';
+import { ComponentPropsWithoutRef, createElement } from 'react';
 
 type AnchorProps = ComponentPropsWithoutRef<'a'>;
 
@@ -72,13 +70,5 @@ let components = {
 };
 
 export function CustomMDX({ ...props }) {
-    const [mdxContent, setMdxContent] = useState<React.ReactNode>(null);
-
-    useEffect(() => {
-        MDXRemote({ ...props, source: props.source, components: { ...components, ...(props.components || {}) } })
-            .then(setMdxContent)
-            .catch(console.error);
-    }, [props]);
-
-    return <>{mdxContent}</>;
+    return <MDXRemote {...props} source={props.source} components={{ ...components, ...(props.components || {}) }} />;
 }
