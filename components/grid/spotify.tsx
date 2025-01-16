@@ -33,7 +33,7 @@ export default function Spotify() {
             className='flex h-full flex-col justify-end gap-3 bg-cover'>
             <div className='px-8 text-dark-50'>
                 <h2
-                    className='line-clamp-2 font-calistoga text-2xl md:line-clamp-1 lg:line-clamp-2'
+                    className='font-pixelify-sans line-clamp-2 text-2xl md:line-clamp-1 lg:line-clamp-2'
                     title={data?.title}>
                     <a
                         href={data?.songUrl ?? '#'}
@@ -94,7 +94,7 @@ function ErrorDisplay() {
     return (
         <Card className='flex h-full flex-col justify-end gap-3'>
             <div className='flex flex-col gap-3 px-8'>
-                <h2 className='font-calistoga text-2xl'>Failed to load</h2>
+                <h2 className='font-pixelify-sans text-2xl'>Failed to load</h2>
                 <p className='font-medium'>Failed to load</p>
             </div>
             <CardFooter />

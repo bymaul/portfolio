@@ -1,5 +1,5 @@
 import { siteConfig } from '@/config/site';
-import { calistoga, poppins } from '@/utils/fonts';
+import { pixelifySans, poppins } from '@/utils/fonts';
 import { cn } from '@/utils/lib';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang='en' suppressHydrationWarning>
-            <body className={cn(poppins.className, calistoga.variable, 'bg-gray-100 antialiased dark:bg-dark-950')}>
+            <body className={cn(poppins.className, pixelifySans.variable, 'bg-gray-100 antialiased dark:bg-dark-950')}>
                 <ThemeProvider attribute='class' enableSystem={false}>
                     {children}
                 </ThemeProvider>

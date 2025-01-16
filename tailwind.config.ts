@@ -15,7 +15,7 @@ const config: Config = {
         },
         extend: {
             fontFamily: {
-                calistoga: ['var(--font-calistoga)'],
+                'pixelify-sans': ['var(--font-pixelify-sans)'],
             },
             colors: {
                 dark: {

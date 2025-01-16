@@ -5,7 +5,7 @@ import Card from '../ui/card';
 export default function Contact() {
     return (
         <Card className='flex flex-col justify-center gap-6 p-8'>
-            <h2 className='font-calistoga text-2xl max-md:text-center'>Have an interesting project in mind? 👋</h2>
+            <h2 className='font-pixelify-sans text-2xl max-md:text-center'>Have an interesting project in mind? 👋</h2>
             <p className='leading-relaxed max-md:hidden'>
                 If you have a project that you want to get started, think you need my help with something or just fancy
                 saying hey, then get in touch.

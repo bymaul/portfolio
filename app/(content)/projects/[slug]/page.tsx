@@ -76,7 +76,7 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                         <div className='sr-only'>Close</div>
                     </Anchor>
                 </header>
-                <h1 className='font-calistoga text-3xl leading-relaxed'>{project.metadata.title}</h1>
+                <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{project.metadata.title}</h1>
                 <div className='grid grid-cols-2 gap-10 pb-8 max-md:grid-cols-1'>
                     <div>
                         <p className='text-xl font-medium leading-relaxed'>{project.metadata.description}</p>

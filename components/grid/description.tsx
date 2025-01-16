@@ -16,7 +16,7 @@ export default function Description() {
                 />
             </div>
             <p className='leading-relaxed'>
-                Hi, I&apos;m <span className='font-calistoga text-xl'>Maulana</span>, a software engineer from
+                Hi, I&apos;m <span className='font-pixelify-sans text-xl'>Maulana</span>, a software engineer from
                 Yogyakarta, Indonesia.{' '}
                 <span className='hidden md:inline'>I love building reliable software and learning new things.</span>
             </p>
