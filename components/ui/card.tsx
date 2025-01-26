@@ -7,7 +7,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export default function Card({ className, children, ...props }: Readonly<CardProps>) {
     return (
-        <div className='size-full rounded-3xl shadow-sm transition-shadow duration-300 hover:shadow-lg'>
+        <div className='size-full rounded-3xl shadow-xs transition-shadow duration-300 hover:shadow-lg'>
             <div
                 {...props}
                 className={cn(

@@ -1,6 +1,57 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 374px;
+  --breakpoint-md: 799px;
+  --breakpoint-lg: 1199px;
+
+  --font-pixelify-sans: var(--font-pixelify-sans);
+
+  --color-dark-50: #dbdbdb;
+  --color-dark-100: #cfcfcf;
+  --color-dark-200: #b8b8b8;
+  --color-dark-300: #969696;
+  --color-dark-400: #6e6e6e;
+  --color-dark-500: #545454;
+  --color-dark-600: #424242;
+  --color-dark-700: #363636;
+  --color-dark-800: #2b2b2b;
+  --color-dark-900: #1a1a1a;
+  --color-dark-950: #0d0d0d;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@keyframes playing {
+    0% {
+      height: 4px;
+    }
+    50% {
+      height: 16px;
+    }
+    100% {
+      height: 4px;
+    }
+}
 
 /* React Grid Layout */
 .react-grid-layout {
@@ -14,11 +65,11 @@
         }
 
         &.rezising {
-            @apply z-[1] transition-none will-change-[width,_height];
+            @apply z-1 transition-none will-change-[width,_height];
         }
 
         &.react-draggable-dragging {
-            @apply z-[3] transition-none will-change-transform;
+            @apply z-3 transition-none will-change-transform;
         }
 
         &.dropping {
@@ -26,7 +77,7 @@
         }
 
         &.react-grid-placeholder {
-            @apply z-[2] select-none rounded-3xl bg-black opacity-5 duration-100;
+            @apply z-2 select-none rounded-3xl bg-black opacity-5 duration-100;
 
             html.dark & {
                 @apply bg-white opacity-5;
