@@ -1,11 +1,15 @@
 import Anchor from '@/components/ui/anchor';
+import Card from '@/components/ui/card';
 import Container from '@/components/ui/container';
+import Grid from '@/components/ui/grid';
 import { CustomMDX } from '@/components/ui/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/utils/mdx';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
 import { FaArrowRight, FaX } from 'react-icons/fa6';
+import { projectLayouts } from '@/config/grid';
+import Image from 'next/image';
 
 type Params = Promise<{ slug: string }>;
 
@@ -99,6 +103,27 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                     </article>
                 </div>
             </Container>
+            {project.metadata.images && (
+                <Grid
+                    layouts={projectLayouts}
+                    className='-mt-8 pb-16'>
+                    {JSON.parse(project.metadata.images).map(
+                        (image: { i: string; url: string }) => (
+                            <div key={image.i}>
+                                <Card className='relative'>
+                                    <Image
+                                        src={image.url}
+                                        alt={project.metadata.title}
+                                        fill
+                                        objectFit='cover'
+                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                    />
+                                </Card>
+                            </div>
+                        )
+                    )}
+                </Grid>
+            )}
         </>
     );
 };
