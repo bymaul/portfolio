@@ -2,13 +2,13 @@
 
 import { cn } from '@/utils/lib';
 import { useTheme } from 'next-themes';
-import { memo, useCallback, useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Card from '../ui/card';
 
-const MAX_ZOOM = 10;
-const MIN_ZOOM = 4;
+const MAX_ZOOM = 8;
+const MIN_ZOOM = 3;
 const INITIAL_VIEW_STATE = {
     latitude: -7.7962967,
     longitude: 110.3667211,
@@ -17,7 +17,7 @@ const INITIAL_VIEW_STATE = {
 
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
-const Location = memo(function Location() {
+export default function Location() {
     const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
     const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [isMapLoaded, setIsMapLoaded] = useState(false);
@@ -26,25 +26,22 @@ const Location = memo(function Location() {
 
     const { theme } = useTheme();
 
-    const handleZoom = useCallback(
-        (zoomIn: boolean) => {
-            if (isButtonDisabled) return;
+    const handleZoom = (zoomIn: boolean) => {
+        if (isButtonDisabled) return;
 
-            setCurrentZoom((prevZoom) => {
-                const newZoom = prevZoom + (zoomIn ? 1 : -1);
-                if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
-                    zoomIn ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut();
-                    setIsButtonDisabled(true);
-                    setTimeout(() => setIsButtonDisabled(false), 300);
-                    return newZoom;
-                }
-                return prevZoom;
-            });
-        },
-        [isButtonDisabled]
-    );
+        setCurrentZoom((prevZoom) => {
+            const newZoom = prevZoom + (zoomIn ? 1 : -1);
+            if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
+                zoomIn ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut();
+                setIsButtonDisabled(true);
+                setTimeout(() => setIsButtonDisabled(false), 300);
+                return newZoom;
+            }
+            return prevZoom;
+        });
+    };
 
-    const mapStyle = useMemo(() => `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`, [theme]);
+    const mapStyle = `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`;
 
     return (
         <Card className='relative size-full'>
@@ -60,6 +57,7 @@ const Location = memo(function Location() {
                 pitchWithRotate={false}
                 touchZoomRotate={false}
                 antialias
+                reuseMaps
                 onLoad={() => setIsMapLoaded(true)}
                 initialViewState={INITIAL_VIEW_STATE}
                 maxZoom={MAX_ZOOM}
@@ -83,24 +81,22 @@ const Location = memo(function Location() {
             </Map>
         </Card>
     );
-});
+}
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     isVisible: boolean;
 }
 
-const Button = memo(function Button({ isVisible, ...props }: Readonly<ButtonProps>) {
+function Button({ isVisible, ...props }: Readonly<ButtonProps>) {
     return (
         <button
             className={cn(
-                'group inline-flex items-center justify-center gap-3 overflow-hidden whitespace-nowrap rounded-full bg-white p-3 transition-all duration-300',
-                'outline-hidden ring-2 ring-gray-200/45 focus-within:outline-hidden focus-within:ring-4 hover:ring-4 dark:text-black dark:ring-gray-200/30',
+                'group inline-flex cursor-pointer items-center justify-center gap-3 overflow-hidden rounded-full bg-white p-3 whitespace-nowrap transition-all duration-300',
+                'ring-2 ring-gray-200/45 outline-hidden focus-within:ring-4 focus-within:outline-hidden hover:ring-4 dark:text-black dark:ring-gray-200/30',
                 isVisible ? 'cancel-drag' : 'invisible'
             )}
             type='button'
             {...props}
         />
     );
-});
-
-export default Location;
+}
