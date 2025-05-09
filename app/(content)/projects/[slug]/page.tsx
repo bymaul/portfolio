@@ -31,7 +31,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             description,
             type: 'article',
             url: `${siteConfig.url}/projects/${project.slug}`,
-            authors: 'Maulana',
+            authors: siteConfig.author,
             images: siteConfig.image,
         },
         twitter: {
@@ -60,7 +60,7 @@ const ProjectPage = async ({ params }: { params: Params }) => {
         author: [
             {
                 '@type': 'Person',
-                name: 'Maulana',
+                name: siteConfig.author,
                 url: siteConfig.url,
             },
         ],
@@ -73,42 +73,40 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <Container className='py-8'>
-                <header className='flex items-center justify-center pb-10'>
-                    <Anchor className='inline-flex hover:mb-6 hover:scale-125' href='/'>
-                        <FaX />
-                        <div className='sr-only'>Close</div>
-                    </Anchor>
-                </header>
-                <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{project.metadata.title}</h1>
-                <div className='grid grid-cols-2 gap-10 pb-8 max-md:grid-cols-1'>
-                    <div>
-                        <p className='text-xl font-medium leading-relaxed'>{project.metadata.description}</p>
-                        <div className='flex flex-wrap items-center gap-3 pt-4'>
-                            {JSON.parse(project.metadata.links).map((link: { url: string; name: string }) => (
-                                <Anchor
-                                    key={link.url}
-                                    href={link.url}
-                                    target='_blank'
-                                    rel='noreferrer nofollow noopener'
-                                    className='inline-flex px-5 py-3 text-sm'>
-                                    {link.name}
-                                    <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
-                                </Anchor>
-                            ))}
+            <header className='flex items-center justify-center pt-10'>
+                <Anchor className='inline-flex hover:mb-6 hover:scale-125' href='/'>
+                    <FaX />
+                    <div className='sr-only'>Close</div>
+                </Anchor>
+            </header>
+            <main>
+                <Container as='article' className='py-8'>
+                    <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{project.metadata.title}</h1>
+                    <div className='grid grid-cols-2 gap-10 pb-8 max-md:grid-cols-1'>
+                        <div>
+                            <p className='text-xl leading-relaxed font-medium'>{project.metadata.description}</p>
+                            <div className='flex flex-wrap items-center gap-3 pt-4'>
+                                {JSON.parse(project.metadata.links).map((link: { url: string; name: string }) => (
+                                    <Anchor
+                                        key={link.url}
+                                        href={link.url}
+                                        target='_blank'
+                                        rel='noreferrer nofollow noopener'
+                                        className='inline-flex px-5 py-3 text-sm'>
+                                        {link.name}
+                                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
+                                    </Anchor>
+                                ))}
+                            </div>
+                        </div>
+                        <div className='prose dark:prose-invert'>
+                            <CustomMDX source={project.content} />
                         </div>
                     </div>
-                    <article className='prose dark:prose-invert'>
-                        <CustomMDX source={project.content} />
-                    </article>
-                </div>
-            </Container>
-            {project.metadata.images && (
-                <Grid
-                    layouts={projectLayouts}
-                    className='-mt-8 pb-16'>
-                    {JSON.parse(project.metadata.images).map(
-                        (image: { i: string; url: string }) => (
+                </Container>
+                {project.metadata.images && (
+                    <Grid layouts={projectLayouts} className='-mt-8 pb-16'>
+                        {JSON.parse(project.metadata.images).map((image: { i: string; url: string }) => (
                             <div key={image.i}>
                                 <Card className='relative'>
                                     <Image
@@ -120,10 +118,10 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                                     />
                                 </Card>
                             </div>
-                        )
-                    )}
-                </Grid>
-            )}
+                        ))}
+                    </Grid>
+                )}
+            </main>
         </>
     );
 };

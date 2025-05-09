@@ -58,35 +58,37 @@ const PostPage = async ({ params }: { params: Params }) => {
         author: [
             {
                 '@type': 'Person',
-                name: 'Maulana',
+                name: siteConfig.author,
                 url: siteConfig.url,
             },
         ],
     };
 
     return (
-        <div className='mx-auto max-w-prose px-4 py-10'>
-            <Script
-                id='json-ld'
-                type='application/ld+json'
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            <header className='flex items-center justify-center pb-10'>
+        <>
+            <header className='flex items-center justify-center pt-10'>
                 <Anchor className='inline-flex hover:mb-6 hover:scale-125' href='/'>
                     <FaX />
                     <div className='sr-only'>Close</div>
                 </Anchor>
             </header>
-            <section className='text-center'>
-                <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{post.metadata.title}</h1>
-                <small className='mt-2 text-gray-600 dark:text-gray-400'>
-                    <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
-                </small>
-            </section>
-            <article className='prose px-4 py-8 dark:prose-invert'>
-                <CustomMDX source={post.content} />
-            </article>
-        </div>
+            <main className='mx-auto max-w-prose px-4 py-10'>
+                <Script
+                    id='json-ld'
+                    type='application/ld+json'
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+                <section className='text-center'>
+                    <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{post.metadata.title}</h1>
+                    <small className='mt-2 text-gray-600 dark:text-gray-400'>
+                        <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
+                    </small>
+                </section>
+                <article className='prose dark:prose-invert px-4 py-8'>
+                    <CustomMDX source={post.content} />
+                </article>
+            </main>
+        </>
     );
 };
 

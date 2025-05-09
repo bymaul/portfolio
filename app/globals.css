@@ -98,7 +98,7 @@ div[mapboxgl-children] {
 
 /* MDX */
 .prose .anchor {
-    @apply invisible absolute -ml-6 w-full pr-2 no-underline;
+    @apply invisible absolute -ml-6 pr-2 no-underline;
 
     &:after {
         @apply text-neutral-300 content-['#'] dark:text-neutral-700;

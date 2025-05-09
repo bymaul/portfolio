@@ -11,13 +11,13 @@ function Content({ children, className }: Readonly<{ children: React.ReactNode; 
     const isMounted = useMounted();
 
     return (
-        <main
+        <div
             className={cn(
                 isMounted ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0',
                 'transition-[opacity,_transform] duration-700',
                 className
             )}>
             {children}
-        </main>
+        </div>
     );
 }
