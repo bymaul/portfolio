@@ -33,7 +33,7 @@ function Anchor({ href, children, ...props }: Readonly<AnchorProps>) {
 }
 
 function RoundedImage({ ...props }) {
-    return <Image src={props.src} alt={props.alt} className='rounded-lg' {...props} />;
+    return <Image src={props.src} alt={props.alt} className='rounded-lg' draggable='false' {...props} />;
 }
 
 function createHeading(level: number) {

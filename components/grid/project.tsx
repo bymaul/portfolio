@@ -18,6 +18,7 @@ export default function Project() {
                 className='object-cover'
                 placeholder='blur'
                 priority
+                draggable='false'
             />
             <div className='absolute bottom-3 left-3'>
                 <Anchor
