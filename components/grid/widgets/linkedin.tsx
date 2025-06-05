@@ -1,6 +1,6 @@
 import { FaArrowRight, FaLinkedin } from 'react-icons/fa6';
-import Anchor from '../ui/anchor';
-import Card from '../ui/card';
+import Anchor from '../../ui/anchor';
+import Card from '../../ui/card';
 
 export default function LinkedIn() {
     return (

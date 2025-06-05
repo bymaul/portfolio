@@ -1,7 +1,7 @@
 import Anchor from '@/components/ui/anchor';
 import Card from '@/components/ui/card';
 import Container from '@/components/ui/container';
-import Grid from '@/components/ui/grid';
+import GridLayout from '@/components/grid/layout';
 import { CustomMDX } from '@/components/ui/mdx';
 import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/utils/mdx';
@@ -105,7 +105,7 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                     </div>
                 </Container>
                 {project.metadata.images && (
-                    <Grid layouts={projectLayouts} className='-mt-8 pb-16'>
+                    <GridLayout layouts={projectLayouts} className='-mt-8 pb-16'>
                         {JSON.parse(project.metadata.images).map((image: { i: string; url: string }) => (
                             <div key={image.i}>
                                 <Card className='relative'>
@@ -120,7 +120,7 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                                 </Card>
                             </div>
                         ))}
-                    </Grid>
+                    </GridLayout>
                 )}
             </main>
         </>

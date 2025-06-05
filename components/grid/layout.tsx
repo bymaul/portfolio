@@ -7,7 +7,7 @@ import { Responsive, ResponsiveProps, WidthProvider } from 'react-grid-layout';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-export default function Grid({ layouts, className, children }: Readonly<ResponsiveProps>) {
+export default function GridLayout({ layouts, className, children }: Readonly<ResponsiveProps>) {
     const { breakpoint, setBreakpoint } = useBreakpoint();
     const isMounted = useMounted();
 

@@ -1,6 +1,6 @@
 import profile from '@/public/images/profile.jpg';
 import Image from 'next/image';
-import Card from '../ui/card';
+import Card from '../../ui/card';
 import { siteConfig } from '@/config/site';
 
 export default function Description() {

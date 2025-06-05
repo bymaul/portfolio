@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
-import Card from '../ui/card';
+import Card from '../../ui/card';
 
 const MAX_ZOOM = 8;
 const MIN_ZOOM = 3;

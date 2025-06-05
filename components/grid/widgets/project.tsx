@@ -1,8 +1,8 @@
 import projectImage from '@/public/projects/next-blog-starter.png';
-import Card from '../ui/card';
+import Card from '../../ui/card';
 import Image from 'next/image';
 import { toKebabCase } from '@/utils/lib';
-import Anchor from '../ui/anchor';
+import Anchor from '../../ui/anchor';
 import { FaArrowRight } from 'react-icons/fa6';
 
 export default function Project() {

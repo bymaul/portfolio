@@ -1,11 +1,4 @@
-import Article from '@/components/grid/article';
-import Contact from '@/components/grid/contact';
-import Description from '@/components/grid/description';
-import Project from '@/components/grid/project';
-import LinkedIn from '@/components/grid/linkedin';
-import Location from '@/components/grid/location';
-import Spotify from '@/components/grid/spotify';
-import Theme from '@/components/grid/theme';
+import { Description, Location, Project, Spotify, Article, Theme, LinkedIn, Contact } from '@/components/grid/widgets';
 import { Layout } from 'react-grid-layout';
 
 interface GridItem {
@@ -65,7 +58,7 @@ const projectLargeLayout: Layout[] = [
     { i: 'images-3', x: 3, y: 0, w: 1, h: 2 },
     { i: 'images-4', x: 0, y: 1, w: 1, h: 1 },
     { i: 'images-5', x: 1, y: 1, w: 2, h: 1 },
-]
+];
 
 export const projectLayouts: { [key in Layouts]: Layout[] } = {
     lg: projectLargeLayout,
