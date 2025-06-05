@@ -32,12 +32,12 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             type: 'article',
             url: `${siteConfig.url}/projects/${project.slug}`,
             authors: siteConfig.author,
-            images: siteConfig.image,
+            images: siteConfig.ogImage,
         },
         twitter: {
             title,
             description,
-            images: siteConfig.image,
+            images: siteConfig.ogImage,
         },
         alternates: {
             canonical: `${siteConfig.url}/projects/${project.slug}`,

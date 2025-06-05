@@ -29,12 +29,12 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             publishedTime: date,
             url: `${siteConfig.url}/posts/${post.slug}`,
             authors: 'Maulana',
-            images: siteConfig.image,
+            images: siteConfig.ogImage,
         },
         twitter: {
             title,
             description,
-            images: siteConfig.image,
+            images: siteConfig.ogImage,
         },
         alternates: {
             canonical: `${siteConfig.url}/posts/${post.slug}`,
