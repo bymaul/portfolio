@@ -62,7 +62,7 @@ export default function Location() {
                 initialViewState={INITIAL_VIEW_STATE}
                 maxZoom={MAX_ZOOM}
                 minZoom={MIN_ZOOM}>
-                {isMapLoaded && (
+                {isMapLoaded ? (
                     <div className='absolute inset-x-3 bottom-3 flex items-center justify-between'>
                         <Button
                             isVisible={currentZoom > MIN_ZOOM}
@@ -77,6 +77,8 @@ export default function Location() {
                             <FaPlus />
                         </Button>
                     </div>
+                ) : (
+                    <div className='bg-dark-300 dark:bg-dark-700 absolute inset-0 size-full animate-pulse'></div>
                 )}
             </Map>
         </Card>

@@ -54,7 +54,7 @@ export default function Spotify() {
 
 function LoadingText({ className }: Readonly<{ className?: string }>) {
     return (
-        <div className={`${className} h-4 animate-pulse rounded-md bg-gray-300`}>
+        <div className={`${className} bg-dark-300 h-4 animate-pulse rounded-md`}>
             <span className='invisible'>Placeholder</span>
         </div>
     );
