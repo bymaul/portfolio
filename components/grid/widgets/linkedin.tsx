@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes';
 export default function LinkedIn() {
     const { theme } = useTheme();
     return (
-        <Card className='relative flex h-full flex-col items-center justify-center bg-[#0A66C2] dark:bg-sky-700/80'>
+        <Card className='relative flex h-full flex-col items-center justify-center bg-[#0A66C2] dark:bg-neutral-800/70'>
             <div className='absolute bottom-3 left-3'>
                 <Anchor className='cancel-drag' href='https://linkedin.com/in/maulana-ahmad' target='_blank'>
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
@@ -16,7 +16,7 @@ export default function LinkedIn() {
             </div>
             {
                 theme === 'dark' ? (
-                    <FaLinkedin size='4rem' color='#f5f5f5' />
+                    <FaLinkedin size='4rem' color='#00a6f4' />
                 ) : (
                     <FaLinkedin size='4rem' color='white' />
                 )
