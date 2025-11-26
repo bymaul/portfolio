@@ -16,7 +16,7 @@ export default function LinkedIn() {
             </div>
             {
                 theme === 'dark' ? (
-                    <FaLinkedin size='4rem' color='#00a6f4' />
+                    <FaLinkedin size='4rem' color='#0A66C2' />
                 ) : (
                     <FaLinkedin size='4rem' color='white' />
                 )
