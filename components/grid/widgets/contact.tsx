@@ -17,7 +17,7 @@ export default function Contact() {
                     <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
                     Contact Me
                 </a>
-                <div className='inline-flex gap-6'>
+                <div className='inline-flex gap-5'>
                     {socials.map((social) => (
                         <a
                             key={social.name}
@@ -25,8 +25,11 @@ export default function Contact() {
                             className='cancel-drag'
                             aria-label={`My ${social.name}`}
                             target='_blank'
-                            rel='noreferrer'>
-                            {<social.icon size='1.3rem' />}
+                            rel='noreferrer'
+                        >
+                            {<social.icon size='1.5rem' 
+                                className='cancel-drag group inline-flex items-center justify-center rounded-full text-neutral-700 dark:text-slate-300 hover:text-neutral-900 dark:hover:text-slate-100 transition-transform duration-150 ease-out hover:-translate-y-0.5 hover:scale-110'
+                            />}
                         </a>
                     ))}
                 </div>
