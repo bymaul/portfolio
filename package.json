@@ -18,7 +18,7 @@
         "clsx": "^2.1.1",
         "mapbox-gl": "^3.22.0",
         "next": "^16.2.4",
-        "next-mdx-remote": "^5.0.0",
+        "next-mdx-remote": "^6.0.0",
         "next-themes": "^0.3.0",
         "react": "^19.2.5",
         "react-dom": "^19.2.5",
