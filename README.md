@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio
+
+My personal website, built with Next.js and Tailwind CSS. Design inspired by [nevflynn.com](https://nevflynn.com).
+
+🔗 **Live site:** [maulana.dev](https://maulana.dev)
+
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+## About
+
+This is the source code for my personal site — a place to share who I am, what I've built, and what I'm currently working on. It's built as a modern Next.js App Router project with MDX content, a draggable bento-style layout, and an interactive map.
+
+## Features
+
+- 🗺️ **Interactive map** powered by Mapbox GL, showing places I've lived
+- 📝 **MDX-driven content** for posts and projects
+- 🧩 **Drag-and-drop grid layout** for a customizable, playful homepage
+- 🌗 **Light/dark theme** support
+- 📊 **Analytics** via Vercel Analytics
+- ⚡ **Fast and lightweight**, built on the Next.js App Router with Tailwind CSS 4
+
+## Tech Stack
+
+| Category        | Tools                                                                                        |
+| --------------- | -------------------------------------------------------------------------------------------- |
+| Framework       | [Next.js](https://nextjs.org) 16 (App Router)                                                |
+| Language        | TypeScript                                                                                   |
+| Styling         | [Tailwind CSS](https://tailwindcss.com) 4                                                    |
+| Content         | [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)                              |
+| Map             | [Mapbox GL](https://www.mapbox.com/) / [react-map-gl](https://visgl.github.io/react-map-gl/) |
+| Layout          | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)                  |
+| Theming         | [next-themes](https://github.com/pacocoursey/next-themes)                                    |
+| Data fetching   | [SWR](https://swr.vercel.app/)                                                               |
+| Package manager | [pnpm](https://pnpm.io)                                                                      |
+| Deployment      | [Vercel](https://vercel.com)                                                                 |
+
+## Project Structure
+
+```
+.
+├── app/          # App Router routes, layouts, and pages
+├── components/   # Reusable UI components
+├── config/       # Site configuration (metadata, nav, etc.)
+├── content/      # MDX content (posts, projects, etc.)
+├── hooks/        # Custom React hooks
+├── lib/          # Utilities and shared logic
+└── public/       # Static assets
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 18+
+- [pnpm](https://pnpm.io/installation)
+
+### Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/bymaul/portfolio.git
+cd portfolio
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root directory. At minimum, you'll need a Mapbox access token for the map feature:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_access_token
+```
 
-## Learn More
+Get a free token from [mapbox.com](https://account.mapbox.com/access-tokens/).
 
-To learn more about Next.js, take a look at the following resources:
+### Run the development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## Deploy on Vercel
+### Build for production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+pnpm build
+pnpm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Lint
+
+```bash
+pnpm lint
+```
+
+## Deployment
+
+This project is deployed on [Vercel](https://vercel.com). Pushing to `master` triggers an automatic deployment. To deploy your own copy:
+
+1. Fork/clone this repo
+2. Import it into [Vercel](https://vercel.com/new)
+3. Add the required environment variables (see above)
+4. Deploy 🚀
+
+## License
+
+This project is open source. Feel free to explore the code for inspiration, but please don't copy the content, design, or branding as your own.
