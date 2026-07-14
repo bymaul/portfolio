@@ -6,7 +6,7 @@ import LocationCard from '@/components/shared/grid/widgets/location-card';
 import NowPlayingCard from '@/components/shared/grid/widgets/now-playing-card';
 import ProjectCard from '@/components/shared/grid/widgets/project-card';
 import ThemeToggle from '@/components/shared/grid/widgets/theme-toggle';
-import { Layout } from 'react-grid-layout';
+import { LayoutItem } from 'react-grid-layout';
 
 interface GridItem {
     i: string;
@@ -26,7 +26,7 @@ export const gridItems: GridItem[] = [
 
 type Layouts = 'lg' | 'md' | 'sm';
 
-export const layouts: { [key in Layouts]: Layout[] } = {
+export const layouts: { [key in Layouts]: LayoutItem[] } = {
     lg: [
         { i: 'description', x: 0, y: 0, w: 2, h: 1 },
         { i: 'location', x: 2, y: 0, w: 1, h: 1 },
@@ -59,7 +59,7 @@ export const layouts: { [key in Layouts]: Layout[] } = {
     ],
 };
 
-const projectLargeLayout: Layout[] = [
+const projectLargeLayout: LayoutItem[] = [
     { i: 'images-1', x: 0, y: 0, w: 2, h: 1 },
     { i: 'images-2', x: 2, y: 0, w: 1, h: 1 },
     { i: 'images-3', x: 3, y: 0, w: 1, h: 2 },
@@ -67,7 +67,7 @@ const projectLargeLayout: Layout[] = [
     { i: 'images-5', x: 1, y: 1, w: 2, h: 1 },
 ];
 
-export const projectLayouts: { [key in Layouts]: Layout[] } = {
+export const projectLayouts: { [key in Layouts]: LayoutItem[] } = {
     lg: projectLargeLayout,
     md: projectLargeLayout,
     sm: [
