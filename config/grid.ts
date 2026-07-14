@@ -6,7 +6,7 @@ import LocationCard from '@/components/shared/grid/widgets/location-card';
 import NowPlayingCard from '@/components/shared/grid/widgets/now-playing-card';
 import ProjectCard from '@/components/shared/grid/widgets/project-card';
 import ThemeToggle from '@/components/shared/grid/widgets/theme-toggle';
-import { LayoutItem } from 'react-grid-layout';
+import { Breakpoint, LayoutItem } from 'react-grid-layout';
 
 interface GridItem {
     i: string;
@@ -24,9 +24,7 @@ export const gridItems: GridItem[] = [
     { i: 'contact', component: ContactCard },
 ];
 
-type Layouts = 'lg' | 'md' | 'sm';
-
-export const layouts: { [key in Layouts]: LayoutItem[] } = {
+export const layouts: { [key in Breakpoint]: LayoutItem[] } = {
     lg: [
         { i: 'description', x: 0, y: 0, w: 2, h: 1 },
         { i: 'location', x: 2, y: 0, w: 1, h: 1 },
@@ -67,7 +65,7 @@ const projectLargeLayout: LayoutItem[] = [
     { i: 'images-5', x: 1, y: 1, w: 2, h: 1 },
 ];
 
-export const projectLayouts: { [key in Layouts]: LayoutItem[] } = {
+export const projectLayouts: { [key in Breakpoint]: LayoutItem[] } = {
     lg: projectLargeLayout,
     md: projectLargeLayout,
     sm: [
