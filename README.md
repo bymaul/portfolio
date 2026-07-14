@@ -2,8 +2,6 @@
 
 My personal website, built with Next.js and Tailwind CSS. Design inspired by [nevflynn.com](https://nevflynn.com).
 
-🔗 **Live site:** [maulana.dev](https://maulana.dev)
-
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4-38BDF8?logo=tailwindcss)
