@@ -1,24 +1,24 @@
 import { cn } from '@/lib/utils';
+import React from 'react';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-    className?: string;
     children: React.ReactNode;
 }
 
-export default function Card({ className, children, ...props }: Readonly<CardProps>) {
+export default function Card({ className, children, style, ...props }: CardProps) {
     return (
-        <div className='size-full rounded-3xl shadow-xs transition-shadow duration-300 hover:shadow-lg'>
-            <div
-                {...props}
-                className={cn(
-                    'size-full overflow-hidden rounded-3xl',
-                    'bg-white dark:bg-dark-900',
-                    'select-none md:cursor-grab md:active:cursor-grabbing',
-                    'dark:ring-1 dark:ring-dark-800',
-                    className,
-                )}>
-                {children}
-            </div>
+        <div
+            style={style}
+            className={cn(
+                'relative h-full w-full flex flex-col overflow-hidden rounded-3xl border transition-all duration-300',
+                'bg-white/40 border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] backdrop-blur-xl',
+                'dark:bg-neutral-900/40 dark:border-white/10 dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]',
+                'hover:-translate-y-1 hover:shadow-2xl hover:bg-white/50 dark:hover:bg-neutral-900/50',
+                className,
+            )}
+            {...props}>
+            <div className='pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20 dark:ring-white/5' />
+            {children}
         </div>
     );
 }

@@ -1,31 +1,62 @@
-import Anchor from '@/components/ui/custom-link';
-import Card from '@/components/ui/card';
-import { getLatestPost } from '@/lib/mdx';
-import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
+import Card from '@/components/ui/card';
 import { FaArrowRight } from 'react-icons/fa6';
+import { getLatestPost } from '@/lib/mdx';
 
 export default function ArticleCard() {
     const post = getLatestPost();
 
+    if (!post) {
+        return (
+            <Card className='items-center justify-center p-6'>
+                <p>No articles found.</p>
+            </Card>
+        );
+    }
+
     return (
-        <Card className='flex flex-col justify-center gap-6 p-8'>
-            <h2 className='font-pixelify-sans truncate text-2xl' title={post.metadata.title}>
-                <Link href={`/posts/${post.slug}`} className='cancel-drag'>
-                    {post.metadata.title}
-                </Link>
-            </h2>
-            <p className='line-clamp-3 leading-relaxed max-md:line-clamp-4 max-sm:line-clamp-2'>
-                {post.metadata.description}
-            </p>
-            <div className='inline-flex flex-col items-center justify-center gap-6 sm:flex-row sm:justify-between'>
-                <Anchor className='cancel-drag px-4 py-2' href={`/posts/${post.slug}`}>
-                    <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' /> Read
-                    More
-                    <span className='sr-only'>{post.metadata.title}</span>
-                </Anchor>
-                <small className='text-gray-600 dark:text-gray-400'>{formatDate(post.metadata.date)}</small>
+        <Card className='group relative overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:bg-white/40 dark:hover:bg-white/5'>
+            <div className='relative z-10 flex h-full flex-col justify-between p-8 focus:outline-none'>
+                <div className='flex flex-col gap-3'>
+                    <div className='flex items-center justify-between'>
+                        <h3 className='text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400'>
+                            Latest Article
+                        </h3>
+                        <Link
+                            href={`/posts/${post.slug}`}
+                            className='cancel-drag flex size-8 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 dark:bg-blue-400/10 dark:text-blue-400 hover:bg-blue-500/20'
+                            aria-label='Read article'>
+                            <FaArrowRight
+                                size='0.8rem'
+                                className='-rotate-45 transition-transform duration-300 group-hover:rotate-0'
+                            />
+                        </Link>
+                    </div>
+
+                    <h2 className='font-pixelify-sans text-2xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white'>
+                        <Link
+                            href={`/posts/${post.slug}`}
+                            className='cancel-drag hover:text-blue-600 dark:hover:text-blue-400 transition-colors'>
+                            {post.metadata.title}
+                        </Link>
+                    </h2>
+                    <p className='line-clamp-3 text-sm text-neutral-600 dark:text-neutral-400 pointer-events-none'>
+                        {post.metadata.description}
+                    </p>
+                </div>
+
+                <div className='mt-6 flex items-center'>
+                    <span className='rounded-full border border-neutral-900/10 bg-neutral-900/5 px-4 py-1.5 text-xs font-medium text-neutral-600 backdrop-blur-md dark:border-white/10 dark:bg-white/10 dark:text-neutral-300'>
+                        {new Date(post.metadata.date).toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric',
+                        })}
+                    </span>
+                </div>
             </div>
+
+            <div className='absolute -bottom-10 -right-10 z-0 size-40 rounded-full bg-blue-500/20 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-blue-500/30 pointer-events-none' />
         </Card>
     );
 }

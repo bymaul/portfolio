@@ -4,9 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ComponentPropsWithoutRef, createElement } from 'react';
 
-type AnchorProps = ComponentPropsWithoutRef<'a'>;
+type CustomLinkProps = ComponentPropsWithoutRef<'a'>;
 
-function Anchor({ href, children, ...props }: Readonly<AnchorProps>) {
+function CustomLink({ href, children, ...props }: Readonly<CustomLinkProps>) {
     const className = 'text-blue-500 hover:text-blue-700';
 
     if (href?.startsWith('/')) {
@@ -74,7 +74,7 @@ let components = {
     h5: createHeading(5),
     h6: createHeading(6),
     Image: RoundedImage,
-    a: Anchor,
+    a: CustomLink,
 };
 
 export function CustomMDX({ ...props }) {
