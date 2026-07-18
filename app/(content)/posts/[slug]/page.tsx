@@ -13,7 +13,6 @@ type Params = Promise<{ slug: string }>;
 export const generateStaticParams = async () => getAllPosts().map((post) => ({ slug: post.slug }));
 
 export const generateMetadata = async ({ params }: { params: Params }) => {
-    // ... keep existing generateMetadata logic untouched
     const { slug } = await params;
     const post = getAllPosts().find((post) => post.slug === slug);
     if (!post) return;
@@ -42,7 +41,18 @@ const PostPage = async ({ params }: { params: Params }) => {
     if (!post) notFound();
 
     const jsonLd = {
-        /* ... keep existing jsonLd ... */
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: post.metadata.title,
+        description: post.metadata.description,
+        datePublished: post.metadata.date,
+        author: [
+            {
+                '@type': 'Person',
+                name: siteConfig.author,
+                url: siteConfig.url,
+            },
+        ],
     };
 
     return (

@@ -71,7 +71,6 @@ function Button({
         <button
             className={cn(
                 'cancel-drag flex size-10 items-center justify-center rounded-full shadow-lg transition-all duration-300',
-                // Glassy button style floating over the map
                 'bg-white/60 text-neutral-800 backdrop-blur-md hover:bg-white/90 dark:bg-neutral-900/60 dark:text-white dark:hover:bg-neutral-900/90',
                 isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none',
             )}
