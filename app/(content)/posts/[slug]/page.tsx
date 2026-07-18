@@ -1,5 +1,6 @@
 import { CustomMDX } from '@/components/mdx/mdx';
-import Anchor from '@/components/ui/custom-link';
+import CustomLink from '@/components/ui/custom-link';
+import Card from '@/components/ui/card';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
@@ -13,12 +14,9 @@ export const generateStaticParams = async () => getAllPosts().map((post) => ({ s
 
 export const generateMetadata = async ({ params }: { params: Params }) => {
     const { slug } = await params;
-
     const post = getAllPosts().find((post) => post.slug === slug);
     if (!post) return;
-
     const { title, description, date } = post.metadata;
-
     return {
         title,
         description,
@@ -31,20 +29,13 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             authors: 'Maulana',
             images: siteConfig.ogImage,
         },
-        twitter: {
-            title,
-            description,
-            images: siteConfig.ogImage,
-        },
-        alternates: {
-            canonical: `${siteConfig.url}/posts/${post.slug}`,
-        },
+        twitter: { title, description, images: siteConfig.ogImage },
+        alternates: { canonical: `${siteConfig.url}/posts/${post.slug}` },
     };
 };
 
 const PostPage = async ({ params }: { params: Params }) => {
     const { slug } = await params;
-
     const post = getAllPosts().find((post) => post.slug === slug);
 
     if (!post) notFound();
@@ -66,27 +57,34 @@ const PostPage = async ({ params }: { params: Params }) => {
 
     return (
         <>
-            <header className='flex items-center justify-center pt-10'>
-                <Anchor className='inline-flex hover:mb-6 hover:scale-125' href='/'>
+            <header className='sticky top-6 z-50 flex items-center justify-center'>
+                <CustomLink className='size-12 rounded-full p-0 shadow-xl backdrop-blur-xl' href='/'>
                     <FaX />
                     <div className='sr-only'>Close</div>
-                </Anchor>
+                </CustomLink>
             </header>
-            <main className='mx-auto max-w-prose px-4 py-10'>
+
+            <main className='mx-auto max-w-4xl px-4 py-12'>
                 <Script
                     id='json-ld'
                     type='application/ld+json'
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
-                <section className='text-center'>
-                    <h1 className='font-pixelify-sans text-3xl leading-relaxed'>{post.metadata.title}</h1>
-                    <small className='mt-2 text-gray-600 dark:text-gray-400'>
-                        <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
-                    </small>
-                </section>
-                <article className='prose dark:prose-invert px-4 py-8'>
-                    <CustomMDX source={post.content} />
-                </article>
+
+                <Card className='h-auto p-8 md:p-12'>
+                    <section className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
+                        <h1 className='font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white'>
+                            {post.metadata.title}
+                        </h1>
+                        <p className='mt-6 text-sm font-semibold tracking-widest text-neutral-500 uppercase dark:text-neutral-400'>
+                            <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
+                        </p>
+                    </section>
+
+                    <article className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
+                        <CustomMDX source={post.content} />
+                    </article>
+                </Card>
             </main>
         </>
     );

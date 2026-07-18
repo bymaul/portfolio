@@ -10,25 +10,20 @@ export default function ThemeToggle() {
     const isMounted = useMounted();
     const { theme, setTheme } = useTheme();
 
-    const handleToggle = () => {
-        const newTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-    };
-
     if (!isMounted) return null;
 
     return (
-        <Card className='relative flex h-full flex-col items-center justify-center'>
+        <Card className='group flex h-full flex-col items-center justify-center hover:bg-white/50 dark:hover:bg-white/5'>
             <button
-                className='cancel-drag flex h-10 w-20 cursor-pointer items-center rounded-full bg-gray-200 transition duration-300 focus:outline-hidden lg:h-12 lg:w-24'
-                onClick={handleToggle}
+                className='cancel-drag relative flex h-12 w-24 cursor-pointer items-center rounded-full bg-neutral-900/10 p-1 shadow-inner backdrop-blur-md transition-all duration-300 dark:bg-white/10'
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                 aria-label='theme-toggle'>
                 <div
                     className={cn(
-                        `flex size-10 items-center justify-center rounded-full border-2 border-gray-200 text-white transition duration-300 lg:size-12 lg:border-4`,
-                        theme === 'dark' ? 'bg-dark-700 translate-x-full' : 'bg-yellow-500',
+                        'flex size-10 items-center justify-center rounded-full text-white shadow-md transition-transform duration-300',
+                        theme === 'dark' ? 'translate-x-12 bg-neutral-800' : 'bg-yellow-400',
                     )}>
-                    {theme === 'dark' ? <FaMoon /> : <FaSun />}
+                    {theme === 'dark' ? <FaMoon size='1.2rem' /> : <FaSun size='1.2rem' />}
                 </div>
             </button>
         </Card>
