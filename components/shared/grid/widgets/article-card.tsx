@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Card from '@/components/ui/card';
 import { FaArrowRight } from 'react-icons/fa6';
-import { getLatestPost } from '@/lib/mdx';
+import { getFeaturedPost } from '@/lib/mdx';
 
 export default function ArticleCard() {
-    const post = getLatestPost();
+    const post = getFeaturedPost();
 
     if (!post) {
         return (
@@ -20,7 +20,7 @@ export default function ArticleCard() {
                 <div className='flex flex-col gap-3'>
                     <div className='flex items-center justify-between'>
                         <h3 className='text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400'>
-                            Latest Article
+                            Featured Post
                         </h3>
                         <Link
                             href={`/posts/${post.slug}`}
