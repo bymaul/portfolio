@@ -1,9 +1,11 @@
+import Navbar from '@/components/shared/navbar';
 import { siteConfig } from '@/config/site';
 import { pixelifySans, poppins } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from 'next';
 import { ThemeProvider } from './providers';
+
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -65,7 +67,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                         <div className='absolute -bottom-32 left-1/2 w-96 h-96 bg-emerald-400/20 dark:bg-emerald-600/10 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000' />
                     </div>
 
-                    <div className='relative z-10'>{children}</div>
+                    <div className='relative z-10'>
+                        <Navbar />
+                        <div className='pb-14'>{children}</div>
+                    </div>
                 </ThemeProvider>
                 <Analytics />
             </body>
