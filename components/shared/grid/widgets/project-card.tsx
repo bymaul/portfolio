@@ -12,7 +12,7 @@ export default function ProjectCard() {
                     Explore all the projects I've built.
                 </p>
                 <Link
-                    href='/projects'
+                    href='/?view=projects'
                     className='cancel-drag mt-2 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-xs font-bold text-white shadow-lg transition-transform hover:scale-105 dark:bg-white dark:text-black'>
                     View All Projects
                 </Link>
