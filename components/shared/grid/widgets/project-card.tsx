@@ -8,9 +8,7 @@ export default function ProjectCard() {
                 <h2 className='font-pixelify-sans text-2xl md:text-3xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white'>
                     My Projects
                 </h2>
-                <p className='text-sm text-neutral-600 dark:text-neutral-400 mb-2'>
-                    Explore all the projects I've built.
-                </p>
+                <p className='text-neutral-600 dark:text-neutral-400 mb-2'>Explore all the projects I&apos;ve built.</p>
                 <Link
                     href='/?view=projects'
                     className='cancel-drag mt-2 inline-flex items-center gap-2 rounded-full bg-neutral-900 px-6 py-3 text-xs font-bold text-white shadow-lg transition-transform hover:scale-105 dark:bg-white dark:text-black'>

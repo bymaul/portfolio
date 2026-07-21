@@ -1,7 +1,7 @@
-import Link from 'next/link';
 import Card from '@/components/ui/card';
-import { FaArrowRight } from 'react-icons/fa6';
 import { getFeaturedPost } from '@/lib/mdx';
+import Link from 'next/link';
+import { FaArrowRight } from 'react-icons/fa6';
 
 export default function ArticleCard() {
     const post = getFeaturedPost();
@@ -40,7 +40,7 @@ export default function ArticleCard() {
                             {post.metadata.title}
                         </Link>
                     </h2>
-                    <p className='line-clamp-3 text-sm text-neutral-600 dark:text-neutral-400 pointer-events-none'>
+                    <p className='line-clamp-3 text-neutral-600 dark:text-neutral-400 pointer-events-none'>
                         {post.metadata.description}
                     </p>
                 </div>

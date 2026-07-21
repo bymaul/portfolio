@@ -67,9 +67,7 @@ export default function NowPlayingCard() {
                                     {data.title ?? 'Failed to load'}
                                 </a>
                             </h2>
-                            <p
-                                className='truncate text-sm font-medium text-gray-300 drop-shadow-sm'
-                                title={data.artist}>
+                            <p className='truncate font-medium text-gray-300 drop-shadow-sm' title={data.artist}>
                                 {data.artist ?? 'Spotify disconnected'}
                             </p>
                         </>

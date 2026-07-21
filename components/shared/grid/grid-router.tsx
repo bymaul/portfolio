@@ -92,7 +92,7 @@ function EntryCard({
                             {title}
                         </Link>
                     </h2>
-                    <p className='max-lg:line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400 pointer-events-none'>
+                    <p className='max-lg:line-clamp-2 text-neutral-600 dark:text-neutral-400 pointer-events-none'>
                         {description}
                     </p>
                 </div>

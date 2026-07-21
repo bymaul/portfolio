@@ -9,7 +9,11 @@ import { Map, MapRef } from 'react-map-gl/mapbox';
 
 const MAX_ZOOM = 8;
 const MIN_ZOOM = 3;
-const INITIAL_VIEW_STATE = { latitude: -7.7962967, longitude: 110.3667211, zoom: MAX_ZOOM };
+const INITIAL_VIEW_STATE = {
+    latitude: -7.7962967,
+    longitude: 110.3667211,
+    zoom: MAX_ZOOM,
+};
 const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 export default function LocationCard() {
@@ -74,6 +78,7 @@ function Button({
                 'bg-white/60 text-neutral-800 backdrop-blur-md hover:bg-white/90 dark:bg-neutral-900/60 dark:text-white dark:hover:bg-neutral-900/90',
                 isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none',
             )}
+            aria-label='Zoom button'
             type='button'
             {...props}
         />
