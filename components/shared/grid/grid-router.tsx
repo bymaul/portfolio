@@ -5,6 +5,7 @@ import { gridItems as homeGridItems, layouts as homeLayouts } from '@/config/gri
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import type { LayoutItem } from 'react-grid-layout';
+import { FaArrowRight } from 'react-icons/fa6';
 
 export type ContentData = {
     slug: string;
@@ -97,9 +98,12 @@ function EntryCard({
                     </p>
                 </div>
                 <div className='mt-6 flex items-center'>
-                    <div className='cancel-drag inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-xs font-bold text-white shadow-lg transition-transform group-hover:scale-105 dark:bg-white dark:text-black text-center md:text-left'>
+                    <Link
+                        className='cancel-drag group/btn inline-flex text-sm items-center justify-center gap-3 rounded-full bg-neutral-900/5 px-6 py-3 font-medium text-neutral-900 backdrop-blur-md transition-all hover:bg-neutral-900/10 hover:shadow-md dark:bg-white/5 dark:text-white dark:hover:bg-white/10'
+                        href={href}>
+                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover/btn:rotate-0' />
                         {cta}
-                    </div>
+                    </Link>
                 </div>
             </div>
             <div className='absolute -left-10 -top-10 z-0 size-40 rounded-full bg-emerald-500/20 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/30 pointer-events-none' />

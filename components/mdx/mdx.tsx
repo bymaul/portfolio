@@ -2,7 +2,7 @@ import { toKebabCase } from '@/lib/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, createElement } from 'react';
+import { ComponentPropsWithoutRef, createElement, isValidElement, type ReactNode } from 'react';
 
 type CustomLinkProps = ComponentPropsWithoutRef<'a'>;
 
@@ -37,27 +37,31 @@ function RoundedImage({ ...props }) {
 }
 
 function createHeading(level: number) {
-    const Heading = ({ children }: { children: any }) => {
-        const extractText = (node: any): string => {
-            if (typeof node === 'string') return node;
+    const Heading = ({ children }: { children: ReactNode }) => {
+        const extractText = (node: ReactNode): string => {
+            if (typeof node === 'string' || typeof node === 'number') {
+                return String(node);
+            }
+
             if (Array.isArray(node)) return node.map(extractText).join('');
-            if (node?.props?.children) return extractText(node.props.children);
+
+            if (isValidElement(node)) {
+                const element = node as { props: { children: ReactNode } };
+                return extractText(element.props.children);
+            }
+
             return '';
         };
 
-        const rawText = extractText(children);
-        let slug = toKebabCase(rawText);
+        const slug = toKebabCase(extractText(children));
 
         return createElement(
             `h${level}`,
             { id: slug },
-            [
-                createElement('a', {
-                    href: `#${slug}`,
-                    key: `link-${slug}`,
-                    className: 'anchor',
-                }),
-            ],
+            createElement('a', {
+                href: `#${slug}`,
+                className: 'anchor',
+            }),
             children,
         );
     };
@@ -66,7 +70,7 @@ function createHeading(level: number) {
     return Heading;
 }
 
-let components = {
+const components = {
     h1: createHeading(1),
     h2: createHeading(2),
     h3: createHeading(3),

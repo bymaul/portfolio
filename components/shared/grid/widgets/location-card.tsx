@@ -25,11 +25,18 @@ export default function LocationCard() {
     const handleZoom = (zoomIn: boolean) => {
         setCurrentZoom((prev) => {
             const newZoom = prev + (zoomIn ? 1 : -1);
-            if (newZoom >= MIN_ZOOM && newZoom <= MAX_ZOOM) {
-                zoomIn ? mapRef.current?.zoomIn() : mapRef.current?.zoomOut();
-                return newZoom;
+
+            if (newZoom < MIN_ZOOM || newZoom > MAX_ZOOM) {
+                return prev;
             }
-            return prev;
+
+            if (zoomIn) {
+                mapRef.current?.zoomIn();
+            } else {
+                mapRef.current?.zoomOut();
+            }
+
+            return newZoom;
         });
     };
 

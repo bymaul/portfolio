@@ -36,7 +36,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
     };
 };
 
-const parseMetaArray = (data: any) => {
+const parseMetaArray = (data: unknown) => {
     if (!data) return [];
     try {
         return typeof data === 'string' ? JSON.parse(data) : data;

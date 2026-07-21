@@ -37,13 +37,13 @@ export async function GET() {
             {
                 isPlaying: isPlaying && data.is_playing,
                 title: track.name,
-                artist: track.artists.map((a: any) => a.name).join(', '),
+                artist: track.artists.map((a: { name: string }) => a.name).join(', '),
                 albumImageUrl: track.album.images[0]?.url || '',
                 songUrl: track.external_urls.spotify,
             },
             { headers },
         );
-    } catch (e) {
+    } catch {
         return NextResponse.json({ isPlaying: false }, { status: 500 });
     }
 }
