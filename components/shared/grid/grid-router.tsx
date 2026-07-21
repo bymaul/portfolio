@@ -20,21 +20,24 @@ interface GridRouterProps {
     projects: ContentData[];
 }
 
-const generateLayout = (
-    itemsCount: number,
-    prefix: string,
-    itemsPerRow: number,
-    itemWidth: number,
-    itemHeight: number,
-    startY: number,
-): LayoutItem[] => {
-    return Array.from({ length: itemsCount }).map((_, i) => ({
-        i: `${prefix}-${i}`,
-        x: (i % itemsPerRow) * itemWidth,
-        y: startY + Math.floor(i / itemsPerRow) * itemHeight,
-        w: itemWidth,
-        h: itemHeight,
-    }));
+const generateLayout = (itemsCount: number, prefix: string, bp: string, isArticles: boolean): LayoutItem[] => {
+    const w = 2;
+    let h = 2;
+    if (bp === 'lg' && isArticles) h = 1;
+
+    return Array.from({ length: itemsCount }).map((_, i) => {
+        if (bp === 'sm') {
+            return { i: `${prefix}-${i}`, x: 0, y: 2 + i * h, w, h };
+        } else {
+            return {
+                i: `${prefix}-${i}`,
+                x: ((i + 1) % 2) * 2,
+                y: Math.floor((i + 1) / 2) * h,
+                w,
+                h,
+            };
+        }
+    });
 };
 
 export default function GridRouter({ view, posts, projects }: GridRouterProps) {
@@ -48,22 +51,26 @@ export default function GridRouter({ view, posts, projects }: GridRouterProps) {
         );
     }
 
-    const isArticles = view === 'articles';
-    const activeKey = isArticles ? 'article' : 'project';
-    const keptKeys = ['description', activeKey];
+    const keptKeys = ['description', 'location', 'theme', 'contact'];
 
     const baseLayouts = {
         lg: [
             { i: 'description', x: 0, y: 0, w: 2, h: 1 },
-            { i: activeKey, x: 2, y: 0, w: isArticles ? 2 : 1, h: isArticles ? 1 : 2 },
+            { i: 'location', x: 2, y: 0, w: 1, h: 1 },
+            { i: 'theme', x: 3, y: 0, w: 1, h: 1 },
+            { i: 'contact', x: 2, y: 1, w: 2, h: 1 },
         ],
         md: [
             { i: 'description', x: 0, y: 0, w: 2, h: 2 },
-            { i: activeKey, x: 2, y: 0, w: isArticles ? 2 : 1, h: 2 },
+            { i: 'location', x: 2, y: 0, w: 2, h: 1 },
+            { i: 'theme', x: 2, y: 2, w: 1, h: 1 },
+            { i: 'contact', x: 0, y: 2, w: 2, h: 2 },
         ],
         sm: [
             { i: 'description', x: 0, y: 0, w: 2, h: 2 },
-            { i: activeKey, x: 0, y: 2, w: isArticles ? 2 : 1, h: 2 },
+            { i: 'location', x: 0, y: 2, w: 2, h: 1 },
+            { i: 'theme', x: 0, y: 4, w: 1, h: 1 },
+            { i: 'contact', x: 0, y: 2, w: 2, h: 2 },
         ],
     };
 
@@ -71,79 +78,88 @@ export default function GridRouter({ view, posts, projects }: GridRouterProps) {
         .filter((item) => keptKeys.includes(item.i))
         .map((item) => <GridItem key={item.i} id={item.i} component={item.component} />);
 
-    const offsets = {
-        lg: isArticles ? 1 : 2,
-        md: 2,
-        sm: 4,
-    };
-
     let newLayouts = { lg: [] as LayoutItem[], md: [] as LayoutItem[], sm: [] as LayoutItem[] };
     let newItems: React.ReactNode[] = [];
 
-    if (isArticles) {
+    if (view === 'articles') {
         newLayouts = {
-            lg: generateLayout(posts.length, 'post', 2, 2, 2, offsets.lg),
-            md: generateLayout(posts.length, 'post', 2, 2, 2, offsets.md),
-            sm: generateLayout(posts.length, 'post', 1, 2, 2, offsets.sm),
+            lg: generateLayout(posts.length, 'post', 'lg', true),
+            md: generateLayout(posts.length, 'post', 'md', true),
+            sm: generateLayout(posts.length, 'post', 'sm', true),
         };
 
         newItems = posts.map((post, i) => (
             <div key={`post-${i}`} className='h-full'>
                 <Card className='group relative h-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:bg-white/40 dark:hover:bg-white/5'>
-                    <div className='relative z-10 flex flex-col h-full p-5 md:p-8 focus:outline-none'>
-                        {post.metadata.date && (
-                            <time className='text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-3 block'>
-                                {new Date(post.metadata.date).toLocaleDateString('en-US', {
-                                    month: 'long',
-                                    day: 'numeric',
-                                    year: 'numeric',
-                                })}
-                            </time>
-                        )}
-                        <h2 className='font-pixelify-sans text-xl md:text-2xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white mb-2 mt-2'>
-                            <Link
-                                href={`/posts/${post.slug}`}
-                                className='cancel-drag hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors before:absolute before:inset-0'>
-                                {post.metadata.title}
-                            </Link>
-                        </h2>
-                        <p className='line-clamp-3 text-sm text-neutral-600 dark:text-neutral-400 grow pointer-events-none'>
-                            {post.metadata.description}
-                        </p>
-                        <div className='mt-6 flex items-center font-bold text-xs uppercase tracking-widest text-emerald-600 dark:text-emerald-400'>
-                            Read Article &rarr;
+                    <div className='relative z-10 flex h-full flex-col justify-between p-5 md:p-8 focus:outline-none'>
+                        <div className='flex flex-col gap-3'>
+                            <div className='flex items-center justify-between'>
+                                <time className='text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400'>
+                                    {post.metadata.date
+                                        ? new Date(post.metadata.date).toLocaleDateString('en-US', {
+                                              month: 'long',
+                                              day: 'numeric',
+                                              year: 'numeric',
+                                          })
+                                        : 'Article'}
+                                </time>
+                            </div>
+                            <h2 className='font-pixelify-sans text-xl md:text-3xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white'>
+                                <Link
+                                    href={`/posts/${post.slug}`}
+                                    className='cancel-drag hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors before:absolute before:inset-0'>
+                                    {post.metadata.title}
+                                </Link>
+                            </h2>
+                            <p className='max-lg:line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400 pointer-events-none'>
+                                {post.metadata.description}
+                            </p>
+                        </div>
+                        <div className='mt-6 flex items-center'>
+                            <div className='cancel-drag inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-xs font-bold text-white shadow-lg transition-transform group-hover:scale-105 dark:bg-white dark:text-black text-center md:text-left'>
+                                Read Article
+                            </div>
                         </div>
                     </div>
-                    <div className='absolute -right-10 -bottom-10 z-0 size-40 rounded-full bg-emerald-500/10 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/20 pointer-events-none' />
+                    <div className='absolute -left-10 -top-10 z-0 size-40 rounded-full bg-emerald-500/20 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/30 pointer-events-none' />
                 </Card>
             </div>
         ));
     } else if (view === 'projects') {
         newLayouts = {
-            lg: generateLayout(projects.length, 'project', 2, 2, 2, offsets.lg),
-            md: generateLayout(projects.length, 'project', 2, 2, 2, offsets.md),
-            sm: generateLayout(projects.length, 'project', 1, 2, 2, offsets.sm),
+            lg: generateLayout(projects.length, 'project', 'lg', false),
+            md: generateLayout(projects.length, 'project', 'md', false),
+            sm: generateLayout(projects.length, 'project', 'sm', false),
         };
 
         newItems = projects.map((project, i) => (
             <div key={`project-${i}`} className='h-full'>
                 <Card className='group relative h-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:bg-white/40 dark:hover:bg-white/5'>
-                    <div className='relative z-10 flex flex-col h-full p-5 md:p-8 focus:outline-none'>
-                        <h2 className='font-pixelify-sans text-xl md:text-2xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white mb-2 mt-4'>
-                            <Link
-                                href={`/projects/${project.slug}`}
-                                className='cancel-drag hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors before:absolute before:inset-0'>
-                                {project.metadata.title}
-                            </Link>
-                        </h2>
-                        <p className='line-clamp-3 text-sm text-neutral-600 dark:text-neutral-400 grow pointer-events-none'>
-                            {project.metadata.description}
-                        </p>
-                        <div className='mt-6 flex items-center font-bold text-xs uppercase tracking-widest text-emerald-600 dark:text-emerald-400'>
-                            View Project &rarr;
+                    <div className='relative z-10 flex h-full flex-col justify-between p-5 md:p-8 focus:outline-none'>
+                        <div className='flex flex-col gap-3'>
+                            <div className='flex items-center justify-between'>
+                                <span className='text-xs font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400'>
+                                    Project
+                                </span>
+                            </div>
+                            <h2 className='font-pixelify-sans text-xl md:text-3xl font-bold leading-tight text-neutral-900 drop-shadow-sm dark:text-white'>
+                                <Link
+                                    href={`/projects/${project.slug}`}
+                                    className='cancel-drag hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors before:absolute before:inset-0'>
+                                    {project.metadata.title}
+                                </Link>
+                            </h2>
+                            <p className='max-lg:line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400 pointer-events-none'>
+                                {project.metadata.description}
+                            </p>
+                        </div>
+                        <div className='mt-6 flex items-center'>
+                            <div className='cancel-drag inline-flex items-center gap-2 rounded-full bg-neutral-900 px-5 py-2 text-xs font-bold text-white shadow-lg transition-transform group-hover:scale-105 dark:bg-white dark:text-black text-center md:text-left'>
+                                View Project
+                            </div>
                         </div>
                     </div>
-                    <div className='absolute -right-10 -bottom-10 z-0 size-40 rounded-full bg-emerald-500/10 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/20 pointer-events-none' />
+                    <div className='absolute -left-10 -top-10 z-0 size-40 rounded-full bg-emerald-500/20 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/30 pointer-events-none' />
                 </Card>
             </div>
         ));
