@@ -33,7 +33,19 @@ function CustomLink({ href, children, ...props }: Readonly<CustomLinkProps>) {
 }
 
 function RoundedImage({ ...props }) {
-    return <Image src={props.src} alt={props.alt} className='rounded-lg' draggable='false' {...props} />;
+    return (
+        <Image
+            src={props.src}
+            alt={props.alt || 'image'}
+            className='rounded-lg'
+            width={0}
+            height={0}
+            sizes='100vw'
+            style={{ width: '100%', height: 'auto' }}
+            draggable='false'
+            {...props}
+        />
+    );
 }
 
 function createHeading(level: number) {
@@ -77,7 +89,7 @@ const components = {
     h4: createHeading(4),
     h5: createHeading(5),
     h6: createHeading(6),
-    Image: RoundedImage,
+    img: RoundedImage,
     a: CustomLink,
 };
 
