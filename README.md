@@ -31,8 +31,6 @@ This is the source code for my personal site — a place to share who I am, what
 | Content         | [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote)                              |
 | Map             | [Mapbox GL](https://www.mapbox.com/) / [react-map-gl](https://visgl.github.io/react-map-gl/) |
 | Layout          | [react-grid-layout](https://github.com/react-grid-layout/react-grid-layout)                  |
-| Theming         | [next-themes](https://github.com/pacocoursey/next-themes)                                    |
-| Data fetching   | [SWR](https://swr.vercel.app/)                                                               |
 | Package manager | [pnpm](https://pnpm.io)                                                                      |
 | Deployment      | [Vercel](https://vercel.com)                                                                 |
 
