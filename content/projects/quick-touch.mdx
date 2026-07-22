@@ -1,0 +1,21 @@
+---
+title: Quick Touch
+description: Navigate and create new files and directories in your workspace easily.
+links:
+    [
+        { 'name': 'Marketplace', 'url': 'https://marketplace.visualstudio.com/items?itemName=bymaul.quick-touch' },
+        { 'name': 'Repository', 'url': 'https://github.com/bymaul/vscode-quick-touch' },
+    ]
+---
+
+A lightning-fast, frictionless VS Code extension for quickly scaffolding files and directories using an interactive, context-aware command line interface directly in the QuickPick menu.
+
+![Demo](/projects/vscode-quick-touch.gif)
+
+## Features
+
+- **Batch Creation:** Create multiple files and folders at once (e.g., `api.ts, types.ts, utils/`).
+- **Smart Context Pathing:** The extension remembers your base directory during batch creation. Type `components/, Button.tsx` and the file is automatically placed inside the folder.
+- **Force Create (Spacebar Trick):** Append a space (e.g., `env `) to instantly bypass folder auto-selection and force-create a file.
+- **OS-Aware Slashes:** Automatically corrects `/` and `\` based on your operating system.
+- **Fast Navigation:** Type `/` to jump to the workspace root, or `..` to dynamically navigate to the parent directory.
