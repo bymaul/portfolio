@@ -8,13 +8,14 @@ links:
     ]
 ---
 
-A lightning-fast, frictionless VS Code extension for quickly scaffolding files and directories using an interactive, context-aware command line interface directly in the QuickPick menu.
-
 ![Demo](/projects/vscode-quick-touch.gif)
+
+A lightning-fast, frictionless VS Code extension for quickly scaffolding files and directories using an interactive, context-aware command line interface directly in the QuickPick menu.
 
 ## Features
 
 - **Batch Creation:** Create multiple files and folders at once (e.g., `api.ts, types.ts, utils/`).
+- **Quick Delete:** Type the configured prefix (default: `del `) before a file or folder name to safely move it to the Recycle Bin/Trash.
 - **Smart Context Pathing:** The extension remembers your base directory during batch creation. Type `components/, Button.tsx` and the file is automatically placed inside the folder.
 - **Force Create (Spacebar Trick):** Append a space (e.g., `env `) to instantly bypass folder auto-selection and force-create a file.
 - **OS-Aware Slashes:** Automatically corrects `/` and `\` based on your operating system.
