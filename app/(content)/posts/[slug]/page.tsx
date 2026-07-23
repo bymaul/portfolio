@@ -56,37 +56,28 @@ const PostPage = async ({ params }: { params: Params }) => {
     };
 
     return (
-        <>
-            <header className='sticky top-6 z-50 flex items-center justify-center'>
-                <CustomLink className='size-12 rounded-full p-0 shadow-xl backdrop-blur-xl' href='/'>
-                    <FaX />
-                    <div className='sr-only'>Close</div>
-                </CustomLink>
-            </header>
+        <main className='mx-auto max-w-4xl px-4 py-12'>
+            <Card className='h-auto p-8 md:p-12'>
+                <section className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
+                    <h1 className='font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white'>
+                        {post.metadata.title}
+                    </h1>
+                    <p className='mt-6 text-sm font-semibold tracking-widest text-neutral-500 uppercase dark:text-neutral-400'>
+                        <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
+                    </p>
+                </section>
 
-            <main className='mx-auto max-w-4xl px-4 py-12'>
-                <Script
-                    id='json-ld'
-                    type='application/ld+json'
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
+                <article className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
+                    <CustomMDX source={post.content} />
+                </article>
+            </Card>
 
-                <Card className='h-auto p-8 md:p-12'>
-                    <section className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
-                        <h1 className='font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white'>
-                            {post.metadata.title}
-                        </h1>
-                        <p className='mt-6 text-sm font-semibold tracking-widest text-neutral-500 uppercase dark:text-neutral-400'>
-                            <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
-                        </p>
-                    </section>
-
-                    <article className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
-                        <CustomMDX source={post.content} />
-                    </article>
-                </Card>
-            </main>
-        </>
+            <Script
+                id='json-ld'
+                type='application/ld+json'
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+        </main>
     );
 };
 

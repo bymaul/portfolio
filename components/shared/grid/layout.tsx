@@ -21,8 +21,8 @@ export default function GridLayout({ layouts, className, children }: GridLayoutP
             ref={containerRef}
             className={cn(
                 'mx-auto max-w-300 max-lg:max-w-200 max-md:max-w-93.75 max-sm:max-w-80',
-                isMounted ? 'translate-y-0 opacity-100' : '-translate-y-6 opacity-0',
-                'transition-[opacity,transform] duration-700',
+                isMounted ? 'opacity-100' : 'opacity-0',
+                'transition-opacity duration-700',
                 className,
             )}>
             {mounted && (
