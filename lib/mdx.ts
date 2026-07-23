@@ -1,6 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { cache } from 'react';
 
 interface BaseMetadata {
     title: string;
@@ -23,7 +24,7 @@ type MDXData<T extends BaseMetadata> = {
     content: string;
 };
 
-function getMDXData<T extends BaseMetadata>(dir: string): MDXData<T>[] {
+const getMDXData = cache(<T extends BaseMetadata>(dir: string): MDXData<T>[] => {
     if (!fs.existsSync(dir)) {
         return [];
     }
@@ -43,7 +44,7 @@ function getMDXData<T extends BaseMetadata>(dir: string): MDXData<T>[] {
                 content,
             };
         });
-}
+});
 
 export const getAllPosts = (): MDXData<PostMetadata>[] => {
     const posts = getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
