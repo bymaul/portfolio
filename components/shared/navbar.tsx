@@ -56,6 +56,7 @@ function NavContent() {
                         key={item.path}
                         href={item.path}
                         data-active={isActive}
+                        scroll={false}
                         className={cn(
                             'relative z-10 px-5 py-2 text-sm font-medium transition-colors duration-300 rounded-full',
                             isActive
