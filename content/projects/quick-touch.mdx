@@ -2,10 +2,13 @@
 title: 'Quick Touch'
 description: 'A Visual Studio Code extension for creating files and nested directory structures instantly from the command palette without reaching for the mouse.'
 links:
-    [
-        { 'name': 'Marketplace', 'url': 'https://marketplace.visualstudio.com/items?itemName=bymaul.quick-touch' },
-        { 'name': 'Repository', 'url': 'https://github.com/bymaul/vscode-quick-touch' },
-    ]
+  [
+    {
+      'name': 'Marketplace',
+      'url': 'https://marketplace.visualstudio.com/items?itemName=bymaul.quick-touch',
+    },
+    { 'name': 'Repository', 'url': 'https://github.com/bymaul/vscode-quick-touch' },
+  ]
 ---
 
 ![Demo](/projects/vscode-quick-touch.gif)
@@ -27,9 +30,9 @@ The extension is built using TypeScript and the official Visual Studio Code Exte
 - **Language:** TypeScript (Strict mode) for type-safe extension development.
 - **Runtime API:** VSCode Extension API (`vscode.window`, `vscode.workspace`, `vscode.Uri`) for command registration, input boxes, and workspace integration.
 - **Core Modules:**
-    - `extension.ts`: Handles lifecycle activation, command registration (`quickTouch.newFile`), and user prompts.
-    - `FileSystemManager.ts`: Manages recursive directory creation and file writing safely across platforms.
-    - `FileNavigator.ts`: Handles workspace path resolution and contextual path determination based on active editor tabs.
+  - `extension.ts`: Handles lifecycle activation, command registration (`quickTouch.newFile`), and user prompts.
+  - `FileSystemManager.ts`: Manages recursive directory creation and file writing safely across platforms.
+  - `FileNavigator.ts`: Handles workspace path resolution and contextual path determination based on active editor tabs.
 - **Testing:** Integration testing suite using `@vscode/test-electron` and Mocha (`src/test/extension.test.ts`).
 
 ---

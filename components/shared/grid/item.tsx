@@ -1,11 +1,11 @@
 type GridItemProps = {
-    component: React.ComponentType;
+  component: React.ComponentType;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export default function GridItem({ component: Component, ...props }: Readonly<GridItemProps>) {
-    return (
-        <div {...props}>
-            <Component />
-        </div>
-    );
+  return (
+    <div {...props}>
+      <Component />
+    </div>
+  );
 }
