@@ -1,12 +1,12 @@
 import { CustomMDX } from '@/components/mdx/mdx';
-import CustomLink from '@/components/ui/custom-link';
+import BackButton from '@/components/ui/back-button';
 import Card from '@/components/ui/card';
+import Container from '@/components/ui/container';
 import { siteConfig } from '@/config/site';
 import { getAllPosts } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import { FaX } from 'react-icons/fa6';
 
 type Params = Promise<{ slug: string }>;
 
@@ -16,6 +16,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
     const { slug } = await params;
     const post = getAllPosts().find((post) => post.slug === slug);
     if (!post) return;
+
     const { title, description, date } = post.metadata;
     return {
         title,
@@ -26,7 +27,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             type: 'article',
             publishedTime: date,
             url: `${siteConfig.url}/posts/${post.slug}`,
-            authors: 'Maulana',
+            authors: siteConfig.author,
             images: siteConfig.ogImage,
         },
         twitter: { title, description, images: siteConfig.ogImage },
@@ -56,21 +57,27 @@ const PostPage = async ({ params }: { params: Params }) => {
     };
 
     return (
-        <main className='mx-auto max-w-4xl px-4 py-12'>
-            <Card className='h-auto p-8 md:p-12'>
-                <section className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
-                    <h1 className='font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white'>
-                        {post.metadata.title}
-                    </h1>
-                    <p className='mt-6 text-sm font-semibold tracking-widest text-neutral-500 uppercase dark:text-neutral-400'>
-                        <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
-                    </p>
-                </section>
+        <main className='mx-auto max-w-4xl px-4'>
+            <nav aria-label='Article navigation' className='sticky top-6 z-50 flex items-center justify-center'>
+                <BackButton />
+            </nav>
 
-                <article className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
-                    <CustomMDX source={post.content} />
-                </article>
-            </Card>
+            <article className='py-0 pt-12'>
+                <Card className='h-auto p-8 md:p-12'>
+                    <header className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
+                        <h1 className='font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white'>
+                            {post.metadata.title}
+                        </h1>
+                        <p className='mt-6 text-sm font-semibold tracking-widest text-neutral-500 uppercase dark:text-neutral-400'>
+                            <time dateTime={post.metadata.date}>{formatDate(post.metadata.date)}</time>
+                        </p>
+                    </header>
+
+                    <div className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
+                        <CustomMDX source={post.content} />
+                    </div>
+                </Card>
+            </article>
 
             <Script
                 id='json-ld'

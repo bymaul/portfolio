@@ -72,6 +72,12 @@ function NavContent() {
 }
 
 export default function Navbar() {
+    const pathname = usePathname();
+
+    if (pathname !== '/') {
+        return null;
+    }
+
     return (
         <header className='fixed bottom-6 left-1/2 z-50 -translate-x-1/2'>
             <Suspense fallback={<div className='h-10 w-64 bg-white/50 dark:bg-black/50 rounded-full animate-pulse' />}>

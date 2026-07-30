@@ -1,15 +1,16 @@
+import { CustomMDX } from '@/components/mdx/mdx';
+import GridLayout from '@/components/shared/grid/layout';
+import BackButton from '@/components/ui/back-button';
 import Card from '@/components/ui/card';
 import Container from '@/components/ui/container';
 import CustomLink from '@/components/ui/custom-link';
-import { CustomMDX } from '@/components/mdx/mdx';
-import GridLayout from '@/components/shared/grid/layout';
-import { siteConfig } from '@/config/site';
 import { projectLayouts } from '@/config/grid';
+import { siteConfig } from '@/config/site';
 import { getAllProjects } from '@/lib/mdx';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
-import Image from 'next/image';
-import { FaArrowRight, FaX } from 'react-icons/fa6';
+import { FaArrowRight } from 'react-icons/fa6';
 
 type Params = Promise<{ slug: string }>;
 
@@ -19,6 +20,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
     const { slug } = await params;
     const project = getAllProjects().find((project) => project.slug === slug);
     if (!project) return;
+
     const { title, description } = project.metadata;
     return {
         title: `${title} — Projects`,
@@ -65,6 +67,10 @@ const ProjectPage = async ({ params }: { params: Params }) => {
 
     return (
         <main>
+            <nav aria-label='Project navigation' className='sticky top-6 z-50 flex items-center justify-center'>
+                <BackButton />
+            </nav>
+
             <Container as='article' className='py-0 pt-12'>
                 <Card className='h-auto p-8 md:p-12'>
                     <header className='border-b border-neutral-200/50 pb-10 text-center dark:border-white/10'>
@@ -76,45 +82,55 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                         </p>
 
                         {links.length > 0 && (
-                            <div className='mt-8 flex flex-wrap items-center justify-center gap-4'>
+                            <nav
+                                aria-label='Project external links'
+                                className='mt-8 flex flex-wrap items-center justify-center gap-4'>
                                 {links.map((link: { url: string; name: string }) => (
                                     <CustomLink
                                         key={link.url}
                                         href={link.url}
                                         target='_blank'
                                         rel='noreferrer nofollow noopener'
-                                        className='px-6 py-3 text-sm font-medium'>
+                                        className='px-6 py-3 text-sm font-medium group'>
                                         {link.name}
-                                        <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />
+                                        <FaArrowRight
+                                            aria-hidden='true'
+                                            className='-rotate-45 transition-transform duration-300 group-hover:rotate-0'
+                                        />
                                     </CustomLink>
                                 ))}
-                            </div>
+                            </nav>
                         )}
                     </header>
 
-                    <div className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
+                    {/* Semantic Section for MDX Content Body */}
+                    <section
+                        aria-label='Project details'
+                        className='prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10'>
                         <CustomMDX source={project.content} />
-                    </div>
+                    </section>
                 </Card>
             </Container>
 
             {images.length > 0 && (
-                <GridLayout layouts={projectLayouts} className='pb-20'>
-                    {images.map((image: { i: string; url: string }) => (
-                        <div key={image.i}>
-                            <Card className='relative h-full w-full'>
-                                <Image
-                                    src={image.url}
-                                    alt={project.metadata.title}
-                                    fill
-                                    style={{ objectFit: 'cover' }}
-                                    sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-                                    draggable='false'
-                                />
-                            </Card>
-                        </div>
-                    ))}
-                </GridLayout>
+                <section aria-label='Project gallery' className='pb-20'>
+                    <GridLayout layouts={projectLayouts}>
+                        {images.map((image: { i: string; url: string }) => (
+                            <div key={image.i} role='group' aria-label={`Project screenshot ${image.i}`}>
+                                <Card className='relative h-full w-full overflow-hidden'>
+                                    <Image
+                                        src={image.url}
+                                        alt={`${project.metadata.title} screenshot ${image.i}`}
+                                        fill
+                                        className='object-cover'
+                                        sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+                                        draggable={false}
+                                    />
+                                </Card>
+                            </div>
+                        ))}
+                    </GridLayout>
+                </section>
             )}
 
             <Script
