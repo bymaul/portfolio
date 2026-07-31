@@ -67,7 +67,7 @@ pnpm install
 Create a `.env.local` file in the root directory. At minimum, you'll need a Mapbox access token for the map feature:
 
 ```bash
-NEXT_PUBLIC_MAPBOX_TOKEN=your_mapbox_access_token
+NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN=your_mapbox_access_token
 ```
 
 Get a free token from [mapbox.com](https://account.mapbox.com/access-tokens/).

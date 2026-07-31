@@ -1,8 +1,8 @@
-import { toKebabCase } from '@/lib/utils';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { extractHeadingText, toKebabCase } from '@/lib/utils';
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, createElement, isValidElement, type ReactNode } from 'react';
+import { ComponentPropsWithoutRef, createElement, type ReactNode } from 'react';
 
 type CustomLinkProps = ComponentPropsWithoutRef<'a'>;
 
@@ -32,11 +32,11 @@ function CustomLink({ href, children, ...props }: Readonly<CustomLinkProps>) {
   );
 }
 
-function RoundedImage({ ...props }) {
+function RoundedImage({ src, alt, ...props }: ComponentPropsWithoutRef<typeof Image>) {
   return (
     <Image
-      src={props.src}
-      alt={props.alt || 'image'}
+      src={src}
+      alt={alt || 'image'}
       className="rounded-lg"
       width={0}
       height={0}
@@ -50,22 +50,7 @@ function RoundedImage({ ...props }) {
 
 function createHeading(level: number) {
   const Heading = ({ children }: { children: ReactNode }) => {
-    const extractText = (node: ReactNode): string => {
-      if (typeof node === 'string' || typeof node === 'number') {
-        return String(node);
-      }
-
-      if (Array.isArray(node)) return node.map(extractText).join('');
-
-      if (isValidElement(node)) {
-        const element = node as { props: { children: ReactNode } };
-        return extractText(element.props.children);
-      }
-
-      return '';
-    };
-
-    const slug = toKebabCase(extractText(children));
+    const slug = toKebabCase(extractHeadingText(children));
 
     return createElement(
       `h${level}`,
@@ -93,7 +78,7 @@ const components = {
   a: CustomLink,
 };
 
-export function CustomMDX({ ...props }) {
+export function CustomMDX({ ...props }: MDXRemoteProps) {
   return (
     <MDXRemote
       {...props}
