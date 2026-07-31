@@ -26,7 +26,7 @@ export default async function Main({ searchParams }: Props) {
       <Container as="header" className="flex items-center justify-between py-0">
         <h1 className="sr-only">{siteConfig.title}</h1>
       </Container>
-      <main className="py-8">
+      <main className="py-8 pb-20">
         <GridRouter view={view} posts={posts} projects={projects} />
       </main>
     </>

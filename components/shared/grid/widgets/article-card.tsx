@@ -23,20 +23,15 @@ export default function ArticleCard() {
             <h3 className="text-xs font-bold tracking-widest text-blue-600 uppercase dark:text-blue-400">
               Featured Post
             </h3>
-            <Link
-              href={`/posts/${post.slug}`}
-              className="cancel-drag flex size-8 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 hover:bg-blue-500/20 dark:bg-blue-400/10 dark:text-blue-400"
-              aria-label="Read article"
-            >
-              <FaArrowRight
-                size="0.8rem"
-                className="-rotate-45 transition-transform duration-300 group-hover:rotate-0"
-              />
-            </Link>
           </div>
 
           <h2 className="font-pixelify-sans text-2xl leading-tight font-bold text-neutral-900 drop-shadow-sm dark:text-white">
-            {post.metadata.title}
+            <Link
+              href={`/posts/${post.slug}`}
+              className="cancel-drag transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+            >
+              {post.metadata.title}
+            </Link>
           </h2>
           <p className="pointer-events-none line-clamp-3 text-neutral-600 dark:text-neutral-400">
             {post.metadata.description}

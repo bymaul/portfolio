@@ -70,7 +70,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 
           <div className="relative z-10">
             <Navbar />
-            <div className="pb-14">{children}</div>
+            {children}
           </div>
         </ThemeProvider>
         <Analytics />
