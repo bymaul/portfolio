@@ -20,7 +20,7 @@ export default function LocationCard() {
   const [currentZoom, setCurrentZoom] = useState(MAX_ZOOM);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
   const mapRef = useRef<MapRef>(null);
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   const handleZoom = (zoomIn: boolean) => {
     setCurrentZoom((prev) => {
@@ -40,7 +40,7 @@ export default function LocationCard() {
     });
   };
 
-  const mapStyle = `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`;
+  const mapStyle = `mapbox://styles/mapbox/${resolvedTheme === 'dark' ? 'dark-v11' : 'streets-v12'}`;
 
   return (
     <Card className="relative size-full overflow-hidden">
