@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import { Map, MapRef } from 'react-map-gl/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const MAX_ZOOM = 8;
 const MIN_ZOOM = 3;
