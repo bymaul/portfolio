@@ -1,0 +1,66 @@
+import BackButton from '@/components/ui/back-button';
+import Card from '@/components/ui/card';
+import { cn } from '@/lib/utils';
+import Script from 'next/script';
+import type { ReactNode } from 'react';
+
+interface ContentPageProps {
+  title: string;
+  navLabel: string;
+  contentLabel: string;
+  header?: ReactNode;
+  footer?: ReactNode;
+  children: ReactNode;
+  jsonLd: object;
+  className?: string;
+}
+
+export default function ContentPage({
+  title,
+  navLabel,
+  contentLabel,
+  header,
+  footer,
+  children,
+  jsonLd,
+  className,
+}: ContentPageProps) {
+  return (
+    <main>
+      <div className={cn('mx-auto px-4', className)}>
+        <nav
+          aria-label={navLabel}
+          className="sticky top-6 z-50 flex items-center justify-center"
+        >
+          <BackButton />
+        </nav>
+
+        <article className="py-0 pt-12">
+          <Card className="h-auto p-8 md:p-12">
+            <header className="border-b border-neutral-200/50 pb-10 text-center dark:border-white/10">
+              <h1 className="font-pixelify-sans text-4xl leading-relaxed text-neutral-900 md:text-5xl dark:text-white">
+                {title}
+              </h1>
+              {header}
+            </header>
+
+            <section
+              aria-label={contentLabel}
+              className="prose prose-neutral prose-lg dark:prose-invert mx-auto max-w-none pt-10"
+            >
+              {children}
+            </section>
+          </Card>
+        </article>
+      </div>
+
+      {footer}
+
+      <Script
+        id="json-ld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </main>
+  );
+}
