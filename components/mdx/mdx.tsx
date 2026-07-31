@@ -1,8 +1,8 @@
-import { toKebabCase } from '@/lib/utils';
+import { extractHeadingText, toKebabCase } from '@/lib/utils';
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ComponentPropsWithoutRef, createElement, isValidElement, type ReactNode } from 'react';
+import { ComponentPropsWithoutRef, createElement, type ReactNode } from 'react';
 
 type CustomLinkProps = ComponentPropsWithoutRef<'a'>;
 
@@ -50,22 +50,7 @@ function RoundedImage({ src, alt, ...props }: ComponentPropsWithoutRef<typeof Im
 
 function createHeading(level: number) {
   const Heading = ({ children }: { children: ReactNode }) => {
-    const extractText = (node: ReactNode): string => {
-      if (typeof node === 'string' || typeof node === 'number') {
-        return String(node);
-      }
-
-      if (Array.isArray(node)) return node.map(extractText).join('');
-
-      if (isValidElement(node)) {
-        const element = node as { props: { children: ReactNode } };
-        return extractText(element.props.children);
-      }
-
-      return '';
-    };
-
-    const slug = toKebabCase(extractText(children));
+    const slug = toKebabCase(extractHeadingText(children));
 
     return createElement(
       `h${level}`,

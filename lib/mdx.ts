@@ -6,6 +6,7 @@ import { cache } from 'react';
 interface BaseMetadata {
   title: string;
   description: string;
+  date?: string;
 }
 
 interface PostMetadata extends BaseMetadata {
@@ -14,7 +15,6 @@ interface PostMetadata extends BaseMetadata {
 }
 
 interface ProjectMetadata extends BaseMetadata {
-  date?: string;
   links: { name: string; url: string }[];
   images?: { i: string; url: string }[];
 }
@@ -47,14 +47,22 @@ const getMDXData = cache(<T extends BaseMetadata>(dir: string): MDXData<T>[] => 
     });
 });
 
+const byDateDesc = <T extends BaseMetadata>(a: MDXData<T>, b: MDXData<T>): number => {
+  const aTime = a.metadata.date ? new Date(a.metadata.date).getTime() : 0;
+  const bTime = b.metadata.date ? new Date(b.metadata.date).getTime() : 0;
+
+  if (aTime !== bTime) return bTime - aTime;
+  return a.metadata.title.localeCompare(b.metadata.title);
+};
+
 export const getAllPosts = (): MDXData<PostMetadata>[] => {
   const posts = getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
 
-  return posts.sort((a, b) => {
-    if (!a.metadata.date || !b.metadata.date) return 0;
-    return new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime();
-  });
+  return posts.sort(byDateDesc);
 };
+
+export const getPostBySlug = (slug: string): MDXData<PostMetadata> | undefined =>
+  getAllPosts().find((post) => post.slug === slug);
 
 export const getFeaturedPost = (): MDXData<PostMetadata> | null => {
   const posts = getAllPosts();
@@ -64,13 +72,11 @@ export const getFeaturedPost = (): MDXData<PostMetadata> | null => {
 export const getAllProjects = (): MDXData<ProjectMetadata>[] => {
   const projects = getMDXData<ProjectMetadata>(path.join(process.cwd(), 'content/projects'));
 
-  return projects.sort((a, b) => {
-    const aTime = a.metadata.date ? new Date(a.metadata.date).getTime() : 0;
-    const bTime = b.metadata.date ? new Date(b.metadata.date).getTime() : 0;
-    if (aTime !== bTime) return bTime - aTime;
-    return a.metadata.title.localeCompare(b.metadata.title);
-  });
+  return projects.sort(byDateDesc);
 };
+
+export const getProjectBySlug = (slug: string): MDXData<ProjectMetadata> | undefined =>
+  getAllProjects().find((project) => project.slug === slug);
 
 export const getLatestProject = (): MDXData<ProjectMetadata> | null => {
   const projects = getAllProjects();

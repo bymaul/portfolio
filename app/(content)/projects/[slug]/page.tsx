@@ -6,7 +6,7 @@ import Container from '@/components/ui/container';
 import CustomLink from '@/components/ui/custom-link';
 import { projectLayouts } from '@/config/grid';
 import { siteConfig } from '@/config/site';
-import { getAllProjects } from '@/lib/mdx';
+import { getAllProjects, getProjectBySlug } from '@/lib/mdx';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
@@ -19,7 +19,7 @@ export const generateStaticParams = async () =>
 
 export const generateMetadata = async ({ params }: { params: Params }) => {
   const { slug } = await params;
-  const project = getAllProjects().find((project) => project.slug === slug);
+  const project = getProjectBySlug(slug);
   if (!project) return;
 
   const { title, description } = project.metadata;
@@ -51,7 +51,7 @@ const parseMetaArray = (data: unknown) => {
 
 const ProjectPage = async ({ params }: { params: Params }) => {
   const { slug } = await params;
-  const project = getAllProjects().find((project) => project.slug === slug);
+  const project = getProjectBySlug(slug);
 
   if (!project) notFound();
 

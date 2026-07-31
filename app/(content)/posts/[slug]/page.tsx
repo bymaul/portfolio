@@ -2,7 +2,7 @@ import { CustomMDX } from '@/components/mdx/mdx';
 import BackButton from '@/components/ui/back-button';
 import Card from '@/components/ui/card';
 import { siteConfig } from '@/config/site';
-import { getAllPosts } from '@/lib/mdx';
+import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import Script from 'next/script';
@@ -13,7 +13,7 @@ export const generateStaticParams = async () => getAllPosts().map((post) => ({ s
 
 export const generateMetadata = async ({ params }: { params: Params }) => {
   const { slug } = await params;
-  const post = getAllPosts().find((post) => post.slug === slug);
+  const post = getPostBySlug(slug);
   if (!post) return;
 
   const { title, description, date } = post.metadata;
@@ -36,7 +36,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
 
 const PostPage = async ({ params }: { params: Params }) => {
   const { slug } = await params;
-  const post = getAllPosts().find((post) => post.slug === slug);
+  const post = getPostBySlug(slug);
 
   if (!post) notFound();
 
