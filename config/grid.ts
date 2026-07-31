@@ -1,8 +1,8 @@
 import ArticleCard from '@/components/shared/grid/widgets/article-card';
 import ContactCard from '@/components/shared/grid/widgets/contact-card';
 import DescriptionCard from '@/components/shared/grid/widgets/description-card';
+import DynamicLocationCard from '@/components/shared/grid/widgets/dynamic-location-card';
 import LinkedInCard from '@/components/shared/grid/widgets/linkedin-card';
-import LocationCard from '@/components/shared/grid/widgets/location-card';
 import NowPlayingCard from '@/components/shared/grid/widgets/now-playing-card';
 import ProjectCard from '@/components/shared/grid/widgets/project-card';
 import ThemeToggle from '@/components/shared/grid/widgets/theme-toggle';
@@ -15,7 +15,7 @@ interface GridItem {
 
 export const gridItems: GridItem[] = [
   { i: 'description', component: DescriptionCard },
-  { i: 'location', component: LocationCard },
+  { i: 'location', component: DynamicLocationCard },
   { i: 'project', component: ProjectCard },
   { i: 'spotify', component: NowPlayingCard },
   { i: 'article', component: ArticleCard },
