@@ -35,12 +35,7 @@ export default function ArticleCard() {
           </div>
 
           <h2 className="font-pixelify-sans text-2xl leading-tight font-bold text-neutral-900 drop-shadow-sm dark:text-white">
-            <Link
-              href={`/posts/${post.slug}`}
-              className="cancel-drag transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {post.metadata.title}
-            </Link>
+            {post.metadata.title}
           </h2>
           <p className="pointer-events-none line-clamp-3 text-neutral-600 dark:text-neutral-400">
             {post.metadata.description}

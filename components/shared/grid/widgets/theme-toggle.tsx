@@ -17,7 +17,8 @@ export default function ThemeToggle() {
       <button
         className="cancel-drag relative flex h-12 w-24 cursor-pointer items-center rounded-full bg-neutral-900/10 p-1 shadow-inner backdrop-blur-md transition-all duration-300 dark:bg-white/10"
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        aria-label="theme-toggle"
+        aria-label="Toggle dark mode"
+        aria-pressed={theme === 'dark'}
       >
         <div
           className={cn(

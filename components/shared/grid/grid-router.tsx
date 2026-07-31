@@ -87,12 +87,7 @@ function EntryCard({
             </span>
           </div>
           <h2 className="font-pixelify-sans text-xl leading-tight font-bold text-neutral-900 drop-shadow-sm md:text-3xl dark:text-white">
-            <Link
-              href={href}
-              className="cancel-drag transition-colors before:absolute before:inset-0 hover:text-emerald-600 dark:hover:text-emerald-400"
-            >
-              {title}
-            </Link>
+            {title}
           </h2>
           <p className="pointer-events-none text-neutral-600 max-lg:line-clamp-2 dark:text-neutral-400">
             {description}
