@@ -43,8 +43,8 @@ const parseMetaArray = (data: unknown) => {
   if (!data) return [];
   try {
     return typeof data === 'string' ? JSON.parse(data) : data;
-  } catch (e) {
-    console.error('Failed to parse frontmatter data', e);
+  } catch {
+    console.error('Failed to parse frontmatter data');
     return [];
   }
 };

@@ -1,5 +1,5 @@
 import { toKebabCase } from '@/lib/utils';
-import { MDXRemote } from 'next-mdx-remote/rsc';
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote/rsc';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ComponentPropsWithoutRef, createElement, isValidElement, type ReactNode } from 'react';
@@ -32,11 +32,11 @@ function CustomLink({ href, children, ...props }: Readonly<CustomLinkProps>) {
   );
 }
 
-function RoundedImage({ ...props }) {
+function RoundedImage({ src, alt, ...props }: ComponentPropsWithoutRef<typeof Image>) {
   return (
     <Image
-      src={props.src}
-      alt={props.alt || 'image'}
+      src={src}
+      alt={alt || 'image'}
       className="rounded-lg"
       width={0}
       height={0}
@@ -93,7 +93,7 @@ const components = {
   a: CustomLink,
 };
 
-export function CustomMDX({ ...props }) {
+export function CustomMDX({ ...props }: MDXRemoteProps) {
   return (
     <MDXRemote
       {...props}

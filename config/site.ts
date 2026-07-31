@@ -4,4 +4,5 @@ export const siteConfig = {
   url: 'https://maulana.dev',
   ogImage: 'https://maulana.dev/images/og-image.png',
   author: 'Maulana',
+  email: 'maulanaatriadi@gmail.com',
 };

@@ -116,7 +116,9 @@ function EntryCard({
 const getBadgeText = (date?: string) => (date ? formatDate(date) : 'Article');
 
 export default function GridRouter({ view, posts, projects }: GridRouterProps) {
-  if (view === 'home' || (view !== 'articles' && view !== 'projects')) {
+  const isHomeView = view !== 'articles' && view !== 'projects';
+
+  if (isHomeView) {
     return (
       <GridLayout layouts={homeLayouts}>
         {homeGridItems.map((item) => (

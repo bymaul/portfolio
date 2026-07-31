@@ -1,3 +1,4 @@
+import { siteConfig } from '@/config/site';
 import Card from '@/components/ui/card';
 import socials from '@/config/socials';
 import { FaArrowRight } from 'react-icons/fa6';
@@ -15,7 +16,7 @@ export default function ContactCard() {
       <div className="flex flex-col items-center gap-4 lg:flex-row">
         <a
           className="cancel-drag group/btn inline-flex items-center justify-center gap-3 rounded-full bg-neutral-900/5 px-6 py-3 font-medium text-neutral-900 backdrop-blur-md transition-all hover:bg-neutral-900/10 hover:shadow-md dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
-          href="mailto:maulanaajk@gmail.com"
+          href={`mailto:${siteConfig.email}`}
         >
           <FaArrowRight className="-rotate-45 transition-transform duration-300 group-hover/btn:rotate-0" />
           Contact Me
