@@ -66,7 +66,7 @@ export const getPostBySlug = (slug: string): MDXData<PostMetadata> | undefined =
 
 export const getFeaturedPost = (): MDXData<PostMetadata> | null => {
   const posts = getAllPosts();
-  return posts.findLast((post) => post.metadata.featured) || null;
+  return posts.find((post) => post.metadata.featured) || null;
 };
 
 export const getAllProjects = (): MDXData<ProjectMetadata>[] => {
@@ -77,8 +77,3 @@ export const getAllProjects = (): MDXData<ProjectMetadata>[] => {
 
 export const getProjectBySlug = (slug: string): MDXData<ProjectMetadata> | undefined =>
   getAllProjects().find((project) => project.slug === slug);
-
-export const getLatestProject = (): MDXData<ProjectMetadata> | null => {
-  const projects = getAllProjects();
-  return projects.length > 0 ? projects[0] : null;
-};

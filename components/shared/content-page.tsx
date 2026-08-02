@@ -28,10 +28,7 @@ export default function ContentPage({
   return (
     <main>
       <div className={cn('mx-auto px-4', className)}>
-        <nav
-          aria-label={navLabel}
-          className="sticky top-6 z-50 flex items-center justify-center"
-        >
+        <nav aria-label={navLabel} className="sticky top-6 z-50 flex items-center justify-center">
           <BackButton />
         </nav>
 

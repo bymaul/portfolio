@@ -66,11 +66,11 @@ export default function NowPlayingCard() {
                   rel="nofollow noopener noreferrer"
                   className="cancel-drag transition-colors hover:text-[#1DB954]"
                 >
-                  {data.title ?? 'Failed to load'}
+                  {data.title ?? 'Nothing playing right now'}
                 </a>
               </h2>
               <p className="truncate font-medium text-gray-300 drop-shadow-sm" title={data.artist}>
-                {data.artist ?? 'Spotify disconnected'}
+                {data.artist ?? 'Spotify not connected'}
               </p>
             </>
           )}

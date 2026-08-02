@@ -61,20 +61,20 @@ export default function LocationCard() {
       >
         {isMapLoaded ? (
           <div className="absolute inset-x-4 bottom-4 flex items-center justify-between">
-          <Button
-            aria-label="Zoom out"
-            isVisible={currentZoom > MIN_ZOOM}
-            onClick={() => handleZoom(false)}
-          >
-            <FaMinus />
-          </Button>
-          <Button
-            aria-label="Zoom in"
-            isVisible={currentZoom < MAX_ZOOM}
-            onClick={() => handleZoom(true)}
-          >
-            <FaPlus />
-          </Button>
+            <Button
+              aria-label="Zoom out"
+              isVisible={currentZoom > MIN_ZOOM}
+              onClick={() => handleZoom(false)}
+            >
+              <FaMinus />
+            </Button>
+            <Button
+              aria-label="Zoom in"
+              isVisible={currentZoom < MAX_ZOOM}
+              onClick={() => handleZoom(true)}
+            >
+              <FaPlus />
+            </Button>
           </div>
         ) : (
           <div className="absolute inset-0 size-full animate-pulse bg-white/20 backdrop-blur-md dark:bg-black/20" />

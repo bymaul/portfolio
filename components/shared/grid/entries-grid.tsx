@@ -27,7 +27,7 @@ type Bp = 'lg' | 'md' | 'sm';
 const bpConfig: Record<Bp, { colStartY: number[]; itemH: number }> = {
   lg: { colStartY: [1, 1], itemH: 1 },
   md: { colStartY: [3, 1], itemH: 2 },
-  sm: { colStartY: [20], itemH: 2 },
+  sm: { colStartY: [7], itemH: 2 },
 };
 
 const generateLayout = (ids: string[], bp: Bp): LayoutItem[] => {
