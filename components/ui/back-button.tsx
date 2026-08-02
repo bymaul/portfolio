@@ -1,28 +1,11 @@
-'use client';
-
 import { cn } from '@/lib/utils';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { FaX } from 'react-icons/fa6';
 
 export default function BackButton() {
-  const router = useRouter();
-
-  const handleBack = () => {
-    if (
-      typeof window !== 'undefined' &&
-      window.history.length > 1 &&
-      document.referrer.includes(window.location.host)
-    ) {
-      router.back();
-    } else {
-      router.push('/');
-    }
-  };
-
   return (
-    <button
-      onClick={handleBack}
-      aria-label="Close and return"
+    <Link
+      href="/"
       className={cn(
         'group inline-flex size-12 items-center justify-center gap-3 overflow-hidden rounded-full border p-0 whitespace-nowrap',
         'border-white/60 bg-white/40 text-neutral-900 shadow-md backdrop-blur-md',
@@ -31,6 +14,6 @@ export default function BackButton() {
       )}
     >
       <FaX />
-    </button>
+    </Link>
   );
 }

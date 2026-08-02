@@ -2,10 +2,35 @@ import GridItem from '@/components/shared/grid/item';
 import GridLayout from '@/components/shared/grid/layout';
 import Card from '@/components/ui/card';
 import { gridItems as homeGridItems } from '@/config/grid';
-import { formatDate } from '@/lib/utils';
+import { cn, formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import type { LayoutItem } from 'react-grid-layout';
 import { FaArrowRight } from 'react-icons/fa6';
+
+type Accent = { badge: string; blob: string; arrow: string };
+
+const accents: Accent[] = [
+  {
+    badge: 'text-blue-600 dark:text-blue-400',
+    blob: 'bg-blue-500/20 group-hover:bg-blue-500/30',
+    arrow: 'group-hover/btn:text-blue-600 dark:group-hover/btn:text-blue-400',
+  },
+  {
+    badge: 'text-emerald-600 dark:text-emerald-400',
+    blob: 'bg-emerald-500/20 group-hover:bg-emerald-500/30',
+    arrow: 'group-hover/btn:text-emerald-600 dark:group-hover/btn:text-emerald-400',
+  },
+  {
+    badge: 'text-purple-600 dark:text-purple-400',
+    blob: 'bg-purple-500/20 group-hover:bg-purple-500/30',
+    arrow: 'group-hover/btn:text-purple-600 dark:group-hover/btn:text-purple-400',
+  },
+  {
+    badge: 'text-amber-600 dark:text-amber-400',
+    blob: 'bg-amber-500/20 group-hover:bg-amber-500/30',
+    arrow: 'group-hover/btn:text-amber-600 dark:group-hover/btn:text-amber-400',
+  },
+];
 
 export type ContentData = {
   slug: string;
@@ -72,19 +97,21 @@ function EntryCard({
   title,
   description,
   cta,
+  accent,
 }: {
   href: string;
   badge: string;
   title: string;
   description: string;
   cta: string;
+  accent: Accent;
 }) {
   return (
     <Card className="group relative h-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:bg-white/40 hover:shadow-2xl dark:hover:bg-white/5">
       <div className="relative z-10 flex h-full flex-col justify-between p-5 focus:outline-none md:p-8">
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold tracking-widest text-emerald-600 uppercase dark:text-emerald-400">
+            <span className={cn('text-xs font-bold tracking-widest uppercase', accent.badge)}>
               {badge}
             </span>
           </div>
@@ -100,12 +127,22 @@ function EntryCard({
             className="cancel-drag group/btn inline-flex items-center justify-center gap-3 rounded-full bg-neutral-900/5 px-6 py-3 text-sm font-medium text-neutral-900 backdrop-blur-md transition-all hover:bg-neutral-900/10 hover:shadow-md dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
             href={href}
           >
-            <FaArrowRight className="-rotate-45 transition-transform duration-300 group-hover/btn:rotate-0" />
+            <FaArrowRight
+              className={cn(
+                '-rotate-45 transition-transform duration-300 group-hover/btn:rotate-0',
+                accent.arrow,
+              )}
+            />
             {cta}
           </Link>
         </div>
       </div>
-      <div className="pointer-events-none absolute -top-10 -left-10 z-0 size-40 rounded-full bg-emerald-500/20 blur-3xl transition-all duration-500 group-hover:scale-150 group-hover:bg-emerald-500/30" />
+      <div
+        className={cn(
+          'pointer-events-none absolute -top-10 -left-10 z-0 size-40 rounded-full blur-3xl transition-all duration-500 group-hover:scale-150',
+          accent.blob,
+        )}
+      />
     </Card>
   );
 }
@@ -132,6 +169,7 @@ export default function EntriesGrid({ view, posts, projects }: EntriesGridProps)
   const newItems = entries.map((entry, i) => (
     <div key={`${prefix}-${i}`} className="h-full">
       <EntryCard
+        accent={accents[i % accents.length]}
         href={`${hrefBase}/${entry.slug}`}
         badge={isArticles ? getBadgeText(entry.metadata.date) : 'Project'}
         title={entry.metadata.title}
